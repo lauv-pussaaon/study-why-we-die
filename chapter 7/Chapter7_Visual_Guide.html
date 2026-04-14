@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>บทที่ 7 — ยิ่งน้อยยิ่งดี | Visual Study Guide</title>
+<style>
+  :root {
+    --bg: #fdfcf7;
+    --ink: #1f2933;
+    --accent: #c0392b;
+    --accent2: #2c5f8d;
+    --accent3: #27ae60;
+    --soft: #f4e9d8;
+    --box: #ffffff;
+    --shadow: 0 4px 16px rgba(0,0,0,0.08);
+    --purple: #6c3bd9;
+    --orange: #e67e22;
+    --teal: #16a085;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, "Segoe UI", "Sarabun", "Noto Sans Thai", sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+    line-height: 1.75;
+    font-size: 17px;
+  }
+  h1 { font-size: 2.4em; border-bottom: 4px double var(--accent); padding-bottom: 12px; margin-bottom: 8px; color: var(--accent); }
+  h1 .sub { display: block; font-size: 0.5em; color: #666; font-weight: normal; margin-top: 6px; }
+  h2 { font-size: 1.6em; color: var(--accent2); border-left: 6px solid var(--accent2); padding-left: 14px; margin-top: 60px; }
+  h3 { color: var(--accent); margin-top: 32px; font-size: 1.25em; }
+  .hero { background: linear-gradient(135deg, #fff8e7 0%, #ffe4cc 100%); padding: 24px 28px; border-radius: 14px; margin: 28px 0; border-left: 6px solid var(--accent); box-shadow: var(--shadow); }
+  .hero .big { font-size: 1.3em; font-weight: 600; color: var(--accent); }
+  .analogy { background: #eef6fb; border: 2px dashed var(--accent2); padding: 16px 20px; border-radius: 10px; margin: 18px 0; }
+  .analogy::before { content: "💡 ลองคิดแบบนี้ "; font-weight: 700; color: var(--accent2); }
+  .warning { background: #fff3e6; border-left: 5px solid var(--orange); padding: 14px 18px; border-radius: 6px; margin: 18px 0; }
+  .tip { background: #eaf7ea; border-left: 5px solid var(--accent3); padding: 14px 18px; border-radius: 6px; margin: 18px 0; }
+  .fact { background: #fdecec; border-left: 5px solid var(--accent); padding: 14px 18px; border-radius: 6px; margin: 18px 0; }
+  .diagram { background: var(--box); border: 1px solid #e0d8c5; border-radius: 12px; padding: 20px; margin: 24px 0; box-shadow: var(--shadow); text-align: center; }
+  .diagram .caption { font-size: 0.92em; color: #555; margin-top: 10px; font-style: italic; }
+  svg { max-width: 100%; height: auto; }
+  table { width: 100%; border-collapse: collapse; margin: 20px 0; background: var(--box); border-radius: 10px; overflow: hidden; box-shadow: var(--shadow); }
+  th, td { padding: 12px 14px; text-align: left; border-bottom: 1px solid #eee; }
+  th { background: var(--accent2); color: white; }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) { background: #faf7ef; }
+  .quiz { background: #fdf7e4; padding: 20px 26px; border-radius: 10px; margin: 16px 0; border: 2px solid #e8d084; }
+  .quiz summary { cursor: pointer; font-weight: 600; color: var(--accent); padding: 8px 0; }
+  .quiz p { margin: 10px 0 0; padding: 10px; background: white; border-radius: 6px; }
+  .term { display: inline-block; background: #fff3d6; padding: 1px 8px; border-radius: 4px; font-weight: 600; color: #8a5a00; }
+  .flow { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 12px; margin: 20px 0; }
+  .flow .node { background: var(--accent2); color: white; padding: 12px 18px; border-radius: 8px; font-weight: 600; min-width: 120px; text-align: center; }
+  .flow .arrow { font-size: 1.6em; color: var(--accent); }
+  .flow .node.red { background: var(--accent); }
+  .flow .node.green { background: var(--accent3); }
+  .flow .node.purple { background: var(--purple); }
+  .flow .node.orange { background: var(--orange); }
+  .flow .node.teal { background: var(--teal); }
+  .card { background: var(--box); padding: 18px 22px; border-radius: 10px; box-shadow: var(--shadow); margin: 14px 0; border-top: 4px solid var(--accent2); }
+  .mnemonic { background: #f0e7ff; border-left: 5px solid var(--purple); padding: 12px 18px; border-radius: 6px; margin: 12px 0; font-size: 0.98em; }
+  .mnemonic::before { content: "🧠 วิธีจำ: "; font-weight: 700; color: var(--purple); }
+  .toc { background: var(--soft); padding: 18px 28px; border-radius: 10px; margin-bottom: 40px; }
+  .toc h3 { margin-top: 0; color: var(--accent); }
+  .toc ol { padding-left: 22px; }
+  .toc a { color: var(--accent2); text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+  .stat-box { display: inline-block; background: white; padding: 16px 22px; border-radius: 10px; box-shadow: var(--shadow); margin: 8px; text-align: center; min-width: 180px; }
+  .stat-box .num { font-size: 2em; font-weight: 700; color: var(--accent); display: block; }
+  .stat-box .lbl { font-size: 0.88em; color: #666; }
+  .timeline { position: relative; padding: 20px 0 20px 40px; margin: 20px 0; }
+  .timeline::before { content: ''; position: absolute; left: 18px; top: 0; bottom: 0; width: 4px; background: var(--accent2); border-radius: 2px; }
+  .timeline-item { position: relative; margin-bottom: 28px; padding: 14px 18px; background: var(--box); border-radius: 10px; box-shadow: var(--shadow); }
+  .timeline-item::before { content: ''; position: absolute; left: -30px; top: 18px; width: 14px; height: 14px; background: var(--accent); border-radius: 50%; border: 3px solid var(--bg); }
+  .timeline-item .year { font-weight: 700; color: var(--accent); font-size: 1.1em; }
+  .versus { display: flex; gap: 20px; margin: 24px 0; flex-wrap: wrap; }
+  .versus .side { flex: 1; min-width: 280px; padding: 18px 22px; border-radius: 10px; box-shadow: var(--shadow); }
+  .versus .good { background: #eaf7ea; border-top: 4px solid var(--accent3); }
+  .versus .bad { background: #fdecec; border-top: 4px solid var(--accent); }
+  .versus h4 { margin-top: 0; }
+  .three-col { display: flex; gap: 16px; margin: 24px 0; flex-wrap: wrap; }
+  .three-col .col { flex: 1; min-width: 240px; padding: 16px 18px; border-radius: 10px; box-shadow: var(--shadow); background: var(--box); }
+  .three-col .col h4 { margin-top: 0; color: var(--accent2); }
+  .person { background: #f8f4ff; border-left: 5px solid var(--purple); padding: 14px 18px; border-radius: 6px; margin: 18px 0; }
+  .person .name { font-weight: 700; color: var(--purple); font-size: 1.1em; }
+  .gauge { display: flex; align-items: center; gap: 16px; margin: 16px 0; }
+  .gauge-bar { flex: 1; height: 24px; background: #eee; border-radius: 12px; overflow: hidden; }
+  .gauge-fill { height: 100%; border-radius: 12px; transition: width 0.5s; }
+  .gauge-label { min-width: 120px; font-weight: 600; }
+  .island-map { background: linear-gradient(135deg, #e8f4f8 0%, #d4e8f0 100%); padding: 24px; border-radius: 14px; margin: 24px 0; border: 2px solid #b0d0e0; text-align: center; }
+  .island-map .island { display: inline-block; background: #8B7355; color: white; padding: 20px 30px; border-radius: 50%; font-weight: 700; font-size: 1.2em; margin: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+  .switch-box { display: flex; gap: 0; margin: 24px auto; max-width: 500px; border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); }
+  .switch-box .sw { flex: 1; padding: 20px; text-align: center; font-weight: 600; }
+  .switch-box .sw-on { background: #27ae60; color: white; }
+  .switch-box .sw-off { background: #e74c3c; color: white; }
+</style>
+</head>
+<body>
+
+<h1>บทที่ 7 — ยิ่งน้อยยิ่งดี
+  <span class="sub">Less Is More · Why We Die by Venki Ramakrishnan</span>
+</h1>
+
+<div class="hero">
+  <div class="big">ภาพรวม 1 ประโยค:</div>
+  การจำกัดแคลอรีสามารถยืดอายุสัตว์ทดลองได้ — กุญแจอยู่ที่โปรตีน <span class="term">TOR</span> (Target of Rapamycin) ซึ่งเป็น <b>"สวิตช์หลัก"</b> ที่ตัดสินใจว่าเซลล์จะ <b>เจริญเติบโต</b> หรือ <b>ซ่อมแซมตัวเอง</b> — เมื่อ TOR ทำงานน้อยลง เซลล์หันมาเน้น <span class="term">autophagy</span> (กำจัดขยะ) ซึ่งอาจเป็นกุญแจสู่การ <b>ชะลอวัย</b>
+</div>
+
+<div class="toc">
+  <h3>📚 สารบัญ</h3>
+  <ol>
+    <li><a href="#s1">การจำกัดแคลอรี — กินน้อยลง อายุยืนขึ้น?</a></li>
+    <li><a href="#s2">การอดอาหารเป็นช่วง (Intermittent Fasting)</a></li>
+    <li><a href="#s3">การค้นพบราปามัยซิน — จากเกาะอีสเตอร์สู่ยาอายุวัฒนะ</a></li>
+    <li><a href="#s4">Michael Hall และการค้นพบ TOR</a></li>
+    <li><a href="#s5">TOR ทำงานอย่างไร — สวิตช์หลักของเซลล์</a></li>
+    <li><a href="#s6">TOR กับความชรา — ทำไมการเจริญเติบโตถึงทำให้แก่</a></li>
+    <li><a href="#s7">ราปามัยซินกับระบบภูมิคุ้มกัน</a></li>
+    <li><a href="#s8">ปริมาณคือกุญแจ — หลักการของ Paracelsus</a></li>
+    <li><a href="#s9">ภาพรวม: เชื่อมโยงทุกอย่างเข้าด้วยกัน</a></li>
+    <li><a href="#vocab">คำศัพท์สำคัญ</a></li>
+    <li><a href="#quiz">คำถามทบทวน</a></li>
+  </ol>
+</div>
+
+<!-- ==================== SECTION 1 ==================== -->
+<h2 id="s1">🍽️ 1. การจำกัดแคลอรี (Caloric Restriction)</h2>
+
+<p>Ramakrishnan เติบโตในอินเดีย ดินแดนที่มีศาสนาหลากหลาย ทุกศาสนาล้วนมีประเพณี <b>การอดอาหาร</b> ไม่ว่าจะเป็นศาสนาฮินดู อิสลาม พุทธ หรือเชน อาหารคือหัวใจสำคัญของวัฒนธรรม แต่ขณะเดียวกัน <b>โรคอ้วน</b> ก็กลายเป็นปัจจัยเสี่ยงอันดับต้นๆ ของโลก โดยเฉพาะในช่วง <b>COVID-19</b></p>
+
+<div style="text-align:center; margin: 20px 0;">
+  <div class="stat-box">
+    <span class="num">30-50%</span>
+    <span class="lbl">แคลอรีที่ลดลง<br>ในการทดลอง CR</span>
+  </div>
+  <div class="stat-box">
+    <span class="num">12.5%</span>
+    <span class="lbl">โรคเบาหวานในกลุ่ม CR<br>(เทียบกับ 40% กลุ่มปกติ)</span>
+  </div>
+  <div class="stat-box">
+    <span class="num">25 ปี</span>
+    <span class="lbl">ระยะเวลาการศึกษา<br>ของ NIA</span>
+  </div>
+</div>
+
+<h3>หลักฐานจากสัตว์ทดลอง</h3>
+<p>สัตว์ที่ได้รับอาหาร <b>ลดลง 30-50%</b> (แต่ยังได้สารอาหารครบ) มีอายุยืนขึ้นอย่างมีนัยสำคัญ หนู แมลงวัน หนอนตัวกลม และยีสต์ — ผลลัพธ์สอดคล้องกันทุกสายพันธุ์ <b>National Institute on Aging (NIA)</b> ทำการศึกษาเป็นเวลา 25 ปี พบว่ากลุ่มจำกัดแคลอรีมีโรคน้อยกว่ามาก</p>
+
+<div class="diagram">
+  <svg viewBox="0 0 700 200">
+    <defs>
+      <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" style="stop-color:#27ae60"/>
+        <stop offset="100%" style="stop-color:#2ecc71"/>
+      </linearGradient>
+      <linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" style="stop-color:#c0392b"/>
+        <stop offset="100%" style="stop-color:#e74c3c"/>
+      </linearGradient>
+    </defs>
+    <text x="10" y="30" font-size="16" font-weight="bold" fill="#333">เปรียบเทียบกลุ่มทดลอง</text>
+    <!-- CR Group -->
+    <rect x="10" y="50" width="330" height="60" rx="10" fill="url(#g1)" opacity="0.15"/>
+    <text x="20" y="75" font-size="14" font-weight="bold" fill="#27ae60">กลุ่มจำกัดแคลอรี (CR)</text>
+    <text x="20" y="98" font-size="13" fill="#333">โรคเบาหวาน: 12.5% | โรคมะเร็ง: ลดลง | อายุยืนขึ้น</text>
+    <!-- Control Group -->
+    <rect x="10" y="130" width="330" height="60" rx="10" fill="url(#g2)" opacity="0.15"/>
+    <text x="20" y="155" font-size="14" font-weight="bold" fill="#c0392b">กลุ่มกินตามใจ (Ad Libitum)</text>
+    <text x="20" y="178" font-size="13" fill="#333">โรคเบาหวาน: 40% | โรคมะเร็ง: สูง | อายุสั้นกว่า</text>
+    <!-- Bar comparison -->
+    <text x="400" y="55" font-size="12" fill="#555">เบาหวาน</text>
+    <rect x="400" y="65" width="75" height="20" rx="4" fill="#27ae60"/>
+    <text x="480" y="80" font-size="12" fill="#27ae60" font-weight="bold">12.5%</text>
+    <rect x="400" y="95" width="240" height="20" rx="4" fill="#e74c3c"/>
+    <text x="645" y="110" font-size="12" fill="#e74c3c" font-weight="bold">40%</text>
+    <text x="400" y="140" font-size="12" fill="#555">โรคทั่วไป</text>
+    <rect x="400" y="150" width="120" height="20" rx="4" fill="#27ae60"/>
+    <text x="525" y="165" font-size="12" fill="#27ae60">ลดลงมาก</text>
+    <rect x="400" y="180" width="280" height="20" rx="4" fill="#e74c3c"/>
+    <text x="685" y="195" font-size="12" fill="#e74c3c">สูง</text>
+  </svg>
+  <div class="caption">ผลจากการศึกษาของ NIA — สัตว์ที่จำกัดแคลอรีมีสุขภาพดีกว่าอย่างชัดเจน</div>
+</div>
+
+<div class="analogy">การจำกัดแคลอรีเหมือน <b>เปลี่ยนรถจากโหมด "เร่งเครื่องเต็มที่" เป็น "โหมดประหยัดน้ำมัน"</b> — รถวิ่งช้าลง แต่เครื่องยนต์สึกหรอน้อยกว่ามาก</div>
+
+<div class="warning">⚠️ <b>ข้อจำกัดสำคัญ:</b> Leonard Hayflick ตั้งข้อสังเกตว่าสัตว์กลุ่มควบคุมที่กินตามใจ (ad libitum) อาจ <b>กินมากเกินไป</b> — การจำกัดแคลอรีจึงอาจเป็นแค่ "กลับสู่ภาวะปกติ" ไม่ใช่ "กินน้อยกว่าปกติ"</div>
+
+<!-- ==================== SECTION 2 ==================== -->
+<h2 id="s2">⏰ 2. การอดอาหารเป็นช่วง (Intermittent Fasting)</h2>
+
+<div class="three-col">
+  <div class="col" style="border-top: 4px solid var(--teal);">
+    <h4>🕐 รูปแบบ 16:8</h4>
+    <p>กินอาหารภายใน <b>8 ชั่วโมง</b> อดอีก 16 ชม. เช่น กินเฉพาะ 10:00–18:00</p>
+  </div>
+  <div class="col" style="border-top: 4px solid var(--purple);">
+    <h4>📅 รูปแบบ 5:2</h4>
+    <p>กินปกติ <b>5 วัน</b> จำกัด <b>500-600 แคลอรี</b> อีก 2 วันต่อสัปดาห์</p>
+  </div>
+  <div class="col" style="border-top: 4px solid var(--orange);">
+    <h4>🔄 อดสลับวัน</h4>
+    <p>สลับระหว่างวันกินปกติกับวัน <b>จำกัดแคลอรีอย่างมาก</b> หรืออดทั้งวัน</p>
+  </div>
+</div>
+
+<p>หลักสำคัญคือให้ร่างกายมี <b>"ช่วงเวลาไม่ได้รับอาหาร"</b> นานพอที่จะกระตุ้นกระบวนการซ่อมแซมเซลล์ การอดอาหารต้องสอดคล้องกับ <span class="term">circadian rhythm</span> (จังหวะชีวภาพ) ด้วย</p>
+
+<div class="person">
+  <span class="name">Matthew Walker</span> — ผู้เขียน <i>Why We Sleep</i> อธิบายว่าการนอนเชื่อมโยงกับระบบเผาผลาญอย่างแยกไม่ออก การอดอาหารที่ดีต้องไม่รบกวนการนอนหลับ
+</div>
+
+<div class="mnemonic">IF = "ให้เซลล์มีเวลาทำความสะอาดบ้าน" 🏠 → เมื่อไม่ต้องย่อยอาหารตลอดเวลา เซลล์จะหันมาซ่อมแซมตัวเอง</div>
+
+<!-- ==================== SECTION 3 ==================== -->
+<h2 id="s3">🏝️ 3. การค้นพบราปามัยซิน — จากเกาะอีสเตอร์สู่ยาอายุวัฒนะ</h2>
+
+<div class="island-map">
+  <div style="font-size: 0.9em; color: #456; margin-bottom: 10px;">🌊 มหาสมุทรแปซิฟิก — 1,500 ไมล์จากชิลี</div>
+  <div class="island">🗿 Rapa Nui<br><small>(เกาะอีสเตอร์)</small></div>
+  <div style="font-size: 0.85em; color: #678; margin-top: 10px;">ปี 1964 — ทีมนักวิทยาศาสตร์แคนาดาเก็บตัวอย่างดิน 67 ตัวอย่าง<br>ค้นพบแบคทีเรีย <i>Streptomyces hygroscopicus</i> ที่ผลิตสารต้านเชื้อรา</div>
+</div>
+
+<h3>ไทม์ไลน์ราปามัยซิน</h3>
+<div class="timeline">
+  <div class="timeline-item">
+    <span class="year">1964</span> — ทีมนักวิทยาศาสตร์เดินทางไป <b>เกาะอีสเตอร์</b> (Rapa Nui) เก็บตัวอย่างดิน 67 จุด ค้นพบแบคทีเรียที่ผลิตสารพิเศษ
+  </div>
+  <div class="timeline-item">
+    <span class="year">ทศวรรษ 1970</span> — <b>Suren Sehgal</b> ที่บริษัท Ayerst ค้นพบว่าสารนี้มีฤทธิ์ต้านเชื้อราและ <b>กดภูมิคุ้มกัน</b>
+  </div>
+  <div class="timeline-item">
+    <span class="year">บริษัทปิดตัว!</span> — Ayerst ถูกปิด → เซห์กัล <b>ลักลอบเก็บตัวอย่างไว้ในตู้แช่แข็งที่บ้าน!</b> 🏠❄️
+  </div>
+  <div class="timeline-item">
+    <span class="year">ย้ายไป Wyeth</span> — นำตัวอย่างกลับมาวิจัยต่อ ตั้งชื่อว่า <b>"rapamycin"</b> ตามเกาะ Rapa Nui
+  </div>
+  <div class="timeline-item">
+    <span class="year">1987</span> — เซห์กัลส่งตัวอย่างราปามัยซินให้ห้องปฏิบัติการทั่วโลก กระตุ้นงานวิจัยระดับนานาชาติ
+  </div>
+  <div class="timeline-item">
+    <span class="year">1999</span> — 🏆 <b>FDA อนุมัติ</b> ราปามัยซินเป็นยากดภูมิคุ้มกันสำหรับการปลูกถ่ายอวัยวะ
+  </div>
+  <div class="timeline-item">
+    <span class="year">2009</span> — งานวิจัยตีพิมพ์: ราปามัยซิน <b>ยืดอายุหนู</b> ได้ แม้เริ่มให้ในวัยชรา!
+  </div>
+</div>
+
+<div class="person">
+  <span class="name">Suren Sehgal (สุเรน เซห์กัล)</span> — นักวิทยาศาสตร์ชาวอินเดีย-แคนาดา ผู้เก็บรักษาและพัฒนาราปามัยซิน เขาเชื่อมั่นในคุณค่าของมันจนยอม <b>ลักลอบเก็บไว้ในตู้แช่แข็งที่บ้าน</b> เมื่อบริษัทถูกปิด — ถ้าไม่มีเขา เราอาจไม่เคยมียานี้เลย
+</div>
+
+<div class="fact">🤯 <b>ข้อเท็จจริงชวนตกใจ:</b> ราปามัยซินถูกค้นพบจากดินบนเกาะห่างไกลกลางมหาสมุทรแปซิฟิก ผ่านการเก็บรักษาในตู้แช่แข็งที่บ้านนักวิทยาศาสตร์ ข้ามทศวรรษจนกลายเป็นหนึ่งในยาที่สำคัญที่สุดในวงการต่อต้านความชรา</div>
+
+<!-- ==================== SECTION 4 ==================== -->
+<h2 id="s4">🧬 4. Michael Hall และการค้นพบ TOR</h2>
+
+<div class="person">
+  <span class="name">Michael Hall (ไมเคิล ฮอลล์)</span> — เกิดในเปอร์โตริโก เป็นเด็กที่ได้สัมผัสวัฒนธรรมหลากหลาย ศึกษาจุลชีววิทยาที่ UNC ทำปริญญาเอกที่ Harvard แล้วย้ายไปทำงานที่ <b>Biozentrum</b> มหาวิทยาลัยบาเซิล สวิตเซอร์แลนด์ ค้นพบ TOR ในยีสต์
+</div>
+
+<p>Hall ค้นพบว่าราปามัยซินออกฤทธิ์ผ่าน <b>โปรตีนเป้าหมาย</b> ในเซลล์ยีสต์ ตั้งชื่อว่า <span class="term">TOR1</span> และ <span class="term">TOR2</span> (Target of Rapamycin) ต่อมาพบ TOR ใน <b>สิ่งมีชีวิตเกือบทุกชนิด</b> ตั้งแต่ยีสต์ถึงมนุษย์</p>
+
+<div class="diagram">
+  <svg viewBox="0 0 700 220">
+    <text x="350" y="25" font-size="16" font-weight="bold" fill="#2c5f8d" text-anchor="middle">วิวัฒนาการของ TOR — พบในทุกสิ่งมีชีวิต</text>
+    <!-- Organisms -->
+    <circle cx="100" cy="100" r="45" fill="#f0e7ff" stroke="#6c3bd9" stroke-width="2"/>
+    <text x="100" y="95" font-size="28" text-anchor="middle">🍞</text>
+    <text x="100" y="115" font-size="11" text-anchor="middle" fill="#6c3bd9" font-weight="bold">ยีสต์</text>
+
+    <circle cx="250" cy="100" r="45" fill="#eef6fb" stroke="#2c5f8d" stroke-width="2"/>
+    <text x="250" y="95" font-size="28" text-anchor="middle">🪱</text>
+    <text x="250" y="115" font-size="11" text-anchor="middle" fill="#2c5f8d" font-weight="bold">หนอน</text>
+
+    <circle cx="400" cy="100" r="45" fill="#eaf7ea" stroke="#27ae60" stroke-width="2"/>
+    <text x="400" y="95" font-size="28" text-anchor="middle">🪰</text>
+    <text x="400" y="115" font-size="11" text-anchor="middle" fill="#27ae60" font-weight="bold">แมลงวัน</text>
+
+    <circle cx="550" cy="100" r="45" fill="#fff3e6" stroke="#e67e22" stroke-width="2"/>
+    <text x="550" y="95" font-size="28" text-anchor="middle">🐟</text>
+    <text x="550" y="115" font-size="11" text-anchor="middle" fill="#e67e22" font-weight="bold">ปลาม้าลาย</text>
+
+    <circle cx="700" cy="100" r="45" fill="#fdecec" stroke="#c0392b" stroke-width="2"/>
+    <text x="700" y="95" font-size="28" text-anchor="middle">🧑</text>
+    <text x="700" y="115" font-size="11" text-anchor="middle" fill="#c0392b" font-weight="bold">มนุษย์</text>
+
+    <!-- Connecting line -->
+    <line x1="145" y1="100" x2="205" y2="100" stroke="#aaa" stroke-width="2" stroke-dasharray="6,4"/>
+    <line x1="295" y1="100" x2="355" y2="100" stroke="#aaa" stroke-width="2" stroke-dasharray="6,4"/>
+    <line x1="445" y1="100" x2="505" y2="100" stroke="#aaa" stroke-width="2" stroke-dasharray="6,4"/>
+    <line x1="595" y1="100" x2="655" y2="100" stroke="#aaa" stroke-width="2" stroke-dasharray="6,4"/>
+
+    <!-- Labels -->
+    <text x="175" y="85" font-size="10" fill="#999" text-anchor="middle">TOR</text>
+    <text x="325" y="85" font-size="10" fill="#999" text-anchor="middle">TOR</text>
+    <text x="475" y="85" font-size="10" fill="#999" text-anchor="middle">dTOR</text>
+    <text x="625" y="85" font-size="10" fill="#999" text-anchor="middle">zTOR</text>
+
+    <text x="350" y="190" font-size="13" text-anchor="middle" fill="#555">TOR ถูกอนุรักษ์ไว้ตลอดวิวัฒนาการ → ทำหน้าที่สำคัญมาก</text>
+    <text x="350" y="210" font-size="12" text-anchor="middle" fill="#888">ในมนุษย์เรียกว่า <tspan font-weight="bold" fill="#c0392b">mTOR</tspan> (mechanistic Target of Rapamycin)</text>
+  </svg>
+  <div class="caption">TOR พบในสิ่งมีชีวิตทุกชนิดตั้งแต่ยีสต์ถึงมนุษย์ — แสดงว่ามันสำคัญมากจนธรรมชาติอนุรักษ์ไว้ตลอดล้านปี</div>
+</div>
+
+<div style="text-align: center; margin: 20px 0;">
+  <div class="stat-box">
+    <span class="num">7,500+</span>
+    <span class="lbl">บทความวิจัยเกี่ยวกับ TOR<br>(ภายในปี 2021)</span>
+  </div>
+</div>
+
+<!-- ==================== SECTION 5 ==================== -->
+<h2 id="s5">⚙️ 5. TOR ทำงานอย่างไร — สวิตช์หลักของเซลล์</h2>
+
+<p>TOR เป็นโปรตีนประเภท <span class="term">kinase</span> — เอนไซม์ที่เติมหมู่ฟอสเฟตบนโปรตีนอื่นเพื่อเปลี่ยนการทำงาน กระบวนการนี้เรียกว่า <span class="term">phosphorylation</span> มันทำหน้าที่เหมือน <b>"สวิตช์ควบคุม"</b> ที่ตัดสินว่าเซลล์จะทำอะไร</p>
+
+<h3>สวิตช์ TOR: เจริญเติบโต vs ซ่อมแซม</h3>
+
+<div class="switch-box">
+  <div class="sw sw-on">🟢 TOR ON<br><small>สารอาหารมาก</small><br><b>เจริญเติบโต</b></div>
+  <div class="sw sw-off">🔴 TOR OFF<br><small>สารอาหารน้อย</small><br><b>ซ่อมแซม</b></div>
+</div>
+
+<div class="versus">
+  <div class="side bad">
+    <h4>🟢 TOR ทำงานเต็มที่ (สารอาหารมาก)</h4>
+    <p>✦ สั่งให้เซลล์ <b>สร้างโปรตีน</b> มากขึ้น<br>
+    ✦ กระตุ้นการสร้าง <b>ไรโบโซม</b> (โรงงานผลิตโปรตีน)<br>
+    ✦ ส่งเสริม <b>การแบ่งเซลล์</b> และเจริญเติบโต<br>
+    ✦ <b>กดการทำงาน autophagy</b> → ขยะสะสม<br>
+    ✦ สร้าง <b>ลิปิด</b> (ไขมัน) มากขึ้น</p>
+  </div>
+  <div class="side good">
+    <h4>🔴 TOR ทำงานลดลง (สารอาหารน้อย)</h4>
+    <p>✦ ชะลอการผลิตโปรตีน → <b>ลดโปรตีนพับผิด</b><br>
+    ✦ เปิดกระบวนการ <b>autophagy</b> → กำจัดขยะ<br>
+    ✦ เซลล์เน้น <b>ซ่อมแซม</b> แทนเจริญเติบโต<br>
+    ✦ ลดการอักเสบ<br>
+    ✦ ปรับสมดุลพลังงานให้ <b>เหมาะสม</b></p>
+  </div>
+</div>
+
+<h3>TORC1 vs TORC2</h3>
+<div class="versus">
+  <div class="side" style="background: #eef6fb; border-top: 4px solid var(--accent2);">
+    <h4 style="color: var(--accent2);">TORC1</h4>
+    <p>✦ ตอบสนองต่อ <b>สารอาหาร</b><br>
+    ✦ สั่งให้เซลล์ <b>เจริญเติบโต</b> และสร้างโปรตีน<br>
+    ✦ ถูก <b>ยับยั้งโดยราปามัยซิน</b><br>
+    ✦ ตอบสนองต่อ growth factor</p>
+  </div>
+  <div class="side" style="background: #f8f4ff; border-top: 4px solid var(--purple);">
+    <h4 style="color: var(--purple);">TORC2</h4>
+    <p>✦ ควบคุม <b>โครงสร้างเซลล์</b><br>
+    ✦ ดูแล <b>การอยู่รอด</b> ของเซลล์<br>
+    ✦ ไม่ถูกยับยั้งโดยราปามัยซินโดยตรง<br>
+    ✦ ทำงานร่วมกับ TORC1</p>
+  </div>
+</div>
+
+<div class="diagram">
+  <svg viewBox="0 0 700 320">
+    <text x="350" y="25" font-size="16" font-weight="bold" fill="#2c5f8d" text-anchor="middle">กลไก TOR — สวิตช์หลักของเซลล์</text>
+
+    <!-- Input signals -->
+    <rect x="20" y="50" width="140" height="40" rx="8" fill="#27ae60"/>
+    <text x="90" y="75" font-size="13" fill="white" text-anchor="middle" font-weight="bold">สารอาหาร 🍖</text>
+    <rect x="20" y="100" width="140" height="40" rx="8" fill="#2c5f8d"/>
+    <text x="90" y="125" font-size="13" fill="white" text-anchor="middle" font-weight="bold">Growth Factor 📈</text>
+    <rect x="20" y="150" width="140" height="40" rx="8" fill="#e67e22"/>
+    <text x="90" y="175" font-size="13" fill="white" text-anchor="middle" font-weight="bold">พลังงาน ⚡</text>
+
+    <!-- Arrows to TOR -->
+    <line x1="160" y1="70" x2="260" y2="150" stroke="#27ae60" stroke-width="2" marker-end="url(#arrowG)"/>
+    <line x1="160" y1="120" x2="260" y2="155" stroke="#2c5f8d" stroke-width="2"/>
+    <line x1="160" y1="170" x2="260" y2="160" stroke="#e67e22" stroke-width="2"/>
+
+    <!-- TOR central -->
+    <rect x="260" y="120" width="180" height="80" rx="16" fill="#c0392b" stroke="#8a0000" stroke-width="3"/>
+    <text x="350" y="155" font-size="22" fill="white" text-anchor="middle" font-weight="bold">mTOR</text>
+    <text x="350" y="175" font-size="11" fill="#ffccc5" text-anchor="middle">(สวิตช์หลัก)</text>
+
+    <!-- Rapamycin blocking -->
+    <rect x="280" y="50" width="140" height="35" rx="8" fill="#6c3bd9"/>
+    <text x="350" y="72" font-size="12" fill="white" text-anchor="middle" font-weight="bold">💊 Rapamycin</text>
+    <line x1="350" y1="85" x2="350" y2="118" stroke="#6c3bd9" stroke-width="3" stroke-dasharray="5,3"/>
+    <text x="380" y="107" font-size="16" fill="#c0392b" font-weight="bold">✖</text>
+
+    <!-- Outputs -->
+    <line x1="440" y1="135" x2="520" y2="90" stroke="#333" stroke-width="2"/>
+    <line x1="440" y1="155" x2="520" y2="155" stroke="#333" stroke-width="2"/>
+    <line x1="440" y1="175" x2="520" y2="220" stroke="#333" stroke-width="2"/>
+    <line x1="440" y1="185" x2="520" y2="270" stroke="#333" stroke-width="2"/>
+
+    <rect x="520" y="70" width="170" height="40" rx="8" fill="#e74c3c"/>
+    <text x="605" y="95" font-size="12" fill="white" text-anchor="middle" font-weight="bold">สร้างโปรตีน 🔨</text>
+
+    <rect x="520" y="135" width="170" height="40" rx="8" fill="#e67e22"/>
+    <text x="605" y="160" font-size="12" fill="white" text-anchor="middle" font-weight="bold">สร้างไรโบโซม 🏭</text>
+
+    <rect x="520" y="200" width="170" height="40" rx="8" fill="#c0392b"/>
+    <text x="605" y="225" font-size="12" fill="white" text-anchor="middle" font-weight="bold">กด Autophagy 🚫🗑️</text>
+
+    <rect x="520" y="255" width="170" height="40" rx="8" fill="#8e44ad"/>
+    <text x="605" y="280" font-size="12" fill="white" text-anchor="middle" font-weight="bold">แบ่งเซลล์ & โต 📐</text>
+  </svg>
+  <div class="caption">เมื่อ TOR ทำงานเต็มที่ → เซลล์เจริญเติบโตแต่กด autophagy | ราปามัยซินยับยั้ง TOR → เซลล์หันมาซ่อมแซม</div>
+</div>
+
+<div class="mnemonic">TOR = <b>Traffic Light ของเซลล์</b> 🚦 — 🟢 ไฟเขียว (สารอาหารมาก) → เจริญเติบโต | 🔴 ไฟแดง (สารอาหารน้อย) → หยุดโตแล้วซ่อมตัวเอง</div>
+
+<!-- ==================== SECTION 6 ==================== -->
+<h2 id="s6">🔗 6. TOR กับความชรา — ทำไมการเจริญเติบโตถึงทำให้แก่</h2>
+
+<p>ปัญหาหลักคือ TOR เป็นระบบที่ <b>จำเป็นมากในวัยเด็ก</b> — มันช่วยให้เราเจริญเติบโต สร้างกล้ามเนื้อ กระดูก และอวัยวะ แต่เมื่อร่างกายโตเต็มที่แล้ว TOR <b>ไม่หยุดทำงาน</b> มันยังคง "เร่งเครื่อง" ต่อ → ทำให้เครื่องยนต์สึกหรอเร็วขึ้น</p>
+
+<div class="diagram">
+  <svg viewBox="0 0 700 260">
+    <text x="350" y="25" font-size="16" font-weight="bold" fill="#c0392b" text-anchor="middle">วงจร TOR → ความชรา</text>
+
+    <!-- Cycle -->
+    <rect x="30" y="60" width="150" height="50" rx="10" fill="#c0392b"/>
+    <text x="105" y="90" font-size="13" fill="white" text-anchor="middle" font-weight="bold">TOR ทำงานมาก</text>
+
+    <text x="210" y="85" font-size="20" fill="#c0392b">→</text>
+
+    <rect x="230" y="60" width="150" height="50" rx="10" fill="#e67e22"/>
+    <text x="305" y="82" font-size="12" fill="white" text-anchor="middle" font-weight="bold">ผลิตโปรตีนมากเกิน</text>
+    <text x="305" y="98" font-size="11" fill="white" text-anchor="middle">บางส่วนพับผิด</text>
+
+    <text x="410" y="85" font-size="20" fill="#e67e22">→</text>
+
+    <rect x="430" y="60" width="150" height="50" rx="10" fill="#8e44ad"/>
+    <text x="505" y="82" font-size="12" fill="white" text-anchor="middle" font-weight="bold">กด Autophagy</text>
+    <text x="505" y="98" font-size="11" fill="white" text-anchor="middle">ขยะกำจัดไม่ทัน</text>
+
+    <!-- Arrow down -->
+    <line x1="505" y1="115" x2="505" y2="150" stroke="#8e44ad" stroke-width="3"/>
+    <text x="510" y="140" font-size="18" fill="#8e44ad">↓</text>
+
+    <rect x="430" y="155" width="150" height="50" rx="10" fill="#2c3e50"/>
+    <text x="505" y="177" font-size="12" fill="white" text-anchor="middle" font-weight="bold">ขยะสะสม</text>
+    <text x="505" y="193" font-size="11" fill="#aaa" text-anchor="middle">(เชื่อมบทที่ 6)</text>
+
+    <text x="410" y="180" font-size="20" fill="#2c3e50">←</text>
+
+    <rect x="230" y="155" width="150" height="50" rx="10" fill="#c0392b"/>
+    <text x="305" y="177" font-size="12" fill="white" text-anchor="middle" font-weight="bold">เซลล์เสียหาย</text>
+    <text x="305" y="193" font-size="11" fill="#ffccc5" text-anchor="middle">อักเสบเรื้อรัง</text>
+
+    <text x="210" y="180" font-size="20" fill="#c0392b">←</text>
+
+    <rect x="30" y="155" width="150" height="50" rx="10" fill="#1a1a2e"/>
+    <text x="105" y="177" font-size="14" fill="white" text-anchor="middle" font-weight="bold">ความชรา 👴</text>
+    <text x="105" y="195" font-size="11" fill="#aaa" text-anchor="middle">โรคที่มากับวัย</text>
+
+    <text x="350" y="245" font-size="13" fill="#c0392b" text-anchor="middle" font-weight="bold">⚠️ TOR ไม่ได้ "เกิดมาเพื่อทำให้เราแก่" — แต่มันไม่มีระบบหยุดอัตโนมัติ!</text>
+  </svg>
+  <div class="caption">TOR ที่ทำงานต่อเนื่องหลังร่างกายโตเต็มที่ → ผลิตโปรตีนมากเกิน + กด autophagy → ขยะสะสม → ชราภาพ</div>
+</div>
+
+<div class="analogy">TOR เหมือน <b>เครื่องยนต์ที่ไม่มีระบบหยุดอัตโนมัติ</b> 🚗💨 — ตอนเด็กมันช่วยให้เราเจริญเติบโต แต่พอโตเต็มที่แล้ว มันยังคง "เร่งเครื่อง" ต่อ → ทำให้เครื่องยนต์ร่างกายสึกหรอเร็วขึ้น แนวคิดนี้เรียกว่า <b>Antagonistic Pleiotropy</b> — สิ่งที่ดีในวัยหนุ่มสาวกลับร้ายในวัยชรา</div>
+
+<!-- ==================== SECTION 7 ==================== -->
+<h2 id="s7">💊 7. ราปามัยซินกับระบบภูมิคุ้มกัน — ผลลัพธ์ที่ขัดกับสัญชาตญาณ</h2>
+
+<p>นี่คือส่วนที่น่าแปลกใจที่สุดของบท: ราปามัยซินเป็นยา <b>กดภูมิคุ้มกัน</b> แต่กลับทำให้ระบบภูมิคุ้มกันของผู้สูงอายุ <b>ดีขึ้น</b>!</p>
+
+<div class="card">
+  <h3 style="margin-top: 0;">ระบบภูมิคุ้มกันที่สำคัญ</h3>
+  <div class="three-col" style="margin: 10px 0;">
+    <div class="col" style="border-top: 4px solid var(--accent2);">
+      <h4>B Cell (เซลล์บี)</h4>
+      <p>ผลิต <b>แอนติบอดี</b> เพื่อจับกับเชื้อโรค</p>
+    </div>
+    <div class="col" style="border-top: 4px solid var(--accent3);">
+      <h4>Helper T Cell</h4>
+      <p><b>สั่งการ</b> เซลล์ภูมิคุ้มกันอื่น เหมือนผู้บัญชาการ</p>
+    </div>
+    <div class="col" style="border-top: 4px solid var(--accent);">
+      <h4>Killer T Cell</h4>
+      <p><b>ทำลาย</b> เซลล์ที่ติดเชื้อหรือเซลล์มะเร็งโดยตรง</p>
+    </div>
+  </div>
+</div>
+
+<div class="versus">
+  <div class="side bad">
+    <h4>❌ ราปามัยซินปริมาณสูง</h4>
+    <p>✦ <b>กดภูมิคุ้มกัน</b> อย่างรุนแรง<br>
+    ✦ ใช้ป้องกันการปฏิเสธอวัยวะหลังปลูกถ่าย<br>
+    ✦ เพิ่มความเสี่ยง <b>ติดเชื้อ</b></p>
+  </div>
+  <div class="side good">
+    <h4>✅ ราปามัยซินปริมาณต่ำ</h4>
+    <p>✦ <b>ปรับสมดุล</b> ภูมิคุ้มกัน<br>
+    ✦ ให้เซลล์ภูมิคุ้มกันมีเวลา <b>ฟื้นตัว</b><br>
+    ✦ ตอบสนองต่อ <b>วัคซีน</b> ดีขึ้น</p>
+  </div>
+</div>
+
+<div class="tip">✅ <b>งานวิจัยปี 2009:</b> ราปามัยซินยืดอายุหนูได้ แม้เริ่มให้ในวัยชรา <b>งานวิจัยปี 2014:</b> ผู้สูงอายุที่ได้รับราปามัยซินปริมาณต่ำ → ตอบสนองต่อวัคซีนไข้หวัดใหญ่ดีขึ้น</div>
+
+<div class="mnemonic">ราปามัยซิน = <b>"ปุ่มลดเสียง" ไม่ใช่ "ปุ่มปิดเสียง"</b> 🔊 → ลดลงนิดหน่อยทำให้ระบบทำงานดีขึ้น ไม่ใช่ปิดลงทั้งหมด</div>
+
+<!-- ==================== SECTION 8 ==================== -->
+<h2 id="s8">⚖️ 8. ปริมาณคือกุญแจ — หลักการของ Paracelsus</h2>
+
+<div class="card" style="border-top-color: var(--purple);">
+  <h3 style="margin-top: 0; color: var(--purple);">"ยาทุกชนิดเป็นยาพิษ — ปริมาณเท่านั้นที่แยกแยะ"</h3>
+  <p>— <b>Paracelsus</b> (พาราเซลซัส) แพทย์ยุคเรเนสซองส์</p>
+</div>
+
+<div class="diagram">
+  <svg viewBox="0 0 700 200">
+    <text x="350" y="25" font-size="16" font-weight="bold" fill="#6c3bd9" text-anchor="middle">Dose-Response: ราปามัยซิน</text>
+
+    <!-- Axis -->
+    <line x1="80" y1="160" x2="650" y2="160" stroke="#333" stroke-width="2"/>
+    <line x1="80" y1="160" x2="80" y2="40" stroke="#333" stroke-width="2"/>
+    <text x="365" y="190" font-size="13" fill="#333" text-anchor="middle">ปริมาณราปามัยซิน →</text>
+    <text x="40" y="100" font-size="12" fill="#333" text-anchor="middle" transform="rotate(-90, 40, 100)">ประโยชน์</text>
+
+    <!-- Sweet spot zone -->
+    <rect x="200" y="45" width="180" height="115" rx="8" fill="#27ae60" opacity="0.1"/>
+    <text x="290" y="65" font-size="12" fill="#27ae60" text-anchor="middle" font-weight="bold">🎯 จุดที่เหมาะสม</text>
+
+    <!-- Curve -->
+    <path d="M 100 150 Q 200 140 250 60 Q 300 45 350 55 Q 450 80 550 140 Q 600 155 640 158" fill="none" stroke="#6c3bd9" stroke-width="3"/>
+
+    <!-- Labels -->
+    <text x="130" y="145" font-size="11" fill="#888">น้อยเกินไป</text>
+    <text x="290" y="135" font-size="11" fill="#27ae60" text-anchor="middle" font-weight="bold">ชะลอวัย + ภูมิคุ้มกันดีขึ้น</text>
+    <text x="550" y="130" font-size="11" fill="#c0392b" text-anchor="middle">มากเกินไป<br/></text>
+    <text x="550" y="145" font-size="10" fill="#c0392b" text-anchor="middle">กดภูมิคุ้มกัน!</text>
+  </svg>
+  <div class="caption">ราปามัยซินต้องอยู่ใน "จุดที่เหมาะสม" — น้อยเกินไปไม่ได้ผล มากเกินไปกลับเป็นอันตราย</div>
+</div>
+
+<div class="person">
+  <span class="name">Matt Kaeberlein</span> — แห่งมหาวิทยาลัยวอชิงตัน ทดลองราปามัยซินในสุนัขอายุมาก ผลลัพธ์: สุขภาพหัวใจดีขึ้น เป็นการทดลองสำคัญในสัตว์เลี้ยงลูกด้วยนมขนาดใหญ่
+</div>
+
+<div class="person">
+  <span class="name">Mikhail Blagosklonny</span> — ตีพิมพ์ผลงานสำคัญในวารสาร <i>Aging</i> ปี 2009 เสนอว่า TOR เป็น <b>ตัวขับเคลื่อนหลักของความชรา</b> ไม่ใช่แค่ตัวหนึ่งในหลายตัว
+</div>
+
+<!-- ==================== SECTION 9 ==================== -->
+<h2 id="s9">🔗 9. ภาพรวม: เชื่อมโยงทุกอย่างเข้าด้วยกัน</h2>
+
+<div class="diagram">
+  <svg viewBox="0 0 700 350">
+    <text x="350" y="25" font-size="16" font-weight="bold" fill="#2c5f8d" text-anchor="middle">ภาพรวม: ยิ่งน้อยยิ่งดี — TOR เป็นศูนย์กลาง</text>
+
+    <!-- Central TOR -->
+    <circle cx="350" cy="175" r="55" fill="#c0392b" stroke="#8a0000" stroke-width="3"/>
+    <text x="350" y="170" font-size="20" fill="white" text-anchor="middle" font-weight="bold">mTOR</text>
+    <text x="350" y="190" font-size="11" fill="#ffccc5" text-anchor="middle">สวิตช์หลัก</text>
+
+    <!-- Inputs (left) -->
+    <rect x="20" y="60" width="140" height="35" rx="8" fill="#27ae60"/>
+    <text x="90" y="82" font-size="12" fill="white" text-anchor="middle" font-weight="bold">🍖 อาหารมาก</text>
+    <line x1="160" y1="78" x2="295" y2="155" stroke="#27ae60" stroke-width="2"/>
+
+    <rect x="20" y="115" width="140" height="35" rx="8" fill="#e67e22"/>
+    <text x="90" y="137" font-size="12" fill="white" text-anchor="middle" font-weight="bold">🏋️ Growth Factor</text>
+    <line x1="160" y1="133" x2="295" y2="165" stroke="#e67e22" stroke-width="2"/>
+
+    <!-- Inhibitors (top) -->
+    <rect x="240" y="50" width="100" height="35" rx="8" fill="#6c3bd9"/>
+    <text x="290" y="72" font-size="11" fill="white" text-anchor="middle" font-weight="bold">💊 Rapamycin</text>
+    <line x1="290" y1="85" x2="330" y2="125" stroke="#6c3bd9" stroke-width="2" stroke-dasharray="5,3"/>
+
+    <rect x="370" y="50" width="100" height="35" rx="8" fill="#2c5f8d"/>
+    <text x="420" y="72" font-size="11" fill="white" text-anchor="middle" font-weight="bold">🍽️ CR / IF</text>
+    <line x1="420" y1="85" x2="380" y2="125" stroke="#2c5f8d" stroke-width="2" stroke-dasharray="5,3"/>
+
+    <!-- Outputs (right) -->
+    <line x1="405" y1="155" x2="500" y2="75" stroke="#c0392b" stroke-width="2"/>
+    <rect x="500" y="55" width="180" height="40" rx="8" fill="#e74c3c"/>
+    <text x="590" y="80" font-size="12" fill="white" text-anchor="middle" font-weight="bold">📈 เจริญเติบโต/โปรตีน</text>
+
+    <line x1="405" y1="175" x2="500" y2="145" stroke="#e67e22" stroke-width="2"/>
+    <rect x="500" y="125" width="180" height="40" rx="8" fill="#e67e22"/>
+    <text x="590" y="150" font-size="12" fill="white" text-anchor="middle" font-weight="bold">🚫 กด Autophagy</text>
+
+    <line x1="405" y1="195" x2="500" y2="215" stroke="#8e44ad" stroke-width="2"/>
+    <rect x="500" y="195" width="180" height="40" rx="8" fill="#8e44ad"/>
+    <text x="590" y="220" font-size="12" fill="white" text-anchor="middle" font-weight="bold">👴 ความชราสะสม</text>
+
+    <!-- Bottom summary -->
+    <rect x="120" y="270" width="460" height="65" rx="12" fill="#fdf7e4" stroke="#e8d084" stroke-width="2"/>
+    <text x="350" y="295" font-size="14" text-anchor="middle" font-weight="bold" fill="#8a5a00">💡 กุญแจ: ลด TOR ลงให้เหมาะสม</text>
+    <text x="350" y="318" font-size="12" text-anchor="middle" fill="#666">ผ่านการจำกัดแคลอรี, Intermittent Fasting หรือราปามัยซินปริมาณต่ำ</text>
+
+    <!-- Connection to Ch6 -->
+    <line x1="590" y1="165" x2="590" y2="195" stroke="#888" stroke-width="1" stroke-dasharray="3,3"/>
+    <text x="695" y="185" font-size="10" fill="#888" text-anchor="end">(เชื่อมบทที่ 6: ขยะโปรตีน)</text>
+  </svg>
+  <div class="caption">TOR เป็นศูนย์กลางของบทนี้ — ลดการทำงานของ TOR = เพิ่ม autophagy = ชะลอวัย</div>
+</div>
+
+<div class="card" style="border-top-color: var(--accent3); background: linear-gradient(135deg, #eaf7ea 0%, #f0fff0 100%);">
+  <h3 style="margin-top: 0; color: var(--accent3);">💡 สามข้อคิดสำคัญจากบทนี้</h3>
+  <p><b>1. เซลล์ต้องเลือกระหว่าง "เจริญเติบโต" กับ "ซ่อมแซม"</b> — เมื่อกินมากเกินไปตลอดเวลา เราบังคับให้เซลล์อยู่ในโหมดเจริญเติบโตตลอด ขยะจึงสะสมและร่างกายเสื่อมเร็วขึ้น</p>
+  <p><b>2. วิทยาศาสตร์บางครั้งต้องพึ่ง "ความบังเอิญ" และ "ความดื้อดึง"</b> — ราปามัยซินถูกค้นพบจากดินบนเกาะห่างไกล ผ่านการเก็บรักษาในตู้แช่แข็งที่บ้าน ข้ามทศวรรษจนกลายเป็นความหวัง</p>
+  <p><b>3. "น้อยกว่า" ≠ "ไม่กินเลย"</b> — กุญแจคือสมดุล ราปามัยซินปริมาณน้อยช่วยชะลอวัย มากเกินไปกลับทำลายภูมิคุ้มกัน เช่นเดียวกับการอดอาหารที่ต้องทำอย่างมีสติ</p>
+</div>
+
+<!-- ==================== VOCAB ==================== -->
+<h2 id="vocab">📖 คำศัพท์สำคัญ</h2>
+
+<table>
+  <tr><th>คำศัพท์</th><th>ความหมาย</th></tr>
+  <tr><td><b>Caloric Restriction (CR)</b></td><td>การจำกัดแคลอรี 20-50% โดยยังได้สารอาหารครบ</td></tr>
+  <tr><td><b>Intermittent Fasting (IF)</b></td><td>การอดอาหารเป็นช่วงๆ เช่น 16:8 หรือ 5:2</td></tr>
+  <tr><td><b>Rapamycin</b></td><td>สารจากแบคทีเรียในดินเกาะอีสเตอร์ ยับยั้ง TOR</td></tr>
+  <tr><td><b>Rapa Nui</b></td><td>ชื่อพื้นเมืองของเกาะอีสเตอร์ — ที่มาของชื่อราปามัยซิน</td></tr>
+  <tr><td><b>Streptomyces hygroscopicus</b></td><td>แบคทีเรียในดินที่ผลิตสารราปามัยซิน</td></tr>
+  <tr><td><b>TOR (Target of Rapamycin)</b></td><td>โปรตีน "สวิตช์หลัก" ควบคุมการเจริญเติบโตของเซลล์</td></tr>
+  <tr><td><b>mTOR</b></td><td>TOR ในสัตว์เลี้ยงลูกด้วยนม (mechanistic TOR)</td></tr>
+  <tr><td><b>TORC1</b></td><td>คอมเพล็กซ์ TOR ที่ตอบสนองต่อสารอาหาร → เจริญเติบโต</td></tr>
+  <tr><td><b>TORC2</b></td><td>คอมเพล็กซ์ TOR ที่ควบคุมโครงสร้างเซลล์</td></tr>
+  <tr><td><b>Kinase</b></td><td>เอนไซม์ที่เติมหมู่ฟอสเฟตบนโปรตีน</td></tr>
+  <tr><td><b>Phosphorylation</b></td><td>กระบวนการเติมหมู่ฟอสเฟตเพื่อเปลี่ยนการทำงานของโปรตีน</td></tr>
+  <tr><td><b>Autophagy</b></td><td>กระบวนการ "เซลล์กินตัวเอง" — กำจัดขยะ (ถูกกดโดย TOR)</td></tr>
+  <tr><td><b>Suren Sehgal</b></td><td>นักวิทยาศาสตร์ผู้เก็บรักษาและพัฒนาราปามัยซิน</td></tr>
+  <tr><td><b>Michael Hall</b></td><td>ผู้ค้นพบ TOR ที่มหาวิทยาลัยบาเซิล สวิตเซอร์แลนด์</td></tr>
+  <tr><td><b>Joe Heitman</b></td><td>นักวิจัยที่ศึกษาราปามัยซินในเชื้อรา Neurospora</td></tr>
+  <tr><td><b>Paracelsus</b></td><td>แพทย์ยุคเรเนสซองส์ — "ปริมาณทำให้เป็นยาพิษ"</td></tr>
+  <tr><td><b>Matt Kaeberlein</b></td><td>นักวิจัยที่ทดลองราปามัยซินในสุนัข</td></tr>
+  <tr><td><b>Mikhail Blagosklonny</b></td><td>ผู้เสนอว่า TOR เป็นตัวขับเคลื่อนหลักของความชรา</td></tr>
+  <tr><td><b>Antagonistic Pleiotropy</b></td><td>แนวคิดที่ว่ากลไกที่ดีในวัยหนุ่มสาวอาจเป็นอันตรายในวัยชรา</td></tr>
+  <tr><td><b>Ad libitum</b></td><td>การกินอาหารตามใจ ไม่จำกัด</td></tr>
+  <tr><td><b>Leonard Hayflick</b></td><td>นักวิทยาศาสตร์ผู้ตั้งข้อสังเกตว่าสัตว์กลุ่มควบคุมอาจกินมากเกินไป</td></tr>
+  <tr><td><b>Circadian Rhythm</b></td><td>จังหวะชีวภาพ 24 ชั่วโมง ควบคุมการนอน กิน และอื่นๆ</td></tr>
+  <tr><td><b>NIA</b></td><td>National Institute on Aging — สถาบันวิจัยสุขภาพผู้สูงอายุสหรัฐฯ</td></tr>
+</table>
+
+<!-- ==================== QUIZ ==================== -->
+<h2 id="quiz">❓ คำถามทบทวน</h2>
+
+<details class="quiz">
+  <summary>1. การจำกัดแคลอรีในสัตว์ทดลองให้ผลลัพธ์อย่างไร?</summary>
+  <p>สัตว์ที่จำกัดแคลอรี 30-50% มีอายุยืนขึ้น โรคเบาหวานลดเหลือ 12.5% (เทียบกับ 40% ในกลุ่มปกติ) โรคมะเร็งและโรคหัวใจลดลง NIA ศึกษาเป็นเวลา 25 ปียืนยันผลลัพธ์เหล่านี้</p>
+</details>
+
+<details class="quiz">
+  <summary>2. ราปามัยซินค้นพบได้อย่างไร?</summary>
+  <p>ปี 1964 ทีมนักวิทยาศาสตร์แคนาดาเก็บดินจากเกาะอีสเตอร์ (Rapa Nui) พบแบคทีเรีย <i>Streptomyces hygroscopicus</i> ที่ผลิตสารต้านเชื้อรา Suren Sehgal พัฒนาต่อ ลักลอบเก็บตัวอย่างไว้ในตู้แช่แข็งที่บ้านเมื่อบริษัทปิด จนได้รับอนุมัติจาก FDA ในปี 1999</p>
+</details>
+
+<details class="quiz">
+  <summary>3. TOR ทำหน้าที่อะไรในเซลล์?</summary>
+  <p>TOR เป็น kinase ที่ทำหน้าที่เป็น "สวิตช์หลัก" — เมื่อสารอาหารมาก TOR สั่งให้เซลล์เจริญเติบโต สร้างโปรตีน สร้างไรโบโซม แต่กด autophagy เมื่อสารอาหารน้อย TOR ลดการทำงาน → เซลล์หันมาซ่อมแซมและกำจัดขยะแทน</p>
+</details>
+
+<details class="quiz">
+  <summary>4. ทำไม TOR ที่ดีในวัยเด็กกลับร้ายในวัยชรา?</summary>
+  <p>TOR จำเป็นสำหรับการเจริญเติบโต แต่ปัญหาคือมันไม่มี "ระบบหยุดอัตโนมัติ" — หลังร่างกายโตเต็มที่แล้ว TOR ยังคงทำงานต่อ ทำให้ผลิตโปรตีนมากเกิน กด autophagy ขยะสะสม → นำไปสู่ความชรา แนวคิดนี้เรียกว่า Antagonistic Pleiotropy</p>
+</details>
+
+<details class="quiz">
+  <summary>5. ราปามัยซินเป็นยากดภูมิคุ้มกัน แต่ทำไมกลับทำให้ภูมิคุ้มกันผู้สูงอายุดีขึ้น?</summary>
+  <p>ในปริมาณสูง ราปามัยซินกดภูมิคุ้มกันอย่างรุนแรง แต่ในปริมาณต่ำ มันทำหน้าที่ "ปรับสมดุล" — TOR ที่ทำงานมากเกินไปทำให้เซลล์ภูมิคุ้มกัน "หมดแรง" เร็ว การยับยั้งเล็กน้อยให้เวลาเซลล์ฟื้นตัว งานวิจัยปี 2014 พบว่าผู้สูงอายุตอบสนองต่อวัคซีนดีขึ้น</p>
+</details>
+
+<details class="quiz">
+  <summary>6. อธิบายความเชื่อมโยงระหว่าง TOR, autophagy, CR และราปามัยซิน</summary>
+  <p>ทั้ง CR (จำกัดแคลอรี) และราปามัยซินต่างทำให้ TOR ทำงานลดลง → เมื่อ TOR ลดลง กระบวนการ autophagy จะถูกเปิดใช้งาน → เซลล์กำจัดขยะโปรตีนและชิ้นส่วนเสียหาย → ลดความเสียหายสะสม → ชะลอวัย กุญแจคือหาปริมาณที่เหมาะสม ตามหลัก Paracelsus ที่ว่า "ปริมาณทำให้เป็นยาพิษ"</p>
+</details>
+
+<details class="quiz">
+  <summary>7. TORC1 และ TORC2 ต่างกันอย่างไร?</summary>
+  <p>TORC1 ตอบสนองต่อสารอาหาร สั่งให้เซลล์เจริญเติบโตและสร้างโปรตีน ถูกยับยั้งโดยราปามัยซิน ส่วน TORC2 ควบคุมโครงสร้างเซลล์และการอยู่รอด ไม่ถูกยับยั้งโดยราปามัยซินโดยตรง ทั้งสองทำงานร่วมกันแต่มีบทบาทต่างกัน</p>
+</details>
+
+<details class="quiz">
+  <summary>8. Leonard Hayflick ตั้งข้อสังเกตอะไรเกี่ยวกับการทดลอง CR?</summary>
+  <p>Hayflick ชี้ว่าสัตว์กลุ่มควบคุมที่กินตามใจ (ad libitum) อาจกินมากเกินไป ดังนั้น CR อาจไม่ได้ "ยืดอายุ" จริง — อาจเป็นแค่การกลับสู่ภาวะปกติ ในขณะที่กลุ่มควบคุมกำลังกิน "มากเกินปกติ" อยู่แล้ว</p>
+</details>
+
+<div style="text-align: center; margin-top: 40px; padding: 20px; color: #888; border-top: 2px solid #eee;">
+  <p><i>บทที่ 7 — ยิ่งน้อยยิ่งดี | Why We Die by Venki Ramakrishnan</i></p>
+  <p style="font-size: 0.9em;">เชื่อมกับ: บทที่ 6 (ขยะโปรตีน — TOR กระตุ้นการผลิตมากเกิน) · บทที่ 3 (DNA damage) · บทที่ 5 (Epigenetics)<br>บทต่อไป: Senescent Cells — เมื่อเซลล์ "เกษียณ" แต่ไม่ยอมตาย</p>
+</div>
+
+</body>
+</html>

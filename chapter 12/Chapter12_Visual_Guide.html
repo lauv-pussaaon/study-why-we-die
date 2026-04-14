@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>บทที่ 12 — คนเราควรอยู่ค้ำฟ้าหรือไม่ | Visual Study Guide</title>
+<style>
+  :root {
+    --bg: #fdfcf7;
+    --ink: #1f2933;
+    --accent: #1a6b3d;
+    --accent2: #2c5f8d;
+    --accent3: #27ae60;
+    --accent4: #e67e22;
+    --soft: #e8f5e9;
+    --box: #ffffff;
+    --shadow: 0 4px 16px rgba(0,0,0,0.08);
+    --earth: #5d4037;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, "Segoe UI", "Sarabun", "Noto Sans Thai", sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+    line-height: 1.75;
+    font-size: 17px;
+  }
+  h1 { font-size: 2.4em; border-bottom: 4px double var(--accent); padding-bottom: 12px; margin-bottom: 8px; color: var(--accent); }
+  h1 .sub { display: block; font-size: 0.5em; color: #666; font-weight: normal; margin-top: 6px; }
+  h2 { font-size: 1.6em; color: var(--accent2); border-left: 6px solid var(--accent2); padding-left: 14px; margin-top: 60px; }
+  h3 { color: var(--accent); margin-top: 32px; font-size: 1.25em; }
+  .hero { background: linear-gradient(135deg, #e8f5e9 0%, #e3f2fd 100%); padding: 24px 28px; border-radius: 14px; margin: 28px 0; border-left: 6px solid var(--accent); box-shadow: var(--shadow); }
+  .hero .big { font-size: 1.3em; font-weight: 600; color: var(--accent); }
+  .analogy { background: #eef6fb; border: 2px dashed var(--accent2); padding: 16px 20px; border-radius: 10px; margin: 18px 0; }
+  .analogy::before { content: "💡 ลองคิดแบบนี้ "; font-weight: 700; color: var(--accent2); }
+  .warning { background: #fff3e6; border-left: 5px solid #e67e22; padding: 14px 18px; border-radius: 6px; margin: 18px 0; }
+  .warning::before { content: "⚠️ ข้อควรระวัง: "; font-weight: 700; color: #e67e22; }
+  .tip { background: #eaf7ea; border-left: 5px solid var(--accent3); padding: 14px 18px; border-radius: 6px; margin: 18px 0; }
+  .fact { background: #fdecec; border-left: 5px solid #c0392b; padding: 14px 18px; border-radius: 6px; margin: 18px 0; }
+  .diagram { background: var(--box); border: 1px solid #e0d8c5; border-radius: 12px; padding: 20px; margin: 24px 0; box-shadow: var(--shadow); text-align: center; }
+  .diagram .caption { font-size: 0.92em; color: #555; margin-top: 10px; font-style: italic; }
+  table { width: 100%; border-collapse: collapse; margin: 20px 0; background: var(--box); border-radius: 10px; overflow: hidden; box-shadow: var(--shadow); }
+  th, td { padding: 12px 14px; text-align: left; border-bottom: 1px solid #eee; }
+  th { background: var(--accent2); color: white; }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) { background: #faf7ef; }
+  .quiz { background: #fdf7e4; padding: 20px 26px; border-radius: 10px; margin: 16px 0; border: 2px solid #e8d084; }
+  .quiz summary { cursor: pointer; font-weight: 600; color: var(--accent); padding: 8px 0; }
+  .quiz p { margin: 10px 0 0; padding: 10px; background: white; border-radius: 6px; }
+  .term { display: inline-block; background: #fff3d6; padding: 1px 8px; border-radius: 4px; font-weight: 600; color: #8a5a00; }
+  .flow { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 12px; margin: 20px 0; }
+  .flow .node { background: var(--accent2); color: white; padding: 12px 18px; border-radius: 8px; font-weight: 600; min-width: 120px; text-align: center; }
+  .flow .arrow { font-size: 1.6em; color: var(--accent); }
+  .flow .node.red { background: #c0392b; }
+  .flow .node.green { background: var(--accent3); }
+  .flow .node.orange { background: var(--accent4); }
+  .flow .node.earth { background: var(--earth); }
+  .flow .node.dark-green { background: var(--accent); }
+  .card { background: var(--box); padding: 18px 22px; border-radius: 10px; box-shadow: var(--shadow); margin: 14px 0; border-top: 4px solid var(--accent2); }
+  .card.nature { border-top: 4px solid var(--accent); background: linear-gradient(to bottom, #f0faf0, #ffffff); }
+  .mnemonic { background: #f0e7ff; border-left: 5px solid #6c3bd9; padding: 12px 18px; border-radius: 6px; margin: 12px 0; font-size: 0.98em; }
+  .mnemonic::before { content: "🧠 วิธีจำ: "; font-weight: 700; color: #6c3bd9; }
+  .toc { background: var(--soft); padding: 18px 28px; border-radius: 10px; margin-bottom: 40px; }
+  .toc h3 { margin-top: 0; color: var(--accent); }
+  .toc ol { padding-left: 22px; }
+  .toc a { color: var(--accent2); text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+  .stat-box { display: inline-block; background: white; padding: 16px 22px; border-radius: 10px; box-shadow: var(--shadow); margin: 8px; text-align: center; min-width: 160px; }
+  .stat-box .num { font-size: 2em; font-weight: 700; color: var(--accent); display: block; }
+  .stat-box .lbl { font-size: 0.88em; color: #666; }
+  .timeline { position: relative; padding: 20px 0 20px 40px; margin: 20px 0; }
+  .timeline::before { content: ''; position: absolute; left: 18px; top: 0; bottom: 0; width: 4px; background: var(--accent); border-radius: 2px; }
+  .timeline-item { position: relative; margin-bottom: 28px; padding: 14px 18px; background: var(--box); border-radius: 10px; box-shadow: var(--shadow); }
+  .timeline-item::before { content: ''; position: absolute; left: -30px; top: 18px; width: 14px; height: 14px; background: var(--accent); border-radius: 50%; border: 3px solid var(--bg); }
+  .timeline-item .year { font-weight: 700; color: var(--accent); font-size: 1.1em; }
+  .versus { display: flex; gap: 20px; margin: 24px 0; flex-wrap: wrap; }
+  .versus .side { flex: 1; min-width: 280px; padding: 18px 22px; border-radius: 10px; box-shadow: var(--shadow); }
+  .versus .good { background: #eaf7ea; border-top: 4px solid var(--accent3); }
+  .versus .bad { background: #fdecec; border-top: 4px solid #c0392b; }
+  .versus h4 { margin-top: 0; }
+  .gauge { width: 100%; height: 24px; background: #eee; border-radius: 12px; overflow: hidden; margin: 6px 0; }
+  .gauge .fill { height: 100%; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; font-size: 0.8em; }
+  .person-card { display: flex; gap: 16px; align-items: flex-start; padding: 16px 20px; background: var(--box); border-radius: 10px; box-shadow: var(--shadow); margin: 14px 0; border-left: 5px solid var(--accent2); }
+  .person-card .emoji { font-size: 2.5em; }
+  .person-card .info h4 { margin: 0 0 6px; color: var(--accent2); }
+  .person-card .info p { margin: 0; font-size: 0.95em; }
+  .pyramid { display: flex; flex-direction: column; align-items: center; margin: 20px 0; }
+  .pyramid .layer { padding: 8px 0; text-align: center; color: white; font-weight: 600; border-radius: 4px; margin: 3px 0; }
+  .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; margin: 20px 0; }
+  .grid-item { padding: 16px 20px; border-radius: 10px; background: var(--box); box-shadow: var(--shadow); border-left: 4px solid var(--accent2); }
+  .quote-box { background: linear-gradient(135deg, #f9f5e8, #fef9e7); padding: 20px 26px; border-radius: 12px; margin: 20px 0; border: 2px solid #d4a917; text-align: center; }
+  .quote-box .quote { font-size: 1.25em; font-style: italic; color: var(--earth); font-weight: 500; }
+  .quote-box .author { margin-top: 10px; font-size: 0.95em; color: #888; }
+</style>
+</head>
+<body>
+
+<h1>🍃 บทที่ 12 — คนเราควรอยู่ค้ำฟ้าหรือไม่
+<span class="sub">Should We Live Forever? &mdash; Why We Die, Venki Ramakrishnan</span>
+</h1>
+
+<div class="hero">
+<span class="big">บทสุดท้ายของหนังสือ — Ramakrishnan ถอยออกจากห้องแล็บแล้วถามคำถามที่ใหญ่กว่า: แม้เราจะยืดอายุได้จริง <em>เราควรจะทำหรือไม่?</em> คำตอบของเขาทำให้เราต้องคิดทบทวนทุกอย่างที่อ่านมา</span>
+</div>
+
+<div class="toc">
+<h3>📋 สารบัญ</h3>
+<ol>
+  <li><a href="#crisis">วิกฤตประชากรสูงอายุ</a></li>
+  <li><a href="#fertility">อัตราเจริญพันธุ์ที่กำลังดิ่ง</a></li>
+  <li><a href="#retire">ปัญหาการเกษียณอายุ</a></li>
+  <li><a href="#creative">ความคิดสร้างสรรค์กับอายุ</a></li>
+  <li><a href="#power">อำนาจ อายุ และการเมือง</a></li>
+  <li><a href="#history">ประวัติศาสตร์อายุขัยมนุษย์</a></li>
+  <li><a href="#accept">ปรัชญาของการยอมรับความตาย</a></li>
+  <li><a href="#final">ข้อคิดส่งท้ายหนังสือ</a></li>
+  <li><a href="#dict">พจนานุกรมศัพท์สำคัญ</a></li>
+  <li><a href="#quiz">คำถามทบทวน</a></li>
+</ol>
+</div>
+
+<!-- ==================== SECTION 1: AGING CRISIS ==================== -->
+<h2 id="crisis">👴 1. โลกกำลังแก่ตัว — วิกฤตประชากรสูงอายุ</h2>
+
+<p>Ramakrishnan เปิดบทด้วยความทรงจำเกี่ยวกับปู่ที่เสียชีวิตเมื่ออายุราว <strong>90 ปี</strong> ในยุคที่คนอายุ 90 ยังเป็นเรื่องแปลก แต่ปัจจุบันกลายเป็นเรื่องธรรมดา — และนั่นสร้างปัญหาใหญ่ที่โลกไม่เคยเผชิญมาก่อน</p>
+
+<div style="text-align:center; margin: 24px 0;">
+  <div class="stat-box">
+    <span class="num">20%+</span>
+    <span class="lbl">สัดส่วนผู้สูงอายุ 65+<br>ในหลายประเทศพัฒนาแล้ว</span>
+  </div>
+  <div class="stat-box">
+    <span class="num">2050</span>
+    <span class="lbl">ปีที่คาดว่าวิกฤต<br>จะรุนแรงที่สุด</span>
+  </div>
+  <div class="stat-box">
+    <span class="num">1.2 ล้าน</span>
+    <span class="lbl">คนเกิน 100 ปี<br>ทั่วโลก (2023)</span>
+  </div>
+</div>
+
+<div class="diagram">
+  <h4>ปิรามิดประชากรที่กำลัง "พลิกคว่ำ"</h4>
+  <div class="pyramid">
+    <div class="layer" style="width:50%; background:#e74c3c;">80+ ปี (เพิ่มเร็วมาก)</div>
+    <div class="layer" style="width:60%; background:#e67e22;">65-79 ปี (เพิ่มขึ้นเรื่อยๆ)</div>
+    <div class="layer" style="width:70%; background:#f39c12;">45-64 ปี</div>
+    <div class="layer" style="width:65%; background:#3498db;">25-44 ปี (ลดลง)</div>
+    <div class="layer" style="width:45%; background:#2980b9;">0-24 ปี (ลดลงมาก)</div>
+  </div>
+  <div class="caption">ปิรามิดประชากรแบบดั้งเดิม (ฐานกว้าง ยอดแคบ) กำลังกลายเป็น "แจกันคว่ำ" (ฐานแคบ ปากกว้าง) — ระบบสังคมที่ออกแบบมาสำหรับปิรามิดกำลังรับน้ำหนักไม่ไหว</div>
+</div>
+
+<div class="analogy">โลกกำลังแก่ตัวเหมือนอาคารที่ชั้นบนหนักขึ้นเรื่อยๆ แต่ฐานราก (คนวัยทำงาน) กลับแคบลง — สักวันอาจรับน้ำหนักไม่ไหว</div>
+
+<!-- ==================== SECTION 2: FERTILITY ==================== -->
+<h2 id="fertility">📉 2. อัตราเจริญพันธุ์ที่กำลังดิ่ง</h2>
+
+<p>อัตราเจริญพันธุ์ที่ต้องการเพื่อ <strong>ทดแทนประชากร</strong> คือ <span class="term">2.1 คนต่อผู้หญิง</span> — แต่หลายประเทศต่ำกว่านั้นมากจนน่าตกใจ</p>
+
+<div class="diagram">
+  <h4>อัตราเจริญพันธุ์เทียบกับเส้นทดแทน (2.1)</h4>
+  <table>
+    <tr><th>ประเทศ</th><th>อัตราเจริญพันธุ์</th><th>เทียบกับ 2.1</th></tr>
+    <tr>
+      <td><strong>🇰🇷 เกาหลีใต้</strong></td>
+      <td>~0.7</td>
+      <td><div class="gauge"><div class="fill" style="width:33%; background:#e74c3c;">ต่ำสุดในโลก</div></div></td>
+    </tr>
+    <tr>
+      <td><strong>🇹🇭 ไทย</strong></td>
+      <td>~1.1</td>
+      <td><div class="gauge"><div class="fill" style="width:52%; background:#e67e22;">ต่ำมาก</div></div></td>
+    </tr>
+    <tr>
+      <td><strong>🇯🇵 ญี่ปุ่น</strong></td>
+      <td>~1.2</td>
+      <td><div class="gauge"><div class="fill" style="width:57%; background:#e67e22;">ต่ำมาก</div></div></td>
+    </tr>
+    <tr>
+      <td><strong>🇪🇺 ยุโรป (เฉลี่ย)</strong></td>
+      <td>~1.5</td>
+      <td><div class="gauge"><div class="fill" style="width:71%; background:#f39c12;">ต่ำกว่าเส้น</div></div></td>
+    </tr>
+    <tr>
+      <td><strong>🇺🇸 สหรัฐอเมริกา</strong></td>
+      <td>~1.7</td>
+      <td><div class="gauge"><div class="fill" style="width:81%; background:#f39c12;">ต่ำกว่าเส้น</div></div></td>
+    </tr>
+    <tr>
+      <td><strong>เส้นทดแทน</strong></td>
+      <td>2.1</td>
+      <td><div class="gauge"><div class="fill" style="width:100%; background:#27ae60;">พอดี</div></div></td>
+    </tr>
+  </table>
+</div>
+
+<div class="fact">
+  <strong>ญี่ปุ่นเป็นตัวอย่างล่วงหน้า:</strong> ประชากรญี่ปุ่นลดลงตั้งแต่ปี <strong>2010</strong> — คนตายมากกว่าคนเกิดทุกปี ระบบเศรษฐกิจชะลอตัว คนหนุ่มสาวแบกรับภาระดูแลผู้สูงอายุมากขึ้นเรื่อยๆ
+</div>
+
+<!-- ==================== SECTION 3: RETIREMENT ==================== -->
+<h2 id="retire">🏦 3. ปัญหาการเกษียณ — ถ้าอายุ 120 เกษียณเมื่อไหร่?</h2>
+
+<div class="diagram">
+  <h4>สัดส่วนชีวิต: ทำงาน vs เกษียณ</h4>
+  <div style="display:flex; gap:20px; justify-content:center; flex-wrap:wrap; margin:16px 0;">
+    <div style="text-align:center;">
+      <div style="width:200px; height:30px; background: linear-gradient(to right, #3498db 65%, #e67e22 35%); border-radius:6px;"></div>
+      <div style="font-size:0.85em; color:#555; margin-top:6px;"><strong>ปัจจุบัน (อายุ 80)</strong><br>ทำงาน ~45 ปี | เกษียณ ~15-20 ปี</div>
+    </div>
+    <div style="text-align:center;">
+      <div style="width:200px; height:30px; background: linear-gradient(to right, #3498db 38%, #e67e22 62%); border-radius:6px;"></div>
+      <div style="font-size:0.85em; color:#555; margin-top:6px;"><strong>ถ้าอายุ 120 (เกษียณ 65)</strong><br>ทำงาน ~45 ปี | เกษียณ ~55 ปี ❌</div>
+    </div>
+    <div style="text-align:center;">
+      <div style="width:200px; height:30px; background: linear-gradient(to right, #3498db 67%, #27ae60 33%); border-radius:6px;"></div>
+      <div style="font-size:0.85em; color:#555; margin-top:6px;"><strong>ถ้าอายุ 120 (เกษียณ 90)</strong><br>ทำงาน ~70 ปี | เกษียณ ~30 ปี ✅</div>
+    </div>
+  </div>
+  <div style="font-size:0.85em; margin-top:8px;">
+    <span style="display:inline-block; width:14px; height:14px; background:#3498db; border-radius:3px; vertical-align:middle;"></span> ช่วงทำงาน &nbsp;
+    <span style="display:inline-block; width:14px; height:14px; background:#e67e22; border-radius:3px; vertical-align:middle;"></span> เกษียณ (ไม่ยั่งยืน) &nbsp;
+    <span style="display:inline-block; width:14px; height:14px; background:#27ae60; border-radius:3px; vertical-align:middle;"></span> เกษียณ (ยั่งยืน)
+  </div>
+</div>
+
+<div class="person-card">
+  <div class="emoji">🏛️</div>
+  <div class="info">
+    <h4>พอล รูท โวลปี (Paul Root Wolpe)</h4>
+    <p>ผู้อำนวยการศูนย์จริยธรรม มหาวิทยาลัยเอมอรี เสนอว่าเราต้อง <strong>คิดระบบการทำงานและเกษียณใหม่ทั้งหมด</strong> หากมนุษย์มีอายุยืนขึ้นมาก — ระบบปัจจุบันออกแบบสำหรับอายุ 65-70 ไม่ใช่ 120</p>
+  </div>
+</div>
+
+<div class="warning">ถ้าอายุเฉลี่ยเพิ่มเป็น 100+ ปี แต่เกษียณยังอยู่ที่ 60-65 — คนจะเกษียณนานกว่าทำงาน ระบบสวัสดิการจะพังทลายทันที</div>
+
+<!-- ==================== SECTION 4: CREATIVITY ==================== -->
+<h2 id="creative">🧠 4. ความคิดสร้างสรรค์กับอายุ — สมองแก่ยังสร้างสรรค์ได้ไหม?</h2>
+
+<div class="quote-box">
+  <div class="quote">"นักคณิตศาสตร์ทุกคนไม่ควรมีชีวิตอยู่หลังอายุ 60"</div>
+  <div class="author">— G.H. Hardy, <em>A Mathematician's Apology</em> (1940)</div>
+</div>
+
+<h3>ผลงานสำคัญ — อายุเท่าไหร่ตอนทำ?</h3>
+<div class="grid-2">
+  <div class="grid-item" style="border-left-color: #27ae60;">
+    <strong>🔬 วิทยาศาสตร์ & คณิตศาสตร์</strong><br><br>
+    <strong>Andrew Wiles</strong> — พิสูจน์ Fermat's Last Theorem อายุ <strong>40</strong><br>
+    <strong>Einstein</strong> — Special Relativity อายุ <strong>26</strong><br>
+    <strong>Darwin</strong> — Origin of Species อายุ <strong>50</strong><br>
+    <strong>Karl Sharpless</strong> — Nobel ครั้งที่ 2 อายุ <strong>81</strong> ✨
+  </div>
+  <div class="grid-item" style="border-left-color: #e67e22;">
+    <strong>📚 วรรณกรรม</strong><br><br>
+    <strong>Tolstoy</strong> — War and Peace อายุ <strong>~37</strong><br>
+    <strong>Austen</strong> — Pride and Prejudice อายุ <strong>~21</strong><br>
+    <strong>Joyce</strong> — Ulysses อายุ <strong>~40</strong><br>
+    <strong>Margaret Atwood</strong> — The Testaments อายุ <strong>80</strong> ✨
+  </div>
+</div>
+
+<h3>สมองเมื่ออายุมากขึ้น — อะไรดีขึ้น อะไรแย่ลง</h3>
+<div class="versus">
+  <div class="side good">
+    <h4>✅ ดีขึ้นตามอายุ</h4>
+    <p><strong>Wisdom</strong> — มองภาพรวมได้ดี ตัดสินใจรอบคอบ</p>
+    <p><strong>Pattern Recognition</strong> — เห็นแบบแผนจากประสบการณ์</p>
+    <p><strong>ความอดทน วินัย</strong> — ทำงานยาวนานได้</p>
+    <p><strong>เครือข่ายความรู้</strong> — เชื่อมโยงข้ามศาสตร์ได้</p>
+  </div>
+  <div class="side bad">
+    <h4>❌ แย่ลงตามอายุ</h4>
+    <p><strong>Processing Speed</strong> — คิดช้าลง</p>
+    <p><strong>Working Memory</strong> — ความจำระยะสั้นลดลง</p>
+    <p><strong>Novel Thinking</strong> — คิดนอกกรอบยากขึ้น</p>
+    <p><strong>ความยืดหยุ่นทางปัญญา</strong> — ติดอยู่กับวิธีเดิมๆ</p>
+  </div>
+</div>
+
+<div class="mnemonic">สมองแก่เหมือนต้นไม้ใหญ่ — รากลึก ลำต้นแข็งแรง (ประสบการณ์ ภูมิปัญญา) แต่กิ่งใหม่งอกช้าลง (ความคิดใหม่ นวัตกรรม)</div>
+
+<!-- ==================== SECTION 5: POWER ==================== -->
+<h2 id="power">👑 5. อำนาจ อายุ และการเมือง</h2>
+
+<div class="card">
+  <h4>ผู้นำสูงอายุ — ปัญหาของโลกปัจจุบัน</h4>
+  <p>Ramakrishnan ชี้ให้เห็นว่า ในช่วงเลือกตั้งประธานาธิบดีสหรัฐฯ ปี <strong>2024</strong> ผู้สมัครหลักมีอายุ:</p>
+  <div style="text-align:center; margin:16px 0;">
+    <div class="stat-box">
+      <span class="num" style="color:#c0392b;">81</span>
+      <span class="lbl">Biden</span>
+    </div>
+    <div class="stat-box">
+      <span class="num" style="color:#e67e22;">78</span>
+      <span class="lbl">Trump</span>
+    </div>
+  </div>
+  <p>เมื่อเทียบกับยุคก่อน ผู้นำโลกอายุมากขึ้นเรื่อยๆ — และอำนาจกระจุกตัวในมือคนรุ่นเก่ามากขึ้น</p>
+</div>
+
+<h3>ปัญหา Tenure ในสถาบันการศึกษา</h3>
+<div class="card nature">
+  <p><span class="term">Tenure</span> = ตำแหน่งถาวรในมหาวิทยาลัย ให้เสรีภาพทางวิชาการ แต่สร้างปัญหา:</p>
+  <div class="flow">
+    <div class="node earth">อาจารย์อาวุโส<br>ไม่เกษียณ</div>
+    <div class="arrow">→</div>
+    <div class="node red">ตำแหน่งไม่ว่าง</div>
+    <div class="arrow">→</div>
+    <div class="node orange">นักวิจัยรุ่นใหม่<br>รอนาน 10-15 ปี</div>
+    <div class="arrow">→</div>
+    <div class="node red">ได้ tenure<br>เมื่ออายุ 40+</div>
+  </div>
+  <p style="margin-top:14px;">หลายมหาวิทยาลัยในสหรัฐฯ <strong>ยกเลิกเกษียณอายุบังคับ</strong> แล้ว ทำให้สถานการณ์แย่ลง — ผู้สูงอายุไม่ยอมลงจากตำแหน่ง ขณะที่นักวิจัยรุ่นใหม่ที่เปี่ยมพลังกลับหาที่ยืนไม่ได้</p>
+</div>
+
+<div class="analogy">สังคมที่คนแก่ครองอำนาจเหมือนป่าที่ต้นไม้ใหญ่บังแสงจนต้นกล้าใหม่ไม่มีที่โต — ต้องมี "การผลัดใบ" เพื่อให้ป่าเติบโตต่อไป</div>
+
+<!-- ==================== SECTION 6: HISTORY ==================== -->
+<h2 id="history">⏳ 6. ประวัติศาสตร์อายุขัยมนุษย์</h2>
+
+<div class="timeline">
+  <div class="timeline-item">
+    <div class="year">ก่อนประวัติศาสตร์</div>
+    อายุเฉลี่ย <strong>~30 ปี</strong> — ส่วนใหญ่ตายจากโรคติดเชื้อ สัตว์ร้าย อุบัติเหตุ
+  </div>
+  <div class="timeline-item">
+    <div class="year">ค.ศ. 1900</div>
+    อายุเฉลี่ย <strong>~40 ปี</strong> — ก่อนยุคยาปฏิชีวนะ สุขอนามัยยังไม่ดี
+  </div>
+  <div class="timeline-item">
+    <div class="year">ค.ศ. 1950</div>
+    อายุเฉลี่ย <strong>~65 ปี</strong> — ยาปฏิชีวนะ วัคซีน น้ำสะอาด ปฏิวัติการแพทย์
+  </div>
+  <div class="timeline-item">
+    <div class="year">ปัจจุบัน</div>
+    อายุเฉลี่ย <strong>~80+ ปี</strong> (ประเทศพัฒนาแล้ว) — การแพทย์สมัยใหม่ โภชนาการดี
+  </div>
+  <div class="timeline-item">
+    <div class="year">2050? (คาดการณ์)</div>
+    อายุเฉลี่ย <strong>~120 ปี?</strong> — ถ้าเทคโนโลยีชะลอวัยสำเร็จ — แต่ <strong>ยังไม่แน่นอน</strong>
+  </div>
+</div>
+
+<h3>บทเรียนจาก "สงครามกับมะเร็ง" (1971)</h3>
+<div class="card">
+  <p>ปี <strong>1971</strong> ประธานาธิบดี <strong>Nixon</strong> ประกาศ "สงครามกับมะเร็ง" สัญญาว่าจะเอาชนะมะเร็งได้เร็วๆ</p>
+  <p>กว่า <strong>50 ปีผ่านไป</strong> — มะเร็งยังเป็นปัญหาใหญ่ แม้จะมีความก้าวหน้ามหาศาล แต่ก็ยังไม่ "ชนะ" ได้สมบูรณ์</p>
+  <p style="font-weight:600; color:var(--accent);">บทเรียน: ความซับซ้อนของชีววิทยามักถูกประเมินต่ำเกินไป — อุตสาหกรรมชะลอวัยอาจเผชิญชะตากรรมเดียวกัน</p>
+</div>
+
+<div class="quote-box">
+  <div class="quote">"เรามักประเมินผลกระทบของเทคโนโลยีสูงเกินไปในระยะสั้น<br>และประเมินต่ำเกินไปในระยะยาว"</div>
+  <div class="author">— Roy Amara (กฎของอามารา)</div>
+</div>
+
+<!-- ==================== SECTION 7: ACCEPTANCE ==================== -->
+<h2 id="accept">🍃 7. ปรัชญาของการยอมรับความตาย</h2>
+
+<div class="card nature">
+  <h4>ทำไม Ramakrishnan จึงคิดว่าความตายมีคุณค่า?</h4>
+  <div class="grid-2" style="margin-top:14px;">
+    <div class="grid-item" style="border-left-color: var(--accent);">
+      <strong>🎯 ให้ความหมายแก่ชีวิต</strong><br>
+      ถ้ามีเวลาไม่จำกัด เราจะยังรู้สึกเร่งด่วนที่จะทำสิ่งสำคัญหรือไม่?
+    </div>
+    <div class="grid-item" style="border-left-color: var(--accent3);">
+      <strong>🌱 การส่งต่อรุ่น</strong><br>
+      คนรุ่นใหม่มาพร้อมความคิดใหม่ พลังงานใหม่ มุมมองใหม่
+    </div>
+    <div class="grid-item" style="border-left-color: var(--accent4);">
+      <strong>🌍 ทรัพยากรมีจำกัด</strong><br>
+      โลกไม่สามารถรองรับคนที่ไม่ยอมตายได้ — ทรัพยากร พื้นที่ อาหาร
+    </div>
+    <div class="grid-item" style="border-left-color: var(--accent2);">
+      <strong>🔄 ธรรมชาติของสรรพสิ่ง</strong><br>
+      ความชราเป็นส่วนหนึ่งของวัฏจักรชีวิต ไม่ใช่ "โรค" ที่ต้องรักษา
+    </div>
+  </div>
+</div>
+
+<h3>คำแนะนำที่เรียบง่ายแต่ทรงพลัง</h3>
+
+<div class="quote-box">
+  <div class="quote">"Eat food. Not too much. Mostly plants."<br>(กินอาหาร ไม่มากเกินไป ส่วนใหญ่เป็นพืช)</div>
+  <div class="author">— Michael Pollan, <em>In Defense of Food</em></div>
+</div>
+
+<p>Ramakrishnan เปรียบเทียบว่าคำแนะนำเรื่องอายุขัยก็ควรเรียบง่ายเช่นกัน — ก่อนจะไปถึงยาอายุวัฒนะสุดล้ำ ให้ทำสิ่งพื้นฐานให้ดีก่อน:</p>
+
+<div class="flow">
+  <div class="node green">ออกกำลังกาย<br>สม่ำเสมอ</div>
+  <div class="node dark-green">กินอาหาร<br>ที่ดี</div>
+  <div class="node" style="background:#6c3bd9;">นอนหลับ<br>เพียงพอ</div>
+  <div class="node" style="background:#e67e22;">จัดการ<br>ความเครียด</div>
+  <div class="node" style="background:#c0392b;">หลีกเลี่ยง<br>สิ่งที่ทำลาย</div>
+</div>
+
+<!-- ==================== SECTION 8: FINAL ==================== -->
+<h2 id="final">🔑 8. ข้อคิดส่งท้ายหนังสือ</h2>
+
+<div style="background: linear-gradient(135deg, #e8f5e9, #e3f2fd); padding: 28px; border-radius: 14px; margin: 24px 0; box-shadow: var(--shadow);">
+
+  <h3 style="text-align:center; color: var(--accent); margin-top:0;">5 บทเรียนจาก "Why We Die"</h3>
+
+  <div class="grid-2">
+    <div class="grid-item" style="border-left-color: #1a6b3d; border-top: none;">
+      <strong>1. Healthspan > Lifespan</strong><br>
+      สุขภาพดียาวนานสำคัญกว่าอายุยืน — โฟกัสที่คุณภาพชีวิต ไม่ใช่แค่จำนวนปี
+    </div>
+    <div class="grid-item" style="border-left-color: #2c5f8d; border-top: none;">
+      <strong>2. อย่าหวังปาฏิหาริย์</strong><br>
+      วิทยาศาสตร์ก้าวหน้าแต่ช้ากว่าที่สื่อนำเสนอ — ระวังการอ้างสรรพคุณเกินจริง
+    </div>
+    <div class="grid-item" style="border-left-color: #27ae60; border-top: none;">
+      <strong>3. ทำสิ่งพื้นฐานให้ดี</strong><br>
+      ออกกำลัง กินดี นอนพอ จัดการเครียด — มีผลมากกว่ายาหรืออาหารเสริมราคาแพง
+    </div>
+    <div class="grid-item" style="border-left-color: #e67e22; border-top: none;">
+      <strong>4. ยอมรับธรรมชาติ</strong><br>
+      ความตายให้ความหมายแก่ชีวิต และเปิดทางให้คนรุ่นใหม่ได้สร้างโลกต่อไป
+    </div>
+  </div>
+
+  <div class="grid-item" style="border-left-color: #6c3bd9; border-top: none; margin-top:14px; max-width:600px; margin-left:auto; margin-right:auto;">
+    <strong>5. ส่งต่อโลกที่ดีกว่า</strong><br>
+    แทนที่จะพยายามมีชีวิตอมตะ ให้ใช้เวลาที่มีอย่างมีคุณค่า — สร้างสิ่งดีงามที่คงอยู่หลังจากเราจากไป
+  </div>
+</div>
+
+<!-- ==================== COMPARISON TABLE ==================== -->
+<h2>📊 ผลกระทบถ้ามนุษย์อายุยืนมาก</h2>
+
+<table>
+  <tr>
+    <th>ด้าน</th>
+    <th>ผลกระทบ</th>
+    <th>ความรุนแรง</th>
+  </tr>
+  <tr>
+    <td><strong>🏦 เศรษฐกิจ</strong></td>
+    <td>ระบบบำนาญและสวัสดิการพังทลาย</td>
+    <td><div class="gauge"><div class="fill" style="width:90%; background:#e74c3c;">สูงมาก</div></div></td>
+  </tr>
+  <tr>
+    <td><strong>🌍 สิ่งแวดล้อม</strong></td>
+    <td>ทรัพยากรไม่เพียงพอ ประชากรล้นโลก</td>
+    <td><div class="gauge"><div class="fill" style="width:85%; background:#e74c3c;">สูงมาก</div></div></td>
+  </tr>
+  <tr>
+    <td><strong>👑 การเมือง</strong></td>
+    <td>คนรุ่นเก่าครองอำนาจ ขัดขวางการเปลี่ยนแปลง</td>
+    <td><div class="gauge"><div class="fill" style="width:75%; background:#e67e22;">สูง</div></div></td>
+  </tr>
+  <tr>
+    <td><strong>🧠 ความคิดสร้างสรรค์</strong></td>
+    <td>สังคมซบเซา นวัตกรรมชะลอตัว</td>
+    <td><div class="gauge"><div class="fill" style="width:65%; background:#e67e22;">สูง</div></div></td>
+  </tr>
+  <tr>
+    <td><strong>💰 ความเท่าเทียม</strong></td>
+    <td>เข้าถึงได้เฉพาะคนรวย ช่องว่างรวย-จนถ่างขึ้น</td>
+    <td><div class="gauge"><div class="fill" style="width:80%; background:#e74c3c;">สูงมาก</div></div></td>
+  </tr>
+  <tr>
+    <td><strong>🎓 การศึกษา/งาน</strong></td>
+    <td>คนแก่ไม่เกษียณ คนรุ่นใหม่หาที่ยืนไม่ได้</td>
+    <td><div class="gauge"><div class="fill" style="width:70%; background:#e67e22;">สูง</div></div></td>
+  </tr>
+</table>
+
+<!-- ==================== DICTIONARY ==================== -->
+<h2 id="dict">📖 พจนานุกรมศัพท์สำคัญ</h2>
+
+<table>
+  <tr><th>ศัพท์</th><th>ภาษาอังกฤษ</th><th>ความหมาย</th></tr>
+  <tr><td><strong>อัตราเจริญพันธุ์</strong></td><td>Fertility Rate</td><td>จำนวนบุตรเฉลี่ยต่อผู้หญิงหนึ่งคน</td></tr>
+  <tr><td><strong>อัตราทดแทนประชากร</strong></td><td>Replacement Rate (2.1)</td><td>อัตราเจริญพันธุ์ขั้นต่ำที่ทำให้ประชากรไม่ลดลง</td></tr>
+  <tr><td><strong>Healthspan</strong></td><td>เฮลท์สแปน</td><td>ช่วงเวลาที่มีสุขภาพดี (ไม่ใช่แค่ "มีชีวิตอยู่")</td></tr>
+  <tr><td><strong>Lifespan</strong></td><td>ไลฟ์สแปน</td><td>อายุขัยทั้งหมด</td></tr>
+  <tr><td><strong>Compression of Morbidity</strong></td><td>การบีบอัดความเจ็บป่วย</td><td>ลดช่วงเจ็บป่วยปลายชีวิตให้สั้นที่สุด</td></tr>
+  <tr><td><strong>Tenure</strong></td><td>เทนเนอร์</td><td>ตำแหน่งถาวรในสถาบันการศึกษา</td></tr>
+  <tr><td><strong>Demographic Transition</strong></td><td>การเปลี่ยนผ่านทางประชากร</td><td>อัตราเกิด-ตายสูง → อัตราเกิด-ตายต่ำ</td></tr>
+  <tr><td><strong>Population Pyramid</strong></td><td>ปิรามิดประชากร</td><td>แผนภูมิโครงสร้างอายุ-เพศของประชากร</td></tr>
+  <tr><td><strong>Amara's Law</strong></td><td>กฎของอามารา</td><td>ประเมินเทคโนโลยีสูงเกินระยะสั้น ต่ำเกินระยะยาว</td></tr>
+  <tr><td><strong>Intergenerational Equity</strong></td><td>ความเท่าเทียมระหว่างรุ่น</td><td>ความยุติธรรมในการแบ่งทรัพยากรระหว่างรุ่น</td></tr>
+  <tr><td><strong>Cognitive Decline</strong></td><td>ความเสื่อมทางปัญญา</td><td>สมรรถภาพสมองลดลงตามอายุ</td></tr>
+  <tr><td><strong>Pattern Recognition</strong></td><td>การจดจำรูปแบบ</td><td>ความสามารถเห็นแบบแผนจากประสบการณ์</td></tr>
+  <tr><td><strong>Novel Thinking</strong></td><td>การคิดแบบใหม่</td><td>ความสามารถคิดนอกกรอบ มักลดลงตามอายุ</td></tr>
+  <tr><td><strong>War on Cancer</strong></td><td>สงครามกับมะเร็ง</td><td>โครงการ Nixon ปี 1971 ที่สัญญาเอาชนะมะเร็ง</td></tr>
+</table>
+
+<!-- ==================== QUIZ ==================== -->
+<h2 id="quiz">❓ คำถามทบทวน</h2>
+
+<details class="quiz">
+  <summary>1. ทำไมวิกฤตประชากรสูงอายุจึงเป็นปัญหาสำคัญ?</summary>
+  <p>ประชากรวัยทำงานลดลง → รายได้ภาษีลดลง → สวัสดิการและบำนาญรับภาระไม่ไหว ค่าดูแลสุขภาพเพิ่มขึ้นมหาศาล ขณะที่อัตราเจริญพันธุ์ต่ำกว่าเส้นทดแทน (2.1) ในเกือบทุกประเทศพัฒนาแล้ว</p>
+</details>
+
+<details class="quiz">
+  <summary>2. ทำไม Ramakrishnan จึงคิดว่าการมีอายุยืนมากอาจไม่ดีต่อสังคม?</summary>
+  <p>เพราะจะนำไปสู่ปัญหาหลายด้าน: ผู้นำสูงอายุครองอำนาจ ระบบเศรษฐกิจไม่ยั่งยืน ทรัพยากรไม่พอ คนรุ่นใหม่ไม่มีโอกาส ความคิดสร้างสรรค์ของสังคมอาจลดลง และความไม่เท่าเทียมจะถ่างขึ้นเพราะเทคโนโลยีชะลอวัยเข้าถึงได้เฉพาะคนรวย</p>
+</details>
+
+<details class="quiz">
+  <summary>3. ความคิดสร้างสรรค์เปลี่ยนไปอย่างไรเมื่ออายุมากขึ้น?</summary>
+  <p>ความเร็วในการคิดและความยืดหยุ่นทางปัญญาลดลง แต่ประสบการณ์ wisdom และ pattern recognition ดีขึ้น ผลงานใหญ่มักเกิดก่อนอายุ 50 แต่มีข้อยกเว้น เช่น Karl Sharpless ได้โนเบลครั้งที่ 2 อายุ 81 และ Margaret Atwood เขียน The Testaments อายุ 80+</p>
+</details>
+
+<details class="quiz">
+  <summary>4. กฎของอามารา (Amara's Law) ใช้กับวิทยาศาสตร์ชะลอวัยอย่างไร?</summary>
+  <p>"ประเมินสูงเกินระยะสั้น ต่ำเกินระยะยาว" — เราอาจผิดหวังกับความก้าวหน้าในอีก 10-20 ปี แต่สิ่งที่เกิดขึ้นในอีก 50-100 ปีอาจเกินจินตนาการ เหมือน "สงครามกับมะเร็ง" ที่ Nixon สัญญาไว้ปี 1971 กว่า 50 ปียังไม่ชนะ แต่ความก้าวหน้ามหาศาล</p>
+</details>
+
+<details class="quiz">
+  <summary>5. Ramakrishnan สรุปท้ายหนังสืออย่างไร?</summary>
+  <p>ยอมรับความตายเป็นส่วนหนึ่งของชีวิต โฟกัสที่ <strong>healthspan</strong> มากกว่า lifespan ทำสิ่งพื้นฐานให้ดี (ออกกำลัง กิน นอน จัดการเครียด) มีผลมากกว่ายาอายุวัฒนะ และส่งต่อโลกที่ดีกว่าให้คนรุ่นใหม่ — แทนที่จะพยายามอยู่ค้ำฟ้า</p>
+</details>
+
+<details class="quiz">
+  <summary>6. ถ้าสรุปทั้งเล่มเป็นประโยคเดียว มันคืออะไร?</summary>
+  <p><strong>ความตายเป็นราคาที่เราจ่ายเพื่อให้ชีวิตมีความหมาย</strong> — วิทยาศาสตร์สามารถช่วยให้เรามีชีวิตที่มีคุณภาพดียาวนานขึ้น แต่การพยายามเอาชนะความตายโดยสิ้นเชิงอาจสร้างปัญหามากกว่าที่แก้ไข สิ่งที่ดีที่สุดคือ <strong>สุขภาพดียาวนาน จากไปอย่างสงบ และส่งต่อโลกที่ดีกว่าให้คนรุ่นต่อไป</strong></p>
+</details>
+
+<div style="text-align:center; margin-top:60px; padding:30px; background: linear-gradient(135deg, #e8f5e9, #c8e6c9); border-radius: 14px;">
+  <p style="font-size:1.5em; font-weight:600; color: var(--accent);">🍃 จบหนังสือ Why We Die</p>
+  <p style="font-size:1.15em; max-width:700px; margin:auto; color: var(--earth);">
+    "อย่าพยายามอยู่ค้ำฟ้า<br>
+    จงมีชีวิตที่ดีในเวลาที่มี<br>
+    แล้วส่งต่อโลกที่ดีกว่าให้คนรุ่นต่อไป"<br><br>
+    — แก่นสารของ Why We Die, Venki Ramakrishnan
+  </p>
+</div>
+
+</body>
+</html>

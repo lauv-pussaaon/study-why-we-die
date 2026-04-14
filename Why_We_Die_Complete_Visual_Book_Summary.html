@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why We Die — สรุปหนังสือแบบภาพ (12 บทเต็ม + 1,000-Year Protocol)</title>
+<style>
+  :root{
+    --bg:#0f1221; --bg2:#151a33; --ink:#e9ecff; --muted:#a9b0d6;
+    --accent:#7c9cff; --accent2:#ff8bd1; --gold:#ffcf6b; --green:#6bf0b5; --red:#ff6f8a;
+    --card:#1b2048; --chip:#2a2f5c; --line:#2b3067;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:
+    radial-gradient(1200px 600px at 10% -10%, #1b2261 0%, transparent 60%),
+    radial-gradient(1000px 500px at 110% 10%, #3b1f55 0%, transparent 60%),
+    linear-gradient(180deg,#0b0e1e 0%, #0f1221 40%, #0b0e1e 100%);
+    color:var(--ink); font-family:'Sarabun','Noto Sans Thai','Segoe UI',Arial,sans-serif;
+    line-height:1.75; letter-spacing:.1px;}
+  a{color:var(--accent); text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:1100px; margin:0 auto; padding:48px 24px}
+  /* HERO */
+  .hero{
+    border-radius:24px; padding:48px 40px; margin-bottom:40px;
+    background: linear-gradient(135deg,#1a1f4a 0%, #3a1c55 60%, #1a1f4a 100%);
+    border:1px solid var(--line);
+    box-shadow:0 30px 80px rgba(0,0,0,.35);
+  }
+  .hero h1{font-size:44px; margin:0 0 10px; line-height:1.15; letter-spacing:-.5px}
+  .hero h1 span{background:linear-gradient(90deg,#9ab8ff,#ff8bd1,#ffcf6b);-webkit-background-clip:text; background-clip:text; color:transparent}
+  .hero p{color:var(--muted); font-size:17px; max-width:820px}
+  .hero .meta{display:flex; gap:10px; flex-wrap:wrap; margin-top:18px}
+  .chip{background:var(--chip); color:var(--ink); padding:6px 12px; border-radius:999px; font-size:13px; border:1px solid var(--line)}
+  .hero .cta{display:flex; gap:12px; margin-top:22px; flex-wrap:wrap}
+  .btn{display:inline-block; padding:10px 16px; background:#2a2f5c; border:1px solid var(--line); border-radius:10px; color:var(--ink); font-size:14px}
+  .btn.primary{background:linear-gradient(90deg,#3a52c9,#6b3fb5); border:none}
+  /* TOC */
+  .toc{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:14px; margin:20px 0 48px}
+  .toc a{background:var(--card); border:1px solid var(--line); padding:16px; border-radius:14px; display:block; transition:transform .15s}
+  .toc a:hover{transform:translateY(-2px); text-decoration:none; border-color:#5a63bf}
+  .toc .n{font-size:12px; color:var(--muted); letter-spacing:1.2px}
+  .toc .t{font-size:16px; font-weight:600; margin-top:4px}
+  .toc .s{font-size:12.5px; color:var(--muted); margin-top:4px}
+  /* Chapter blocks */
+  .ch{background:linear-gradient(180deg,#171c3d 0%, #141938 100%); border:1px solid var(--line); border-radius:20px; padding:32px; margin:28px 0;
+    box-shadow:0 20px 50px rgba(0,0,0,.35)}
+  .ch .tag{display:inline-block; padding:4px 10px; border-radius:999px; background:var(--chip); color:var(--gold); font-size:12px; letter-spacing:1.5px}
+  .ch h2{font-size:28px; margin:10px 0 6px; line-height:1.25}
+  .ch h3{font-size:20px; margin:24px 0 8px; color:#cfd8ff}
+  .ch h4{font-size:16px; margin:16px 0 6px; color:#ffe0aa}
+  .sub{color:var(--muted); margin:0 0 12px}
+  .takeaway{background:linear-gradient(90deg,#2a1f55,#1e2a5a); border-left:4px solid var(--accent2); padding:14px 16px; border-radius:10px; margin:16px 0; font-size:15.5px}
+  .hl{background:rgba(255,207,107,.12); padding:1px 6px; border-radius:4px; color:#ffe6ae}
+  .callout{background:#1f244d; border:1px solid var(--line); border-left:4px solid var(--accent); padding:14px 16px; border-radius:10px; margin:12px 0}
+  .callout.warn{border-left-color:var(--red)}
+  .callout.ok{border-left-color:var(--green)}
+  .callout.gold{border-left-color:var(--gold)}
+  .grid{display:grid; gap:14px}
+  .grid.c2{grid-template-columns:1fr 1fr}
+  .grid.c3{grid-template-columns:repeat(3,1fr)}
+  .grid.c4{grid-template-columns:repeat(4,1fr)}
+  @media (max-width:780px){.grid.c2,.grid.c3,.grid.c4{grid-template-columns:1fr}}
+  .card{background:#1b2048; border:1px solid var(--line); border-radius:14px; padding:16px}
+  .card h5{margin:0 0 6px; color:#ffe6ae; font-size:15px}
+  .pill{display:inline-block; background:#2a2f5c; color:#cfd8ff; padding:3px 9px; border-radius:8px; font-size:12px; margin:2px 4px 0 0}
+  table{width:100%; border-collapse:collapse; margin:12px 0; font-size:14.5px; background:#161b3a; border-radius:10px; overflow:hidden}
+  th,td{padding:10px 12px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top}
+  th{background:#22285a; color:#ffcf6b; font-weight:600}
+  tr:last-child td{border-bottom:none}
+  ul,ol{padding-left:22px}
+  li{margin:4px 0}
+  /* SVG containers */
+  .fig{background:#0f1333; border:1px solid var(--line); border-radius:14px; padding:16px; margin:14px 0; text-align:center}
+  .fig svg{max-width:100%; height:auto}
+  .caption{font-size:13px; color:var(--muted); margin-top:6px}
+  /* Numbers */
+  .bignum{font-size:42px; font-weight:800; background:linear-gradient(90deg,#9ab8ff,#ffcf6b);-webkit-background-clip:text; background-clip:text; color:transparent; line-height:1}
+  /* Timeline */
+  .tl{position:relative; padding-left:24px; border-left:2px solid #3a3f78; margin:14px 0}
+  .tl .it{margin:10px 0; position:relative}
+  .tl .it::before{content:''; width:10px; height:10px; background:var(--accent2); border-radius:50%; position:absolute; left:-30px; top:8px}
+  .tl .it strong{color:#ffe0aa}
+  /* Protocol */
+  .proto{background:linear-gradient(135deg,#0f1f3a,#1a1f4a 50%,#3a1c55); padding:40px; border-radius:24px; border:1px solid var(--line); margin-top:40px}
+  .proto h2{font-size:34px; margin:0 0 10px}
+  .proto h2 span{background:linear-gradient(90deg,#6bf0b5,#ffcf6b,#ff8bd1);-webkit-background-clip:text; background-clip:text; color:transparent}
+  .pillar{background:#161b3a; border:1px solid var(--line); border-radius:16px; padding:18px; margin:10px 0}
+  .pillar h4{margin:0 0 8px; color:#ffd36b}
+  .pillar .mech{font-size:13px; color:var(--muted); font-style:italic}
+  .checkday{display:grid; grid-template-columns:120px 1fr; gap:10px; margin:6px 0}
+  .checkday .d{font-weight:700; color:#9ab8ff}
+  footer{text-align:center; color:var(--muted); font-size:13px; padding:30px 10px 10px}
+  hr.sep{border:none; border-top:1px dashed var(--line); margin:30px 0}
+  .kbd{background:#22285a; padding:2px 7px; border-radius:6px; font-size:13px; color:#ffe0aa; border:1px solid var(--line)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- ============= HERO ============= -->
+<section class="hero">
+  <div class="chip">📚 Book Summary — Visual Edition</div>
+  <h1 style="margin-top:12px">WHY WE DIE<br><span>— ทำไมเราตาย ·  ทำไมเราแก่ · และเราจะอยู่ได้นานแค่ไหน</span></h1>
+  <p>โดย <strong>Venki Ramakrishnan</strong> (โนเบลสาขาเคมี 2009) — สรุป 12 บทเต็มแบบภาพประกอบ ครอบคลุมทุกกลไกของความชราในระดับโมเลกุล เซลล์ และร่างกาย พร้อม <strong>1,000-Year Protocol</strong> คำแนะนำเชิงปฏิบัติเพื่อใช้วิทยาศาสตร์ชะลอวัยในชีวิตประจำวัน</p>
+  <div class="meta">
+    <span class="chip">⏱️ อ่าน ~60 นาที</span>
+    <span class="chip">🧬 12 บท</span>
+    <span class="chip">🔬 ทุกกลไกหลัก</span>
+    <span class="chip">💊 โปรโตคอลลงมือทำ</span>
+    <span class="chip">📖 คลังศัพท์รวม</span>
+  </div>
+</section>
+
+<!-- ============= TOC ============= -->
+<h2 style="font-size:22px; letter-spacing:1px; color:#cfd8ff; margin-bottom:10px">สารบัญ (Contents)</h2>
+<nav class="toc">
+  <a href="#ch1"><div class="n">CHAPTER 01</div><div class="t">ยีนอมตะ & ร่างกายใช้แล้วทิ้ง</div><div class="s">ทำไมเราถึงแก่ & ดาร์วินบอกอะไร</div></a>
+  <a href="#ch2"><div class="n">CHAPTER 02</div><div class="t">โตไว ตายเร็ว</div><div class="s">ขนาดตัว, หัวใจเต้น 1,500 ล้านครั้ง</div></a>
+  <a href="#ch3"><div class="n">CHAPTER 03</div><div class="t">ตัวควบคุมหลักถูกทำลาย</div><div class="s">DNA damage & ซ่อม, p53, ช้าง</div></a>
+  <a href="#ch4"><div class="n">CHAPTER 04</div><div class="t">ปัญหากับส่วนปลาย</div><div class="s">Telomere, Hayflick Limit, Telomerase</div></a>
+  <a href="#ch5"><div class="n">CHAPTER 05</div><div class="t">ตั้งนาฬิกาชีวภาพใหม่</div><div class="s">Epigenetics, Yamanaka, Horvath Clock</div></a>
+  <a href="#ch6"><div class="n">CHAPTER 06</div><div class="t">รีไซเคิลขยะ</div><div class="s">Proteasome, Autophagy, Alzheimer</div></a>
+  <a href="#ch7"><div class="n">CHAPTER 07</div><div class="t">ยิ่งน้อยยิ่งดี</div><div class="s">Caloric Restriction, TOR, Rapamycin</div></a>
+  <a href="#ch8"><div class="n">CHAPTER 08</div><div class="t">บทเรียนจากหนอนตัวน้อย</div><div class="s">C. elegans, IGF-1, Sirtuins, NAD</div></a>
+  <a href="#ch9"><div class="n">CHAPTER 09</div><div class="t">ผู้โดยสารลับในตัวเรา</div><div class="s">Mitochondria, ROS, Mitophagy</div></a>
+  <a href="#ch10"><div class="n">CHAPTER 10</div><div class="t">ความเจ็บปวด & เลือดแวมไพร์</div><div class="s">Stem cells, Parabiosis, iPS</div></a>
+  <a href="#ch11"><div class="n">CHAPTER 11</div><div class="t">คนเพี้ยนหรือผู้มาก่อนกาล</div><div class="s">Cryonics, SENS, Metformin, LEV</div></a>
+  <a href="#ch12"><div class="n">CHAPTER 12</div><div class="t">ควรอยู่ค้ำฟ้าหรือไม่</div><div class="s">จริยธรรม, ประชากร, healthspan</div></a>
+  <a href="#protocol"><div class="n">INTEGRATION</div><div class="t">⚡ 1,000-Year Protocol</div><div class="s">นำทั้ง 12 บทมาใช้ในชีวิตจริง</div></a>
+  <a href="#glossary"><div class="n">APPENDIX</div><div class="t">📖 Glossary รวม</div><div class="s">คำศัพท์สำคัญจากทั้งเล่ม</div></a>
+</nav>
+
+<!-- ============= CHAPTER 1 ============= -->
+<section class="ch" id="ch1">
+  <span class="tag">CHAPTER 01 · GENES, IMMORTALITY & THE DISPOSABLE SOMA</span>
+  <h2>ยีนอมตะ และร่างกายที่ใช้แล้วทิ้ง</h2>
+  <p class="sub">ทำไมเราถึงแก่ — ยีนของเราอยู่ได้ตลอดกาล แต่ร่างกายของเรากลับถูกออกแบบให้ทิ้งไป</p>
+
+  <div class="takeaway">🎯 <strong>แก่นของบท:</strong> ความตายไม่ได้ถูกโปรแกรมมาให้เรา — วิวัฒนาการแค่ “ลงทุนในการซ่อมร่างกาย” พอแค่ให้สืบพันธุ์ได้สำเร็จเท่านั้น หลังจากนั้นเราก็กลายเป็น “ร่างกายใช้แล้วทิ้ง” (disposable soma) ในขณะที่ยีนของเราเดินทางต่อไปในรุ่นลูกรุ่นหลาน</div>
+
+  <h3>🏙️ 1. เปิดเรื่อง — ร่างกายคือเมืองลอนดอน</h3>
+  <p>Ramakrishnan เปรียบร่างกายมนุษย์เหมือน<strong>มหานครลอนดอน</strong>: มีเซลล์ ~30 ล้านล้านหน่วย (เหมือนประชาชน), มีระบบขนส่งเลือด (เหมือนรถไฟใต้ดิน), มีโรงงานผลิตพลังงาน (ไมโทคอนเดรีย = โรงไฟฟ้า), และระบบสื่อสาร (เส้นประสาท/ฮอร์โมน) — “เมือง” นี้ทำงานสอดประสานกันได้ 70–80 ปี ก่อนจะทรุดโทรมลง</p>
+
+  <h3>🧫 2. เซลล์ คือ หน่วยพื้นฐานของชีวิต</h3>
+  <div class="grid c3">
+    <div class="card"><h5>30 ล้านล้าน</h5><p>จำนวนเซลล์ในร่างกายมนุษย์</p></div>
+    <div class="card"><h5>330,000,000,000</h5><p>เซลล์ที่ตายและถูกสร้างใหม่ <em>ต่อวัน</em></p></div>
+    <div class="card"><h5>46 โครโมโซม</h5><p>DNA ยาวรวม ~2 เมตรในแต่ละเซลล์</p></div>
+  </div>
+
+  <h3>⚰️ 3. ความตายคืออะไร — นิยามที่ซับซ้อน</h3>
+  <p>ความตายไม่ใช่เหตุการณ์ชั่วพริบตา แต่เป็น<strong>กระบวนการ</strong>: หัวใจหยุด → เซลล์ขาดออกซิเจน → ATP หมด → เยื่อหุ้มเซลล์พัง → เซลล์ตายเป็นขั้นๆ การแพทย์สมัยใหม่จึงเปลี่ยนนิยามจาก “หัวใจหยุด” มาเป็น <strong>“สมองตาย” (brain death)</strong> เพราะสามารถยื้อหัวใจ/ปอดด้วยเครื่องได้ แต่สมองที่ขาดเลือด 4–6 นาทีคือจุดที่ย้อนกลับไม่ได้</p>
+
+  <h3>🚶‍♂️ 4. จากเซลล์เดียวสู่มนุษย์</h3>
+  <p>จาก zygote (เซลล์ผสม 1 เซลล์) → แบ่งตัว 30–40 รอบ → กลายเป็นสิ่งมีชีวิต 30 ล้านล้านเซลล์ที่ประสานงานกันอย่างน่าทึ่ง — ทั้งหมดนี้เกิดจาก <strong>ชุดคำสั่งในจีโนมเดียวกัน</strong></p>
+
+  <h3>🧠 5. กำแพงของ Weismann — เซลล์อมตะ vs เซลล์ใช้แล้วทิ้ง</h3>
+  <div class="fig">
+    <svg viewBox="0 0 700 220" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#6bf0b5"/><stop offset="1" stop-color="#9ab8ff"/></linearGradient>
+        <linearGradient id="g2" x1="0" x2="1"><stop offset="0" stop-color="#ff8bd1"/><stop offset="1" stop-color="#ff6f8a"/></linearGradient>
+      </defs>
+      <rect x="20" y="30" width="300" height="160" rx="14" fill="#0f1333" stroke="#2b3067"/>
+      <text x="170" y="60" text-anchor="middle" fill="#6bf0b5" font-size="16" font-weight="700">GERM LINE (อมตะ)</text>
+      <text x="170" y="90" text-anchor="middle" fill="#e9ecff" font-size="13">ไข่ · อสุจิ · เซลล์สืบพันธุ์</text>
+      <circle cx="170" cy="140" r="30" fill="url(#g1)"/>
+      <text x="170" y="180" text-anchor="middle" fill="#a9b0d6" font-size="12">ส่งต่อรุ่นต่อรุ่น ไม่มีวันตาย</text>
+
+      <rect x="380" y="30" width="300" height="160" rx="14" fill="#0f1333" stroke="#2b3067"/>
+      <text x="530" y="60" text-anchor="middle" fill="#ff8bd1" font-size="16" font-weight="700">SOMA (ใช้แล้วทิ้ง)</text>
+      <text x="530" y="90" text-anchor="middle" fill="#e9ecff" font-size="13">ร่างกายทั้งหมด · เนื้อเยื่อ · อวัยวะ</text>
+      <circle cx="530" cy="140" r="30" fill="url(#g2)"/>
+      <text x="530" y="180" text-anchor="middle" fill="#a9b0d6" font-size="12">แก่ ตาย และถูกทิ้ง</text>
+
+      <path d="M 325 110 Q 350 70 375 110" stroke="#7c9cff" stroke-width="2" fill="none" stroke-dasharray="5 5"/>
+      <text x="350" y="130" text-anchor="middle" fill="#a9b0d6" font-size="11">Weismann Barrier</text>
+    </svg>
+    <div class="caption">August Weismann (1880s): ข้อมูลทางพันธุกรรมไหลจาก germ line → soma ทางเดียวเท่านั้น → โซมาเป็นแค่ “พาหนะ” ของยีน</div>
+  </div>
+
+  <h3>🧬 6. ดาร์วินและการคัดเลือกโดยธรรมชาติ</h3>
+  <p>ดาร์วินเสนอว่า: สิ่งมีชีวิตที่ <strong>สืบพันธุ์ได้มากที่สุด</strong> คือ "ผู้ชนะ" ในเกมวิวัฒนาการ — ไม่ใช่สิ่งมีชีวิตที่อยู่ได้นานที่สุด ดังนั้น<strong>ธรรมชาติแทบไม่สนใจว่าคุณจะเป็นอะไรหลังสืบพันธุ์แล้ว</strong></p>
+
+  <h3>⚖️ 7. สามทฤษฎีสำคัญ — ทำไมวิวัฒนาการจึงปล่อยให้เราแก่</h3>
+  <div class="grid c3">
+    <div class="card"><h5>1. Mutation Accumulation</h5><p><em>Peter Medawar (1952)</em></p><p>ยีนที่ทำร้ายเราหลังวัยสืบพันธุ์ <strong>ไม่ถูกคัดออก</strong> เพราะไม่ส่งผลต่อการมีลูก → สะสมมากขึ้นในจีโนม</p></div>
+    <div class="card"><h5>2. Antagonistic Pleiotropy</h5><p><em>George Williams (1957)</em></p><p>ยีนที่<strong>ดีในวัยหนุ่ม แต่ร้ายในวัยชรา</strong> ถูกคัดไว้ เพราะผลดีตอนสืบพันธุ์มีน้ำหนักมากกว่า (เช่น ยีนที่ทำให้โตเร็ว → เสี่ยงมะเร็งทีหลัง)</p></div>
+    <div class="card"><h5>3. Disposable Soma</h5><p><em>Thomas Kirkwood (1977)</em></p><p>ร่างกายมี<strong>พลังงานจำกัด</strong> ต้องเลือกระหว่าง “ลงทุนซ่อม soma” vs “ลงทุนผลิตลูก” → ธรรมชาติเลือกทางที่สอง</p></div>
+  </div>
+
+  <h3>🦈 8. หลักฐานจากธรรมชาติ — ยิ่งปลอดภัย ยิ่งอายุยืน</h3>
+  <p>สัตว์ที่อยู่ในสภาพปลอดภัย (ไม่มีนักล่า) มักวิวัฒนาการให้อายุยืน เช่น <strong>ค้างคาว</strong> (บินได้ = หลบภัยได้ อายุถึง 40 ปี), <strong>นกอัลบาทรอส</strong> (60+), <strong>ฉลามกรีนแลนด์</strong> (400+), <strong>หนูตุ่นเปลือย</strong> (30 ปี — อยู่ในโพรงใต้ดิน)</p>
+
+  <h3>👵 9. สมมติฐานคุณยาย (Grandmother Hypothesis)</h3>
+  <p>ทำไมผู้หญิงมี <strong>menopause</strong> ตั้งแต่อายุ 45–50? ทฤษฎีนี้เสนอว่า: คุณยายที่ไม่ต้องเลี้ยงลูกของตัวเอง <strong>ช่วยเลี้ยงหลาน</strong> → เพิ่มอัตราการรอดของยีนตนเองในหลาน → วิวัฒนาการจึงคัดเลือกให้ผู้หญิงมีอายุยืนหลัง menopause ได้อีก 30+ ปี</p>
+
+  <div class="callout gold">💡 <strong>สรุป:</strong> ความแก่<strong>ไม่ได้ถูกโปรแกรม</strong>ไว้ในเรา — มันคือ “ผลพลอยได้” ของวิวัฒนาการที่ลงทุนไม่ทั่วถึง ดังนั้น<strong>ในทางหลักการ เรา “แก้” มันได้</strong> หากเข้าใจกลไก</div>
+</section>
+
+<!-- ============= CHAPTER 2 ============= -->
+<section class="ch" id="ch2">
+  <span class="tag">CHAPTER 02 · LIVE FAST, DIE YOUNG</span>
+  <h2>โตไว และตายเร็ว</h2>
+  <p class="sub">ทำไมหนูอยู่ 2 ปี ปลาวาฬอยู่ 200 ปี — ขนาดกาย หัวใจ และอัตราเผาผลาญ คือตัวแปรที่ซ่อนอยู่</p>
+
+  <div class="takeaway">🎯 <strong>แก่นของบท:</strong> มี<strong>ความสัมพันธ์เชิงคณิตศาสตร์</strong>ระหว่างขนาดกาย อัตราเต้นหัวใจ และอายุขัย — สัตว์เล็กเผาผลาญเร็ว, อายุสั้น; สัตว์ใหญ่เผาผลาญช้า, อายุยืน แต่ก็มี<strong>ข้อยกเว้นที่เปิดโอกาสให้เราเรียนรู้</strong></p>
+
+  <h3>🌳 1. เดินป่าที่อาร์โบเรตัม — ความหลากหลายของอายุขัย</h3>
+  <table>
+    <tr><th>สิ่งมีชีวิต</th><th>อายุเฉลี่ย</th><th>หมายเหตุ</th></tr>
+    <tr><td>แมลงวันผลไม้ (Drosophila)</td><td>~60 วัน</td><td>รุ่นใหม่ทุก 2 สัปดาห์ — โมเดลวิจัยคลาสสิก</td></tr>
+    <tr><td>หนู (Mouse)</td><td>2–3 ปี</td><td>เผาผลาญสูงมาก</td></tr>
+    <tr><td>มนุษย์</td><td>~80 ปี</td><td>อายุยืนที่สุดในบรรดาไพรเมต</td></tr>
+    <tr><td>ปลาวาฬหัวโค้ง (Bowhead)</td><td>200+ ปี</td><td>สัตว์เลี้ยงลูกด้วยนมอายุยืนที่สุด</td></tr>
+    <tr><td>ฉลามกรีนแลนด์</td><td>400+ ปี</td><td>เผาผลาญต่ำมาก น้ำเย็นลึก</td></tr>
+    <tr><td>หอย <em>Ming</em> (ocean quahog)</td><td>507 ปี</td><td>บันทึกในสัตว์ไม่มีกระดูกสันหลัง</td></tr>
+    <tr><td>ต้นสน Bristlecone</td><td>5,000 ปี</td><td>สิ่งมีชีวิตเดี่ยวที่อายุยืนที่สุดที่รู้จัก</td></tr>
+  </table>
+
+  <h3>🪼 2. แมงกะพรุนอมตะ — <em>Turritopsis dohrnii</em></h3>
+  <p>เมื่อแก่หรือเครียด มันจะ <strong>ย้อนวัฏจักรชีวิต</strong> กลับเป็นโพลิป (polyp) อีกครั้ง → แล้วเริ่มใหม่ <strong>ไม่รู้จบ</strong> → หลักฐานว่า “เวลาทางชีวภาพ” เดินถอยหลังได้จริงในธรรมชาติ (คล้ายๆ กับการ reprogram เซลล์ของ Yamanaka ในบทที่ 5)</p>
+
+  <h3>📏 3. กฎของ Kleiber — Metabolic Rate ∝ (Mass)^¾</h3>
+  <div class="fig">
+    <svg viewBox="0 0 700 260" xmlns="http://www.w3.org/2000/svg">
+      <line x1="60" y1="220" x2="680" y2="220" stroke="#3a3f78" stroke-width="2"/>
+      <line x1="60" y1="40" x2="60" y2="220" stroke="#3a3f78" stroke-width="2"/>
+      <text x="370" y="250" text-anchor="middle" fill="#a9b0d6" font-size="12">น้ำหนักตัว (log scale)</text>
+      <text x="30" y="130" text-anchor="middle" fill="#a9b0d6" font-size="12" transform="rotate(-90 30 130)">อายุขัย</text>
+      <path d="M 80 210 Q 280 140 660 50" stroke="#ffcf6b" stroke-width="3" fill="none"/>
+      <circle cx="100" cy="200" r="5" fill="#ff6f8a"/><text x="110" y="205" fill="#e9ecff" font-size="11">หนู 2 ปี</text>
+      <circle cx="260" cy="150" r="6" fill="#ff8bd1"/><text x="270" y="155" fill="#e9ecff" font-size="11">สุนัข 12 ปี</text>
+      <circle cx="420" cy="105" r="7" fill="#9ab8ff"/><text x="430" y="110" fill="#e9ecff" font-size="11">มนุษย์ 80 ปี</text>
+      <circle cx="600" cy="60" r="9" fill="#6bf0b5"/><text x="500" y="55" fill="#e9ecff" font-size="11">วาฬ 200 ปี →</text>
+    </svg>
+    <div class="caption">Max Kleiber (1932): อัตราเผาผลาญต่อมวล = M^¾ → สัตว์ใหญ่มีเซลล์ที่ "ทำงานช้ากว่า" ต่อหน่วย → สึกหรอน้อยกว่า → อายุยืนกว่า</div>
+  </div>
+
+  <h3>❤️ 4. สมมติฐานหัวใจเต้น 1.5 พันล้านครั้ง</h3>
+  <p>สัตว์เลี้ยงลูกด้วยนมส่วนใหญ่หัวใจเต้นรวม ~<strong>1,500 ล้านครั้ง</strong>ในชีวิต ไม่ว่าจะเป็นหนู (600 ครั้ง/นาที × 2 ปี) หรือช้าง (30 ครั้ง/นาที × 70 ปี) → บอกว่ามี<strong>“งบประมาณ” ทางเมตาบอลิก</strong> ที่จำกัด</p>
+  <p><strong>มนุษย์ทำลายสถิติ</strong> — หัวใจเราเต้นถึง <strong>~3,000 ล้านครั้ง</strong> (เพราะอายุยืนผิดปกติสำหรับสัตว์ขนาดนี้)</p>
+
+  <h3>🦇 5. ข้อยกเว้นสำคัญ — นก, ค้างคาว, หนูตุ่นเปลือย</h3>
+  <div class="grid c3">
+    <div class="card"><h5>🦜 นกแก้ว</h5><p>ตัวเล็ก เผาผลาญสูงสุด แต่อายุ 80+ ปี → ระบบซ่อม DNA เก่งมาก</p></div>
+    <div class="card"><h5>🦇 ค้างคาว</h5><p>ตัวเท่าหนู แต่อายุ 30–40 ปี → การบินทำให้หลบภัย + mitochondria ประสิทธิภาพสูง</p></div>
+    <div class="card"><h5>🐭 หนูตุ่นเปลือย</h5><p>ตัวเท่าหนูแต่อายุ 30 ปี <strong>ไม่เป็นมะเร็ง</strong> — มี HA (hyaluronic acid) ความหนืดสูงในเนื้อเยื่อที่หยุดการแบ่งตัวของเซลล์มะเร็ง</p></div>
+  </div>
+
+  <h3>📈 6. กฎของ Gompertz — คณิตศาสตร์แห่งความตาย</h3>
+  <p>Benjamin Gompertz (1825): <strong>ความน่าจะเป็นที่จะตายเพิ่มเป็นเลขชี้กำลัง</strong>ตามอายุ → หลัง 30 ปี ความเสี่ยงตายเพิ่ม <strong>เป็น 2 เท่าทุก 8 ปี</strong> (เช่น เสี่ยงที่ 40 ≈ 2x ของ 32, ที่ 80 ≈ 256x ของ 32)</p>
+
+  <h3>🧓 7. Negligible Senescence — สิ่งมีชีวิตที่ “ไม่แก่”</h3>
+  <p>บางสปีชีส์ไม่ปฏิบัติตามกฎ Gompertz เลย เช่น <strong>ปลาเก๋าโขด (rockfish), เต่าแกลาปากอส, ลอบสเตอร์</strong> — ความเสี่ยงตายแทบไม่เพิ่มขึ้นตามอายุ บางคนเรียก “biologically immortal”</p>
+
+  <h3>👴 8. อายุขัยมนุษย์ — จาก 30 → 80 ปี</h3>
+  <ul>
+    <li>ยุคก่อนประวัติศาสตร์: ~30 ปี (เด็กตายเยอะ)</li>
+    <li>ค.ศ. 1900: ~40 ปี</li>
+    <li>หลังยาปฏิชีวนะ + วัคซีน: ~65 ปี</li>
+    <li>ปัจจุบัน: 80+ ปีในประเทศพัฒนาแล้ว</li>
+    <li><strong>Jeanne Calment</strong> — บันทึกมนุษย์อายุยืนที่สุด <strong>122 ปี 164 วัน</strong> (ฝรั่งเศส, 1997)</li>
+  </ul>
+
+  <div class="callout warn">⚠️ <strong>เพดานชีวภาพ?</strong> หลายงานวิจัยชี้ว่ามนุษย์มี "hard ceiling" ที่ราว <strong>115–125 ปี</strong> — ยังไม่มีใครพิสูจน์ว่าทำลายได้</div>
+</section>
+
+<!-- ============= CHAPTER 3 ============= -->
+<section class="ch" id="ch3">
+  <span class="tag">CHAPTER 03 · WHEN THE MASTER CONTROLLER BREAKS</span>
+  <h2>เมื่อตัวควบคุมหลักถูกทำลาย</h2>
+  <p class="sub">DNA คือคู่มือชีวิต — แต่มันเปราะบาง และถูกทำลายทุกวินาที</p>
+
+  <div class="takeaway">🎯 <strong>แก่นของบท:</strong> ทุกเซลล์ในร่างกายถูกทำร้าย DNA ~100,000 ครั้ง/วัน เราไม่ตายเพราะมี<strong>ระบบซ่อม</strong>ที่ทรงประสิทธิภาพ — ความชราเกิดเมื่อ “ความเสียหาย” ชนะ “การซ่อม” และมะเร็งกับความแก่คือ<strong>สองด้านของเหรียญเดียวกัน</strong></p>
+
+  <h3>🏛️ ภาพเปิด: Pompeii</h3>
+  <p>เมื่อภูเขาไฟวิสุเวียสระเบิดปี ค.ศ. 79 เมืองทั้งเมืองถูกหยุดเวลาในเถ้าถ่าน — อุปมาของเซลล์ที่ DNA พังทลาย: ทุกอย่างหยุดนิ่งในพริบตาเดียว</p>
+
+  <h3>🧬 1. พื้นฐาน DNA (ATGC) → RNA → Protein</h3>
+  <div class="fig">
+    <svg viewBox="0 0 700 180" xmlns="http://www.w3.org/2000/svg">
+      <rect x="30" y="50" width="160" height="80" rx="12" fill="#1b2048" stroke="#2b3067"/>
+      <text x="110" y="80" text-anchor="middle" fill="#9ab8ff" font-weight="700" font-size="15">DNA</text>
+      <text x="110" y="105" text-anchor="middle" fill="#e9ecff" font-size="12">A–T · G–C</text>
+      <text x="110" y="122" text-anchor="middle" fill="#a9b0d6" font-size="11">(หนังสือคู่มือ)</text>
+
+      <path d="M 195 90 L 260 90" stroke="#7c9cff" stroke-width="2" marker-end="url(#a)"/>
+      <defs><marker id="a" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#7c9cff"/></marker></defs>
+
+      <rect x="270" y="50" width="160" height="80" rx="12" fill="#1b2048" stroke="#2b3067"/>
+      <text x="350" y="80" text-anchor="middle" fill="#ff8bd1" font-weight="700" font-size="15">mRNA</text>
+      <text x="350" y="105" text-anchor="middle" fill="#e9ecff" font-size="12">codon (3 letters)</text>
+      <text x="350" y="122" text-anchor="middle" fill="#a9b0d6" font-size="11">(สำเนาที่ส่งไปใช้)</text>
+
+      <path d="M 435 90 L 500 90" stroke="#7c9cff" stroke-width="2" marker-end="url(#a)"/>
+
+      <rect x="510" y="50" width="160" height="80" rx="12" fill="#1b2048" stroke="#2b3067"/>
+      <text x="590" y="80" text-anchor="middle" fill="#6bf0b5" font-weight="700" font-size="15">PROTEIN</text>
+      <text x="590" y="105" text-anchor="middle" fill="#e9ecff" font-size="12">20 กรดอะมิโน</text>
+      <text x="590" y="122" text-anchor="middle" fill="#a9b0d6" font-size="11">(เครื่องจักรของชีวิต)</text>
+    </svg>
+  </div>
+
+  <h3>☢️ 2. ภัยที่ทำร้าย DNA</h3>
+  <div class="grid c2">
+    <div class="card"><h5>ภายนอก</h5><ul><li>UV → สร้าง thymine dimer</li><li>X-ray / รังสีไอออน → สาย DNA ขาด 2 ข้าง</li><li>สารเคมี (บุหรี่, มลพิษ, อาหาร)</li></ul></div>
+    <div class="card"><h5>ภายใน (เสื่อมเอง)</h5><ul><li>C → U (deamination) ~100,000 ครั้ง/วัน/เซลล์</li><li>ผิดพลาดตอนคัดลอก ~10,000 ครั้ง/เซลล์</li><li>ROS จาก mitochondria</li></ul></div>
+  </div>
+
+  <h3>🏆 3. นักวิทยาศาสตร์รางวัลโนเบล 2015 — ระบบซ่อม DNA</h3>
+  <table>
+    <tr><th>นักวิทยาศาสตร์</th><th>ผลงาน</th><th>จำง่ายๆ</th></tr>
+    <tr><td>Tomas Lindahl</td><td>Base excision repair (ซ่อมเบสเดี่ยว)</td><td>“DNA เสื่อมเอง”</td></tr>
+    <tr><td>Aziz Sancar</td><td>Nucleotide excision repair (ซ่อม UV)</td><td>“ตัดแล้วแปะ”</td></tr>
+    <tr><td>Paul Modrich</td><td>Mismatch repair (ตรวจคัดลอกผิด)</td><td>“ครูตรวจการบ้าน”</td></tr>
+  </table>
+
+  <h3>🧰 4. 4 ประเภทความเสียหาย & ระบบซ่อม</h3>
+  <ul>
+    <li><strong>เบสเดี่ยวผิด</strong> → Base Excision Repair</li>
+    <li><strong>Thymine dimer จาก UV</strong> → Nucleotide Excision Repair</li>
+    <li><strong>Mismatch (คัดลอกผิด)</strong> → Mismatch Repair</li>
+    <li><strong>Double-strand break (อันตรายสุด)</strong> → ใช้โครโมโซม<strong>คู่อีกข้าง</strong>เป็น template (นี่คือเหตุผลที่เราเป็น diploid)</li>
+  </ul>
+  <div class="callout warn">⚠️ ยีน <strong>BRCA1/BRCA2</strong> ซ่อม double-strand break → ถ้าเสีย ความเสี่ยงมะเร็งเต้านม/รังไข่พุ่งสูง</div>
+
+  <h3>🐘 5. p53 — ผู้พิทักษ์จีโนม & Peto’s Paradox</h3>
+  <p>โปรตีน <strong>p53</strong> คอยเฝ้าดู DNA — เจอเสียหายแล้วตัดสินใจ 3 ทาง: (1) หยุดแบ่งเซลล์ให้ซ่อม, (2) สั่ง apoptosis, (3) ผลัก senescence — <strong>มะเร็งกว่า 50% มี p53 เสีย</strong></p>
+  <div class="callout gold">🐘 <strong>Peto's Paradox:</strong> ช้างน่าจะเป็นมะเร็งบ่อยกว่าคน (เซลล์มากกว่า, อายุยืนกว่า) — แต่<strong>ไม่เป็น</strong> เพราะช้างมียีน p53 ถึง <strong>20 ชุด</strong> (คนมีแค่ 1) → ไอเดียวิจัยชะลอวัยในมนุษย์</div>
+
+  <h3>🧓 6. ซ่อม DNA ไม่ได้ = แก่เร็ว</h3>
+  <p>โรค <strong>Cockayne Syndrome</strong>: เด็กที่ยีนซ่อม DNA พัง → ผมหงอก ผิวย่น หูหนวกตั้งแต่วัยรุ่น → พิสูจน์ว่าการซ่อม DNA คือกุญแจของอายุขัย</p>
+</section>
+
+<!-- ============= CHAPTER 4 ============= -->
+<section class="ch" id="ch4">
+  <span class="tag">CHAPTER 04 · THE PROBLEM WITH THE ENDS</span>
+  <h2>ปัญหากับส่วนปลาย — เทโลเมียร์</h2>
+  <p class="sub">ปลายโครโมโซมของเราสั้นลงทุกครั้งที่เซลล์แบ่งตัว — นาฬิกานับถอยหลังของชีวิต</p>
+
+  <div class="takeaway">🎯 <strong>แก่นของบท:</strong> เซลล์มี “ฟิวส์” — telomere ที่ย่นลงเรื่อยๆ หลัง 40–60 รอบ (Hayflick limit) เซลล์จะเข้าสู่ <strong>senescence</strong> กลายเป็น “zombie cell” ที่ปล่อยสารอักเสบทำลายเนื้อเยื่อข้างเคียง → เร่งความชรา</p>
+
+  <h3>🐔 1. เซลล์อมตะของ Alexis Carrel — ตำนานที่ผิด</h3>
+  <p>Carrel (รางวัลโนเบล 1912) อ้างว่าเลี้ยงเซลล์หัวใจไก่ได้ 33 ปี → ภายหลังพบว่าเซลล์ใหม่ถูกเติมทุกครั้งที่เปลี่ยนอาหาร → <strong>คำกล่าวว่าเซลล์อมตะผิด</strong></p>
+
+  <h3>🔬 2. Hayflick Limit (1961)</h3>
+  <p><strong>Leonard Hayflick</strong> + Paul Moorhead: เซลล์มนุษย์ปกติแบ่งตัวได้เพียง <strong>40–60 รอบ</strong> แล้วหยุด — ไม่ตาย แต่เข้า senescence ทดลองเด็ด: ผสมเซลล์อายุน้อย (♀) + อายุมาก (♂) → เซลล์แก่หยุดก่อน → <strong>นาฬิกาอยู่ในเซลล์</strong></p>
+
+  <h3>🧬 3. Telomere — ปลอกปลายโครโมโซม</h3>
+  <div class="fig">
+    <svg viewBox="0 0 700 180" xmlns="http://www.w3.org/2000/svg">
+      <g>
+        <rect x="60" y="70" width="400" height="40" rx="8" fill="#3a3f78"/>
+        <rect x="60" y="70" width="60" height="40" rx="8" fill="#ffcf6b"/>
+        <rect x="400" y="70" width="60" height="40" rx="8" fill="#ffcf6b"/>
+        <text x="90" y="95" text-anchor="middle" fill="#0f1221" font-weight="700" font-size="12">TTAGGG</text>
+        <text x="430" y="95" text-anchor="middle" fill="#0f1221" font-weight="700" font-size="12">TTAGGG</text>
+        <text x="260" y="95" text-anchor="middle" fill="#e9ecff" font-size="12">ยีน (gene-coding region)</text>
+        <text x="90" y="60" text-anchor="middle" fill="#ffcf6b" font-size="11">telomere</text>
+        <text x="430" y="60" text-anchor="middle" fill="#ffcf6b" font-size="11">telomere</text>
+      </g>
+      <g transform="translate(0,80)">
+        <rect x="60" y="60" width="400" height="10" fill="#7c9cff"/>
+        <text x="260" y="85" text-anchor="middle" fill="#a9b0d6" font-size="11">แต่ละครั้งที่แบ่งตัว → telomere สั้นลงประมาณ 50–100 เบส</text>
+      </g>
+    </svg>
+    <div class="caption">TTAGGG ซ้ำกัน ~10,000 เบส ทำหน้าที่ “ปลอก” ป้องกันปลายเชือกผูกรองเท้า (aglet)</div>
+  </div>
+
+  <h3>🏆 4. รางวัลโนเบล 2009 — Blackburn, Greider, Szostak</h3>
+  <ul>
+    <li><strong>Elizabeth Blackburn</strong> — ถอดรหัสลำดับ TTAGGG ใน <em>Tetrahymena</em></li>
+    <li><strong>Jack Szostak</strong> — พิสูจน์ว่า telomere ป้องกันการย่อยสลาย</li>
+    <li><strong>Carol Greider</strong> — ค้นพบ <strong>telomerase</strong> (เอนไซม์ต่อ telomere)</li>
+  </ul>
+
+  <h3>🔑 5. Telomerase — ดาบสองคม</h3>
+  <div class="grid c2">
+    <div class="card ok"><h5 style="color:#6bf0b5">🟢 ดี</h5>Telomerase ต่อ telomere ใหม่ → เซลล์ต้นกำเนิด/เซลล์สืบพันธุ์ใช้เพื่ออยู่ได้ตลอดชีวิต</div>
+    <div class="card"><h5 style="color:#ff6f8a">🔴 ร้าย</h5>95% ของมะเร็งเปิด telomerase กลับมา → แบ่งตัวไม่หยุด = <strong>อมตะ</strong> — หากเปิดในทุกเซลล์เพื่อชะลอวัย เสี่ยงมะเร็งมหาศาล</div>
+  </div>
+
+  <h3>🧟 6. Senescent Cells = Zombie Cells</h3>
+  <p>เซลล์ที่ถึง Hayflick limit ไม่ตาย แต่ปล่อย <strong>SASP</strong> (Senescence-Associated Secretory Phenotype) = น้ำเน่าเคมีที่กระตุ้นการอักเสบ → ทำลายเซลล์ข้างเคียง → <strong>inflammaging</strong> → โรคหัวใจ, เบาหวาน, Alzheimer</p>
+  <div class="callout gold">💊 <strong>Senolytics</strong> — ยาชะลอวัยใหม่ที่ “ฆ่าเฉพาะเซลล์ผีดิบ” เช่น Dasatinib + Quercetin, Fisetin — อยู่ในการทดลองคลินิกขั้นต้น</div>
+</section>
+
+<!-- ============= CHAPTER 5 ============= -->
+<section class="ch" id="ch5">
+  <span class="tag">CHAPTER 05 · RESETTING THE BIOLOGICAL CLOCK</span>
+  <h2>ตั้งนาฬิกาชีวภาพใหม่ — Epigenetics</h2>
+  <p class="sub">DNA ของคุณไม่เปลี่ยนตลอดชีวิต แต่ "เครื่องหมายบน DNA" เปลี่ยน — และเราสามารถรีเซ็ตมันได้</p>
+
+  <div class="takeaway">🎯 <strong>แก่นของบท:</strong> เซลล์ตา ≠ เซลล์กล้ามเนื้อ แต่ DNA เหมือนกันหมด → ต่างกันเพราะ <strong>epigenetic marks</strong> (methylation, histone modification) ที่ควบคุมว่ายีนไหนเปิด-ปิด เครื่องหมายเหล่านี้เปลี่ยนตามอายุ กลายเป็น “Horvath clock” และ<strong>ยามานากะพิสูจน์ว่ารีเซ็ตได้</strong></p>
+
+  <h3>📖 1. Human Genome Project (2000)</h3>
+  <p>ถอดรหัส DNA มนุษย์ครบ 3 พันล้านเบส → พบว่ามียีนเพียง <strong>~20,000 ยีน</strong> (น้อยกว่าที่คาด) — DNA ส่วนใหญ่ไม่เข้ารหัสโปรตีน แต่เป็น <strong>สัญญาณควบคุม</strong></p>
+
+  <h3>🎭 2. Cell Differentiation & Waddington Landscape</h3>
+  <div class="fig">
+    <svg viewBox="0 0 700 220" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 50 40 Q 350 30 650 40 Q 600 220 500 220 Q 500 80 400 100 Q 300 80 300 220 Q 200 80 100 220 L 50 220 Z" fill="none" stroke="#7c9cff" stroke-width="2"/>
+      <circle cx="350" cy="35" r="14" fill="#ffcf6b"/>
+      <text x="350" y="20" text-anchor="middle" fill="#ffcf6b" font-size="12">Totipotent zygote</text>
+      <text x="100" y="205" text-anchor="middle" fill="#e9ecff" font-size="11">เซลล์ผิวหนัง</text>
+      <text x="300" y="205" text-anchor="middle" fill="#e9ecff" font-size="11">เซลล์เลือด</text>
+      <text x="500" y="205" text-anchor="middle" fill="#e9ecff" font-size="11">เซลล์ประสาท</text>
+    </svg>
+    <div class="caption">Waddington (1942): ลูกบอล (เซลล์) กลิ้งลงเขา เลือกหุบเขาที่กำหนดชะตา — แต่<strong>ย้อนกลับขึ้นเขาได้</strong></div>
+  </div>
+
+  <h3>🐸 3. Gurdon & Dolly — นิวเคลียสเซลล์แก่ยังมี DNA ครบ</h3>
+  <ul>
+    <li><strong>John Gurdon</strong> (1962): ย้ายนิวเคลียสจากเซลล์ลำไส้กบไปใส่ในไข่ → ได้กบใหม่ → DNA ของเซลล์โต<strong>ยังครบถ้วน</strong></li>
+    <li><strong>Dolly the Sheep</strong> (1996): แกะโคลนตัวแรกจากเซลล์ร่างกาย — แต่แก่เร็วผิดปกติ → รีโปรแกรมไม่สมบูรณ์</li>
+  </ul>
+
+  <h3>⭐ 4. Yamanaka Factors = OSKM (2006)</h3>
+  <p>Shinya Yamanaka พบว่าใส่ยีน 4 ตัว: <strong>Oct4 · Sox2 · Klf4 · c-Myc</strong> → เซลล์ผิวหนังแก่ๆ กลับเป็น <strong>iPS cell</strong> (induced Pluripotent Stem cell) ได้ — <strong>รางวัลโนเบล 2012</strong></p>
+  <div class="callout gold">🤯 แค่ 4 ยีน ก็สามารถ<strong>ย้อนเวลาเซลล์</strong>ให้กลายเป็นเซลล์ต้นกำเนิดได้ — เปิดประตูการแพทย์ฟื้นฟูยุคใหม่</div>
+
+  <h3>🧪 5. 3 กลไกหลักของ Epigenetics</h3>
+  <div class="grid c3">
+    <div class="card"><h5>DNA Methylation</h5>เติม -CH₃ บน C → ปิดยีน / Demethylase ถอดออก → เปิดยีน</div>
+    <div class="card"><h5>Histone Modification</h5>Acetylation → chromatin คลายตัว → เปิดยีน / Deacetylation → แน่น → ปิด</div>
+    <div class="card"><h5>Chromatin Remodeling</h5>จัดเรียง nucleosome ใหม่ให้เครื่องจักรเข้าถึง DNA ได้</div>
+  </div>
+
+  <h3>⏰ 6. Horvath Clock (2013) — วัดอายุชีวภาพได้</h3>
+  <p><strong>Steve Horvath</strong> ใช้ methylation <strong>353 ตำแหน่ง</strong> ทำนายอายุชีวภาพได้แม่นยำกว่า “ปีปฏิทิน” → วัดได้ว่าคนอายุ 50 แต่ร่างกาย “อายุ 40” หรือตรงข้าม → ใช้ทดสอบว่ายาชะลอวัยได้ผลจริงไหม</p>
+
+  <h3>🥶 7. Dutch Hunger Winter (1944–45) — Epigenetics ข้ามรุ่น</h3>
+  <p>ทารกที่คลอดจากแม่ที่อดอยากในสงคราม → มี epigenetic marks ผิดปกติ → เสี่ยง<strong>เบาหวาน, หัวใจ, อ้วน</strong>สูงขึ้นตลอดชีวิต — และส่งผลถึง<strong>รุ่นหลาน</strong>ด้วย → สิ่งที่แม่กินส่งผลถึงลูกหลาน 2 รุ่น</p>
+</section>
+
+<!-- ============= CHAPTER 6 ============= -->
+<section class="ch" id="ch6">
+  <span class="tag">CHAPTER 06 · RECYCLING THE GARBAGE</span>
+  <h2>รีไซเคิลขยะ — Proteostasis & Alzheimer</h2>
+  <p class="sub">ระบบเก็บขยะของเซลล์เสื่อมเมื่อแก่ → โปรตีนพับผิดสะสม → Alzheimer, Parkinson</p>
+
+  <div class="takeaway">🎯 <strong>แก่นของบท:</strong> โปรตีนต้องพับตัว 3 มิติให้ถูกต้องจึงจะทำงานได้ — เซลล์มีระบบเก็บขยะ 2 ระดับ: <strong>Proteasome</strong> (เครื่องบด) + <strong>Autophagy/Lysosome</strong> (เตาเผา) — ทั้งคู่เสื่อมตามอายุ ผลคือขยะโปรตีน (amyloid, tau) สะสมในสมอง</p>
+
+  <h3>🧻 1. Protein Folding — Origami ของชีวิต</h3>
+  <p>โปรตีนถูกสร้างเป็นสายยาวของกรดอะมิโน → ต้องพับเป็น 3D ที่ถูกต้อง — โปรตีนหนึ่งโมเลกุลสามารถพับเป็นได้ล้านรูปแบบ แต่ถูกต้องแค่แบบเดียว <strong>Chaperone proteins</strong> ช่วยพับ</p>
+
+  <h3>🏷️ 2. Ubiquitin-Proteasome System</h3>
+  <div class="fig">
+    <svg viewBox="0 0 700 180" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="100" cy="90" r="40" fill="#ff6f8a"/>
+      <text x="100" y="95" text-anchor="middle" fill="#0f1221" font-weight="700" font-size="12">โปรตีนเสีย</text>
+      <path d="M 145 90 L 230 90" stroke="#7c9cff" stroke-width="2" marker-end="url(#b)"/>
+      <defs><marker id="b" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#7c9cff"/></marker></defs>
+      <text x="185" y="75" text-anchor="middle" fill="#ffcf6b" font-size="11">+ Ubiquitin 🏷️</text>
+      <circle cx="275" cy="90" r="40" fill="#ff8bd1"/>
+      <circle cx="290" cy="60" r="10" fill="#ffcf6b"/>
+      <circle cx="310" cy="80" r="10" fill="#ffcf6b"/>
+      <circle cx="310" cy="110" r="10" fill="#ffcf6b"/>
+      <path d="M 325 90 L 410 90" stroke="#7c9cff" stroke-width="2" marker-end="url(#b)"/>
+      <rect x="420" y="40" width="200" height="100" rx="14" fill="#3a3f78" stroke="#7c9cff" stroke-width="2"/>
+      <text x="520" y="75" text-anchor="middle" fill="#ffcf6b" font-weight="700" font-size="14">PROTEASOME</text>
+      <text x="520" y="100" text-anchor="middle" fill="#e9ecff" font-size="12">ย่อย → amino acids</text>
+      <text x="520" y="120" text-anchor="middle" fill="#a9b0d6" font-size="11">♻️ รีไซเคิล</text>
+    </svg>
+  </div>
+
+  <h3>🍽️ 3. Autophagy — เซลล์กินตัวเอง</h3>
+  <p><strong>Christian de Duve</strong> (โนเบล 1974) ค้นพบ <strong>lysosome</strong> = “กระเพาะเซลล์” <br>
+  <strong>Yoshinori Ohsumi</strong> (โนเบล 2016) ไขรหัสยีน autophagy ในยีสต์ — เซลล์ห่อชิ้นส่วนเสียใน <strong>autophagosome</strong> แล้วนำไปรวมกับ lysosome ย่อยทิ้ง</p>
+
+  <h3>🍬 4. Glycation — น้ำตาลทำลายโปรตีน</h3>
+  <p>น้ำตาลในเลือดสูง → จับกับโปรตีนแบบไม่ควบคุม → โปรตีนเสียรูป → หลอดเลือดแข็ง, ไตเสื่อม, จอประสาทตาเสียในเบาหวาน (<strong>AGEs — Advanced Glycation End-products</strong>)</p>
+
+  <h3>⚠️ 5. UPR & ISR — ระบบเตือนภัย</h3>
+  <p>เมื่อโปรตีนพับผิดเยอะเกิน → <strong>Unfolded Protein Response</strong> สั่ง: (1) ชะลอผลิตโปรตีนใหม่, (2) เพิ่ม chaperone, (3) เร่งกำจัด — แต่ถ้าทำนานเกินไป เซลล์อดโปรตีน → <strong>ISRIB</strong> เป็นสารที่รีเซ็ต ISR → ในหนูแก่: ความจำกลับมา!</p>
+
+  <h3>🧟 6. Prion — โปรตีนติดต่อได้</h3>
+  <p><strong>Stanley Prusiner</strong> (โนเบล 1997): ค้นพบว่าโรค Creutzfeldt-Jakob, วัวบ้า, Kuru เกิดจาก<strong>โปรตีนพับผิด</strong>ที่ “ชักชวน” โปรตีนปกติให้พับผิดตาม — ติดต่อได้โดยไม่มี DNA/RNA</p>
+
+  <h3>🧩 7. Alzheimer — โรคขยะสะสม</h3>
+  <div class="grid c2">
+    <div class="card"><h5>Amyloid-β plaques</h5>โปรตีน Aβ จับกลุ่มเป็นคราบ<strong>นอกเซลล์ประสาท</strong> — ถูกตัดมาจาก APP โดย presenilin</div>
+    <div class="card"><h5>Tau tangles</h5>โปรตีน tau พับผิด → จับกลุ่มเป็นปม<strong>ในเซลล์ประสาท</strong> → ขวางการลำเลียงภายใน axon</div>
+  </div>
+  <div class="callout warn">💊 ยา Lecanemab (2023) ลดการเสื่อมสมองได้แค่ ~25% ใน 18 เดือน ราคาแพง ผลข้างเคียง (สมองบวม/เลือดออก) → Amyloid Hypothesis ยังเป็นที่ถกเถียง</div>
+</section>
+
+<!-- ============= CHAPTER 7 ============= -->
+<section class="ch" id="ch7">
+  <span class="tag">CHAPTER 07 · LESS IS MORE</span>
+  <h2>ยิ่งน้อยยิ่งดี — CR, Fasting, TOR, Rapamycin</h2>
+  <p class="sub">กินน้อยลง = อายุยืนขึ้น? กลไก TOR คือสวิตช์ควบคุม</p>
+
+  <div class="takeaway">🎯 <strong>แก่นของบท:</strong> การจำกัดแคลอรี 30–50% ยืดอายุสัตว์ทดลองได้ 20–50% — เพราะลดสัญญาณของ <strong>TOR kinase</strong> ซึ่งเป็น "สวิตช์ควบคุม" ระหว่าง (🟢 เจริญเติบโต) vs (🔴 ซ่อม+autophagy) — ราปามัยซิน (ยับยั้ง TOR) เป็นยาชะลอวัยที่มีหลักฐานแน่นที่สุด</p>
+
+  <h3>🍽️ 1. Caloric Restriction (CR)</h3>
+  <p>ตั้งแต่ปี 1917: หนูที่กินน้อยลง <strong>30–50%</strong> (แต่ได้สารอาหารครบ) อายุยืนขึ้น มะเร็ง/เบาหวาน/หัวใจลดลง → งานวิจัย NIA 25 ปี ยืนยันในลิง rhesus: เบาหวานจาก 40% → <strong>12.5%</strong></p>
+
+  <h3>⏰ 2. Intermittent Fasting (IF)</h3>
+  <ul>
+    <li><strong>16:8</strong> — กินในหน้าต่าง 8 ชม., อด 16 ชม.</li>
+    <li><strong>5:2</strong> — กินปกติ 5 วัน + จำกัด 500–600 kcal 2 วัน</li>
+    <li><strong>TRE</strong> (Time Restricted Eating) — สอดคล้องกับ circadian rhythm</li>
+  </ul>
+
+  <h3>🏝️ 3. ค้นพบ Rapamycin จากดินเกาะอีสเตอร์ (1964)</h3>
+  <p>ทีมแคนาดาเก็บดิน 67 ตัวอย่างจาก <strong>Rapa Nui</strong> → พบแบคทีเรีย <em>Streptomyces hygroscopicus</em> → <strong>Suren Sehgal</strong> เก็บตัวอย่างไว้ในตู้แช่ที่บ้านตอนบริษัทถูกปิด — FDA อนุมัติปี 1999 เป็นยากดภูมิคุ้มกันปลูกถ่ายอวัยวะ</p>
+
+  <h3>🎛️ 4. TOR — สวิตช์หลัก</h3>
+  <div class="fig">
+    <svg viewBox="0 0 700 220" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="350" cy="110" r="55" fill="#ffcf6b"/>
+      <text x="350" y="105" text-anchor="middle" fill="#0f1221" font-weight="800" font-size="20">TOR</text>
+      <text x="350" y="125" text-anchor="middle" fill="#0f1221" font-size="11">(kinase)</text>
+      <g>
+        <rect x="50" y="70" width="160" height="80" rx="14" fill="#1b2048" stroke="#6bf0b5"/>
+        <text x="130" y="100" text-anchor="middle" fill="#6bf0b5" font-weight="700" font-size="14">🥩 สารอาหารมาก</text>
+        <text x="130" y="125" text-anchor="middle" fill="#e9ecff" font-size="12">TOR ON → เจริญเติบโต</text>
+        <path d="M 215 110 L 290 110" stroke="#7c9cff" stroke-width="2" marker-end="url(#c)"/>
+      </g>
+      <defs><marker id="c" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#7c9cff"/></marker></defs>
+      <g>
+        <rect x="490" y="70" width="160" height="80" rx="14" fill="#1b2048" stroke="#ff8bd1"/>
+        <text x="570" y="100" text-anchor="middle" fill="#ff8bd1" font-weight="700" font-size="14">🍽️ อดอาหาร/Rapa</text>
+        <text x="570" y="125" text-anchor="middle" fill="#e9ecff" font-size="12">TOR OFF → Autophagy</text>
+        <path d="M 485 110 L 410 110" stroke="#7c9cff" stroke-width="2" marker-end="url(#c)"/>
+      </g>
+    </svg>
+    <div class="caption">Michael Hall (Basel) ค้นพบ TOR1/TOR2 ในยีสต์ - ต่อมาเรียก mTOR ในสัตว์เลี้ยงลูกด้วยนม</div>
+  </div>
+
+  <h3>🔬 5. หลักฐานยืดอายุจาก Rapamycin</h3>
+  <ul>
+    <li>หนอน C. elegans, แมลงวัน, ปลาม้าลาย — อายุยืนขึ้น</li>
+    <li>หนู — ได้ rapamycin ตอนอายุมากแล้วยังยืดอายุได้ 10–15%</li>
+    <li>2014: ผู้สูงอายุที่ได้ rapamycin ขนาดต่ำ → ตอบสนองต่อวัคซีนไข้หวัดดีขึ้น</li>
+    <li>สุนัขของ <strong>Matt Kaeberlein</strong> (Dog Aging Project) → สุขภาพหัวใจดีขึ้น</li>
+  </ul>
+
+  <h3>⚖️ 6. Paracelsus — "ปริมาณทำให้เป็นพิษ"</h3>
+  <div class="grid c2">
+    <div class="card warn"><h5>ขนาดสูง</h5>กดภูมิคุ้มกัน → ติดเชื้อง่าย (ใช้ในผู้ปลูกถ่าย)</div>
+    <div class="card ok"><h5>ขนาดต่ำ (pulsed)</h5>กระตุ้น autophagy, ฟื้นภูมิคุ้มกันผู้สูงอายุ → ชะลอวัย</div>
+  </div>
+</section>
+
+<!-- ============= CHAPTER 8 ============= -->
+<section class="ch" id="ch8">
+  <span class="tag">CHAPTER 08 · LESSONS FROM A LITTLE WORM</span>
+  <h2>บทเรียนจากหนอนตัวน้อย — C. elegans</h2>
+  <p class="sub">หนอนยาว 1 มม. เปลี่ยนแปลงความเข้าใจของเราเกี่ยวกับยีนควบคุมอายุทั้งหมด</p>
+
+  <div class="takeaway">🎯 <strong>แก่นของบท:</strong> ยีนเดียวสามารถเพิ่มอายุหนอนได้ 2 เท่า (daf-2) — เส้นทาง <strong>IGF-1/Insulin signaling</strong> และ <strong>Sirtuins/NAD</strong> ถูกอนุรักษ์ไว้จากยีสต์ถึงมนุษย์ → ความชราคือ<strong>กระบวนการที่ควบคุมได้</strong></p>
+
+  <h3>🐛 1. C. elegans = สัตว์ทดลองในอุดมคติ</h3>
+  <div class="grid c3">
+    <div class="card"><h5>959 เซลล์</h5>ทุกเซลล์ถูกแผนที่หมด</div>
+    <div class="card"><h5>2–3 สัปดาห์</h5>อายุสั้น → ทำการทดลองได้รวดเร็ว</div>
+    <div class="card"><h5>โปร่งใส</h5>ดูทุกกระบวนการใต้กล้อง</div>
+  </div>
+  <p><strong>Sydney Brenner</strong> (โนเบล 2002) ริเริ่มใช้ — หนอนมีสภาวะ <strong>dauer</strong> (จำศีล) ที่ยืดอายุได้หลายเท่า</p>
+
+  <h3>🧬 2. age-1 (1988) & daf-2 (1993)</h3>
+  <ul>
+    <li><strong>Tom Johnson</strong> ค้นพบ <strong>age-1</strong> → กลายพันธุ์เดียวทำให้อายุยืนขึ้น <strong>40–65%</strong></li>
+    <li><strong>Cynthia Kenyon</strong> ค้นพบ <strong>daf-2</strong> → หนอนกลายพันธุ์อายุ<strong>ยืนเป็น 2 เท่า</strong> (จาก 14 → 28 วัน)</li>
+  </ul>
+
+  <h3>🔁 3. Insulin/IGF-1 Pathway</h3>
+  <p>daf-2 เข้ารหัสตัวรับ insulin/IGF-1 — เมื่อสัญญาณลดลง → โปรตีน <strong>DAF-16</strong> (เหมือน FOXO ในคน) เข้าสู่นิวเคลียส → เปิดยีนซ่อมแซมหลายร้อยตัว — <strong>อนุรักษ์จากหนอนถึงมนุษย์</strong></p>
+
+  <div class="callout gold">🔗 <strong>TOR + IGF-1 = สองเส้นทางที่บรรจบกัน</strong> ทั้งคู่ตัดสินใจเรื่องเดียวกัน: โต vs ซ่อม → ความชราคือการ “เลือกโต” มากเกินไป</div>
+
+  <h3>🍷 4. Sirtuins & Resveratrol — ข้อถกเถียง</h3>
+  <ul>
+    <li><strong>Leonard Guarente</strong> (MIT) ค้นพบ <strong>Sir2/SIRT1</strong> = deacetylase ที่ยืดอายุยีสต์</li>
+    <li><strong>David Sinclair</strong> ผลักดัน <strong>resveratrol</strong> (สารในไวน์แดง) → กระตุ้น SIRT1</li>
+    <li>แต่ผลการทดลองไม่สอดคล้องกัน — บางงานยืนยัน, บางงานทำซ้ำไม่ได้</li>
+    <li><strong>SIRT6</strong> อาจมีศักยภาพจริงกว่า — ซ่อม DNA โดยตรง</li>
+  </ul>
+
+  <h3>💊 5. NAD, NR, NMN</h3>
+  <p><strong>NAD+</strong> เป็น coenzyme ที่ sirtuins และ metabolism ต้องใช้ — ลดลงตามอายุ → <strong>NR (nicotinamide riboside)</strong> และ <strong>NMN</strong> เป็นสารเสริมที่อ้างว่าเพิ่ม NAD+ — <strong>Charles Brenner</strong> ค้นพบ NR แต่ยังไม่มีหลักฐานยืดอายุในมนุษย์แบบเข้มงวด</p>
+</section>
+
+<!-- ============= CHAPTER 9 ============= -->
+<section class="ch" id="ch9">
+  <span class="tag">CHAPTER 09 · THE STOWAWAY INSIDE US</span>
+  <h2>ผู้โดยสารลับในตัวเรา — Mitochondria</h2>
+  <p class="sub">แบคทีเรียที่เข้ามาอาศัยในเซลล์เราเมื่อ 2,000 ล้านปีก่อน — ให้พลังงาน และฆ่าเราช้าๆ</p>
+
+  <div class="takeaway">🎯 <strong>แก่นของบท:</strong> Mitochondria เคยเป็นแบคทีเรียอิสระ (endosymbiosis theory) — เป็นโรงไฟฟ้าผลิต ATP แต่ปล่อย ROS (อนุมูลอิสระ) เป็นผลพลอยได้ ซึ่งทำลาย DNA/โปรตีน/ไขมัน → ยิ่งแก่ mitochondria ยิ่งเสื่อม → <strong>inflammaging</strong> → ความชราเต็มรูปแบบ</p>
+
+  <h3>🦠 1. Endosymbiosis — Lynn Margulis (1967)</h3>
+  <p>~2,000 ล้านปีก่อน: เซลล์ <strong>archaea</strong> กลืนแบคทีเรียที่เก่งใช้ O₂ → ไม่ย่อย → อยู่ร่วมกัน → กลายเป็น <strong>eukaryote</strong> หลักฐาน: mitochondria มี DNA วงกลมของตัวเอง, เยื่อหุ้ม 2 ชั้น, แบ่งตัวเองได้ — <strong>Margulis ถูกปฏิเสธโดยวารสาร 15 ฉบับ</strong>ก่อนจะได้ตีพิมพ์</p>
+
+  <h3>⚡ 2. ATP — สกุลเงินพลังงาน</h3>
+  <div class="fig">
+    <svg viewBox="0 0 700 220" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="350" cy="110" rx="280" ry="80" fill="none" stroke="#7c9cff" stroke-width="2"/>
+      <ellipse cx="350" cy="110" rx="240" ry="55" fill="none" stroke="#ffcf6b" stroke-width="2"/>
+      <text x="350" y="50" text-anchor="middle" fill="#ff8bd1" font-size="13" font-weight="700">เยื่อหุ้มนอก</text>
+      <text x="350" y="80" text-anchor="middle" fill="#ffcf6b" font-size="13" font-weight="700">เยื่อหุ้มใน (ETC + ATP synthase)</text>
+      <circle cx="250" cy="110" r="14" fill="#6bf0b5"/><text x="250" y="115" text-anchor="middle" fill="#0f1221" font-size="11">O₂</text>
+      <path d="M 280 110 L 380 110" stroke="#9ab8ff" stroke-width="2" marker-end="url(#d)"/>
+      <defs><marker id="d" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#9ab8ff"/></marker></defs>
+      <text x="330" y="100" text-anchor="middle" fill="#a9b0d6" font-size="10">e⁻ transport</text>
+      <circle cx="420" cy="110" r="18" fill="#ffcf6b"/><text x="420" y="115" text-anchor="middle" fill="#0f1221" font-size="11" font-weight="700">ATP</text>
+      <text x="350" y="180" text-anchor="middle" fill="#e9ecff" font-size="12">ร่างกายผลิต ATP = น้ำหนักตัวของคุณ / วัน!</text>
+    </svg>
+  </div>
+
+  <h3>🧬 3. mtDNA — เล็กแต่สำคัญ</h3>
+  <ul>
+    <li>วงกลม เข้ารหัสเพียง <strong>13 ยีน</strong> (ที่เหลือ 1,000 โปรตีนมาจากนิวเคลียส)</li>
+    <li>ไม่มี histone ปกป้อง + อยู่ใกล้แหล่ง ROS → เสียหายง่าย</li>
+    <li>สืบทอดจาก<strong>แม่ฝ่ายเดียว</strong> → เครื่องมือติดตามบรรพบุรุษหญิง (mitochondrial Eve)</li>
+  </ul>
+
+  <h3>🔥 4. Free Radicals & ROS — ทฤษฎี Denham Harman (1954)</h3>
+  <p>ไมโทคอนเดรียปล่อย ROS (O₂⁻, H₂O₂, OH·) เป็นผลพลอยได้ → ทำลาย DNA, โปรตีน, ไขมัน → เอนไซม์ป้องกัน: <strong>SOD, catalase, glutathione peroxidase</strong> — แต่ไม่สมบูรณ์ 100%</p>
+
+  <div class="callout warn">⚠️ <strong>ข้อเท็จจริงสำคัญ:</strong> meta-analysis 230,000 คน → สารต้านอนุมูลอิสระเสริม (วิต A, C, E, β-carotene) <strong>ไม่ลด</strong>อัตราตาย — บางตัว (β-carotene ในผู้สูบบุหรี่) <strong>เพิ่ม</strong>ความเสี่ยงมะเร็ง</div>
+
+  <h3>💪 5. Hormesis — พิษเล็กน้อย = ยา</h3>
+  <p>ROS เล็กน้อยจากการออกกำลังกาย → กระตุ้นระบบซ่อมแซม → ร่างกายแข็งแรงขึ้น → อธิบายว่าทำไมการออกกำลังกาย (ที่สร้าง ROS ชั่วคราว) มีประโยชน์ แม้ทฤษฎีอนุมูลอิสระบอกว่า ROS = ร้าย</p>
+
+  <h3>♻️ 6. Mitophagy & Inflammaging</h3>
+  <p>เซลล์กำจัด mitochondria เสียผ่าน <strong>mitophagy</strong> — เมื่อแก่ระบบนี้เสื่อม → mitochondria เสียสะสม → ปล่อยสัญญาณอักเสบเรื้อรัง (<strong>inflammaging</strong>) → โรคหัวใจ, เบาหวาน, Alzheimer</p>
+</section>
+
+<!-- ============= CHAPTER 10 ============= -->
+<section class="ch" id="ch10">
+  <span class="tag">CHAPTER 10 · HURTS & VAMPIRE BLOOD</span>
+  <h2>ความเจ็บปวด และเลือดแวมไพร์</h2>
+  <p class="sub">Stem cells เสื่อมเมื่ออายุมาก — เลือดหนุ่มฟื้นฟูหนูแก่ได้จริงในห้องทดลอง</p>
+
+  <div class="takeaway">🎯 <strong>แก่นของบท:</strong> <strong>เซลล์ต้นกำเนิด</strong>คือกองกำลังซ่อมบำรุงของร่างกาย แต่แก่ลงทั้ง<strong>จำนวนและคุณภาพ</strong> — <strong>Parabiosis</strong> (เชื่อมเลือดหนูหนุ่ม-แก่) แสดงว่า<strong>ปัจจัยในเลือดหนุ่ม</strong>สามารถฟื้นฟูได้ แต่ธุรกิจเลือดแวมไพร์วิ่งล้ำกว่าหลักฐาน</p>
+
+  <h3>🛠️ 1. Stem Cells — กองกำลังซ่อมบำรุง</h3>
+  <ul>
+    <li><strong>Self-renewal</strong> — สร้างสำเนาตัวเอง</li>
+    <li><strong>Differentiation</strong> — เปลี่ยนเป็นเซลล์เฉพาะทาง</li>
+    <li><strong>McCulloch &amp; Till</strong> (1960s) ค้นพบ stem cell ในไขกระดูก → พื้นฐานการปลูกถ่าย</li>
+  </ul>
+
+  <h3>📉 2. เมื่ออายุมาก — Stem Cells เสื่อมทุกมิติ</h3>
+  <ul>
+    <li>จำนวนลดลง, แบ่งตัวช้า, DNA damage สะสม</li>
+    <li><strong>Niche</strong> (บ้านของ stem cell) ก็เสื่อม → สัญญาณผิดปกติ</li>
+    <li>immunosenescence → ภูมิคุ้มกันเสื่อม → ติดเชื้อง่าย, วัคซีนไม่ได้ผล</li>
+  </ul>
+
+  <h3>🧬 3. Clonal Hematopoiesis (CH)</h3>
+  <p>ในผู้สูงอายุ 70+ ราว <strong>20–30%</strong> มี stem cell เลือดกลายพันธุ์ขยายครอบงำ → เพิ่มเสี่ยง<strong>มะเร็งเลือด + โรคหัวใจ</strong> (เซลล์กลายพันธุ์สร้างเม็ดเลือดขาวที่ทำลายหลอดเลือด)</p>
+
+  <h3>🔄 4. iPS Cells ย้อนวัย</h3>
+  <p><strong>Juan Carlos Izpisua Belmonte</strong> (Salk): ให้ OSKM factor ในหนูแบบ <strong>pulsed (เป็นจังหวะ)</strong> → ผิวหนังดีขึ้น, หัวใจแข็งแรงขึ้น, อายุยืนขึ้น 30% โดยไม่เกิด teratoma <br>
+  <strong>David Sinclair</strong>: ให้ OSK (ไม่ใส่ c-Myc) → ฟื้นฟูประสาทตาหนูตาบอดจากต้อหิน — แต่ค่า reproducibility ยังเป็นปัญหา</p>
+
+  <h3>🧛 5. Parabiosis — เลือดหนุ่ม ฟื้นฟูหนูแก่</h3>
+  <div class="fig">
+    <svg viewBox="0 0 700 200" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="180" cy="100" rx="90" ry="60" fill="#6bf0b5" opacity=".4" stroke="#6bf0b5"/>
+      <text x="180" y="95" text-anchor="middle" fill="#6bf0b5" font-weight="700" font-size="14">หนูหนุ่ม</text>
+      <text x="180" y="115" text-anchor="middle" fill="#e9ecff" font-size="11">3 เดือน</text>
+      <path d="M 270 100 L 430 100" stroke="#ffcf6b" stroke-width="6"/>
+      <text x="350" y="90" text-anchor="middle" fill="#ffcf6b" font-size="11">เชื่อมระบบเลือด</text>
+      <ellipse cx="520" cy="100" rx="90" ry="60" fill="#ff8bd1" opacity=".4" stroke="#ff8bd1"/>
+      <text x="520" y="95" text-anchor="middle" fill="#ff8bd1" font-weight="700" font-size="14">หนูแก่</text>
+      <text x="520" y="115" text-anchor="middle" fill="#e9ecff" font-size="11">20+ เดือน</text>
+      <text x="350" y="175" text-anchor="middle" fill="#a9b0d6" font-size="12">→ กล้ามเนื้อ, ตับ, สมองของหนูแก่ฟื้นฟู</text>
+    </svg>
+  </div>
+  <ul>
+    <li><strong>Irina &amp; Michael Conboy</strong> + <strong>Thomas Rando</strong> (Stanford) — กล้ามเนื้อหนูแก่ฟื้น</li>
+    <li><strong>Tony Wyss-Coray</strong> — แค่ <strong>plasma</strong> หนุ่มก็พอ → ฟื้นความจำ episodic + spatial (Nature 2017)</li>
+    <li><strong>Amy Wagers</strong> — โปรตีน <strong>GDF11</strong> อาจเป็นตัวหลัก (ยังถกเถียง)</li>
+  </ul>
+
+  <div class="callout warn">⚠️ บริษัท <strong>Ambrosia</strong> ขายบริการถ่ายพลาสมาหนุ่ม $8,000/ครั้ง → <strong>FDA ออกคำเตือน</strong>ว่าไม่มีหลักฐานความปลอดภัยและประสิทธิผลในมนุษย์</div>
+</section>
+
+<!-- ============= CHAPTER 11 ============= -->
+<section class="ch" id="ch11">
+  <span class="tag">CHAPTER 11 · CRANKS OR VISIONARIES</span>
+  <h2>คนเพี้ยน หรือ ผู้มาก่อนกาล</h2>
+  <p class="sub">จาก Cryonics ถึง Metformin — การไล่ล่าอมตะในโลกจริง</p>
+
+  <div class="takeaway">🎯 <strong>แก่นของบท:</strong> มีผู้พยายามเอาชนะความตายมากมาย ตั้งแต่แช่แข็งศพ (cryonics), อัปโหลดจิต, SENS ของ Aubrey de Grey, ยา rapamycin &amp; metformin — Ramakrishnan ชี้ว่าเป้าหมายที่สมจริงที่สุดคือ <strong>Compression of Morbidity</strong>: สุขภาพดียาว → จากไปเร็ว</p>
+
+  <h3>🧊 1. Cryonics — แช่แข็งเพื่อฟื้นในอนาคต</h3>
+  <ul>
+    <li><strong>Robert Ettinger</strong> (1976): <em>The Prospect of Immortality</em> → ตั้งสถาบัน Cryonics</li>
+    <li><strong>Alcor</strong> (Scottsdale, AZ): ~$200,000 ทั้งตัว หรือเฉพาะหัว</li>
+    <li>เทคนิค <strong>Vitrification</strong> — ทำให้เป็นแก้วแทนผลึกน้ำแข็ง แต่ยังไม่สมบูรณ์กับอวัยวะใหญ่</li>
+  </ul>
+
+  <h3>💻 2. Mind Uploading & Connectomics</h3>
+  <p>สมองมนุษย์ 86 พันล้าน neurons × หมื่นจุดเชื่อม — <strong>Albert Cardona</strong> ทำแผนที่สมองแมลงวันยังใช้เวลาหลายปี — การอัปโหลดสมองคนเป็นแผนที่เดียว<strong>ไม่ใช่เสียงดนตรี</strong></p>
+
+  <h3>🧙 3. Aubrey de Grey & SENS</h3>
+  <p><strong>Aubrey de Grey</strong> เสนอกรอบ <strong>SENS</strong> (Strategies for Engineered Negligible Senescence) — ซ่อม 7 ประเภทความเสียหาย:</p>
+  <ol>
+    <li>การสูญเสียเซลล์ (cell loss)</li>
+    <li>กำจัดเซลล์ชรา (senescent cells)</li>
+    <li>Cross-links นอกเซลล์</li>
+    <li>ขยะในเซลล์</li>
+    <li>ขยะนอกเซลล์ (amyloid)</li>
+    <li>กลายพันธุ์ในนิวเคลียส</li>
+    <li>กลายพันธุ์ใน mtDNA</li>
+  </ol>
+  <div class="callout gold">🚀 <strong>Longevity Escape Velocity (LEV):</strong> ถ้าวิทยาศาสตร์ยืดอายุได้ 1 ปีต่อการวิจัย 1 ปี → เราจะหลุดพ้นความตาย — de Grey อ้างว่าเด็กคนแรกที่จะอายุ 1,000 ปีอาจเกิดมาแล้ว</div>
+
+  <h3>💊 4. ยาชะลอวัยที่มีหลักฐานที่สุด</h3>
+  <div class="grid c2">
+    <div class="card"><h5>🏝️ Rapamycin</h5>ยับยั้ง TOR → กระตุ้น autophagy → ยืดอายุหนู 10–15% แม้เริ่มตอนแก่ ใช้ปลอดภัยในขนาดต่ำแบบ pulsed</div>
+    <div class="card"><h5>💉 Metformin</h5>ยาเบาหวาน, กระตุ้น AMPK (เลียนแบบ CR) → คนเบาหวานที่ใช้มีอัตราตายต่ำกว่าคนไม่เป็น → โครงการ <strong>TAME</strong> (2015, Nir Barzilai) = การทดลองแรกที่ถือว่า “aging” เป็นโรครักษาได้</div>
+  </div>
+
+  <h3>🕯️ 5. Compression of Morbidity</h3>
+  <p>แทนที่จะยืดอายุ ให้<strong>บีบอัดช่วงเจ็บป่วยปลายชีวิต</strong> — Oliver Wendell Holmes (1858) เขียนบทกวี <em>The Deacon's One-Hoss Shay</em>: รถม้าที่ถูกสร้างสมบูรณ์แบบ ใช้งาน 100 ปี แล้วพังทลายทั้งคันพร้อมกัน → อุดมคติของสุขภาพวัยชรา</p>
+</section>
+
+<!-- ============= CHAPTER 12 ============= -->
+<section class="ch" id="ch12">
+  <span class="tag">CHAPTER 12 · SHOULD WE LIVE FOREVER?</span>
+  <h2>คนเราควรอยู่ค้ำฟ้าหรือไม่</h2>
+  <p class="sub">คำถามจริยธรรม สังคม และปรัชญา — Ramakrishnan สรุปเล่ม</p>
+
+  <div class="takeaway">🎯 <strong>แก่นของบท:</strong> การยืดอายุสุดโต่งนำมาซึ่งวิกฤตทางสังคม — ประชากรแก่ล้น, รุ่นใหม่ไร้ที่ยืน, ระบบสวัสดิการพัง, ความคิดสร้างสรรค์ถดถอย — Ramakrishnan จบเล่มด้วยคำแนะนำเรียบง่ายแบบ Michael Pollan: <strong>ทำพื้นฐานให้ดี</strong> (กิน ออกกำลัง นอน) และ<strong>ยอมรับความตายเป็นส่วนหนึ่งของชีวิต</strong></p>
+
+  <h3>📉 1. วิกฤตประชากรโลก</h3>
+  <table>
+    <tr><th>ประเทศ</th><th>อัตราเจริญพันธุ์</th><th>สถานะ</th></tr>
+    <tr><td>🇰🇷 เกาหลีใต้</td><td>0.7–0.8</td><td>ต่ำที่สุดในโลก</td></tr>
+    <tr><td>🇯🇵 ญี่ปุ่น</td><td>1.2–1.3</td><td>ประชากรลดตั้งแต่ 2010</td></tr>
+    <tr><td>🇹🇭 ไทย</td><td>~1.1</td><td>ลดเร็วในรอบ 20 ปี</td></tr>
+    <tr><td>🌐 Replacement Level</td><td><strong>2.1</strong></td><td>ต้องการเพื่อคงประชากร</td></tr>
+  </table>
+
+  <h3>🏛️ 2. ถ้าอายุคนเฉลี่ย 120 ปี สังคมจะเปลี่ยนอย่างไร?</h3>
+  <ul>
+    <li><strong>ประชากรล้น</strong>, ทรัพยากรโลกไม่พอ</li>
+    <li><strong>ความไม่เท่าเทียม</strong> — ยาราคาแพง เฉพาะคนรวยเข้าถึง</li>
+    <li><strong>บำนาญล้มละลาย</strong> — ทำงาน 40 ปี เกษียณ 60 ปี?</li>
+    <li><strong>ซบเซาทางสังคม</strong> — คนรุ่นเก่าครองอำนาจไม่ยอมลง (เลือกตั้งสหรัฐฯ 2024: Trump 78, Biden 81)</li>
+    <li>ระบบ <strong>tenure</strong> ทำให้อาจารย์แก่ครองตำแหน่งนานเกินไป</li>
+  </ul>
+
+  <h3>🎨 3. ความคิดสร้างสรรค์กับอายุ</h3>
+  <div class="grid c2">
+    <div class="card ok"><h5>✅ ดีขึ้นตามอายุ</h5>Wisdom, Pattern recognition, ประสบการณ์, ความอดทน</div>
+    <div class="card warn"><h5>❌ แย่ลงตามอายุ</h5>ความเร็วประมวลผล, ความจำระยะสั้น, Novel thinking, ความยืดหยุ่น</div>
+  </div>
+  <p><strong>G.H. Hardy:</strong> "นักคณิตศาสตร์ไม่ควรอยู่เกิน 60 ปี" — งานใหญ่มักอยู่ก่อน 50 <br>
+  <strong>ข้อยกเว้น:</strong> Karl Sharpless ได้โนเบลครั้ง 2 ที่อายุ 81, Margaret Atwood เขียน <em>The Testaments</em> ที่ 80+</p>
+
+  <h3>📜 4. กฎของ Roy Amara</h3>
+  <div class="callout gold">📏 <em>"เรามักประเมินผลกระทบของเทคโนโลยีสูงเกินในระยะสั้น และต่ำเกินในระยะยาว"</em> — อย่าคาดหวังอายุวัฒนะใน 10 ปี แต่อย่าประเมินต่ำสิ่งที่เกิดใน 100 ปี</div>
+
+  <h3>🍃 5. Ramakrishnan's Pollan-Style Advice</h3>
+  <p>Michael Pollan สรุปเรื่องอาหารใน 7 คำ: <em>"Eat food. Not too much. Mostly plants."</em> — Ramakrishnan เสนอว่าคำแนะนำเรื่องชะลอวัยก็ควรเรียบง่ายเช่นกัน:</p>
+  <div class="callout ok" style="font-size:17px; text-align:center; padding:20px">
+    <strong>ขยับตัวทุกวัน · กินอาหารจริง ไม่มากเกินไป ส่วนใหญ่เป็นพืช · นอนให้พอ · หลีกเลี่ยงความเครียด · รักษาความสัมพันธ์ · ยอมรับความตาย</strong>
+  </div>
+
+  <h3>🌅 6. ข้อคิดส่งท้ายของหนังสือ</h3>
+  <ol>
+    <li><strong>อย่าหวังปาฏิหาริย์</strong> — วิทยาศาสตร์ก้าวหน้าแต่ช้ากว่าที่สื่อนำเสนอ</li>
+    <li><strong>โฟกัส healthspan</strong> ไม่ใช่ lifespan</li>
+    <li><strong>ยอมรับธรรมชาติ</strong> — ความตายคือส่วนของวงจรชีวิต</li>
+    <li><strong>ส่งต่อโลก</strong>ที่ดีกว่าให้คนรุ่นใหม่</li>
+    <li><strong>การเปลี่ยนแปลงเล็กๆ</strong> มีผลมากกว่ายาราคาแพง</li>
+  </ol>
+</section>
+
+<!-- ============= 1000-YEAR PROTOCOL ============= -->
+<section class="proto" id="protocol">
+  <div class="chip">⚡ INTEGRATION</div>
+  <h2 style="margin-top:12px">THE <span>1,000-YEAR PROTOCOL</span></h2>
+  <p style="color:#cfd8ff; font-size:17px">นำทั้ง 12 บทมาสังเคราะห์เป็นคู่มือชีวิตประจำวัน — <strong>ไม่ใช่เพื่อ “อยู่ 1,000 ปี” จริงๆ</strong> แต่เพื่อให้กลไกทุกระดับในร่างกาย (DNA · Telomere · Epigenetics · Protein · Mitochondria · Stem cells) ทำงานเต็มประสิทธิภาพจน <strong>healthspan ≈ lifespan</strong></p>
+
+  <h3 style="color:#ffcf6b; margin-top:30px">🧭 หลักการ 3 ข้อของ Protocol</h3>
+  <div class="grid c3">
+    <div class="card"><h5>1. Hormesis ดีกว่า Comfort</h5>ความเครียดเล็กน้อยที่กระตุ้นซ่อมแซม (อดอาหาร, ออกกำลัง, สัมผัสความเย็น/ร้อน) &gt; ความสบายเรื้อรัง</div>
+    <div class="card"><h5>2. ลด TOR สลับ เพิ่ม Autophagy</h5>อย่ากิน-เติบโตตลอดเวลา สลับวงจร<strong>สร้าง ↔ ซ่อม</strong> ให้ร่างกาย</div>
+    <div class="card"><h5>3. ป้องกันการอักเสบเรื้อรัง (inflammaging)</h5>Inflammation คือทางร่วมของโรควัยชราทุกชนิด — ตัดรากที่ต้นเหตุ</div>
+  </div>
+
+  <h3 style="color:#ffcf6b; margin-top:30px">🏛️ 8 เสาหลักของ Protocol (8 Pillars)</h3>
+
+  <div class="pillar">
+    <h4>เสาที่ 1 · 🍽️ โภชนาการและ Caloric Control (บทที่ 6, 7, 8)</h4>
+    <p class="mech">กลไก: ลด TOR/IGF-1 → เพิ่ม autophagy/mitophagy → ลด glycation → ลด ROS</p>
+    <ul>
+      <li><strong>Time-Restricted Eating 14:10 → 16:8</strong> — กินในหน้าต่าง 8–10 ชม./วัน (เช่น 10:00–18:00)</li>
+      <li><strong>กินอาหารจริง ส่วนใหญ่เป็นพืช</strong> (Pollan’s rule) — ผัก 5–7 สี, ถั่ว, ธัญพืชไม่ขัด, ปลาไขมันสูง 2–3 ครั้ง/สัปดาห์</li>
+      <li><strong>ลดน้ำตาลเติมแต่ง &amp; refined carbs</strong> → ป้องกัน glycation/AGEs</li>
+      <li><strong>โปรตีน 1.0–1.6 g/kg</strong> เน้นพืช/ปลา, ลดเนื้อแดง/แปรรูป</li>
+      <li><strong>Fasting Mimicking</strong> — 24–72 ชม. fast ทุก 2–3 เดือน (หลังปรึกษาแพทย์) → กระตุ้น stem cell regeneration</li>
+      <li>หลีกเลี่ยง <strong>อาหารเสริม antioxidant ขนาดสูง</strong> (A, E, β-carotene) — meta-analysis 230,000 คนไม่พบประโยชน์</li>
+    </ul>
+  </div>
+
+  <div class="pillar">
+    <h4>เสาที่ 2 · 💪 การเคลื่อนไหว &amp; Hormesis (บทที่ 9, 10)</h4>
+    <p class="mech">กลไก: กระตุ้น mitophagy, สร้าง mitochondria ใหม่, เพิ่ม GDF11, ซ่อม stem cell niche</p>
+    <ul>
+      <li><strong>Zone 2 cardio</strong> 150 นาที/สัปดาห์ (เดินเร็ว, ปั่น, ว่ายน้ำระดับพูดได้)</li>
+      <li><strong>Strength training</strong> 2–3 ครั้ง/สัปดาห์ — ต้านแซทเทลไลต์เซลล์เสื่อม + sarcopenia</li>
+      <li><strong>HIIT</strong> 1–2 ครั้ง/สัปดาห์ — กระตุ้น mitochondrial biogenesis รุนแรง</li>
+      <li><strong>NEAT</strong> (Non-Exercise Activity) — เดิน 7,000–10,000 ก้าว/วัน</li>
+      <li><strong>Balance + Mobility</strong> ทุกวัน — ป้องกันล้มในวัยชรา (สาเหตุตายอันดับต้นๆ ของ 65+)</li>
+    </ul>
+  </div>
+
+  <div class="pillar">
+    <h4>เสาที่ 3 · 😴 การนอน (บทที่ 5, 6)</h4>
+    <p class="mech">กลไก: Glymphatic system ล้างขยะในสมอง (amyloid-β), epigenetics รีเซ็ต, ฮอร์โมนซ่อม</p>
+    <ul>
+      <li><strong>นอน 7–9 ชม.</strong> ในเวลาเดียวกันทุกวัน (sync กับ circadian)</li>
+      <li>ห้องมืด-เย็น (18–20°C), <strong>ไม่มีหน้าจอก่อนนอน 60 นาที</strong></li>
+      <li>รับแสงแดดภายใน 30 นาทีหลังตื่น (anchor circadian)</li>
+      <li>ไม่มีคาเฟอีนหลัง 14:00, แอลกอฮอล์อย่างน้อย 3 ชม.ก่อนนอน</li>
+    </ul>
+  </div>
+
+  <div class="pillar">
+    <h4>เสาที่ 4 · 🧘 ความเครียด &amp; ระบบประสาทอัตโนมัติ (บทที่ 4, 9)</h4>
+    <p class="mech">กลไก: Cortisol เรื้อรัง → ย่น telomere, เพิ่ม inflammaging, ทำลาย stem cell</p>
+    <ul>
+      <li><strong>Meditation/Breathwork</strong> 10–20 นาที/วัน — งานวิจัยชี้ช่วยรักษา telomere length</li>
+      <li><strong>Nature exposure</strong> 2 ชม./สัปดาห์ → ลด inflammatory markers</li>
+      <li><strong>Social connection</strong> — โดดเดี่ยวเทียบเท่าสูบบุหรี่ 15 มวน/วัน (Holt-Lunstad)</li>
+      <li><strong>Purpose/ikigai</strong> — มีเป้าหมายในชีวิตช่วยลดความเสี่ยงตายก่อนวัย ~15%</li>
+    </ul>
+  </div>
+
+  <div class="pillar">
+    <h4>เสาที่ 5 · ♨️ Thermal &amp; Breath Hormesis (บทที่ 9)</h4>
+    <p class="mech">กลไก: Heat shock proteins, cold-induced brown fat, mitophagy pulse</p>
+    <ul>
+      <li><strong>Sauna</strong> 80–90°C 15–20 นาที 3–4 ครั้ง/สัปดาห์ → ลดเสี่ยงโรคหัวใจ 50% (Finnish study, Laukkanen)</li>
+      <li><strong>Cold exposure</strong> — อาบน้ำเย็นปิดท้าย 30 วินาที, หรือแช่ 10–15°C 2–3 นาที 2–3×/สัปดาห์</li>
+      <li><strong>Breathing practice</strong> (Wim Hof, box breathing) — กระตุ้น vagus nerve, ลด inflammatory markers</li>
+    </ul>
+  </div>
+
+  <div class="pillar">
+    <h4>เสาที่ 6 · 🚫 ลดความเสียหายที่ควบคุมได้ (บทที่ 3, 6, 9)</h4>
+    <p class="mech">กลไก: ลด DNA damage, oxidative stress, glycation, prion-risk</p>
+    <ul>
+      <li><strong>ห้ามสูบบุหรี่/บุหรี่ไฟฟ้า</strong> — ยุทธวิธีชะลอวัยอันดับ 1</li>
+      <li><strong>แอลกอฮอล์</strong> ≤ 7 ดริ้งก์/สัปดาห์ (ยิ่งน้อยยิ่งดี — หลักฐานล่าสุดบอก “ปริมาณปลอดภัย = 0”)</li>
+      <li><strong>ครีมกันแดด SPF 30+ ทุกวัน</strong> — ป้องกัน thymine dimer จาก UV</li>
+      <li><strong>ตรวจสุขภาพประจำ</strong>: BP, lipid panel, HbA1c, ApoB, hs-CRP, colonoscopy (45+), mammogram, DEXA scan</li>
+      <li><strong>ฟัน &amp; periodontal health</strong> — โรคเหงือกเชื่อมโยงกับ Alzheimer และโรคหัวใจ</li>
+      <li>สารพิษในอาหาร: ลดปลาที่มีสารปรอทสูง, อาหารแปรรูปไหม้</li>
+    </ul>
+  </div>
+
+  <div class="pillar">
+    <h4>เสาที่ 7 · 🧠 Cognitive Reserve (บทที่ 6, 12)</h4>
+    <p class="mech">กลไก: Neurogenesis, synaptic plasticity, ป้องกัน cognitive decline</p>
+    <ul>
+      <li><strong>เรียนสิ่งใหม่</strong>ทุกปี — ภาษา, เครื่องดนตรี, การเต้น (งานวิจัย Verghese 2003: การเต้นลดเสี่ยงสมองเสื่อม 76%)</li>
+      <li><strong>การอ่านเชิงลึก</strong> 30 นาที/วัน</li>
+      <li><strong>Social learning</strong> — ประชุม/สนทนา/สอนคนอื่น</li>
+      <li>หลีกเลี่ยง doom-scrolling → smooth brain</li>
+    </ul>
+  </div>
+
+  <div class="pillar">
+    <h4>เสาที่ 8 · 💊 Evidence-Based Interventions (พูดกับแพทย์) (บทที่ 7, 11)</h4>
+    <p class="mech">กลไก: TOR inhibition, AMPK activation, senolytic, ซ่อมเฉพาะจุด</p>
+    <ul>
+      <li><strong>Metformin</strong> (ในกลุ่มเสี่ยงเบาหวาน/metabolic syndrome) — โครงการ TAME กำลังทดสอบ</li>
+      <li><strong>Low-dose Rapamycin</strong> แบบ pulsed (6 mg/สัปดาห์) — ยังอยู่ในงานวิจัย, มีความเสี่ยง, <strong>ต้องทำภายใต้แพทย์</strong></li>
+      <li><strong>Statins / GLP-1 agonists</strong> ตามความเสี่ยงรายบุคคล</li>
+      <li><strong>วัคซีน</strong>ครบ: flu, COVID, shingles, pneumococcal, RSV (ยิ่งแก่ยิ่งสำคัญ)</li>
+      <li><strong>Senolytics</strong> (Fisetin, D+Q) — ยังทดลองอยู่ อย่าเพิ่งใช้เอง</li>
+      <li>⚠️ <strong>ไม่แนะนำ:</strong> blood transfusion จาก "คนหนุ่ม", stem cell injection ราคาสูงที่ไม่มี trial, cryonics</li>
+    </ul>
+  </div>
+
+  <h3 style="color:#ffcf6b; margin-top:30px">📅 ตัวอย่างสัปดาห์เชิงปฏิบัติ</h3>
+  <div class="card" style="background:#0f1333">
+    <div class="checkday"><div class="d">จันทร์</div><div>🏃 Zone 2 cardio 45 นาที · 🍽️ TRE 16:8 · 🧘 meditation 10 นาที · 😴 นอน 23:00</div></div>
+    <div class="checkday"><div class="d">อังคาร</div><div>💪 Strength training 45 นาที · 🥗 เน้นผัก+ถั่ว+ปลา · ♨️ sauna 20 นาที</div></div>
+    <div class="checkday"><div class="d">พุธ</div><div>🚶 เดิน 10,000 ก้าว · 📖 เรียนภาษาใหม่ 30 นาที · 🌳 เดินในสวน 1 ชม.</div></div>
+    <div class="checkday"><div class="d">พฤหัส</div><div>⚡ HIIT 20 นาที · 💪 Strength · 🥗 TRE · 🧊 cold shower 2 นาที</div></div>
+    <div class="checkday"><div class="d">ศุกร์</div><div>🏃 Zone 2 60 นาที · 👥 สังสรรค์กับเพื่อน · 🛌 นอนไม่เกิน 23:30</div></div>
+    <div class="checkday"><div class="d">เสาร์</div><div>🧘 Long walk/hike · 💪 Strength · 📚 อ่านหนังสือ</div></div>
+    <div class="checkday"><div class="d">อาทิตย์</div><div>🛀 วันพักผ่อน · ♨️ sauna + cold · 📝 วางแผนสัปดาห์ · 👨‍👩‍👧 ครอบครัว</div></div>
+  </div>
+
+  <h3 style="color:#ffcf6b; margin-top:30px">📊 ตัวชี้วัดที่ควรตาม</h3>
+  <table>
+    <tr><th>Metric</th><th>เป้าหมาย</th><th>กลไก (บทอ้างอิง)</th></tr>
+    <tr><td>BP (ความดัน)</td><td>&lt;120/80</td><td>ลดความเสียหายหลอดเลือด (บท 9,10)</td></tr>
+    <tr><td>HbA1c</td><td>&lt;5.6%</td><td>ลด glycation/AGEs (บท 6)</td></tr>
+    <tr><td>ApoB</td><td>&lt;80 mg/dL</td><td>ลดพลาก cardiovascular (บท 3,10)</td></tr>
+    <tr><td>hs-CRP</td><td>&lt;1 mg/L</td><td>ลด inflammaging (บท 4,9)</td></tr>
+    <tr><td>VO₂ max</td><td>&gt;ค่าเฉลี่ยกลุ่มอายุ 20 ปีน้อยกว่า</td><td>ประสิทธิภาพ mitochondria (บท 9)</td></tr>
+    <tr><td>Grip strength</td><td>&gt;ค่าเฉลี่ยวัยหนุ่ม</td><td>Biomarker sarcopenia (บท 10)</td></tr>
+    <tr><td>Epigenetic age (DNAm)</td><td>&lt; chronological</td><td>Horvath Clock (บท 5)</td></tr>
+    <tr><td>Telomere length</td><td>ไม่สั้นกว่าค่าเฉลี่ยกลุ่มอายุ</td><td>บทที่ 4</td></tr>
+  </table>
+
+  <h3 style="color:#ffcf6b; margin-top:30px">❌ สิ่งที่ไม่ควรทำ (Red Flags)</h3>
+  <ul>
+    <li><strong>อาหารเสริมปริมาณสูง</strong> (mega-dose vitamins) — มักไม่มีหลักฐาน บางอย่างเพิ่มเสี่ยงตาย</li>
+    <li><strong>NMN/NR/Resveratrol</strong> ราคาแพง — หลักฐานในมนุษย์ยังอ่อน (บท 8)</li>
+    <li><strong>Stem cell tourism</strong> ในประเทศที่ไม่มีกำกับ</li>
+    <li><strong>Young blood transfusion</strong> (Ambrosia-style) — FDA เตือนแล้ว</li>
+    <li><strong>Cryonics</strong> เป็นการเดิมพันทางวิทยาศาสตร์ ไม่ใช่การรักษา</li>
+    <li><strong>หยุดยาที่แพทย์ให้</strong>เพื่อใช้ "ยาธรรมชาติ" (การชะลอวัยไม่ใช่ข้ออ้างละเลยรักษาโรค)</li>
+  </ul>
+
+  <h3 style="color:#ffcf6b; margin-top:30px">🎯 ปรัชญาของ Protocol</h3>
+  <div class="callout gold" style="font-size:16px; line-height:1.8">
+    <strong>เราไม่ได้ไล่ล่า “อายุ 1,000 ปี” — แต่เราไล่ล่า “สุขภาพ 1,000%”</strong><br><br>
+    ในหนังสือ Ramakrishnan เตือนว่าการไล่ล่าอมตะคือ <em>การพลาดความหมายของชีวิต</em> — โปรโตคอลนี้จึงมุ่งสร้าง <strong>healthspan</strong> ที่ยาวนาน ไม่ใช่ <strong>lifespan</strong> ที่เปราะบาง<br><br>
+    ถ้าวิทยาศาสตร์ชะลอวัย (rapamycin, senolytics, partial reprogramming) จะมาถึงในอีก 10–30 ปี → <strong>การรักษาร่างกายให้พร้อมถึงวันนั้น</strong> คือภารกิจเดียวของเราตอนนี้ — อย่าตายก่อนที่เทคโนโลยีจะมาถึง (ซึ่งเป็นแก่น "Longevity Escape Velocity")
+  </div>
+</section>
+
+<!-- ============= GLOSSARY ============= -->
+<section class="ch" id="glossary">
+  <span class="tag">APPENDIX · GLOSSARY</span>
+  <h2>📖 พจนานุกรมศัพท์สำคัญ รวมทั้งเล่ม</h2>
+
+  <h3>A · หลักการใหญ่ของความชรา</h3>
+  <table>
+    <tr><th>ศัพท์</th><th>ความหมาย</th><th>บท</th></tr>
+    <tr><td>Disposable Soma Theory</td><td>ทฤษฎีร่างกายใช้แล้วทิ้ง — วิวัฒนาการลงทุนซ่อมพอให้สืบพันธุ์สำเร็จ (Kirkwood 1977)</td><td>1</td></tr>
+    <tr><td>Antagonistic Pleiotropy</td><td>ยีนที่ดีในวัยหนุ่มแต่ร้ายในวัยชรา</td><td>1, 7, 9</td></tr>
+    <tr><td>Mutation Accumulation</td><td>ยีนอันตรายหลังสืบพันธุ์ไม่ถูกคัดออก</td><td>1</td></tr>
+    <tr><td>Weismann Barrier</td><td>กำแพงระหว่าง germ line (อมตะ) และ soma (ใช้ทิ้ง)</td><td>1</td></tr>
+    <tr><td>Grandmother Hypothesis</td><td>คุณยายช่วยเลี้ยงหลาน → วิวัฒนาการเลือกให้ผู้หญิงมีอายุยืนหลัง menopause</td><td>1</td></tr>
+    <tr><td>Kleiber's Law</td><td>Metabolic rate ∝ Mass^¾ — สัตว์ใหญ่อายุยืน</td><td>2</td></tr>
+    <tr><td>Gompertz Law</td><td>ความเสี่ยงตายเพิ่มเป็นเลขชี้กำลังตามอายุ (2 เท่าทุก 8 ปี)</td><td>2</td></tr>
+    <tr><td>Negligible Senescence</td><td>สิ่งมีชีวิตที่ความเสี่ยงตายไม่เพิ่มตามอายุ</td><td>2</td></tr>
+    <tr><td>Hallmarks of Aging</td><td>9–12 ลักษณะร่วมของความชราทุกเซลล์</td><td>ทั้งเล่ม</td></tr>
+  </table>
+
+  <h3>B · DNA &amp; การซ่อมแซม</h3>
+  <table>
+    <tr><th>ศัพท์</th><th>ความหมาย</th><th>บท</th></tr>
+    <tr><td>Codon</td><td>ลำดับ 3 ตัวอักษรบน mRNA → 1 กรดอะมิโน</td><td>3</td></tr>
+    <tr><td>Thymine Dimer</td><td>T 2 ตัวติดกันจาก UV — ต้องซ่อมด้วย nucleotide excision repair</td><td>3</td></tr>
+    <tr><td>Base Excision Repair</td><td>ซ่อมเบสเดี่ยวผิด</td><td>3</td></tr>
+    <tr><td>Mismatch Repair</td><td>ซ่อมคัดลอก DNA ผิด (Paul Modrich)</td><td>3</td></tr>
+    <tr><td>Double-Strand Break</td><td>สาย DNA ขาดทั้ง 2 ข้าง — อันตรายที่สุด ต้องใช้ diploid template</td><td>3</td></tr>
+    <tr><td>p53 / TP53</td><td>"ผู้พิทักษ์จีโนม" — เสียใน 50%+ ของมะเร็ง</td><td>3</td></tr>
+    <tr><td>Peto's Paradox</td><td>ช้างควรเป็นมะเร็งมากกว่าคน แต่ไม่เป็น (p53 × 20 ชุด)</td><td>3</td></tr>
+    <tr><td>BRCA1/2</td><td>ยีนซ่อม double-strand break</td><td>3</td></tr>
+    <tr><td>Cockayne Syndrome</td><td>เด็กยีนซ่อมพัง → แก่เร็ว</td><td>3</td></tr>
+  </table>
+
+  <h3>C · Telomere &amp; Hayflick</h3>
+  <table>
+    <tr><th>ศัพท์</th><th>ความหมาย</th><th>บท</th></tr>
+    <tr><td>Telomere</td><td>TTAGGG ที่ปลายโครโมโซม ~10,000 เบส</td><td>4</td></tr>
+    <tr><td>Telomerase</td><td>เอนไซม์ต่อ telomere (Greider) — เปิดในเซลล์ต้นกำเนิด/มะเร็ง</td><td>4</td></tr>
+    <tr><td>End-Replication Problem</td><td>DNA polymerase คัดลอกปลายสุดไม่ได้</td><td>4</td></tr>
+    <tr><td>Hayflick Limit</td><td>เซลล์แบ่งได้ 40–60 ครั้งแล้วหยุด</td><td>4</td></tr>
+    <tr><td>Senescence</td><td>เซลล์หยุดแบ่งแต่ไม่ตาย — ปล่อย SASP</td><td>4, 7</td></tr>
+    <tr><td>SASP</td><td>Senescence-Associated Secretory Phenotype — สารอักเสบที่ปล่อยจากเซลล์ผีดิบ</td><td>4</td></tr>
+    <tr><td>Senolytics</td><td>ยาฆ่าเซลล์ผีดิบเฉพาะจุด (Fisetin, D+Q)</td><td>4, 11</td></tr>
+  </table>
+
+  <h3>D · Epigenetics &amp; Reprogramming</h3>
+  <table>
+    <tr><th>ศัพท์</th><th>ความหมาย</th><th>บท</th></tr>
+    <tr><td>Epigenetics</td><td>การเปลี่ยนการแสดงออกยีนโดยไม่เปลี่ยน DNA</td><td>5</td></tr>
+    <tr><td>DNA Methylation</td><td>ติด -CH₃ บน C → ปิดยีน</td><td>5</td></tr>
+    <tr><td>Histone / Chromatin</td><td>โปรตีนที่ DNA พันรอบ</td><td>5</td></tr>
+    <tr><td>Pluripotent / iPS Cell</td><td>เซลล์ที่เปลี่ยนเป็นเซลล์อะไรก็ได้ — สร้างจากเซลล์โตโดย OSKM</td><td>5, 10</td></tr>
+    <tr><td>Yamanaka Factors (OSKM)</td><td>Oct4, Sox2, Klf4, c-Myc</td><td>5, 10</td></tr>
+    <tr><td>Horvath Clock</td><td>วัดอายุชีวภาพจาก methylation 353 ตำแหน่ง</td><td>5</td></tr>
+    <tr><td>Dutch Hunger Winter</td><td>หลักฐาน epigenetics ข้ามรุ่น</td><td>5</td></tr>
+  </table>
+
+  <h3>E · Proteostasis &amp; Neurodegeneration</h3>
+  <table>
+    <tr><th>ศัพท์</th><th>ความหมาย</th><th>บท</th></tr>
+    <tr><td>Protein Folding / Chaperone</td><td>การพับโปรตีนเป็น 3D ที่ถูกต้อง</td><td>6</td></tr>
+    <tr><td>Ubiquitin / Proteasome</td><td>สติกเกอร์รีไซเคิล → เครื่องบดโปรตีน</td><td>6</td></tr>
+    <tr><td>Autophagy / Lysosome</td><td>เซลล์กินตัวเอง — Ohsumi (Nobel 2016)</td><td>6, 7, 9</td></tr>
+    <tr><td>UPR / ISR / ISRIB</td><td>ระบบตอบสนองโปรตีนพับผิด + สารที่รีเซ็ต ISR</td><td>6</td></tr>
+    <tr><td>Glycation / AGEs</td><td>น้ำตาลทำลายโปรตีน → โรคเบาหวาน-หลอดเลือด</td><td>6</td></tr>
+    <tr><td>Prion</td><td>โปรตีนพับผิดที่ชักชวนโปรตีนอื่น — Prusiner (Nobel 1997)</td><td>6</td></tr>
+    <tr><td>Amyloid-β / Tau</td><td>Plaques นอกเซลล์ + Tangles ในเซลล์ (Alzheimer)</td><td>6</td></tr>
+    <tr><td>Lecanemab</td><td>ยา anti-Aβ (2023) — ลดเสื่อม 25%</td><td>6</td></tr>
+  </table>
+
+  <h3>F · Metabolic Pathways</h3>
+  <table>
+    <tr><th>ศัพท์</th><th>ความหมาย</th><th>บท</th></tr>
+    <tr><td>TOR / mTOR</td><td>สวิตช์ระหว่างเติบโต vs ซ่อม (Michael Hall)</td><td>7</td></tr>
+    <tr><td>Rapamycin</td><td>สารจากดินเกาะ Rapa Nui ยับยั้ง TOR</td><td>7, 11</td></tr>
+    <tr><td>Caloric Restriction (CR)</td><td>ลดแคลอรี 30–50% → ยืดอายุสัตว์</td><td>7</td></tr>
+    <tr><td>Intermittent Fasting (IF)</td><td>16:8, 5:2 — อดอาหารเป็นช่วง</td><td>7</td></tr>
+    <tr><td>IGF-1 / Insulin Pathway</td><td>daf-2/DAF-16 — หนอนอายุยืน 2 เท่า (Kenyon)</td><td>8</td></tr>
+    <tr><td>Sirtuins (SIRT1/6)</td><td>Deacetylase ที่อาจยืดอายุ — Guarente</td><td>8</td></tr>
+    <tr><td>NAD+ / NR / NMN</td><td>Coenzyme ที่ลดตามอายุ — NR ค้นพบโดย Brenner</td><td>8</td></tr>
+    <tr><td>Resveratrol</td><td>สารในไวน์แดงกระตุ้น SIRT1 (ถกเถียง)</td><td>8</td></tr>
+    <tr><td>Metformin / AMPK / TAME trial</td><td>ยาเบาหวานที่เลียนแบบ CR</td><td>11</td></tr>
+  </table>
+
+  <h3>G · Mitochondria &amp; Stem Cells</h3>
+  <table>
+    <tr><th>ศัพท์</th><th>ความหมาย</th><th>บท</th></tr>
+    <tr><td>Endosymbiosis</td><td>แบคทีเรียกลายเป็น mitochondria (Margulis)</td><td>9</td></tr>
+    <tr><td>ATP / ATP Synthase</td><td>สกุลเงินพลังงาน / กังหันผลิต ATP</td><td>9</td></tr>
+    <tr><td>Electron Transport Chain</td><td>โปรตีนส่งอิเล็กตรอนสร้างพลังงาน</td><td>9</td></tr>
+    <tr><td>ROS / Free Radicals</td><td>อนุมูลอิสระ — ทฤษฎี Harman (1954)</td><td>9</td></tr>
+    <tr><td>SOD / Catalase</td><td>เอนไซม์ต้านอนุมูลอิสระ</td><td>9</td></tr>
+    <tr><td>Hormesis</td><td>พิษเล็กน้อย = ยา</td><td>9</td></tr>
+    <tr><td>Mitophagy</td><td>กำจัด mitochondria เสีย</td><td>9</td></tr>
+    <tr><td>Inflammaging</td><td>อักเสบเรื้อรังระดับต่ำจากเซลล์ชรา+mitochondria เสีย</td><td>4, 9</td></tr>
+    <tr><td>Parabiosis</td><td>เชื่อมระบบเลือดหนู 2 ตัว (Conboys, Rando)</td><td>10</td></tr>
+    <tr><td>GDF11</td><td>โปรตีนในพลาสมาหนุ่มอาจฟื้นฟูเนื้อเยื่อ (Wagers)</td><td>10</td></tr>
+    <tr><td>Clonal Hematopoiesis</td><td>Stem cell เลือดกลายพันธุ์ขยายครอบงำในผู้สูงอายุ</td><td>10</td></tr>
+    <tr><td>Immunosenescence</td><td>ภูมิคุ้มกันเสื่อมตามอายุ</td><td>10</td></tr>
+  </table>
+
+  <h3>H · ปรัชญา &amp; สังคม</h3>
+  <table>
+    <tr><th>ศัพท์</th><th>ความหมาย</th><th>บท</th></tr>
+    <tr><td>Healthspan vs Lifespan</td><td>ช่วงสุขภาพดี vs อายุขัยทั้งหมด</td><td>11, 12</td></tr>
+    <tr><td>Compression of Morbidity</td><td>บีบอัดช่วงเจ็บป่วยปลายชีวิตให้สั้น</td><td>11</td></tr>
+    <tr><td>Longevity Escape Velocity (LEV)</td><td>วิทยาศาสตร์ยืดอายุเร็วกว่าเวลาที่ผ่านไป</td><td>11</td></tr>
+    <tr><td>SENS (de Grey)</td><td>กลยุทธ์ซ่อม 7 ประเภทความเสียหาย</td><td>11</td></tr>
+    <tr><td>Cryonics / Vitrification</td><td>แช่แข็งร่างกายเพื่อฟื้นในอนาคต</td><td>11</td></tr>
+    <tr><td>Transhumanism</td><td>ปรัชญาอัปเกรดมนุษย์ด้วยเทคโนโลยี</td><td>11</td></tr>
+    <tr><td>Amara's Law</td><td>ประเมินเทคโนโลยีสูงระยะสั้น ต่ำระยะยาว</td><td>12</td></tr>
+    <tr><td>Replacement Fertility Rate</td><td>2.1 คน/ผู้หญิง เพื่อคงประชากร</td><td>12</td></tr>
+  </table>
+
+  <h3>🏅 รางวัลโนเบลที่เกี่ยวข้อง (Timeline)</h3>
+  <div class="tl">
+    <div class="it"><strong>1912</strong> — Alexis Carrel — เย็บหลอดเลือด (ภายหลังทฤษฎี "เซลล์อมตะ" ผิด)</div>
+    <div class="it"><strong>1974</strong> — Christian de Duve — ค้นพบ Lysosome</div>
+    <div class="it"><strong>1997</strong> — Stanley Prusiner — Prion</div>
+    <div class="it"><strong>2002</strong> — Sydney Brenner — C. elegans genetics</div>
+    <div class="it"><strong>2009</strong> — Blackburn, Greider, Szostak — Telomere &amp; Telomerase</div>
+    <div class="it"><strong>2012</strong> — Gurdon, Yamanaka — Nuclear reprogramming &amp; iPS cells</div>
+    <div class="it"><strong>2015</strong> — Lindahl, Modrich, Sancar — DNA repair</div>
+    <div class="it"><strong>2016</strong> — Yoshinori Ohsumi — Autophagy</div>
+    <div class="it"><strong>2022</strong> — Svante Pääbo — Paleogenomics (บรรพบุรุษมนุษย์)</div>
+  </div>
+
+  <hr class="sep">
+
+  <h3>🧠 ข้อคิดสุดท้าย</h3>
+  <div class="callout gold">
+    Venki Ramakrishnan ไม่ได้เขียนหนังสือเพื่อ<strong>ขาย</strong>ฝันอมตะ — เขาเขียนเพื่อให้เราเข้าใจ<strong>กลไกที่แท้จริง</strong> และมองธุรกิจชะลอวัยด้วยสายตาที่เฉียบคม<br><br>
+    <em>"ในระยะเวลาของเรา ไม่มี 'ยาอายุวัฒนะ' แต่มี 'วิถีอายุวัฒนะ' — และสิ่งที่เราทำทุกวัน สำคัญกว่ายาใดที่ยังไม่เกิด"</em>
+  </div>
+</section>
+
+<footer>
+  📘 <strong>Why We Die</strong> — Venki Ramakrishnan · Visual Book Summary (12 Chapters + Protocol)<br>
+  สรุป &amp; จัดทำโดย AI Study Assistant · อ่าน ~60 นาที · สำหรับการศึกษา
+</footer>
+</div>
+</body>
+</html>

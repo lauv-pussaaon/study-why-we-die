@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>บทที่ 5 — ตั้งนาฬิกาชีวภาพใหม่ | Visual Study Guide</title>
+<style>
+  :root {
+    --bg: #fdfcf7;
+    --ink: #1f2933;
+    --accent: #c0392b;
+    --accent2: #2c5f8d;
+    --accent3: #27ae60;
+    --soft: #f4e9d8;
+    --box: #ffffff;
+    --shadow: 0 4px 16px rgba(0,0,0,0.08);
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, "Segoe UI", "Sarabun", "Noto Sans Thai", sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+    line-height: 1.75;
+    font-size: 17px;
+  }
+  h1 { font-size: 2.4em; border-bottom: 4px double var(--accent); padding-bottom: 12px; margin-bottom: 8px; color: var(--accent); }
+  h1 .sub { display: block; font-size: 0.5em; color: #666; font-weight: normal; margin-top: 6px; }
+  h2 { font-size: 1.6em; color: var(--accent2); border-left: 6px solid var(--accent2); padding-left: 14px; margin-top: 60px; }
+  h3 { color: var(--accent); margin-top: 32px; font-size: 1.25em; }
+  .hero { background: linear-gradient(135deg, #fff8e7 0%, #ffe4cc 100%); padding: 24px 28px; border-radius: 14px; margin: 28px 0; border-left: 6px solid var(--accent); box-shadow: var(--shadow); }
+  .hero .big { font-size: 1.3em; font-weight: 600; color: var(--accent); }
+  .analogy { background: #eef6fb; border: 2px dashed var(--accent2); padding: 16px 20px; border-radius: 10px; margin: 18px 0; }
+  .analogy::before { content: "💡 ลองคิดแบบนี้ "; font-weight: 700; color: var(--accent2); }
+  .warning { background: #fff3e6; border-left: 5px solid #e67e22; padding: 14px 18px; border-radius: 6px; margin: 18px 0; }
+  .tip { background: #eaf7ea; border-left: 5px solid var(--accent3); padding: 14px 18px; border-radius: 6px; margin: 18px 0; }
+  .fact { background: #fdecec; border-left: 5px solid var(--accent); padding: 14px 18px; border-radius: 6px; margin: 18px 0; }
+  .diagram { background: var(--box); border: 1px solid #e0d8c5; border-radius: 12px; padding: 20px; margin: 24px 0; box-shadow: var(--shadow); text-align: center; }
+  .diagram .caption { font-size: 0.92em; color: #555; margin-top: 10px; font-style: italic; }
+  svg { max-width: 100%; height: auto; }
+  table { width: 100%; border-collapse: collapse; margin: 20px 0; background: var(--box); border-radius: 10px; overflow: hidden; box-shadow: var(--shadow); }
+  th, td { padding: 12px 14px; text-align: left; border-bottom: 1px solid #eee; }
+  th { background: var(--accent2); color: white; }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) { background: #faf7ef; }
+  .quiz { background: #fdf7e4; padding: 20px 26px; border-radius: 10px; margin: 16px 0; border: 2px solid #e8d084; }
+  .quiz summary { cursor: pointer; font-weight: 600; color: var(--accent); padding: 8px 0; }
+  .quiz p { margin: 10px 0 0; padding: 10px; background: white; border-radius: 6px; }
+  .term { display: inline-block; background: #fff3d6; padding: 1px 8px; border-radius: 4px; font-weight: 600; color: #8a5a00; }
+  .flow { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 12px; margin: 20px 0; }
+  .flow .node { background: var(--accent2); color: white; padding: 12px 18px; border-radius: 8px; font-weight: 600; min-width: 120px; text-align: center; }
+  .flow .arrow { font-size: 1.6em; color: var(--accent); }
+  .card { background: var(--box); padding: 18px 22px; border-radius: 10px; box-shadow: var(--shadow); margin: 14px 0; border-top: 4px solid var(--accent2); }
+  .mnemonic { background: #f0e7ff; border-left: 5px solid #6c3bd9; padding: 12px 18px; border-radius: 6px; margin: 12px 0; font-size: 0.98em; }
+  .mnemonic::before { content: "🧠 วิธีจำ: "; font-weight: 700; color: #6c3bd9; }
+  .toc { background: var(--soft); padding: 18px 28px; border-radius: 10px; margin-bottom: 40px; }
+  .toc h3 { margin-top: 0; color: var(--accent); }
+  .toc ol { padding-left: 22px; }
+  .toc a { color: var(--accent2); text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+  .stat-box { display: inline-block; background: white; padding: 16px 22px; border-radius: 10px; box-shadow: var(--shadow); margin: 8px; text-align: center; min-width: 180px; }
+  .stat-box .num { font-size: 2em; font-weight: 700; color: var(--accent); display: block; }
+  .stat-box .lbl { font-size: 0.88em; color: #666; }
+  .timeline { position: relative; padding: 20px 0 20px 40px; margin: 20px 0; }
+  .timeline::before { content: ''; position: absolute; left: 18px; top: 0; bottom: 0; width: 4px; background: var(--accent2); border-radius: 2px; }
+  .timeline-item { position: relative; margin-bottom: 28px; padding: 14px 18px; background: var(--box); border-radius: 10px; box-shadow: var(--shadow); }
+  .timeline-item::before { content: ''; position: absolute; left: -30px; top: 18px; width: 14px; height: 14px; background: var(--accent); border-radius: 50%; border: 3px solid var(--bg); }
+  .timeline-item .year { font-weight: 700; color: var(--accent); font-size: 1.1em; }
+  .versus { display: flex; gap: 20px; margin: 24px 0; flex-wrap: wrap; }
+  .versus .side { flex: 1; min-width: 280px; padding: 18px 22px; border-radius: 10px; box-shadow: var(--shadow); }
+  .versus .good { background: #eaf7ea; border-top: 4px solid var(--accent3); }
+  .versus .bad { background: #fdecec; border-top: 4px solid var(--accent); }
+  .versus h4 { margin-top: 0; }
+  .three-col { display: flex; gap: 16px; margin: 24px 0; flex-wrap: wrap; }
+  .three-col .col { flex: 1; min-width: 240px; padding: 16px 18px; border-radius: 10px; box-shadow: var(--shadow); background: var(--box); }
+  .three-col .col h4 { margin-top: 0; color: var(--accent2); }
+</style>
+</head>
+<body>
+
+<h1>บทที่ 5 — ตั้งนาฬิกาชีวภาพใหม่
+  <span class="sub">Resetting the Biological Clock · Why We Die by Venki Ramakrishnan</span>
+</h1>
+
+<div class="hero">
+  <div class="big">ภาพรวม 1 ประโยค:</div>
+  เซลล์ทุกเซลล์มี DNA เหมือนกัน แต่สิ่งที่ทำให้เซลล์ตา ≠ เซลล์กล้ามเนื้อ คือ <span class="term">Epigenetics</span> — "เครื่องหมาย" บน DNA ที่ควบคุมว่ายีนไหนเปิด/ปิด <b>เครื่องหมายเหล่านี้เปลี่ยนตามอายุ</b> กลายเป็นนาฬิกาชีวภาพ — และอาจ <b>"ตั้งใหม่"</b> ได้
+</div>
+
+<div class="toc">
+  <h3>📚 สารบัญ</h3>
+  <ol>
+    <li><a href="#genome">Human Genome Project — อ่านคู่มือชีวิตจนจบ แล้วไง?</a></li>
+    <li><a href="#epigenetics">Epigenetics — เครื่องหมายเหนือ DNA</a></li>
+    <li><a href="#waddington">Waddington Landscape — ลูกบอลกลิ้งลงเขา</a></li>
+    <li><a href="#cloning">การโคลนนิ่ง — Gurdon พิสูจน์ว่าย้อนกลับได้</a></li>
+    <li><a href="#yamanaka">Yamanaka Factors — ปัจจัย 4 ตัวที่ตั้งนาฬิกาใหม่</a></li>
+    <li><a href="#mechanisms">กลไก Epigenetics: Methylation, Histone, Chromatin</a></li>
+    <li><a href="#clock">นาฬิกา Horvath — วัดอายุจริงของร่างกาย</a></li>
+    <li><a href="#hunger">Dutch Hunger Winter — Epigenetics ส่งผลข้ามรุ่น</a></li>
+    <li><a href="#aging">ภาพรวม: Epigenetics → Aging → ความหวัง</a></li>
+    <li><a href="#quiz">คำถามทบทวน</a></li>
+    <li><a href="#vocab">คำศัพท์สำคัญ</a></li>
+  </ol>
+</div>
+
+<!-- =========================================== -->
+<!-- SECTION 1: GENOME PROJECT -->
+<!-- =========================================== -->
+<h2 id="genome">1. Human Genome Project — อ่านคู่มือชีวิตจนจบ แล้วไง?</h2>
+
+<p>
+วันที่ 26 มิถุนายน 2000 โลกฉลองการถอดรหัสจีโนมมนุษย์สำเร็จ — ตัวอักษร <b>3 พันล้านตัว</b> ของ DNA ถูกอ่านครบ แต่ <span class="term">Richard Dawkins</span> ก็เตือนว่า "นี่คือจุดเริ่มต้น ไม่ใช่จุดจบ"
+</p>
+
+<div class="diagram">
+<svg viewBox="0 0 640 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Book metaphor -->
+  <rect x="40" y="30" width="200" height="140" rx="8" fill="#2c5f8d" opacity="0.9"/>
+  <rect x="50" y="40" width="180" height="120" rx="5" fill="#fff"/>
+  <text x="140" y="80" text-anchor="middle" font-size="12" fill="#2c5f8d" font-weight="700">จีโนมมนุษย์</text>
+  <text x="140" y="100" text-anchor="middle" font-size="30" fill="#c0392b" font-weight="700">ATGC...</text>
+  <text x="140" y="125" text-anchor="middle" font-size="11" fill="#666">3,000,000,000 ตัวอักษร</text>
+  <text x="140" y="145" text-anchor="middle" font-size="10" fill="#666">~20,000 ยีน</text>
+
+  <!-- Arrow -->
+  <path d="M 260 100 L 340 100" stroke="#e67e22" stroke-width="3" fill="none" marker-end="url(#arr1)"/>
+  <defs><marker id="arr1" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8" fill="#e67e22"/></marker></defs>
+  <text x="300" y="88" text-anchor="middle" font-size="11" fill="#e67e22" font-weight="600">แต่...</text>
+
+  <!-- Question -->
+  <rect x="360" y="30" width="240" height="140" rx="12" fill="#fff3e6" stroke="#e67e22" stroke-width="2"/>
+  <text x="480" y="65" text-anchor="middle" font-size="13" fill="#e67e22" font-weight="700">❓ คำถามที่ยังตอบไม่ได้:</text>
+  <text x="480" y="90" text-anchor="middle" font-size="11" fill="#333">ทำไมเซลล์ตา ≠ เซลล์กล้ามเนื้อ</text>
+  <text x="480" y="108" text-anchor="middle" font-size="11" fill="#333">ทั้งที่ DNA เหมือนกัน 100%?</text>
+  <text x="480" y="140" text-anchor="middle" font-size="14" fill="#c0392b" font-weight="700">คำตอบ = Epigenetics</text>
+</svg>
+<div class="caption">เราอ่าน "หนังสือ" จบแล้ว แต่ยังไม่รู้ว่าแต่ละเซลล์ "เปิดอ่านบทไหน" — นั่นคือ Epigenetics</div>
+</div>
+
+<div class="analogy">
+จีโนมเหมือน <b>สารานุกรมขนาดใหญ่</b> ที่ทุกเซลล์มีสำเนาเหมือนกัน แต่เซลล์ตาเปิดอ่านแค่ "บทเรื่องการมองเห็น" ส่วนเซลล์กล้ามเนื้อเปิดอ่าน "บทเรื่องการหดตัว" — <b>Epigenetics</b> คือ "ที่คั่นหนังสือ" ที่กำหนดว่าบทไหนเปิด บทไหนปิด
+</div>
+
+<!-- =========================================== -->
+<!-- SECTION 2: EPIGENETICS INTRO -->
+<!-- =========================================== -->
+<h2 id="epigenetics">2. Epigenetics — เครื่องหมายเหนือ DNA</h2>
+
+<p>
+คำว่า <span class="term">Epigenetics</span> มาจากภาษากรีก <i>epi</i> = บน/เหนือ → "สิ่งที่อยู่เหนือพันธุกรรม" หมายถึงการเปลี่ยนแปลงการแสดงออกของยีน <b>โดยไม่เปลี่ยนลำดับ DNA</b>
+</p>
+
+<div class="diagram">
+<svg viewBox="0 0 640 260" xmlns="http://www.w3.org/2000/svg">
+  <text x="320" y="25" text-anchor="middle" font-size="16" font-weight="700" fill="#2c5f8d">Genetics vs Epigenetics</text>
+
+  <!-- Left: Genetics -->
+  <rect x="30" y="50" width="260" height="180" rx="12" fill="#eef6fb" stroke="#2c5f8d" stroke-width="2"/>
+  <text x="160" y="80" text-anchor="middle" font-size="14" fill="#2c5f8d" font-weight="700">🧬 Genetics</text>
+  <text x="160" y="105" text-anchor="middle" font-size="12" fill="#333">= ลำดับตัวอักษร DNA</text>
+  <text x="160" y="130" text-anchor="middle" font-size="28" fill="#2c5f8d" font-weight="700">A T G C</text>
+  <text x="160" y="160" text-anchor="middle" font-size="11" fill="#666">ตัวโน้ตเพลง</text>
+  <text x="160" y="180" text-anchor="middle" font-size="11" fill="#666">เหมือนกันทุกเซลล์</text>
+  <text x="160" y="200" text-anchor="middle" font-size="11" fill="#666">ไม่เปลี่ยน (ยกเว้น mutation)</text>
+
+  <!-- Right: Epigenetics -->
+  <rect x="350" y="50" width="260" height="180" rx="12" fill="#fff8e7" stroke="#e67e22" stroke-width="2"/>
+  <text x="480" y="80" text-anchor="middle" font-size="14" fill="#e67e22" font-weight="700">🎵 Epigenetics</text>
+  <text x="480" y="105" text-anchor="middle" font-size="12" fill="#333">= เครื่องหมายบน DNA</text>
+  <text x="480" y="130" text-anchor="middle" font-size="22" fill="#e67e22" font-weight="700">♩ 𝆑 𝆏 🔇</text>
+  <text x="480" y="160" text-anchor="middle" font-size="11" fill="#666">เครื่องหมายบนโน้ต (ดัง/เบา/หยุด)</text>
+  <text x="480" y="180" text-anchor="middle" font-size="11" fill="#666">ต่างกันในแต่ละเซลล์</text>
+  <text x="480" y="200" text-anchor="middle" font-size="11" fill="#666">เปลี่ยนตามอายุและสภาพแวดล้อม</text>
+
+  <!-- VS -->
+  <circle cx="320" cy="140" r="22" fill="var(--accent)" opacity="0.9"/>
+  <text x="320" y="146" text-anchor="middle" font-size="14" fill="white" font-weight="700">vs</text>
+</svg>
+<div class="caption">Genetics = ตัวโน้ต (เหมือนกันทุกเซลล์) · Epigenetics = วิธีเล่น (ต่างกันในแต่ละเซลล์ และเปลี่ยนตามอายุ)</div>
+</div>
+
+<div class="mnemonic"><b>Epi</b>genetics = <b>เหนือ</b>พันธุกรรม → ไม่ใช่ตัว DNA เอง แต่เป็น "เครื่องหมาย" ที่ติดอยู่บน DNA → กำหนดว่ายีนไหนเปิด/ปิด</div>
+
+<!-- =========================================== -->
+<!-- SECTION 3: WADDINGTON -->
+<!-- =========================================== -->
+<h2 id="waddington">3. Waddington Landscape — ลูกบอลกลิ้งลงเขา</h2>
+
+<p>
+<span class="term">Conrad Waddington</span> (1942) สร้างอุปมาอันทรงพลัง: จินตนาการ <b>ลูกบอล</b> (= เซลล์ต้นกำเนิด) อยู่บนยอดเขา เมื่อกลิ้งลง มันจะเข้า "หุบเขา" ต่างๆ ที่กำหนดว่าจะกลายเป็นเซลล์ชนิดไหน
+</p>
+
+<div class="diagram">
+<svg viewBox="0 0 640 320" xmlns="http://www.w3.org/2000/svg">
+  <text x="320" y="22" text-anchor="middle" font-size="15" font-weight="700" fill="#2c5f8d">Waddington's Epigenetic Landscape</text>
+
+  <!-- Mountain/landscape -->
+  <path d="M 40 280 Q 120 60 200 200 Q 240 280 280 200 Q 320 100 360 200 Q 400 280 440 200 Q 480 80 520 200 Q 560 280 600 280" fill="#d5e8d4" stroke="#27ae60" stroke-width="3"/>
+  <!-- Valleys -->
+  <path d="M 40 280 L 600 280" stroke="#888" stroke-width="1"/>
+
+  <!-- Ball at top -->
+  <circle cx="320" cy="85" r="16" fill="#c0392b"/>
+  <text x="320" y="90" text-anchor="middle" font-size="9" fill="white" font-weight="700">Zygote</text>
+  <text x="320" y="60" text-anchor="middle" font-size="11" fill="#c0392b" font-weight="600">Totipotent</text>
+
+  <!-- Valley labels -->
+  <text x="130" y="275" text-anchor="middle" font-size="10" fill="#2c5f8d" font-weight="600">เซลล์ประสาท</text>
+  <circle cx="130" cy="248" r="10" fill="#3498db"/>
+  <text x="250" y="275" text-anchor="middle" font-size="10" fill="#e74c3c" font-weight="600">เซลล์เลือด</text>
+  <circle cx="250" cy="248" r="10" fill="#e74c3c"/>
+  <text x="380" y="275" text-anchor="middle" font-size="10" fill="#f39c12" font-weight="600">เซลล์กล้ามเนื้อ</text>
+  <circle cx="380" cy="248" r="10" fill="#f39c12"/>
+  <text x="510" y="275" text-anchor="middle" font-size="10" fill="#27ae60" font-weight="600">เซลล์ผิวหนัง</text>
+  <circle cx="510" cy="248" r="10" fill="#27ae60"/>
+
+  <!-- Arrows showing rolling down -->
+  <path d="M 310 100 Q 230 160 135 240" stroke="#c0392b" stroke-width="2" fill="none" stroke-dasharray="5,3" marker-end="url(#arrD)"/>
+  <path d="M 320 100 Q 320 180 380 240" stroke="#c0392b" stroke-width="2" fill="none" stroke-dasharray="5,3" marker-end="url(#arrD)"/>
+  <defs><marker id="arrD" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="#c0392b"/></marker></defs>
+
+  <!-- Gurdon arrow going BACK UP -->
+  <path d="M 515 240 Q 550 150 470 100" stroke="#8e44ad" stroke-width="3" fill="none" marker-end="url(#arrU)"/>
+  <defs><marker id="arrU" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="#8e44ad"/></marker></defs>
+  <text x="565" y="160" font-size="10" fill="#8e44ad" font-weight="700">Gurdon /</text>
+  <text x="565" y="175" font-size="10" fill="#8e44ad" font-weight="700">Yamanaka</text>
+  <text x="565" y="190" font-size="9" fill="#8e44ad">ผลักกลับขึ้นไป!</text>
+
+  <text x="320" y="310" text-anchor="middle" font-size="12" fill="#555">ลูกบอลกลิ้งลง = เซลล์พัฒนาเป็นชนิดเฉพาะ · ผลักกลับขึ้น = Reprogramming</text>
+</svg>
+<div class="caption">เซลล์ต้นกำเนิด (บนยอด) กลิ้งลงหุบเขาต่างๆ กลายเป็นเซลล์ชนิดเฉพาะ — Gurdon และ Yamanaka พิสูจน์ว่าผลักกลับขึ้นไปได้!</div>
+</div>
+
+<div class="flow">
+  <div class="node" style="background: #c0392b;">Totipotent<br><small>สร้างได้ทุกอย่าง + รก</small></div>
+  <div class="arrow">→</div>
+  <div class="node" style="background: #e67e22;">Pluripotent<br><small>สร้างได้ทุกเซลล์ (ES cell)</small></div>
+  <div class="arrow">→</div>
+  <div class="node" style="background: #f39c12;">Multipotent<br><small>สร้างได้หลายชนิด</small></div>
+  <div class="arrow">→</div>
+  <div class="node" style="background: #95a5a6;">Differentiated<br><small>เปลี่ยนแปลงสุดท้าย</small></div>
+</div>
+
+<!-- =========================================== -->
+<!-- SECTION 4: CLONING -->
+<!-- =========================================== -->
+<h2 id="cloning">4. การโคลนนิ่ง — Gurdon พิสูจน์ว่าย้อนกลับได้</h2>
+
+<div class="timeline">
+  <div class="timeline-item">
+    <span class="year">1952 — Robert Briggs & Thomas King</span><br>
+    ย้ายนิวเคลียสจากเซลล์ตัวอ่อนกบ <i>Rana pipiens</i> เข้าไปในไข่ที่เอานิวเคลียสออก → ได้ลูกอ๊อดปกติ แต่ใช้เซลล์ที่พัฒนาแล้วไม่ค่อยสำเร็จ
+  </div>
+  <div class="timeline-item">
+    <span class="year">1960s — John Gurdon (Cambridge)</span><br>
+    ใช้กบ <i>Xenopus laevis</i> พิสูจน์ว่า <b>นิวเคลียสจากเซลล์ลำไส้</b> (เซลล์ที่พัฒนาเต็มที่) ยังสามารถสร้างกบตัวใหม่ได้ → <b>ข้อมูลพันธุกรรมทั้งหมดยังอยู่ครบ!</b>
+  </div>
+  <div class="timeline-item">
+    <span class="year">1996 — Dolly the Sheep</span><br>
+    สัตว์เลี้ยงลูกด้วยนมตัวแรกที่ถูกโคลน แต่ <b>Dolly แก่เร็วผิดปกติ</b> → หลักฐานว่า epigenetic reprogramming ไม่สมบูรณ์ ร่องรอยของ "อายุ" ยังตกค้าง
+  </div>
+  <div class="timeline-item">
+    <span class="year">🏆 2012 — รางวัลโนเบล</span><br>
+    <b>John Gurdon</b> และ <b>Shinya Yamanaka</b> ได้โนเบลสาขาสรีรวิทยาหรือการแพทย์ร่วมกัน จากการค้นพบว่าเซลล์ที่พัฒนาแล้ว <b>สามารถรีโปรแกรมกลับ</b> เป็นเซลล์ต้นกำเนิดได้
+  </div>
+</div>
+
+<div class="diagram">
+<svg viewBox="0 0 640 220" xmlns="http://www.w3.org/2000/svg">
+  <text x="320" y="22" text-anchor="middle" font-size="14" font-weight="700" fill="#2c5f8d">Nuclear Transfer ของ Gurdon</text>
+
+  <!-- Intestine cell -->
+  <rect x="30" y="60" width="100" height="60" rx="8" fill="#f39c12" opacity="0.8"/>
+  <text x="80" y="85" text-anchor="middle" font-size="10" fill="white" font-weight="700">เซลล์ลำไส้</text>
+  <text x="80" y="100" text-anchor="middle" font-size="9" fill="white">(differentiated)</text>
+  <!-- Nucleus -->
+  <circle cx="80" cy="140" r="14" fill="#8e44ad"/>
+  <text x="80" y="144" text-anchor="middle" font-size="8" fill="white" font-weight="700">นิวเคลียส</text>
+
+  <!-- Arrow: extract nucleus -->
+  <path d="M 80 120 L 80 125" stroke="#8e44ad" stroke-width="2"/>
+  <path d="M 100 140 L 190 140" stroke="#8e44ad" stroke-width="2" fill="none" marker-end="url(#arrP)"/>
+  <defs><marker id="arrP" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="#8e44ad"/></marker></defs>
+  <text x="145" y="133" text-anchor="middle" font-size="9" fill="#8e44ad" font-weight="600">ย้ายนิวเคลียส</text>
+
+  <!-- Egg cell (enucleated) -->
+  <circle cx="240" cy="140" r="35" fill="#fce8dc" stroke="#c98566" stroke-width="2"/>
+  <text x="240" y="135" text-anchor="middle" font-size="9" fill="#c98566" font-weight="600">ไข่กบ</text>
+  <text x="240" y="150" text-anchor="middle" font-size="8" fill="#c98566">(เอานิวเคลียสออก)</text>
+
+  <!-- Merged -->
+  <path d="M 280 140 L 340 140" stroke="#27ae60" stroke-width="3" fill="none" marker-end="url(#arrG)"/>
+  <defs><marker id="arrG" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="#27ae60"/></marker></defs>
+
+  <!-- Result: tadpole -->
+  <circle cx="400" cy="140" r="30" fill="#d5e8d4" stroke="#27ae60" stroke-width="2"/>
+  <circle cx="400" cy="140" r="12" fill="#8e44ad" opacity="0.7"/>
+  <text x="400" y="144" text-anchor="middle" font-size="8" fill="white" font-weight="700">นิวเคลียส</text>
+  <text x="400" y="185" text-anchor="middle" font-size="10" fill="#27ae60" font-weight="600">รีโปรแกรม!</text>
+
+  <path d="M 435 140 L 495 140" stroke="#27ae60" stroke-width="2" fill="none" marker-end="url(#arrG)"/>
+
+  <!-- Frog! -->
+  <ellipse cx="560" cy="130" rx="45" ry="30" fill="#27ae60" opacity="0.8"/>
+  <circle cx="545" cy="115" r="6" fill="white"/>
+  <circle cx="545" cy="115" r="3" fill="#333"/>
+  <circle cx="575" cy="115" r="6" fill="white"/>
+  <circle cx="575" cy="115" r="3" fill="#333"/>
+  <text x="560" y="175" text-anchor="middle" font-size="11" fill="#27ae60" font-weight="700">กบตัวใหม่!</text>
+
+  <text x="320" y="210" text-anchor="middle" font-size="11" fill="#555">พิสูจน์ว่า: เซลล์ที่พัฒนาแล้ว ยังมี DNA ครบ → สามารถรีโปรแกรมกลับได้</text>
+</svg>
+<div class="caption">Gurdon ย้ายนิวเคลียสจากเซลล์ลำไส้ → ใส่ในไข่ที่เอานิวเคลียสออก → ได้กบตัวใหม่ทั้งตัว!</div>
+</div>
+
+<!-- =========================================== -->
+<!-- SECTION 5: YAMANAKA -->
+<!-- =========================================== -->
+<h2 id="yamanaka">5. Yamanaka Factors — ปัจจัย 4 ตัวที่ตั้งนาฬิกาใหม่</h2>
+
+<p>
+<span class="term">Shinya Yamanaka</span> (เกิด 1962) เดิมเป็นศัลยแพทย์กระดูกที่ผ่าตัดไม่เก่ง จึงหันมาทำวิจัย คำถามของเขาคือ: <b>"ปัจจัยอะไรในไข่ที่ทำให้เซลล์รีโปรแกรมได้?"</b>
+</p>
+
+<div class="diagram">
+<svg viewBox="0 0 640 280" xmlns="http://www.w3.org/2000/svg">
+  <text x="320" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="#2c5f8d">iPS Cell: เซลล์ผิวหนัง → เซลล์ต้นกำเนิด</text>
+
+  <!-- Skin cell -->
+  <rect x="30" y="80" width="120" height="80" rx="10" fill="#95a5a6"/>
+  <text x="90" y="115" text-anchor="middle" font-size="11" fill="white" font-weight="700">เซลล์ผิวหนัง</text>
+  <text x="90" y="132" text-anchor="middle" font-size="9" fill="white">(fibroblast)</text>
+
+  <!-- 4 Factors -->
+  <path d="M 155 120 L 230 120" stroke="#8e44ad" stroke-width="3" fill="none" marker-end="url(#arrY)"/>
+  <defs><marker id="arrY" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="#8e44ad"/></marker></defs>
+
+  <rect x="240" y="55" width="160" height="130" rx="12" fill="#f0e7ff" stroke="#8e44ad" stroke-width="3"/>
+  <text x="320" y="78" text-anchor="middle" font-size="12" fill="#8e44ad" font-weight="700">✨ Yamanaka Factors</text>
+  <text x="320" y="100" text-anchor="middle" font-size="13" fill="#6c3bd9" font-weight="700">Oct4</text>
+  <text x="320" y="118" text-anchor="middle" font-size="13" fill="#6c3bd9" font-weight="700">Sox2</text>
+  <text x="320" y="136" text-anchor="middle" font-size="13" fill="#6c3bd9" font-weight="700">Klf4</text>
+  <text x="320" y="154" text-anchor="middle" font-size="13" fill="#6c3bd9" font-weight="700">c-Myc</text>
+  <text x="320" y="175" text-anchor="middle" font-size="10" fill="#8e44ad">(transcription factors 4 ตัว)</text>
+
+  <!-- Arrow -->
+  <path d="M 405 120 L 470 120" stroke="#27ae60" stroke-width="3" fill="none" marker-end="url(#arrGn)"/>
+  <defs><marker id="arrGn" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="#27ae60"/></marker></defs>
+
+  <!-- iPS Cell -->
+  <circle cx="545" cy="120" r="50" fill="#27ae60" opacity="0.8"/>
+  <text x="545" y="110" text-anchor="middle" font-size="11" fill="white" font-weight="700">iPS Cell</text>
+  <text x="545" y="128" text-anchor="middle" font-size="9" fill="white">เซลล์ต้นกำเนิด</text>
+  <text x="545" y="143" text-anchor="middle" font-size="9" fill="white">(pluripotent)</text>
+
+  <!-- Kazutoshi -->
+  <text x="320" y="210" text-anchor="middle" font-size="11" fill="#555"><tspan font-weight="600">Kazutoshi Takahashi</tspan> ลูกศิษย์ Yamanaka ทดสอบ 24 ปัจจัย → ตัดเหลือ 4</text>
+
+  <!-- Result branches -->
+  <text x="545" y="190" text-anchor="middle" font-size="10" fill="#27ae60" font-weight="600">สามารถพัฒนาเป็น:</text>
+  <text x="480" y="215" font-size="10" fill="#333">🧠 เซลล์ประสาท</text>
+  <text x="480" y="235" font-size="10" fill="#333">❤️ เซลล์หัวใจ</text>
+  <text x="480" y="255" font-size="10" fill="#333">🩸 เซลล์เลือด</text>
+  <text x="580" y="215" font-size="10" fill="#333">💪 เซลล์กล้ามเนื้อ</text>
+  <text x="580" y="235" font-size="10" fill="#333">🦴 เซลล์กระดูก</text>
+  <text x="580" y="255" font-size="10" fill="#333">... ทุกชนิด!</text>
+</svg>
+<div class="caption">แค่ปัจจัย 4 ตัว สามารถ "ตั้งนาฬิกาย้อนกลับ" ให้เซลล์ผิวหนังกลายเป็นเซลล์ต้นกำเนิดอีกครั้ง</div>
+</div>
+
+<div class="fact">
+  <b>🤯 ข้อเท็จจริงชวนตกใจ:</b> จาก transcription factor 24 ตัวที่น่าจะเกี่ยวข้อง Takahashi ตัดทิ้งทีละตัวจนเหลือแค่ <b>4 ตัว</b> ที่เพียงพอจะ "ตั้งนาฬิกาย้อนกลับ" ให้เซลล์ผิวหนังแก่ๆ กลับไปเป็นเซลล์ต้นกำเนิดที่มีศักยภาพสูง
+</div>
+
+<div class="mnemonic"><b>OSKM</b> = Oct4, Sox2, Klf4, c-Myc = "ปุ่มรีเซ็ต" ของเซลล์ — ปัจจัย 4 ตัวที่เปลี่ยนเซลล์แก่ให้กลับไปเป็นเซลล์ต้นกำเนิด</div>
+
+<!-- =========================================== -->
+<!-- SECTION 6: MECHANISMS -->
+<!-- =========================================== -->
+<h2 id="mechanisms">6. กลไก Epigenetics: Methylation, Histone, Chromatin</h2>
+
+<div class="three-col">
+  <div class="col" style="border-top: 4px solid #c0392b;">
+    <h4>🔴 DNA Methylation</h4>
+    <p>เอนไซม์ติดหมู่ <b>เมทิล (-CH₃)</b> บนเบส <b>C (Cytosine)</b></p>
+    <p>C ถูกเมทิล → ยีน <b>ปิด</b> 🔇</p>
+    <p><b>Demethylase</b> ถอดเมทิลออก → ยีน <b>เปิด</b> 🔊</p>
+  </div>
+  <div class="col" style="border-top: 4px solid #2c5f8d;">
+    <h4>🔵 Histone Modification</h4>
+    <p>DNA พันรอบโปรตีน <b>histone</b></p>
+    <p><b>Acetylase</b> เติม acetyl → chromatin คลาย → ยีน <b>เปิด</b></p>
+    <p><b>Deacetylase</b> ดึง acetyl ออก → chromatin แน่น → ยีน <b>ปิด</b></p>
+  </div>
+  <div class="col" style="border-top: 4px solid #27ae60;">
+    <h4>🟢 Chromatin Remodeling</h4>
+    <p><b>Chromatin</b> = DNA + histone รวมกัน</p>
+    <p>หน่วยย่อย = <b>nucleosome</b></p>
+    <p>จัดเรียงโครงสร้างใหม่เพื่อเปิด/ปิดยีนกลุ่มใหญ่</p>
+  </div>
+</div>
+
+<div class="diagram">
+<svg viewBox="0 0 640 240" xmlns="http://www.w3.org/2000/svg">
+  <text x="320" y="22" text-anchor="middle" font-size="14" font-weight="700" fill="#2c5f8d">DNA พันรอบ Histone = Nucleosome</text>
+
+  <!-- Histone (bead) -->
+  <circle cx="160" cy="130" r="40" fill="#2c5f8d" opacity="0.8"/>
+  <text x="160" y="125" text-anchor="middle" font-size="11" fill="white" font-weight="700">Histone</text>
+  <text x="160" y="142" text-anchor="middle" font-size="9" fill="white">(แกนโปรตีน)</text>
+
+  <!-- DNA wrapping around -->
+  <path d="M 90 95 Q 110 70 140 80 Q 170 90 200 80 Q 230 70 230 100" stroke="#c0392b" stroke-width="4" fill="none"/>
+  <path d="M 230 100 Q 230 130 200 145 Q 170 160 140 155 Q 110 150 90 170" stroke="#c0392b" stroke-width="4" fill="none"/>
+  <text x="160" y="200" text-anchor="middle" font-size="12" fill="#333" font-weight="600">= 1 Nucleosome</text>
+
+  <!-- Arrow -->
+  <text x="300" y="130" text-anchor="middle" font-size="30" fill="#888">→</text>
+
+  <!-- Open chromatin -->
+  <text x="420" y="60" text-anchor="middle" font-size="12" fill="#27ae60" font-weight="700">เปิด (Acetylated)</text>
+  <circle cx="380" cy="90" r="18" fill="#27ae60" opacity="0.6"/>
+  <circle cx="420" cy="90" r="18" fill="#27ae60" opacity="0.6"/>
+  <circle cx="460" cy="90" r="18" fill="#27ae60" opacity="0.6"/>
+  <path d="M 362 90 Q 370 78 380 90 Q 390 102 400 90 Q 410 78 420 90 Q 430 102 440 90 Q 450 78 460 90 Q 470 102 478 90" stroke="#c0392b" stroke-width="2" fill="none"/>
+  <text x="420" y="120" text-anchor="middle" font-size="10" fill="#27ae60">chromatin คลาย → ยีนเปิด 🔊</text>
+
+  <!-- Closed chromatin -->
+  <text x="420" y="155" text-anchor="middle" font-size="12" fill="#c0392b" font-weight="700">ปิด (Deacetylated)</text>
+  <circle cx="400" cy="185" r="16" fill="#c0392b" opacity="0.6"/>
+  <circle cx="420" cy="185" r="16" fill="#c0392b" opacity="0.6"/>
+  <circle cx="440" cy="185" r="16" fill="#c0392b" opacity="0.6"/>
+  <text x="420" y="215" text-anchor="middle" font-size="10" fill="#c0392b">chromatin แน่น → ยีนปิด 🔇</text>
+</svg>
+<div class="caption">DNA พันรอบ histone เป็น nucleosome — ถ้า acetyl ทำให้คลาย = ยีนเปิด; ถ้าแน่น = ยีนปิด</div>
+</div>
+
+<!-- =========================================== -->
+<!-- SECTION 7: HORVATH CLOCK -->
+<!-- =========================================== -->
+<h2 id="clock">7. นาฬิกา Horvath — วัดอายุจริงของร่างกาย</h2>
+
+<p>
+<span class="term">Steve Horvath</span> จาก UCLA ค้นพบว่ารูปแบบ DNA methylation เปลี่ยนแปลงอย่าง <b>คาดเดาได้</b> ตามอายุ เขาระบุตำแหน่ง methylation <b>513 จุด</b> ที่ทำนาย "อายุชีวภาพ" ได้แม่นยำ
+</p>
+
+<div class="diagram">
+<svg viewBox="0 0 640 220" xmlns="http://www.w3.org/2000/svg">
+  <text x="320" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="#2c5f8d">Epigenetic Clock: อายุปฏิทิน vs อายุชีวภาพ</text>
+
+  <!-- Clock face -->
+  <circle cx="160" cy="130" r="70" fill="white" stroke="#2c5f8d" stroke-width="3"/>
+  <circle cx="160" cy="130" r="3" fill="#2c5f8d"/>
+  <!-- Hour marks -->
+  <line x1="160" y1="65" x2="160" y2="75" stroke="#333" stroke-width="2"/>
+  <line x1="225" y1="130" x2="215" y2="130" stroke="#333" stroke-width="2"/>
+  <line x1="160" y1="195" x2="160" y2="185" stroke="#333" stroke-width="2"/>
+  <line x1="95" y1="130" x2="105" y2="130" stroke="#333" stroke-width="2"/>
+  <!-- Clock hand - calendar -->
+  <line x1="160" y1="130" x2="160" y2="80" stroke="#2c5f8d" stroke-width="3"/>
+  <!-- Clock hand - biological -->
+  <line x1="160" y1="130" x2="200" y2="100" stroke="#c0392b" stroke-width="3"/>
+  <!-- Labels -->
+  <text x="130" y="55" font-size="10" fill="#2c5f8d" font-weight="600">อายุปฏิทิน</text>
+  <text x="205" y="90" font-size="10" fill="#c0392b" font-weight="600">อายุชีวภาพ</text>
+  <text x="160" y="215" text-anchor="middle" font-size="11" fill="#333" font-weight="600">513 จุด methylation</text>
+
+  <!-- Two people comparison -->
+  <!-- Person A -->
+  <rect x="320" y="50" width="130" height="80" rx="10" fill="#eaf7ea" stroke="#27ae60" stroke-width="2"/>
+  <text x="385" y="72" text-anchor="middle" font-size="11" fill="#27ae60" font-weight="700">คน A</text>
+  <text x="385" y="92" text-anchor="middle" font-size="10" fill="#333">อายุปฏิทิน: 50 ปี</text>
+  <text x="385" y="112" text-anchor="middle" font-size="12" fill="#27ae60" font-weight="700">อายุชีวภาพ: 40 ปี ✓</text>
+
+  <!-- Person B -->
+  <rect x="320" y="145" width="130" height="80" rx="10" fill="#fdecec" stroke="#c0392b" stroke-width="2"/>
+  <text x="385" y="167" text-anchor="middle" font-size="11" fill="#c0392b" font-weight="700">คน B</text>
+  <text x="385" y="187" text-anchor="middle" font-size="10" fill="#333">อายุปฏิทิน: 50 ปี</text>
+  <text x="385" y="207" text-anchor="middle" font-size="12" fill="#c0392b" font-weight="700">อายุชีวภาพ: 60 ปี ✗</text>
+
+  <!-- Explanation -->
+  <text x="530" y="120" text-anchor="middle" font-size="11" fill="#555">อายุเดียวกัน</text>
+  <text x="530" y="140" text-anchor="middle" font-size="11" fill="#555">แต่แก่ไม่เท่ากัน!</text>
+  <text x="530" y="170" text-anchor="middle" font-size="10" fill="#555">Methylation pattern</text>
+  <text x="530" y="185" text-anchor="middle" font-size="10" fill="#555">บอกอายุ "จริง" ได้</text>
+</svg>
+<div class="caption">นาฬิกา Horvath วัด DNA methylation 513 จุด → บอกอายุชีวภาพที่อาจต่างจากอายุจริง</div>
+</div>
+
+<div class="tip">
+  <b>💡 ประโยชน์ของ Epigenetic Clock:</b> วัดอัตราความแก่ของแต่ละคน, ทำนายความเสี่ยงโรค, และประเมินว่าการแทรกแซงชะลอวัยได้ผลหรือไม่ — เป็น "ไม้บรรทัด" วัดความแก่ที่แม่นที่สุดเท่าที่มี
+</div>
+
+<!-- =========================================== -->
+<!-- SECTION 8: DUTCH HUNGER WINTER -->
+<!-- =========================================== -->
+<h2 id="hunger">8. Dutch Hunger Winter — Epigenetics ส่งผลข้ามรุ่น</h2>
+
+<p>
+ระหว่าง <b>กันยายน 1944 – พฤษภาคม 1945</b> ชาวเนเธอร์แลนด์เผชิญกับความอดอยากรุนแรง ผู้เสียชีวิตราว <b>20,000 คน</b> แต่ผลกระทบไม่ได้จบแค่นั้น — มันส่งผลข้ามรุ่น
+</p>
+
+<div style="text-align: center; margin: 24px 0;">
+  <div class="stat-box">
+    <span class="num">20,000</span>
+    <span class="lbl">ผู้เสียชีวิตจากความอดอยาก</span>
+  </div>
+  <div class="stat-box">
+    <span class="num">250,000</span>
+    <span class="lbl">ไข่ในผู้หญิงอายุ 30 ปกติ</span>
+  </div>
+  <div class="stat-box">
+    <span class="num">25,000</span>
+    <span class="lbl">ไข่ในลูกสาวของแม่ที่อดอยาก</span>
+  </div>
+</div>
+
+<div class="diagram">
+<svg viewBox="0 0 640 200" xmlns="http://www.w3.org/2000/svg">
+  <text x="320" y="22" text-anchor="middle" font-size="14" font-weight="700" fill="#2c5f8d">Epigenetics ส่งผลข้ามรุ่น</text>
+
+  <!-- Gen 1: Mother -->
+  <circle cx="100" cy="100" r="40" fill="#e74c3c" opacity="0.7"/>
+  <text x="100" y="95" text-anchor="middle" font-size="10" fill="white" font-weight="700">แม่ (Gen 1)</text>
+  <text x="100" y="110" text-anchor="middle" font-size="8" fill="white">อดอยากตอนตั้งครรภ์</text>
+  <text x="100" y="155" text-anchor="middle" font-size="9" fill="#e74c3c" font-weight="600">Epigenetics เปลี่ยน</text>
+
+  <path d="M 145 100 L 210 100" stroke="#e67e22" stroke-width="3" fill="none" marker-end="url(#arrH)"/>
+  <defs><marker id="arrH" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="#e67e22"/></marker></defs>
+
+  <!-- Gen 2: Child -->
+  <circle cx="270" cy="100" r="40" fill="#e67e22" opacity="0.7"/>
+  <text x="270" y="95" text-anchor="middle" font-size="10" fill="white" font-weight="700">ลูก (Gen 2)</text>
+  <text x="270" y="110" text-anchor="middle" font-size="8" fill="white">เบาหวาน/โรคหัวใจ</text>
+  <text x="270" y="155" text-anchor="middle" font-size="9" fill="#e67e22" font-weight="600">ไข่น้อยกว่าปกติ 10×</text>
+
+  <path d="M 315 100 L 380 100" stroke="#f39c12" stroke-width="3" fill="none" marker-end="url(#arrHH)"/>
+  <defs><marker id="arrHH" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="#f39c12"/></marker></defs>
+
+  <!-- Gen 3: Grandchild -->
+  <circle cx="440" cy="100" r="40" fill="#f39c12" opacity="0.7"/>
+  <text x="440" y="95" text-anchor="middle" font-size="10" fill="white" font-weight="700">หลาน (Gen 3)</text>
+  <text x="440" y="110" text-anchor="middle" font-size="8" fill="white">ยังได้รับผลกระทบ!</text>
+  <text x="440" y="155" text-anchor="middle" font-size="9" fill="#f39c12" font-weight="600">โรคอ้วน/เบาหวาน</text>
+
+  <!-- Warning -->
+  <text x="570" y="95" text-anchor="middle" font-size="12" fill="#c0392b" font-weight="700">⚠️ สภาพ</text>
+  <text x="570" y="112" text-anchor="middle" font-size="12" fill="#c0392b" font-weight="700">แวดล้อม</text>
+  <text x="570" y="129" text-anchor="middle" font-size="12" fill="#c0392b" font-weight="700">"เขียน" ลง</text>
+  <text x="570" y="146" text-anchor="middle" font-size="12" fill="#c0392b" font-weight="700">บน DNA</text>
+  <text x="570" y="163" text-anchor="middle" font-size="12" fill="#c0392b" font-weight="700">ข้ามรุ่น</text>
+</svg>
+<div class="caption">ความอดอยากของแม่ → เปลี่ยน epigenetics ของลูก → ส่งผลถึงหลาน</div>
+</div>
+
+<div class="warning">
+  <b>⚠️ บทเรียนจาก Dutch Hunger Winter:</b> สภาพแวดล้อมที่เราเผชิญ (อาหาร ความเครียด มลพิษ) ไม่ได้ส่งผลแค่กับตัวเรา แต่อาจ <b>"เขียน" ลงบน DNA</b> ผ่านเครื่องหมาย epigenetics ส่งผลถึง <b>ลูกหลาน</b> ที่ยังไม่เกิด
+</div>
+
+<!-- =========================================== -->
+<!-- SECTION 9: BIG PICTURE -->
+<!-- =========================================== -->
+<h2 id="aging">9. ภาพรวม: Epigenetics → Aging → ความหวัง</h2>
+
+<div class="flow">
+  <div class="node" style="background: #27ae60;">เซลล์อายุน้อย<br><small>Epigenetics เป็นระเบียบ</small></div>
+  <div class="arrow">→</div>
+  <div class="node" style="background: #f39c12;">เวลาผ่านไป<br><small>เครื่องหมายเริ่มรก</small></div>
+  <div class="arrow">→</div>
+  <div class="node" style="background: #e67e22;">ยีนเปิด/ปิดผิดที่<br><small>เหมือนวงดนตรีเพี้ยน</small></div>
+  <div class="arrow">→</div>
+  <div class="node" style="background: #c0392b;">เซลล์เสื่อม ร่างกายแก่<br><small>Senescence สะสม</small></div>
+</div>
+
+<div class="card">
+  <h3 style="margin-top: 0;">🔗 เชื่อมกับบทอื่น — 3 กลไกแห่งความชรา</h3>
+  <table>
+    <tr><th>กลไก</th><th>บท</th><th>สาเหตุ</th><th>ผลลัพธ์</th></tr>
+    <tr><td><b>DNA Damage</b></td><td>บทที่ 3</td><td>รังสี สารเคมี ความเสื่อมตามธรรมชาติ</td><td>ซ่อมไม่ทัน → เซลล์ตาย/มะเร็ง/senescence</td></tr>
+    <tr><td><b>Telomere Shortening</b></td><td>บทที่ 4</td><td>End-replication problem</td><td>Hayflick Limit → senescence</td></tr>
+    <tr><td><b>Epigenetic Drift</b></td><td>บทที่ 5</td><td>เครื่องหมาย methylation/histone เปลี่ยน</td><td>ยีนเปิด/ปิดผิด → วงออร์เคสตราเพี้ยน</td></tr>
+  </table>
+  <p style="margin-top: 14px;"><b>ทั้ง 3 กลไกทำงานร่วมกัน</b> ผลักเซลล์เข้าสู่ senescence → เซลล์ผีดิบสะสม → อวัยวะเสื่อม → ความชรา → ความตาย</p>
+</div>
+
+<div class="versus">
+  <div class="side bad">
+    <h4 style="color: var(--accent);">❌ อุปสรรค</h4>
+    <p>การรีเซ็ต epigenetics เต็มรูปแบบ (Yamanaka Factors) ทำให้เซลล์ย้อนกลับเป็น stem cell → <b>เสี่ยงมะเร็ง</b></p>
+    <p>Dolly the Sheep แก่เร็ว → reprogramming ไม่สมบูรณ์</p>
+  </div>
+  <div class="side good">
+    <h4 style="color: var(--accent3);">✅ ความหวัง</h4>
+    <p>ถ้า "ตั้งนาฬิกาย้อนกลับ <b>บางส่วน</b>" ได้ — ชะลอวัยโดยไม่ต้องย้อนกลับเป็น stem cell ทั้งหมด?</p>
+    <p>นาฬิกา Horvath ทำให้เราวัดผลสำเร็จของการแทรกแซงได้</p>
+  </div>
+</div>
+
+<!-- =========================================== -->
+<!-- SECTION 10: QUIZ -->
+<!-- =========================================== -->
+<h2 id="quiz">10. คำถามทบทวน</h2>
+
+<div class="quiz">
+  <details><summary>1. Epigenetics คืออะไร? ต่างจาก genetics อย่างไร?</summary>
+  <p>Epigenetics คือการเปลี่ยนแปลงการแสดงออกของยีนโดยไม่เปลี่ยนลำดับ DNA ต่างจาก genetics ที่เป็นลำดับตัวอักษร DNA เอง ถ้า genetics คือ "ตัวโน้ต" epigenetics คือ "เครื่องหมายบนโน้ต" ที่บอกว่าจะเล่นดังหรือเบา</p>
+  </details>
+</div>
+
+<div class="quiz">
+  <details><summary>2. Waddington Landscape อธิบายอะไร?</summary>
+  <p>อธิบายการพัฒนาของเซลล์จาก totipotent (ลูกบอลบนยอดเขา) กลิ้งลงหุบเขาต่างๆ ไปเป็นเซลล์ชนิดเฉพาะ ยิ่งกลิ้งลงลึก ยิ่งย้อนกลับยาก — แต่ Gurdon และ Yamanaka พิสูจน์ว่าผลักกลับขึ้นได้</p>
+  </details>
+</div>
+
+<div class="quiz">
+  <details><summary>3. Gurdon พิสูจน์อะไรจากการทดลองกับกบ?</summary>
+  <p>เขาย้ายนิวเคลียสจากเซลล์ลำไส้ (ที่พัฒนาเต็มที่แล้ว) ไปใส่ในไข่ที่เอานิวเคลียสออก แล้วได้กบตัวใหม่ → พิสูจน์ว่าเซลล์ที่พัฒนาแล้วยังมีข้อมูลพันธุกรรมครบถ้วน และสามารถรีโปรแกรมกลับได้</p>
+  </details>
+</div>
+
+<div class="quiz">
+  <details><summary>4. Yamanaka Factors มีอะไรบ้าง? iPS cell คืออะไร?</summary>
+  <p>Yamanaka Factors = Oct4, Sox2, Klf4, c-Myc — transcription factors 4 ตัวที่ทำให้เซลล์ร่างกาย (เช่น ผิวหนัง) กลับไปเป็นเซลล์ต้นกำเนิดอีกครั้ง เรียกว่า induced pluripotent stem cell (iPS cell)</p>
+  </details>
+</div>
+
+<div class="quiz">
+  <details><summary>5. DNA methylation ทำงานอย่างไร?</summary>
+  <p>เอนไซม์ติดหมู่เมทิล (-CH₃) บน cytosine → ยีนถูกปิด เอนไซม์ demethylase ถอดเมทิลออก → ยีนเปิดอีกครั้ง รูปแบบ methylation เปลี่ยนตามอายุ ซึ่ง Horvath ใช้เป็นฐานของ Epigenetic Clock</p>
+  </details>
+</div>
+
+<div class="quiz">
+  <details><summary>6. นาฬิกา Horvath วัดอะไร?</summary>
+  <p>วัดรูปแบบ DNA methylation ที่ตำแหน่ง 513 จุด เพื่อคำนวณ "อายุชีวภาพ" ซึ่งอาจต่างจากอายุตามปฏิทิน ใช้ทำนายอัตราความแก่ ความเสี่ยงโรค และประเมินผลการแทรกแซงชะลอวัย</p>
+  </details>
+</div>
+
+<div class="quiz">
+  <details><summary>7. Dutch Hunger Winter สอนอะไรเรื่อง epigenetics?</summary>
+  <p>ความอดอยากของแม่ตอนตั้งครรภ์ทำให้ epigenetics ของลูกเปลี่ยน → ลูกมีอัตราเป็นเบาหวาน โรคหัวใจ โรคอ้วนสูงกว่าปกติตลอดชีวิต และผลกระทบส่งถึงรุ่นหลาน → พิสูจน์ว่าสภาพแวดล้อม "เขียน" ลงบน epigenetics ข้ามรุ่นได้</p>
+  </details>
+</div>
+
+<div class="quiz">
+  <details><summary>8. Dolly the Sheep แก่เร็วเพราะอะไร?</summary>
+  <p>Dolly ถูกโคลนจากเซลล์ร่างกาย แต่ epigenetic reprogramming ไม่สมบูรณ์ ร่องรอยของ "อายุ" จากเซลล์เดิมยังตกค้าง ทำให้ Dolly แสดงอาการแก่เร็วกว่าปกติ</p>
+  </details>
+</div>
+
+<div class="quiz">
+  <details><summary>9. ทำไมเรื่องนี้เกี่ยวกับความแก่?</summary>
+  <p>เมื่ออายุมากขึ้น เครื่องหมาย epigenetics เปลี่ยนไป (epigenetic drift) ทำให้ยีนบางตัวเปิดผิด ปิดผิด เหมือนวงออร์เคสตราที่เริ่มเพี้ยน → ร่วมกับ DNA damage และ telomere shortening ทำให้เซลล์เสื่อมและเข้า senescence</p>
+  </details>
+</div>
+
+<div class="quiz">
+  <details><summary>10. ความหวังในการ "ตั้งนาฬิกาใหม่" คืออะไร?</summary>
+  <p>Yamanaka พิสูจน์ว่าเซลล์แก่สามารถรีเซ็ตกลับเป็น stem cell ได้ ความท้าทายคือทำอย่างไรให้รีเซ็ต "บางส่วน" เพื่อชะลอวัยโดยไม่ต้องย้อนกลับทั้งหมด (ซึ่งเสี่ยงมะเร็ง) — นี่คือแนวทางวิจัยต่อต้านความชราที่ร้อนแรงที่สุด</p>
+  </details>
+</div>
+
+<!-- =========================================== -->
+<!-- SECTION 11: VOCAB -->
+<!-- =========================================== -->
+<h2 id="vocab">11. คำศัพท์สำคัญ</h2>
+
+<table>
+  <tr><th>คำศัพท์</th><th>ความหมาย</th></tr>
+  <tr><td><span class="term">Epigenetics</span></td><td>การเปลี่ยนแปลงการแสดงออกของยีนโดยไม่เปลี่ยนลำดับ DNA</td></tr>
+  <tr><td><span class="term">DNA Methylation</span></td><td>การเติมหมู่เมทิล (-CH₃) บนเบส C เพื่อ "ปิด" ยีน</td></tr>
+  <tr><td><span class="term">Histone</span></td><td>โปรตีนที่ DNA พันรอบ ควบคุมการเปิด/ปิดยีน</td></tr>
+  <tr><td><span class="term">Chromatin</span></td><td>โครงสร้างรวมของ DNA + histone</td></tr>
+  <tr><td><span class="term">Nucleosome</span></td><td>หน่วยย่อยของ chromatin (DNA พันรอบ histone 1 กลุ่ม)</td></tr>
+  <tr><td><span class="term">Totipotent</span></td><td>เซลล์ที่สร้างร่างกายทั้งหมด + รกได้ (zygote)</td></tr>
+  <tr><td><span class="term">Pluripotent</span></td><td>เซลล์ที่สร้างเซลล์ได้ทุกชนิดในร่างกาย (ES cell, iPS cell)</td></tr>
+  <tr><td><span class="term">iPS Cell</span></td><td>Induced Pluripotent Stem Cell — เซลล์ร่างกายที่ถูกรีโปรแกรมกลับ</td></tr>
+  <tr><td><span class="term">Yamanaka Factors</span></td><td>Oct4, Sox2, Klf4, c-Myc — ปัจจัย 4 ตัวที่รีโปรแกรมเซลล์</td></tr>
+  <tr><td><span class="term">Epigenetic Clock</span></td><td>วิธีวัดอายุชีวภาพจากรูปแบบ DNA methylation (Steve Horvath)</td></tr>
+  <tr><td><span class="term">Waddington Landscape</span></td><td>อุปมาของการพัฒนาเซลล์ — ลูกบอลกลิ้งลงเขา</td></tr>
+  <tr><td><span class="term">Nuclear Transfer</span></td><td>การย้ายนิวเคลียสจากเซลล์หนึ่งไปอีกเซลล์ (ใช้ในการโคลน)</td></tr>
+  <tr><td><span class="term">Transcription Factor</span></td><td>โปรตีนที่ควบคุมการเปิด/ปิดยีน</td></tr>
+  <tr><td><span class="term">Histone Acetylase</span></td><td>เอนไซม์เติม acetyl บน histone → ยีนเปิด</td></tr>
+  <tr><td><span class="term">Histone Deacetylase</span></td><td>เอนไซม์ดึง acetyl ออกจาก histone → ยีนปิด</td></tr>
+  <tr><td><span class="term">Demethylase</span></td><td>เอนไซม์ถอดหมู่เมทิลจาก DNA → ยีนเปิด</td></tr>
+  <tr><td><span class="term">Imprinting</span></td><td>ยีนแสดงออกต่างกันขึ้นกับว่ามาจากพ่อหรือแม่</td></tr>
+  <tr><td><span class="term">Pseudogene</span></td><td>ยีนเทียม — ลำดับ DNA ที่ไม่ทำงานแล้ว</td></tr>
+</table>
+
+<!-- FOOTER -->
+<div style="margin-top: 60px; padding-top: 20px; border-top: 2px solid #ddd; color: #888; font-size: 0.9em;">
+  <p><b>สรุปบทที่ 5:</b> ความแก่ไม่ได้เกิดจาก DNA พังเพียงอย่างเดียว — "เครื่องหมาย" epigenetics บน DNA ก็เปลี่ยนไปตามอายุด้วย เหมือนวงออร์เคสตราที่เริ่มเพี้ยน แต่ Yamanaka พิสูจน์แล้วว่า "ตั้งนาฬิกาใหม่" ได้ — คำถามคือ ทำยังไงให้ปลอดภัย</p>
+  <p><i>อ่านต่อบทที่ 6 เพื่อดูกลไกถัดไปของความชรา...</i></p>
+</div>
+
+</body>
+</html>

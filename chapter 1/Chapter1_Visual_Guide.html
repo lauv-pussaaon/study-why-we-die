@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>บทที่ 1 — ยีนอมตะ และร่างกายที่ใช้แล้วทิ้ง | Visual Study Guide</title>
+<style>
+  :root {
+    --bg: #fdfcf7;
+    --ink: #1f2933;
+    --accent: #c0392b;
+    --accent2: #2c5f8d;
+    --accent3: #27ae60;
+    --soft: #f4e9d8;
+    --box: #ffffff;
+    --shadow: 0 4px 16px rgba(0,0,0,0.08);
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, "Segoe UI", "Sarabun", "Noto Sans Thai", sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+    line-height: 1.75;
+    font-size: 17px;
+  }
+  h1 {
+    font-size: 2.4em;
+    border-bottom: 4px double var(--accent);
+    padding-bottom: 12px;
+    margin-bottom: 8px;
+    color: var(--accent);
+  }
+  h1 .sub { display: block; font-size: 0.5em; color: #666; font-weight: normal; margin-top: 6px; }
+  h2 {
+    font-size: 1.6em;
+    color: var(--accent2);
+    border-left: 6px solid var(--accent2);
+    padding-left: 14px;
+    margin-top: 60px;
+  }
+  h3 {
+    color: var(--accent);
+    margin-top: 32px;
+    font-size: 1.25em;
+  }
+  .hero {
+    background: linear-gradient(135deg, #fff8e7 0%, #ffe4cc 100%);
+    padding: 24px 28px;
+    border-radius: 14px;
+    margin: 28px 0;
+    border-left: 6px solid var(--accent);
+    box-shadow: var(--shadow);
+  }
+  .hero .big {
+    font-size: 1.3em;
+    font-weight: 600;
+    color: var(--accent);
+  }
+  .analogy {
+    background: #eef6fb;
+    border: 2px dashed var(--accent2);
+    padding: 16px 20px;
+    border-radius: 10px;
+    margin: 18px 0;
+  }
+  .analogy::before {
+    content: "💡 ลองคิดแบบนี้ ";
+    font-weight: 700;
+    color: var(--accent2);
+  }
+  .warning {
+    background: #fff3e6;
+    border-left: 5px solid #e67e22;
+    padding: 14px 18px;
+    border-radius: 6px;
+    margin: 18px 0;
+  }
+  .tip {
+    background: #eaf7ea;
+    border-left: 5px solid var(--accent3);
+    padding: 14px 18px;
+    border-radius: 6px;
+    margin: 18px 0;
+  }
+  .fact {
+    background: #fdecec;
+    border-left: 5px solid var(--accent);
+    padding: 14px 18px;
+    border-radius: 6px;
+    margin: 18px 0;
+  }
+  .diagram {
+    background: var(--box);
+    border: 1px solid #e0d8c5;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 24px 0;
+    box-shadow: var(--shadow);
+    text-align: center;
+  }
+  .diagram .caption {
+    font-size: 0.92em;
+    color: #555;
+    margin-top: 10px;
+    font-style: italic;
+  }
+  svg { max-width: 100%; height: auto; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: var(--box);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  th, td {
+    padding: 12px 14px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+  }
+  th { background: var(--accent2); color: white; }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) { background: #faf7ef; }
+  .quiz {
+    background: #fdf7e4;
+    padding: 20px 26px;
+    border-radius: 10px;
+    margin: 16px 0;
+    border: 2px solid #e8d084;
+  }
+  .quiz summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--accent);
+    padding: 8px 0;
+  }
+  .quiz p { margin: 10px 0 0; padding: 10px; background: white; border-radius: 6px; }
+  .term {
+    display: inline-block;
+    background: #fff3d6;
+    padding: 1px 8px;
+    border-radius: 4px;
+    font-weight: 600;
+    color: #8a5a00;
+  }
+  .flow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 20px 0;
+  }
+  .flow .node {
+    background: var(--accent2);
+    color: white;
+    padding: 12px 18px;
+    border-radius: 8px;
+    font-weight: 600;
+    min-width: 120px;
+    text-align: center;
+  }
+  .flow .arrow { font-size: 1.6em; color: var(--accent); }
+  .card {
+    background: var(--box);
+    padding: 18px 22px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    margin: 14px 0;
+    border-top: 4px solid var(--accent2);
+  }
+  .mnemonic {
+    background: #f0e7ff;
+    border-left: 5px solid #6c3bd9;
+    padding: 12px 18px;
+    border-radius: 6px;
+    margin: 12px 0;
+    font-size: 0.98em;
+  }
+  .mnemonic::before { content: "🧠 วิธีจำ: "; font-weight: 700; color: #6c3bd9; }
+  blockquote {
+    border-left: 4px solid #888;
+    padding-left: 16px;
+    margin: 20px 0;
+    color: #555;
+    font-style: italic;
+  }
+  .toc {
+    background: var(--soft);
+    padding: 18px 28px;
+    border-radius: 10px;
+    margin-bottom: 40px;
+  }
+  .toc h3 { margin-top: 0; color: var(--accent); }
+  .toc ol { padding-left: 22px; }
+  .toc a { color: var(--accent2); text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+  .big-number {
+    font-size: 3em;
+    font-weight: 700;
+    color: var(--accent);
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 12px;
+  }
+  .stat-box {
+    display: inline-block;
+    background: white;
+    padding: 16px 22px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    margin: 8px;
+    text-align: center;
+    min-width: 180px;
+  }
+  .stat-box .num { font-size: 2em; font-weight: 700; color: var(--accent); display: block; }
+  .stat-box .lbl { font-size: 0.88em; color: #666; }
+  .theory-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 22px 26px;
+    margin: 20px 0;
+    box-shadow: var(--shadow);
+    border-left: 6px solid;
+  }
+  .theory-card.t1 { border-color: #e67e22; }
+  .theory-card.t2 { border-color: #8e44ad; }
+  .theory-card.t3 { border-color: #16a085; }
+  .theory-card h4 { margin-top: 0; font-size: 1.2em; }
+  .theory-card.t1 h4 { color: #d35400; }
+  .theory-card.t2 h4 { color: #6c3483; }
+  .theory-card.t3 h4 { color: #117864; }
+  .timeline {
+    position: relative;
+    margin: 30px 0;
+    padding-left: 30px;
+  }
+  .timeline::before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--accent2);
+  }
+  .tl-item {
+    position: relative;
+    margin-bottom: 20px;
+    padding: 12px 18px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+  }
+  .tl-item::before {
+    content: "";
+    position: absolute;
+    left: -25px;
+    top: 18px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 3px solid white;
+    box-shadow: 0 0 0 2px var(--accent);
+  }
+  .tl-year {
+    font-weight: 700;
+    color: var(--accent);
+    font-size: 1.05em;
+  }
+</style>
+</head>
+<body>
+
+<h1>บทที่ 1 — ยีนอมตะ และร่างกายที่ใช้แล้วทิ้ง
+  <span class="sub">Immortal Genes and Disposable Bodies · Why We Die by Venki Ramakrishnan</span>
+</h1>
+
+<div class="hero">
+  <div class="big">ภาพรวม 1 ประโยค:</div>
+  ร่างกายเราเปรียบเสมือน <b>เมืองที่ประกอบด้วยเซลล์ 37 ล้านล้านหลัง</b> — และเหตุผลที่เราแก่และตาย
+  ไม่ใช่เพราะวิวัฒนาการ "ตั้งใจ" แต่เพราะวิวัฒนาการให้ความสำคัญกับ
+  <span class="term">การสืบพันธุ์</span> มากกว่า <span class="term">การมีอายุยืน</span>
+  เราจึงเป็นเพียง "ยานพาหนะชั่วคราว" ของยีนที่แท้จริงเป็นอมตะ
+</div>
+
+<div class="toc">
+  <h3>📚 สารบัญ</h3>
+  <ol>
+    <li><a href="#city">เปิดเรื่อง — ร่างกายคือเมืองลอนดอน</a></li>
+    <li><a href="#cell">เซลล์ — หน่วยพื้นฐานของชีวิต</a></li>
+    <li><a href="#death">ความตายคืออะไร? นิยามที่ซับซ้อน</a></li>
+    <li><a href="#development">จากเซลล์เดียวสู่มนุษย์</a></li>
+    <li><a href="#evolution">ประวัติศาสตร์วิวัฒนาการ</a></li>
+    <li><a href="#darwin">ดาร์วินและการคัดเลือกโดยธรรมชาติ</a></li>
+    <li><a href="#weismann">กำแพงไวส์มันน์ — เซลล์อมตะ vs เซลล์ใช้แล้วทิ้ง</a></li>
+    <li><a href="#theories">สามทฤษฎีสำคัญของความแก่</a></li>
+    <li><a href="#evidence">หลักฐานจากธรรมชาติ</a></li>
+    <li><a href="#grandmother">สมมติฐานคุณยาย</a></li>
+    <li><a href="#conclusion">ข้อสรุป — ความแก่ไม่ได้ถูกโปรแกรมไว้</a></li>
+    <li><a href="#dictionary">พจนานุกรมศัพท์สำคัญ</a></li>
+    <li><a href="#quiz">คำถามทบทวน</a></li>
+  </ol>
+</div>
+
+<!-- SECTION 1: CITY ANALOGY -->
+<h2 id="city">1. เปิดเรื่อง — ร่างกายคือเมืองลอนดอน</h2>
+
+<div class="diagram">
+<svg viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="citysky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffdfa0"/>
+      <stop offset="100%" stop-color="#ffc988"/>
+    </linearGradient>
+  </defs>
+  <rect width="700" height="300" fill="url(#citysky)"/>
+  <!-- Ground -->
+  <rect x="0" y="240" width="700" height="60" fill="#5d5a4d"/>
+
+  <!-- Buildings -->
+  <rect x="60" y="140" width="50" height="100" fill="#4a6fa5"/>
+  <rect x="70" y="150" width="10" height="12" fill="#fff4c4"/>
+  <rect x="90" y="150" width="10" height="12" fill="#fff4c4"/>
+  <rect x="70" y="175" width="10" height="12" fill="#fff4c4"/>
+  <rect x="90" y="175" width="10" height="12" fill="#fff4c4"/>
+  <rect x="70" y="200" width="10" height="12" fill="#fff4c4"/>
+  <rect x="90" y="200" width="10" height="12" fill="#fff4c4"/>
+
+  <rect x="130" y="100" width="55" height="140" fill="#6b4a8a"/>
+  <rect x="140" y="115" width="8" height="10" fill="#fff4c4"/>
+  <rect x="158" y="115" width="8" height="10" fill="#fff4c4"/>
+  <rect x="171" y="115" width="8" height="10" fill="#fff4c4"/>
+  <rect x="140" y="135" width="8" height="10" fill="#fff4c4"/>
+  <rect x="158" y="135" width="8" height="10" fill="#fff4c4"/>
+  <rect x="171" y="135" width="8" height="10" fill="#fff4c4"/>
+  <rect x="140" y="155" width="8" height="10" fill="#fff4c4"/>
+  <rect x="158" y="155" width="8" height="10" fill="#fff4c4"/>
+  <rect x="171" y="155" width="8" height="10" fill="#fff4c4"/>
+
+  <!-- Big Ben -->
+  <rect x="210" y="80" width="32" height="160" fill="#a68956"/>
+  <rect x="216" y="110" width="20" height="20" fill="#1f2933"/>
+  <circle cx="226" cy="120" r="7" fill="#fff4c4"/>
+  <polygon points="210,80 226,50 242,80" fill="#7d6440"/>
+
+  <rect x="265" y="130" width="70" height="110" fill="#3d8b50"/>
+  <rect x="275" y="145" width="12" height="12" fill="#fff4c4"/>
+  <rect x="295" y="145" width="12" height="12" fill="#fff4c4"/>
+  <rect x="315" y="145" width="12" height="12" fill="#fff4c4"/>
+  <rect x="275" y="170" width="12" height="12" fill="#fff4c4"/>
+  <rect x="295" y="170" width="12" height="12" fill="#fff4c4"/>
+  <rect x="315" y="170" width="12" height="12" fill="#fff4c4"/>
+
+  <rect x="360" y="90" width="50" height="150" fill="#c0392b"/>
+  <rect x="370" y="105" width="8" height="10" fill="#fff4c4"/>
+  <rect x="385" y="105" width="8" height="10" fill="#fff4c4"/>
+  <rect x="400" y="105" width="8" height="10" fill="#fff4c4"/>
+  <rect x="370" y="125" width="8" height="10" fill="#fff4c4"/>
+  <rect x="385" y="125" width="8" height="10" fill="#fff4c4"/>
+  <rect x="400" y="125" width="8" height="10" fill="#fff4c4"/>
+
+  <rect x="435" y="120" width="60" height="120" fill="#2c5f8d"/>
+  <rect x="445" y="135" width="10" height="12" fill="#fff4c4"/>
+  <rect x="465" y="135" width="10" height="12" fill="#fff4c4"/>
+  <rect x="480" y="135" width="10" height="12" fill="#fff4c4"/>
+
+  <rect x="520" y="150" width="50" height="90" fill="#d35400"/>
+  <rect x="595" y="110" width="55" height="130" fill="#8e44ad"/>
+
+  <!-- Street -->
+  <rect x="0" y="260" width="700" height="8" fill="#f0d878" opacity="0.7"/>
+
+  <!-- Walker -->
+  <circle cx="340" cy="272" r="6" fill="#f4c2a1"/>
+  <rect x="336" y="278" width="8" height="14" rx="2" fill="#1abc9c"/>
+  <line x1="338" y1="292" x2="334" y2="300" stroke="#333" stroke-width="2"/>
+  <line x1="342" y1="292" x2="346" y2="300" stroke="#333" stroke-width="2"/>
+
+  <!-- Title -->
+  <text x="350" y="30" text-anchor="middle" font-size="16" font-weight="700" fill="#333">กรุงลอนดอน — เมืองที่ Ramakrishnan เดินไปทำงานทุกวัน</text>
+  <text x="350" y="52" text-anchor="middle" font-size="12" fill="#666">ระบบรถไฟ / ไฟฟ้า / ไปรษณีย์ ทำงานประสานกัน เหมือนเซลล์ในร่างกาย</text>
+</svg>
+<div class="caption">Ramakrishnan เปรียบร่างกายกับเมืองลอนดอน — ซับซ้อน ประสานกัน และเสื่อมสภาพตามกาลเวลา</div>
+</div>
+
+<p>
+Venki Ramakrishnan เปิดบทแรกด้วยการเปรียบเทียบที่ทรงพลัง — ทุกครั้งที่เขาเดินไปตามถนนในกรุงลอนดอน
+เขาสังเกตเห็นว่าเมืองนี้มี <b>โครงสร้างพื้นฐานที่ซับซ้อน</b> ตั้งแต่รถไฟใต้ดิน ไปรษณีย์ บริษัทโทรคมนาคม
+ไปจนถึงระบบจ่ายไฟฟ้า ทั้งหมดนี้ทำงานร่วมกันอย่างน่าอัศจรรย์เพื่อให้เมืองดำเนินต่อไปได้
+</p>
+
+<div class="analogy">
+ร่างกายมนุษย์ก็เช่นเดียวกัน — มีเซลล์ราว <b>37 ล้านล้านเซลล์</b> เปรียบเสมือน "บ้าน" หลังเล็กๆ
+ในเมืองใหญ่ ทุกเซลล์ทำงานประสานกัน 24 ชั่วโมง หากส่วนใดส่วนหนึ่งเสียหาย ทั้งระบบก็ได้รับผลกระทบ
+— เมืองที่เก่าแก่ก็เริ่มทรุดโทรมเหมือนร่างกายที่แก่ตัวลง
+</div>
+
+<div class="mnemonic">ร่างกาย = เมือง · เซลล์ = บ้าน · DNA = พิมพ์เขียว · ยีน = คำสั่งก่อสร้าง</div>
+
+<!-- SECTION 2: CELL -->
+<h2 id="cell">2. เซลล์ — หน่วยพื้นฐานของชีวิต</h2>
+
+<p>
+Ramakrishnan แสดงภาพของเซลล์พร้อมอธิบายส่วนประกอบสำคัญต่างๆ เซลล์ทุกเซลล์เปรียบเสมือน
+<b>"เมืองย่อย"</b> ที่มีโรงงาน ศูนย์บัญชาการ ระบบขนส่ง และโรงไฟฟ้าของตัวเอง
+</p>
+
+<div class="diagram">
+<svg viewBox="0 0 700 380" xmlns="http://www.w3.org/2000/svg">
+  <!-- Cell membrane -->
+  <ellipse cx="350" cy="190" rx="310" ry="160" fill="#fef4e6" stroke="#c97c40" stroke-width="3"/>
+  <text x="60" y="60" font-size="11" fill="#c97c40" font-weight="700">เยื่อหุ้มเซลล์ (Cell Membrane)</text>
+  <line x1="100" y1="65" x2="120" y2="80" stroke="#c97c40" stroke-width="1.5"/>
+
+  <!-- Nucleus -->
+  <circle cx="330" cy="180" r="70" fill="#d4a5d8" stroke="#7d3c8e" stroke-width="2.5"/>
+  <text x="330" y="185" text-anchor="middle" font-size="13" font-weight="700" fill="#4a1e5c">นิวเคลียส</text>
+  <text x="330" y="200" text-anchor="middle" font-size="10" fill="#4a1e5c">Nucleus · DNA</text>
+  <!-- Chromatin -->
+  <path d="M 305 160 Q 320 150 335 165 Q 350 175 355 190" stroke="#4a1e5c" stroke-width="1.5" fill="none"/>
+  <path d="M 310 200 Q 325 210 340 195" stroke="#4a1e5c" stroke-width="1.5" fill="none"/>
+
+  <!-- Mitochondria (multiple) -->
+  <ellipse cx="160" cy="150" rx="32" ry="16" fill="#f4a7a7" stroke="#c0392b" stroke-width="2"/>
+  <path d="M 140 150 Q 150 140 160 150 Q 170 160 180 150" stroke="#8b2a20" stroke-width="1.5" fill="none"/>
+  <text x="160" y="125" text-anchor="middle" font-size="10" font-weight="700" fill="#8b2a20">⚡ ไมโทคอนเดรีย</text>
+
+  <ellipse cx="530" cy="140" rx="30" ry="15" fill="#f4a7a7" stroke="#c0392b" stroke-width="2"/>
+  <path d="M 512 140 Q 520 132 530 140 Q 540 148 548 140" stroke="#8b2a20" stroke-width="1.5" fill="none"/>
+
+  <ellipse cx="200" cy="280" rx="28" ry="14" fill="#f4a7a7" stroke="#c0392b" stroke-width="2"/>
+
+  <!-- Ribosomes -->
+  <circle cx="100" cy="220" r="5" fill="#f1c40f"/>
+  <circle cx="112" cy="215" r="5" fill="#f1c40f"/>
+  <circle cx="108" cy="235" r="5" fill="#f1c40f"/>
+  <circle cx="580" cy="220" r="5" fill="#f1c40f"/>
+  <circle cx="590" cy="230" r="5" fill="#f1c40f"/>
+  <circle cx="570" cy="235" r="5" fill="#f1c40f"/>
+  <text x="100" y="260" font-size="10" font-weight="700" fill="#a27500">🏭 ไรโบโซม</text>
+
+  <!-- Golgi -->
+  <path d="M 460 250 Q 470 240 490 245 Q 510 240 520 250" stroke="#e67e22" stroke-width="3" fill="none"/>
+  <path d="M 460 258 Q 470 248 490 253 Q 510 248 520 258" stroke="#e67e22" stroke-width="3" fill="none"/>
+  <path d="M 460 266 Q 470 256 490 261 Q 510 256 520 266" stroke="#e67e22" stroke-width="3" fill="none"/>
+  <text x="490" y="290" text-anchor="middle" font-size="10" font-weight="700" fill="#9b5300">📦 กอลจิ</text>
+
+  <!-- Lysosome -->
+  <circle cx="240" cy="120" r="18" fill="#a3d9a5" stroke="#27ae60" stroke-width="2"/>
+  <text x="240" y="100" text-anchor="middle" font-size="10" font-weight="700" fill="#1a6b2b">🗑️ ไลโซโซม</text>
+
+  <!-- ER -->
+  <path d="M 230 230 Q 250 220 270 230 Q 290 240 310 230" stroke="#16a085" stroke-width="2" fill="none"/>
+  <path d="M 230 250 Q 250 240 270 250 Q 290 260 310 250" stroke="#16a085" stroke-width="2" fill="none"/>
+  <text x="260" y="280" font-size="10" font-weight="700" fill="#0e6655">🛤️ เอนโดพลาสมิก เรติคูลัม</text>
+
+  <!-- Title -->
+  <text x="350" y="30" text-anchor="middle" font-size="15" font-weight="700" fill="#333">ภายในเซลล์ — "เมืองย่อย" ที่มีออร์แกเนลล์ทำงานเฉพาะด้าน</text>
+</svg>
+<div class="caption">ออร์แกเนลล์แต่ละชนิดทำหน้าที่เฉพาะ เช่นเดียวกับสิ่งปลูกสร้างต่างๆ ในเมือง</div>
+</div>
+
+<table>
+  <tr><th>ออร์แกเนลล์</th><th>เปรียบเสมือน</th><th>หน้าที่</th></tr>
+  <tr><td><b>นิวเคลียส</b> (Nucleus)</td><td>🏛️ ศูนย์บัญชาการ</td><td>เก็บ DNA / ข้อมูลพันธุกรรม</td></tr>
+  <tr><td><b>ไมโทคอนเดรีย</b> (Mitochondria)</td><td>⚡ โรงไฟฟ้า</td><td>ผลิตพลังงาน ATP</td></tr>
+  <tr><td><b>ไรโบโซม</b> (Ribosome)</td><td>🏭 โรงงานผลิต</td><td>สร้างโปรตีนจากรหัส mRNA</td></tr>
+  <tr><td><b>กอลจิ</b> (Golgi Apparatus)</td><td>📦 ไปรษณีย์</td><td>บรรจุและจัดส่งโปรตีน</td></tr>
+  <tr><td><b>ไลโซโซม</b> (Lysosome)</td><td>🗑️ ระบบรีไซเคิล</td><td>ย่อยสลายของเสีย</td></tr>
+  <tr><td><b>เอนโดพลาสมิก เรติคูลัม</b> (ER)</td><td>🛤️ ระบบขนส่ง</td><td>ขนส่งและเคลือบโปรตีน</td></tr>
+  <tr><td><b>เยื่อหุ้มเซลล์</b> (Cell Membrane)</td><td>🧱 กำแพงเมือง</td><td>ควบคุมการเข้า-ออกของสาร</td></tr>
+</table>
+
+<div class="tip">
+<b>เรื่องน่าสนใจ:</b> ทุกเซลล์ในร่างกายมี DNA <b>ชุดเดียวกัน</b> — สิ่งที่ทำให้เซลล์ประสาทต่างจากเซลล์กล้ามเนื้อ
+คือ "ยีนตัวไหนถูกเปิดใช้งาน" เหมือนทุกบ้านในเมืองมีพิมพ์เขียวเดียวกัน แต่สร้างแตกต่างตามวัตถุประสงค์
+</div>
+
+<!-- SECTION 3: DEATH -->
+<h2 id="death">3. ความตายคืออะไร? — นิยามที่ซับซ้อน</h2>
+
+<p>
+ความตายไม่ใช่เรื่องง่ายที่จะนิยาม แม้ในวงการแพทย์สมัยใหม่เองก็ยังถกเถียงเรื่องนี้
+ในอดีต ความตายหมายถึง <b>หัวใจหยุดเต้น</b> แต่ด้วยเทคโนโลยี CPR ปัจจุบัน
+คนที่ "ตายแล้ว" บางคนกลับฟื้นขึ้นมาได้
+</p>
+
+<div class="diagram">
+<svg viewBox="0 0 700 260" xmlns="http://www.w3.org/2000/svg">
+  <text x="350" y="28" text-anchor="middle" font-size="15" font-weight="700" fill="#333">ระดับของความตาย — ไม่ใช่จุดเดียว แต่เป็นกระบวนการ</text>
+
+  <!-- Cell death -->
+  <g>
+    <rect x="30" y="80" width="180" height="140" rx="10" fill="#fef4e6" stroke="#e67e22" stroke-width="2"/>
+    <text x="120" y="108" text-anchor="middle" font-size="13" font-weight="700" fill="#c46610">🔬 ระดับเซลล์</text>
+    <text x="120" y="135" text-anchor="middle" font-size="11" fill="#333">เซลล์ผิวหนังตายทุกวัน</text>
+    <text x="120" y="155" text-anchor="middle" font-size="11" fill="#333">เซลล์เม็ดเลือดแดง 120 วัน</text>
+    <text x="120" y="175" text-anchor="middle" font-size="11" fill="#333">เซลล์ลำไส้ 2-3 วัน</text>
+    <text x="120" y="200" text-anchor="middle" font-size="10" font-style="italic" fill="#8b5a00">เกิดตลอดเวลาในร่างกาย</text>
+  </g>
+
+  <text x="225" y="155" text-anchor="middle" font-size="30" fill="#888">➤</text>
+
+  <!-- Organ death -->
+  <g>
+    <rect x="245" y="80" width="180" height="140" rx="10" fill="#eef6fb" stroke="#2c5f8d" stroke-width="2"/>
+    <text x="335" y="108" text-anchor="middle" font-size="13" font-weight="700" fill="#1e4266">🫀 ระดับอวัยวะ</text>
+    <text x="335" y="135" text-anchor="middle" font-size="11" fill="#333">ไตวาย</text>
+    <text x="335" y="155" text-anchor="middle" font-size="11" fill="#333">หัวใจหยุดเต้น</text>
+    <text x="335" y="175" text-anchor="middle" font-size="11" fill="#333">ตับล้มเหลว</text>
+    <text x="335" y="200" text-anchor="middle" font-size="10" font-style="italic" fill="#1e4266">ฟื้นได้ด้วยเทคโนโลยี (CPR)</text>
+  </g>
+
+  <text x="440" y="155" text-anchor="middle" font-size="30" fill="#888">➤</text>
+
+  <!-- Body death -->
+  <g>
+    <rect x="460" y="80" width="210" height="140" rx="10" fill="#fdecec" stroke="#c0392b" stroke-width="2"/>
+    <text x="565" y="108" text-anchor="middle" font-size="13" font-weight="700" fill="#8b2a20">💀 ระดับร่างกาย</text>
+    <text x="565" y="135" text-anchor="middle" font-size="11" fill="#333">สมองตาย (Brain Death)</text>
+    <text x="565" y="155" text-anchor="middle" font-size="11" fill="#333">ระบบประสาทหยุดทำงาน</text>
+    <text x="565" y="175" text-anchor="middle" font-size="11" fill="#333">ถาวร ไม่สามารถฟื้นกลับ</text>
+    <text x="565" y="200" text-anchor="middle" font-size="10" font-style="italic" fill="#8b2a20">นิยามทางการแพทย์ปัจจุบัน</text>
+  </g>
+</svg>
+<div class="caption">ความตายเกิดขึ้นได้หลายระดับ — และ "จุด" ระหว่างมีชีวิตกับตายไม่ชัดเจนเสมอไป</div>
+</div>
+
+<div class="warning">
+<b>คำถามจริยธรรม:</b> เส้นแบ่งระหว่าง "มีชีวิต" กับ "ตาย" นำไปสู่การถกเถียงที่ลึกซึ้ง
+— เช่น ผู้ป่วยสภาพผัก (vegetative state), การบริจาคอวัยวะ, การยุติการรักษา
+หนังสือตั้งคำถามว่า "ใครมีสิทธิ์ตัดสินว่าใครควรตาย?"
+</div>
+
+<!-- SECTION 4: DEVELOPMENT -->
+<h2 id="development">4. จากเซลล์เดียวสู่มนุษย์ — การเดินทางแสนมหัศจรรย์</h2>
+
+<p>
+การสร้างชีวิตมนุษย์เริ่มต้นจากเซลล์เพียงเซลล์เดียว (zygote) ซึ่งจะแบ่งตัวและเปลี่ยนรูปร่าง
+จนกลายเป็นมนุษย์ที่มีเซลล์ <b>37 ล้านล้านเซลล์</b> — นี่คือปาฏิหาริย์ทางชีววิทยา
+</p>
+
+<div class="diagram">
+<svg viewBox="0 0 750 240" xmlns="http://www.w3.org/2000/svg">
+  <text x="375" y="25" text-anchor="middle" font-size="14" font-weight="700" fill="#333">ไทม์ไลน์การพัฒนาตัวอ่อน</text>
+
+  <!-- Timeline -->
+  <line x1="50" y1="120" x2="700" y2="120" stroke="#2c5f8d" stroke-width="3"/>
+
+  <!-- Stage 1 -->
+  <circle cx="80" cy="120" r="10" fill="#f4c2a1" stroke="#c97c40" stroke-width="2"/>
+  <text x="80" y="85" text-anchor="middle" font-size="10" font-weight="700" fill="#c97c40">วันที่ 1</text>
+  <text x="80" y="150" text-anchor="middle" font-size="10" fill="#333">Zygote</text>
+  <text x="80" y="164" text-anchor="middle" font-size="9" fill="#666">1 เซลล์</text>
+
+  <!-- Stage 2 -->
+  <circle cx="180" cy="120" r="14" fill="#f4c2a1" stroke="#c97c40" stroke-width="2"/>
+  <circle cx="174" cy="115" r="3" fill="#fff"/>
+  <circle cx="186" cy="115" r="3" fill="#fff"/>
+  <circle cx="174" cy="125" r="3" fill="#fff"/>
+  <circle cx="186" cy="125" r="3" fill="#fff"/>
+  <text x="180" y="85" text-anchor="middle" font-size="10" font-weight="700" fill="#c97c40">วัน 4-5</text>
+  <text x="180" y="150" text-anchor="middle" font-size="10" fill="#333">Blastocyst</text>
+  <text x="180" y="164" text-anchor="middle" font-size="9" fill="#666">~100 เซลล์</text>
+
+  <!-- Stage 3 -->
+  <ellipse cx="290" cy="120" rx="18" ry="14" fill="#f6d7a5" stroke="#c97c40" stroke-width="2"/>
+  <line x1="290" y1="110" x2="290" y2="130" stroke="#8b4513" stroke-width="1.5"/>
+  <text x="290" y="85" text-anchor="middle" font-size="10" font-weight="700" fill="#c97c40">สัปดาห์ 3</text>
+  <text x="290" y="150" text-anchor="middle" font-size="10" fill="#333">Primitive Streak</text>
+  <text x="290" y="164" text-anchor="middle" font-size="9" fill="#666">เริ่มระบบประสาท</text>
+
+  <!-- Stage 4 (14 day boundary) -->
+  <line x1="340" y1="70" x2="340" y2="170" stroke="#c0392b" stroke-width="2" stroke-dasharray="4"/>
+  <text x="340" y="65" text-anchor="middle" font-size="9" fill="#c0392b" font-weight="700">เส้นแบ่งจริยธรรม 14 วัน</text>
+
+  <!-- Stage 5: embryo -->
+  <path d="M 395 110 Q 410 105 415 115 Q 420 125 415 130 Q 410 135 395 130 Z" fill="#f4c2a1" stroke="#c97c40" stroke-width="2"/>
+  <circle cx="400" cy="115" r="2" fill="#333"/>
+  <text x="405" y="85" text-anchor="middle" font-size="10" font-weight="700" fill="#c97c40">สัปดาห์ 8</text>
+  <text x="405" y="150" text-anchor="middle" font-size="10" fill="#333">Embryo</text>
+  <text x="405" y="164" text-anchor="middle" font-size="9" fill="#666">อวัยวะพัฒนา</text>
+
+  <!-- Stage 6: Fetus -->
+  <path d="M 520 105 Q 540 100 545 115 Q 550 130 540 140 Q 525 145 515 135 Q 510 120 520 105" fill="#f4c2a1" stroke="#c97c40" stroke-width="2"/>
+  <circle cx="525" cy="115" r="2.5" fill="#333"/>
+  <text x="530" y="85" text-anchor="middle" font-size="10" font-weight="700" fill="#c97c40">3-6 เดือน</text>
+  <text x="530" y="160" text-anchor="middle" font-size="10" fill="#333">Fetus (ทารก)</text>
+
+  <!-- Stage 7: baby -->
+  <circle cx="650" cy="118" r="16" fill="#f4c2a1" stroke="#c97c40" stroke-width="2"/>
+  <circle cx="646" cy="115" r="1.5" fill="#333"/>
+  <circle cx="654" cy="115" r="1.5" fill="#333"/>
+  <path d="M 646 123 Q 650 126 654 123" stroke="#333" stroke-width="1" fill="none"/>
+  <text x="650" y="85" text-anchor="middle" font-size="10" font-weight="700" fill="#c97c40">9 เดือน</text>
+  <text x="650" y="150" text-anchor="middle" font-size="10" fill="#333">เด็กแรกเกิด</text>
+  <text x="650" y="164" text-anchor="middle" font-size="9" fill="#666">37 ล้านล้านเซลล์</text>
+
+  <text x="375" y="210" text-anchor="middle" font-size="11" fill="#555" font-style="italic">จากเซลล์ 1 เซลล์ → 37,000,000,000,000 เซลล์ ใน 9 เดือน</text>
+</svg>
+<div class="caption">การพัฒนาของตัวอ่อนจากเซลล์เดียวสู่ทารกแรกเกิด — วันที่ 14 เป็นเส้นแบ่งทางจริยธรรมสากล</div>
+</div>
+
+<div class="warning">
+<b>ข้อถกเถียงทางจริยธรรม:</b> ชีวิตเริ่มต้นเมื่อไหร่? บางประเทศถือว่าเริ่มตั้งแต่ปฏิสนธิ
+บางประเทศถือว่าเริ่มเมื่อมี <span class="term">primitive streak</span> (14 วัน)
+บางประเทศถือว่าเริ่มเมื่อคลอด — คำตอบส่งผลต่อกฎหมายการทำแท้งและการวิจัยเซลล์ต้นกำเนิด
+</div>
+
+<!-- SECTION 5: HISTORY -->
+<h2 id="evolution">5. ประวัติศาสตร์วิวัฒนาการ — การเดินทางของแนวคิด</h2>
+
+<div class="timeline">
+  <div class="tl-item">
+    <div class="tl-year">~1800 — Jean-Baptiste Lamarck</div>
+    ลามาร์กเสนอว่าสิ่งมีชีวิต "ถ่ายทอดลักษณะที่ได้มาระหว่างมีชีวิต" เช่น ยีราฟยืดคอยาว
+    แล้วส่งคอยาวให้ลูก (ทฤษฎีนี้ถูกหักล้างในภายหลัง)
+  </div>
+  <div class="tl-item">
+    <div class="tl-year">1 กรกฎาคม 1858 — Darwin & Wallace</div>
+    ชาร์ลส์ ดาร์วิน และ อัลเฟรด วอลเลซ ร่วมนำเสนอทฤษฎี <b>Natural Selection</b>
+    ต่อสมาคมลินเนียน — แต่ประธานสมาคมกล่าวว่า "ปีนั้นไม่มีการค้นพบใดๆ ที่โดดเด่น" (เป็นคำพูดที่ผิดมากในประวัติศาสตร์!)
+  </div>
+  <div class="tl-item">
+    <div class="tl-year">1859 — On the Origin of Species</div>
+    ดาร์วินตีพิมพ์หนังสือที่เปลี่ยนโลก เปลี่ยนวิธีเข้าใจชีวิตไปตลอดกาล
+  </div>
+  <div class="tl-item">
+    <div class="tl-year">1892 — August Weismann</div>
+    เสนอ <b>Weismann Barrier</b> — แยกเซลล์สืบพันธุ์ออกจากเซลล์ร่างกายอย่างชัดเจน
+    ร่างกาย (soma) เป็นเพียง "เปลือก" ของเซลล์สืบพันธุ์ที่เป็นอมตะ
+  </div>
+  <div class="tl-item">
+    <div class="tl-year">1930s — Fisher & Haldane</div>
+    โรนัลด์ ฟิชเชอร์ และ เจ.บี.เอส. ฮาลเดน บุกเบิก <b>พันธุศาสตร์ประชากร</b>
+    อธิบายกลไกทางคณิตศาสตร์ของการคัดเลือกโดยธรรมชาติ
+  </div>
+  <div class="tl-item">
+    <div class="tl-year">1952 — Peter Medawar</div>
+    เสนอทฤษฎี <b>Mutation Accumulation</b> — ชีววิทยาของความแก่เริ่มมีคำอธิบาย
+  </div>
+  <div class="tl-item">
+    <div class="tl-year">1957 — George Williams</div>
+    เสนอ <b>Antagonistic Pleiotropy</b> — ยีนบางตัว "ดีตอนหนุ่ม แต่ร้ายตอนแก่"
+  </div>
+  <div class="tl-item">
+    <div class="tl-year">1970s — Thomas Kirkwood</div>
+    เสนอ <b>Disposable Soma Theory</b> — ร่างกายคือ "ยานพาหนะชั่วคราว" ของยีน
+  </div>
+</div>
+
+<!-- SECTION 6: DARWIN -->
+<h2 id="darwin">6. ดาร์วินและการคัดเลือกโดยธรรมชาติ</h2>
+
+<p>
+ดาร์วินสังเกตเห็นว่าในธรรมชาติ สิ่งมีชีวิตมี <b>ความหลากหลาย</b> เล็กน้อย (variation)
+ในสภาพแวดล้อมที่ทรัพยากรจำกัด ตัวที่ "เหมาะสมกว่า" จะมีโอกาสรอดและสืบพันธุ์ได้มากกว่า
+ลักษณะเหล่านี้จึงส่งต่อไปยังรุ่นลูก
+</p>
+
+<div class="diagram">
+<svg viewBox="0 0 700 240" xmlns="http://www.w3.org/2000/svg">
+  <text x="350" y="25" text-anchor="middle" font-size="14" font-weight="700" fill="#333">กลไก Natural Selection</text>
+
+  <!-- Step 1 -->
+  <g>
+    <rect x="20" y="70" width="140" height="100" rx="8" fill="#eef6fb" stroke="#2c5f8d" stroke-width="2"/>
+    <text x="90" y="95" text-anchor="middle" font-size="12" font-weight="700" fill="#1e4266">1. Variation</text>
+    <text x="90" y="115" text-anchor="middle" font-size="10" fill="#333">มีความแตกต่าง</text>
+    <circle cx="60" cy="140" r="10" fill="#e67e22"/>
+    <circle cx="85" cy="140" r="10" fill="#27ae60"/>
+    <circle cx="110" cy="140" r="10" fill="#3498db"/>
+    <text x="90" y="162" text-anchor="middle" font-size="9" fill="#666">ในแต่ละตัว</text>
+  </g>
+
+  <text x="175" y="125" text-anchor="middle" font-size="22" fill="#888">➤</text>
+
+  <!-- Step 2 -->
+  <g>
+    <rect x="195" y="70" width="140" height="100" rx="8" fill="#fef4e6" stroke="#e67e22" stroke-width="2"/>
+    <text x="265" y="95" text-anchor="middle" font-size="12" font-weight="700" fill="#c46610">2. Selection</text>
+    <text x="265" y="115" text-anchor="middle" font-size="10" fill="#333">สิ่งแวดล้อมคัด</text>
+    <circle cx="235" cy="140" r="10" fill="#e67e22" opacity="0.3"/>
+    <text x="235" y="145" text-anchor="middle" font-size="14">✗</text>
+    <circle cx="260" cy="140" r="10" fill="#27ae60"/>
+    <text x="260" y="145" text-anchor="middle" font-size="12" fill="#fff">✓</text>
+    <circle cx="285" cy="140" r="10" fill="#3498db" opacity="0.3"/>
+    <text x="285" y="145" text-anchor="middle" font-size="14">✗</text>
+    <text x="265" y="162" text-anchor="middle" font-size="9" fill="#666">ตัวที่เหมาะสมรอด</text>
+  </g>
+
+  <text x="350" y="125" text-anchor="middle" font-size="22" fill="#888">➤</text>
+
+  <!-- Step 3 -->
+  <g>
+    <rect x="370" y="70" width="140" height="100" rx="8" fill="#eaf7ea" stroke="#27ae60" stroke-width="2"/>
+    <text x="440" y="95" text-anchor="middle" font-size="12" font-weight="700" fill="#1a6b2b">3. Reproduction</text>
+    <text x="440" y="115" text-anchor="middle" font-size="10" fill="#333">ส่งต่อยีนให้ลูก</text>
+    <circle cx="420" cy="140" r="9" fill="#27ae60"/>
+    <circle cx="440" cy="140" r="9" fill="#27ae60"/>
+    <circle cx="460" cy="140" r="9" fill="#27ae60"/>
+    <text x="440" y="162" text-anchor="middle" font-size="9" fill="#666">รุ่นถัดไป</text>
+  </g>
+
+  <text x="525" y="125" text-anchor="middle" font-size="22" fill="#888">➤</text>
+
+  <!-- Step 4 -->
+  <g>
+    <rect x="545" y="70" width="140" height="100" rx="8" fill="#f5ebf8" stroke="#8e44ad" stroke-width="2"/>
+    <text x="615" y="95" text-anchor="middle" font-size="12" font-weight="700" fill="#6c3483">4. Adaptation</text>
+    <text x="615" y="115" text-anchor="middle" font-size="10" fill="#333">ปรับตัวเข้าสภาพ</text>
+    <circle cx="595" cy="140" r="9" fill="#27ae60"/>
+    <circle cx="615" cy="140" r="9" fill="#27ae60"/>
+    <circle cx="635" cy="140" r="9" fill="#27ae60"/>
+    <text x="615" y="162" text-anchor="middle" font-size="9" fill="#666">สปีชีส์เปลี่ยน</text>
+  </g>
+
+  <text x="350" y="205" text-anchor="middle" font-size="11" fill="#555" font-style="italic">ย้ำวงจรนี้หลายพันรุ่น → สปีชีส์ใหม่เกิดขึ้น</text>
+</svg>
+<div class="caption">สี่ขั้นตอนของการคัดเลือกโดยธรรมชาติ: Variation → Selection → Reproduction → Adaptation</div>
+</div>
+
+<blockquote>
+"ไม่ใช่สิ่งมีชีวิตที่แข็งแรงที่สุดที่อยู่รอด แต่เป็นสิ่งมีชีวิตที่ปรับตัวได้ดีที่สุดต่อการเปลี่ยนแปลง"
+</blockquote>
+
+<!-- SECTION 7: WEISMANN -->
+<h2 id="weismann">7. กำแพงไวส์มันน์ — เซลล์อมตะ vs เซลล์ใช้แล้วทิ้ง</h2>
+
+<p>
+ในปี <b>1892</b> <span class="term">August Weismann</span> เสนอแนวคิดที่ทรงอิทธิพล —
+เขาแบ่งเซลล์ในร่างกายออกเป็น <b>2 กลุ่มใหญ่</b> ที่แยกจากกันอย่างชัดเจนโดย "กำแพง"
+ที่ข้ามไปมาไม่ได้
+</p>
+
+<div class="diagram">
+<svg viewBox="0 0 700 340" xmlns="http://www.w3.org/2000/svg">
+  <text x="350" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="#333">The Weismann Barrier</text>
+
+  <!-- Left side: Germ cells -->
+  <rect x="30" y="60" width="280" height="250" rx="12" fill="#f5ebf8" stroke="#8e44ad" stroke-width="3"/>
+  <text x="170" y="90" text-anchor="middle" font-size="14" font-weight="700" fill="#6c3483">🧬 Germ Cells</text>
+  <text x="170" y="108" text-anchor="middle" font-size="11" fill="#6c3483">เซลล์สืบพันธุ์ — "อมตะ"</text>
+
+  <!-- Egg -->
+  <circle cx="110" cy="170" r="35" fill="#e8d4f0" stroke="#8e44ad" stroke-width="2"/>
+  <circle cx="110" cy="170" r="12" fill="#8e44ad"/>
+  <text x="110" y="220" text-anchor="middle" font-size="11" font-weight="700" fill="#6c3483">ไข่ (Egg)</text>
+
+  <!-- Sperm -->
+  <ellipse cx="230" cy="170" rx="12" ry="10" fill="#8e44ad"/>
+  <path d="M 242 170 Q 260 160 270 175 Q 260 185 275 170" stroke="#8e44ad" stroke-width="2" fill="none"/>
+  <text x="235" y="220" text-anchor="middle" font-size="11" font-weight="700" fill="#6c3483">อสุจิ (Sperm)</text>
+
+  <text x="170" y="255" text-anchor="middle" font-size="11" fill="#4a1e5c">➤ ส่งต่อไปยังรุ่นลูก</text>
+  <text x="170" y="275" text-anchor="middle" font-size="11" fill="#4a1e5c">➤ "อยู่ต่อ" ตลอดวิวัฒนาการ</text>
+  <text x="170" y="295" text-anchor="middle" font-size="11" fill="#4a1e5c">➤ ได้รับการปกป้องอย่างดี</text>
+
+  <!-- The Barrier -->
+  <rect x="320" y="60" width="30" height="250" fill="repeating-linear-gradient(45deg, #333, #333 4px, #fff 4px, #fff 8px)"/>
+  <text x="335" y="40" text-anchor="middle" font-size="12" font-weight="700" fill="#c0392b">กำแพงไวส์มันน์</text>
+  <text x="335" y="325" text-anchor="middle" font-size="10" fill="#c0392b">Weismann Barrier</text>
+
+  <!-- Right side: Somatic cells -->
+  <rect x="360" y="60" width="310" height="250" rx="12" fill="#fdecec" stroke="#c0392b" stroke-width="3"/>
+  <text x="515" y="90" text-anchor="middle" font-size="14" font-weight="700" fill="#8b2a20">🧱 Somatic Cells</text>
+  <text x="515" y="108" text-anchor="middle" font-size="11" fill="#8b2a20">เซลล์ร่างกาย — "ใช้แล้วทิ้ง"</text>
+
+  <!-- Various body cells -->
+  <circle cx="400" cy="160" r="13" fill="#fdb8b8"/>
+  <text x="400" y="185" text-anchor="middle" font-size="9" fill="#8b2a20">เซลล์ผิว</text>
+
+  <rect x="450" y="148" width="24" height="24" rx="4" fill="#fdb8b8"/>
+  <text x="462" y="185" text-anchor="middle" font-size="9" fill="#8b2a20">เซลล์สมอง</text>
+
+  <polygon points="520,148 540,160 540,175 520,185 500,175 500,160" fill="#fdb8b8"/>
+  <text x="520" y="205" text-anchor="middle" font-size="9" fill="#8b2a20">เซลล์กล้ามเนื้อ</text>
+
+  <ellipse cx="580" cy="165" rx="15" ry="10" fill="#fdb8b8"/>
+  <text x="580" y="185" text-anchor="middle" font-size="9" fill="#8b2a20">เซลล์ตับ</text>
+
+  <circle cx="630" cy="165" r="12" fill="#fdb8b8"/>
+  <text x="630" y="185" text-anchor="middle" font-size="9" fill="#8b2a20">เซลล์กระดูก</text>
+
+  <text x="515" y="235" text-anchor="middle" font-size="11" fill="#8b2a20">✗ ไม่ส่งต่อไปรุ่นลูก</text>
+  <text x="515" y="255" text-anchor="middle" font-size="11" fill="#8b2a20">✗ ตายไปพร้อมร่างกาย</text>
+  <text x="515" y="275" text-anchor="middle" font-size="11" fill="#8b2a20">✗ เสื่อมสภาพตามเวลา</text>
+  <text x="515" y="295" text-anchor="middle" font-size="11" fill="#8b2a20">✗ "เปลือก" ของยีน</text>
+</svg>
+<div class="caption">Weismann Barrier: การเปลี่ยนแปลงในเซลล์ร่างกายไม่สามารถส่งต่อไปยังเซลล์สืบพันธุ์</div>
+</div>
+
+<div class="fact">
+<b>ข้อสังเกตที่พลิกโลก:</b> ไวส์มันน์เสนอว่าร่างกายเราเป็นเพียง <b>"ยานพาหนะ"</b>
+ที่ถูกสร้างขึ้นมาเพื่อรับใช้ยีนที่แท้จริงเป็นอมตะ — แนวคิดนี้กลายเป็นรากฐานของ
+มุมมอง "selfish gene" ของ Richard Dawkins ในภายหลัง
+</div>
+
+<div class="mnemonic">Germ = อมตะ, ใช้ซ้ำหลายรุ่น | Soma = ใช้แล้วทิ้ง, ตายไปพร้อมเจ้าของ</div>
+
+<!-- SECTION 8: THREE THEORIES -->
+<h2 id="theories">8. สามทฤษฎีสำคัญ — ทำไมวิวัฒนาการจึง "ปล่อย" ให้เราแก่?</h2>
+
+<p>
+ถ้าวิวัฒนาการทรงพลังมากขนาดนี้ ทำไมจึงไม่สร้างร่างกายที่ "อมตะ" ได้? คำตอบอยู่ในทฤษฎี 3 ข้อ
+ที่เสริมกันและกัน:
+</p>
+
+<div class="theory-card t1">
+  <h4>🕰️ ทฤษฎีที่ 1: Mutation Accumulation (การสะสมการกลายพันธุ์)</h4>
+  <p><b>เสนอโดย:</b> Peter Medawar (1952)</p>
+  <p>
+    ในธรรมชาติ สัตว์ส่วนใหญ่ <b>ตายก่อนจะแก่</b> — ถูกล่า ป่วย หรือประสบอุบัติเหตุ
+    ดังนั้นการกลายพันธุ์ที่ส่งผลเสียในวัยชราจึง <b>"หลุดรอด"</b> การคัดเลือกโดยธรรมชาติ
+    เพราะสัตว์แทบไม่มีโอกาสอยู่นานพอที่จะประสบผลร้ายเหล่านั้น
+  </p>
+  <div class="analogy">
+    เหมือนโรงงานออกแบบรถให้วิ่งได้ 200,000 กม. แต่รถส่วนใหญ่ชนพังก่อนถึง 50,000 กม.
+    — โรงงานจึงไม่เสียเงินซ่อมชิ้นส่วนที่ใช้งานหลัง 200,000 กม.
+  </div>
+</div>
+
+<div class="theory-card t2">
+  <h4>⚖️ ทฤษฎีที่ 2: Antagonistic Pleiotropy (ยีนที่มีผลตรงข้ามกัน)</h4>
+  <p><b>เสนอโดย:</b> George Williams (1957)</p>
+  <p>
+    ยีนบางตัวมี <b>ผลดีในวัยหนุ่มสาว</b> แต่กลับ <b>ส่งผลเสียในวัยชรา</b>
+    วิวัฒนาการ "เลือก" ยีนเหล่านี้เพราะผลดีในวัยเจริญพันธุ์มีค่ามากกว่าผลเสียในวัยชรา
+    — เนื่องจากสัตว์ส่วนใหญ่ตายก่อนจะมีผลเสียเหล่านั้นอยู่ดี
+  </p>
+  <div class="diagram" style="padding: 14px; margin: 14px 0;">
+    <svg viewBox="0 0 600 160" xmlns="http://www.w3.org/2000/svg">
+      <line x1="50" y1="120" x2="550" y2="120" stroke="#999" stroke-width="2"/>
+      <text x="50" y="140" font-size="11" fill="#666">อายุ 20</text>
+      <text x="300" y="140" text-anchor="middle" font-size="11" fill="#666">50</text>
+      <text x="550" y="140" text-anchor="middle" font-size="11" fill="#666">80</text>
+      <path d="M 50 115 Q 150 30 300 80 Q 450 130 550 145" stroke="#8e44ad" stroke-width="3" fill="none"/>
+      <text x="150" y="45" fill="#27ae60" font-weight="700" font-size="13">✓ ผลดี (วัยหนุ่ม)</text>
+      <text x="420" y="135" fill="#c0392b" font-weight="700" font-size="13">✗ ผลเสีย (วัยชรา)</text>
+      <text x="300" y="20" text-anchor="middle" font-size="13" font-weight="700" fill="#333">ยีนเดียว · ผลคนละด้านตามวัย</text>
+    </svg>
+  </div>
+  <p><b>ตัวอย่าง:</b></p>
+  <ul>
+    <li>ยีนที่ช่วยสะสมแคลเซียม → กระดูกแข็งแรง (หนุ่ม) → หลอดเลือดแข็ง (แก่)</li>
+    <li>ฮอร์โมนเทสโทสเตอโรน → กล้ามเนื้อแข็งแรง (หนุ่ม) → เสี่ยงมะเร็งต่อมลูกหมาก (แก่)</li>
+  </ul>
+</div>
+
+<div class="theory-card t3">
+  <h4>♻️ ทฤษฎีที่ 3: Disposable Soma Theory (ร่างกายใช้แล้วทิ้ง)</h4>
+  <p><b>เสนอโดย:</b> Thomas Kirkwood (1970s)</p>
+  <p>
+    ร่างกายมีทรัพยากร (พลังงาน, วัตถุดิบ) <b>จำกัด</b> จึงต้องเลือกว่าจะ "ลงทุน" ไปกับอะไร
+    ระหว่างการ <b>ซ่อมแซมตัวเอง</b> (เพื่ออายุยืน) หรือการ <b>สืบพันธุ์</b> (เพื่อมีลูก)
+    — วิวัฒนาการมักเลือกข้างการสืบพันธุ์
+  </p>
+
+  <table>
+    <tr><th>ลงทุนซ่อมตัวเอง</th><th>ลงทุนสืบพันธุ์</th></tr>
+    <tr>
+      <td>อายุยืน ร่างกายแข็งแรง<br>แต่ <b>มีลูกน้อย</b> → ยีนแพร่ช้า</td>
+      <td>อายุสั้น ร่างกายเสื่อม<br>แต่ <b>มีลูกมาก</b> → ยีนแพร่เร็ว ✓</td>
+    </tr>
+  </table>
+
+  <div class="tip">
+    <b>สรุป:</b> ร่างกายคือ "รถเช่า" ที่ยีนใช้เดินทางไปสู่รุ่นถัดไป — วิวัฒนาการไม่สนใจว่ารถจะพังเมื่อถึงที่หมาย
+  </div>
+</div>
+
+<div class="mnemonic">
+  3 ทฤษฎี =
+  <b>M</b>utation (สะสม) ·
+  <b>A</b>ntagonistic (สลับดี-ร้าย) ·
+  <b>D</b>isposable (ใช้แล้วทิ้ง) → จำว่า "M-A-D"
+</div>
+
+<!-- SECTION 9: EVIDENCE FROM NATURE -->
+<h2 id="evidence">9. หลักฐานจากธรรมชาติ — ยิ่งปลอดภัย ยิ่งอายุยืน</h2>
+
+<p>
+ทฤษฎีเหล่านี้ทำนายว่า <b>สัตว์ที่มีเกราะป้องกันตัว</b> (กระดอง, ปีก, พิษ, สมองใหญ่)
+จะมีอายุยืนกว่าสัตว์ที่ไม่มี — เพราะวิวัฒนาการ "คุ้มค่า" ที่จะลงทุนซ่อมแซมร่างกายของสัตว์
+ที่มีโอกาสรอดนานกว่า
+</p>
+
+<div class="diagram">
+<svg viewBox="0 0 700 260" xmlns="http://www.w3.org/2000/svg">
+  <text x="350" y="25" text-anchor="middle" font-size="14" font-weight="700" fill="#333">อายุขัย ↔ ระดับการป้องกันตัว</text>
+
+  <line x1="60" y1="200" x2="650" y2="200" stroke="#999" stroke-width="2"/>
+
+  <!-- Mouse: vulnerable -->
+  <circle cx="120" cy="170" r="22" fill="#fdecec" stroke="#c0392b" stroke-width="2"/>
+  <text x="120" y="175" text-anchor="middle" font-size="18">🐭</text>
+  <text x="120" y="220" text-anchor="middle" font-size="10" fill="#333">หนู</text>
+  <text x="120" y="234" text-anchor="middle" font-size="9" fill="#c0392b" font-weight="700">2-3 ปี</text>
+  <text x="120" y="248" text-anchor="middle" font-size="9" fill="#666">ไม่มีเกราะ</text>
+
+  <!-- Opossum safe: island -->
+  <circle cx="240" cy="130" r="22" fill="#fef4e6" stroke="#e67e22" stroke-width="2"/>
+  <text x="240" y="135" text-anchor="middle" font-size="18">🐀</text>
+  <text x="240" y="220" text-anchor="middle" font-size="10" fill="#333">อพอสซัม (เกาะ)</text>
+  <text x="240" y="234" text-anchor="middle" font-size="9" fill="#e67e22" font-weight="700">แก่ช้ากว่า</text>
+  <text x="240" y="248" text-anchor="middle" font-size="9" fill="#666">ไม่มีนักล่า</text>
+
+  <!-- Bat -->
+  <circle cx="360" cy="105" r="22" fill="#eef6fb" stroke="#2c5f8d" stroke-width="2"/>
+  <text x="360" y="110" text-anchor="middle" font-size="18">🦇</text>
+  <text x="360" y="220" text-anchor="middle" font-size="10" fill="#333">ค้างคาว</text>
+  <text x="360" y="234" text-anchor="middle" font-size="9" fill="#2c5f8d" font-weight="700">30+ ปี</text>
+  <text x="360" y="248" text-anchor="middle" font-size="9" fill="#666">บินหนีได้</text>
+
+  <!-- Tortoise -->
+  <circle cx="480" cy="75" r="22" fill="#eaf7ea" stroke="#27ae60" stroke-width="2"/>
+  <text x="480" y="80" text-anchor="middle" font-size="18">🐢</text>
+  <text x="480" y="220" text-anchor="middle" font-size="10" fill="#333">เต่ายักษ์</text>
+  <text x="480" y="234" text-anchor="middle" font-size="9" fill="#27ae60" font-weight="700">100+ ปี</text>
+  <text x="480" y="248" text-anchor="middle" font-size="9" fill="#666">กระดองหนา</text>
+
+  <!-- Human -->
+  <circle cx="600" cy="60" r="22" fill="#f5ebf8" stroke="#8e44ad" stroke-width="2"/>
+  <text x="600" y="65" text-anchor="middle" font-size="18">🧑</text>
+  <text x="600" y="220" text-anchor="middle" font-size="10" fill="#333">มนุษย์</text>
+  <text x="600" y="234" text-anchor="middle" font-size="9" fill="#8e44ad" font-weight="700">70-80+ ปี</text>
+  <text x="600" y="248" text-anchor="middle" font-size="9" fill="#666">สมอง + สังคม</text>
+
+  <!-- Arrow trend -->
+  <path d="M 100 195 L 620 55" stroke="#888" stroke-width="1.5" stroke-dasharray="4" fill="none"/>
+  <text x="650" y="55" font-size="10" fill="#888">↗ ยิ่งปลอดภัย</text>
+  <text x="650" y="68" font-size="10" fill="#888">ยิ่งอายุยืน</text>
+</svg>
+<div class="caption">การศึกษาโดย Steven Austad พบว่า "อพอสซัมบนเกาะ" ที่ไม่มีนักล่าแก่ช้ากว่าอพอสซัมบนแผ่นดินใหญ่</div>
+</div>
+
+<table>
+  <tr><th>สิ่งมีชีวิต</th><th>อายุขัย</th><th>เหตุผลทางวิวัฒนาการ</th></tr>
+  <tr><td><b>หนู</b> (Mouse)</td><td>2-3 ปี</td><td>ศัตรูมาก → ตายเร็ว → ไม่คุ้มซ่อมร่างกาย</td></tr>
+  <tr><td><b>ค้างคาว</b> (Bat)</td><td>30+ ปี</td><td>บินหนีได้ → รอดนาน → วิวัฒนาการลงทุนซ่อม</td></tr>
+  <tr><td><b>เต่ายักษ์</b> (Giant Tortoise)</td><td>100+ ปี</td><td>กระดองป้องกันศัตรู</td></tr>
+  <tr><td><b>ไส้เดือนดิน</b> (C. elegans)</td><td>2-3 สัปดาห์</td><td>โมเดลศึกษาการแก่ตัว มียีน ~20,000 ตัว</td></tr>
+  <tr><td><b>มนุษย์</b> (Human)</td><td>70-80+ ปี</td><td>สมองใหญ่ + สังคม → ลดภัยคุกคาม</td></tr>
+</table>
+
+<!-- SECTION 10: GRANDMOTHER -->
+<h2 id="grandmother">10. สมมติฐานคุณยาย — ทำไมผู้หญิงมีวัยหมดประจำเดือน?</h2>
+
+<p>
+ปรากฏการณ์ที่น่าสงสัยคือ <b>วัยหมดประจำเดือน (menopause)</b> ซึ่งเกิดขึ้นเฉพาะในมนุษย์และวาฬบางชนิด
+ทำไมผู้หญิงจึงหยุดสืบพันธุ์ตั้งแต่อายุ ~50 ปี ทั้งที่ยังมีชีวิตอีกหลายสิบปี?
+</p>
+
+<div class="diagram">
+<svg viewBox="0 0 700 250" xmlns="http://www.w3.org/2000/svg">
+  <text x="350" y="25" text-anchor="middle" font-size="14" font-weight="700" fill="#333">สองสมมติฐานเกี่ยวกับวัยหมดประจำเดือน</text>
+
+  <!-- Good Mother -->
+  <g>
+    <rect x="30" y="60" width="310" height="170" rx="12" fill="#eaf7ea" stroke="#27ae60" stroke-width="2"/>
+    <text x="185" y="88" text-anchor="middle" font-size="14" font-weight="700" fill="#1a6b2b">👩 Good Mother Hypothesis</text>
+    <text x="185" y="106" text-anchor="middle" font-size="11" fill="#1a6b2b">สมมติฐาน "แม่ที่ดี"</text>
+
+    <text x="185" y="135" text-anchor="middle" font-size="11" fill="#333">การตั้งครรภ์ตอนอายุมาก = เสี่ยง</text>
+    <text x="185" y="155" text-anchor="middle" font-size="11" fill="#333">หากแม่ตาย ลูกที่มีอยู่ก็ตายไปด้วย</text>
+    <text x="185" y="175" text-anchor="middle" font-size="11" fill="#333">ดังนั้น "หยุดสืบพันธุ์" = </text>
+    <text x="185" y="195" text-anchor="middle" font-size="11" fill="#333">ลงทุนในลูกที่มีอยู่แล้ว</text>
+    <text x="185" y="218" text-anchor="middle" font-size="10" font-style="italic" fill="#27ae60">= ยีนของแม่อยู่รอดผ่านลูก</text>
+  </g>
+
+  <!-- Grandmother -->
+  <g>
+    <rect x="360" y="60" width="310" height="170" rx="12" fill="#fef4e6" stroke="#e67e22" stroke-width="2"/>
+    <text x="515" y="88" text-anchor="middle" font-size="14" font-weight="700" fill="#c46610">👵 Grandmother Hypothesis</text>
+    <text x="515" y="106" text-anchor="middle" font-size="11" fill="#c46610">สมมติฐาน "คุณยาย"</text>
+
+    <text x="515" y="135" text-anchor="middle" font-size="11" fill="#333">คุณยายช่วยเลี้ยงหลาน</text>
+    <text x="515" y="155" text-anchor="middle" font-size="11" fill="#333">ลูกสาวมีลูกได้บ่อยขึ้น</text>
+    <text x="515" y="175" text-anchor="middle" font-size="11" fill="#333">ยีนคุณยายแพร่กระจายผ่านหลาน</text>
+    <text x="515" y="195" text-anchor="middle" font-size="11" fill="#333">(แม้ไม่มีลูกของตัวเองแล้ว)</text>
+    <text x="515" y="218" text-anchor="middle" font-size="10" font-style="italic" fill="#e67e22">เสนอโดย Kristen Hawkes</text>
+  </g>
+</svg>
+<div class="caption">ทั้งสองสมมติฐานมุ่งอธิบายว่าทำไมการหยุดสืบพันธุ์กลับช่วยให้ยีนแพร่กระจายได้มากกว่า</div>
+</div>
+
+<div class="tip">
+<b>เกร็ดน่ารู้:</b> มีสัตว์เพียงไม่กี่ชนิดที่มีวัยหมดประจำเดือนจริงๆ — มนุษย์, วาฬเพชฌฆาต (Orca),
+และวาฬนำร่อง (Pilot Whale) — ทั้งหมดเป็นสัตว์ที่มี <b>ครอบครัว-สังคม</b> ที่ซับซ้อน
+ซึ่งคุณยายมีบทบาทสำคัญในการเลี้ยงรุ่นต่อไป
+</div>
+
+<!-- SECTION 11: CONCLUSION -->
+<h2 id="conclusion">11. ข้อสรุป — ความแก่ไม่ได้ถูกโปรแกรมไว้</h2>
+
+<div class="hero">
+  <div class="big">ประเด็นสำคัญที่สุดของบทที่ 1</div>
+  ความแก่ชรา <b>ไม่ใช่สิ่งที่วิวัฒนาการ "ตั้งใจ" ให้เกิดขึ้น</b> —
+  แต่เป็น <b>ผลพลอยได้</b> จากการที่วิวัฒนาการให้ความสำคัญกับการสืบพันธุ์มากกว่าการมีอายุยืน
+</div>
+
+<div class="flow">
+  <div class="node">ยีนสนใจ<br>แค่แพร่ตัวเอง</div>
+  <span class="arrow">➤</span>
+  <div class="node">ลงทุนใน<br>การสืบพันธุ์</div>
+  <span class="arrow">➤</span>
+  <div class="node">ร่างกายเสื่อม<br>เพราะไม่ได้ซ่อม</div>
+  <span class="arrow">➤</span>
+  <div class="node">เราแก่<br>และตาย</div>
+</div>
+
+<blockquote>
+"ร่างกายของเราถูกสร้างขึ้นมาเพื่อส่งต่อยีน ไม่ได้ถูกสร้างมาเพื่ออยู่ตลอดไป —
+เราเป็นเพียง 'ยานพาหนะชั่วคราว' ของยีนที่แท้จริงเป็นอมตะ"
+</blockquote>
+
+<div class="tip">
+<b>ข้อดีของข้อสรุปนี้:</b> หาก "ความแก่" ไม่ได้ถูกโปรแกรมไว้อย่างตายตัว นั่นแปลว่า
+<b>มันอาจ "ชะลอ" หรือ "ย้อนกลับ" ได้</b> ถ้าเราเข้าใจกลไกของมัน — ซึ่งจะเป็นหัวข้อสำคัญของบทต่อๆ ไปในหนังสือ!
+</div>
+
+<!-- DICTIONARY -->
+<h2 id="dictionary">📖 พจนานุกรมศัพท์สำคัญ</h2>
+
+<table>
+  <tr><th>คำศัพท์ (EN)</th><th>ภาษาไทย</th><th>ความหมาย</th></tr>
+  <tr><td><b>Antagonistic Pleiotropy</b></td><td>แอนแทโกนิสติก พลิโอโทรพี</td><td>ยีนเดียวกันมีผลดีในวัยหนุ่มแต่เสียในวัยแก่</td></tr>
+  <tr><td><b>Apoptosis</b></td><td>อะพอพโทซิส</td><td>การตายของเซลล์แบบถูกโปรแกรมไว้อย่างเป็นระเบียบ</td></tr>
+  <tr><td><b>Blastocyst</b></td><td>บลาสโทซิสต์</td><td>ก้อนเซลล์กลวงช่วงแรกหลังปฏิสนธิ (วัน 4-5)</td></tr>
+  <tr><td><b>Brain Death</b></td><td>สมองตาย</td><td>สภาวะสมองหยุดถาวร = นิยามความตายสมัยใหม่</td></tr>
+  <tr><td><b>Cell</b></td><td>เซลล์</td><td>หน่วยพื้นฐานของชีวิต (ร่างกายมี ~37 ล้านล้าน)</td></tr>
+  <tr><td><b>CPR</b></td><td>การปั๊มหัวใจ</td><td>กู้ชีพโดยกดหน้าอก + เป่าลมเข้าปอด</td></tr>
+  <tr><td><b>Disposable Soma</b></td><td>ร่างกายใช้แล้วทิ้ง</td><td>ทฤษฎีของ Kirkwood: ร่างกาย = ยานพาหนะของยีน</td></tr>
+  <tr><td><b>DNA</b></td><td>ดีเอ็นเอ</td><td>โมเลกุลเก็บข้อมูลพันธุกรรม</td></tr>
+  <tr><td><b>Embryo</b></td><td>เอ็มบริโอ / ตัวอ่อน</td><td>สิ่งมีชีวิตระยะแรก (8 สัปดาห์แรกในมนุษย์)</td></tr>
+  <tr><td><b>Fetus</b></td><td>ทารกในครรภ์</td><td>ตัวอ่อนหลัง 8 สัปดาห์จนถึงคลอด</td></tr>
+  <tr><td><b>Fitness</b></td><td>สมรรถภาพทางวิวัฒนาการ</td><td>ความสามารถในการรอด + สืบพันธุ์ส่งต่อยีน</td></tr>
+  <tr><td><b>Germ Cells</b></td><td>เซลล์สืบพันธุ์</td><td>ไข่ + อสุจิ — เซลล์ที่ "อมตะ"</td></tr>
+  <tr><td><b>Golgi Apparatus</b></td><td>กอลจิ</td><td>"ไปรษณีย์" ของเซลล์ — บรรจุ/จัดส่งโปรตีน</td></tr>
+  <tr><td><b>Good Mother Hypothesis</b></td><td>สมมติฐานแม่ที่ดี</td><td>หยุดสืบพันธุ์เพื่อดูแลลูกที่มีอยู่</td></tr>
+  <tr><td><b>Grandmother Hypothesis</b></td><td>สมมติฐานคุณยาย</td><td>คุณยายช่วยเลี้ยงหลาน → ยีนแพร่ผ่านหลาน</td></tr>
+  <tr><td><b>Lysosome</b></td><td>ไลโซโซม</td><td>"ถังขยะ" ของเซลล์ — ย่อยสลายของเสีย</td></tr>
+  <tr><td><b>Menopause</b></td><td>วัยหมดประจำเดือน</td><td>ผู้หญิงหยุดสืบพันธุ์ประมาณ 45-55 ปี</td></tr>
+  <tr><td><b>Mitochondria</b></td><td>ไมโทคอนเดรีย</td><td>"โรงไฟฟ้า" ของเซลล์ — ผลิต ATP</td></tr>
+  <tr><td><b>Mutation Accumulation</b></td><td>การสะสมการกลายพันธุ์</td><td>ทฤษฎีของ Medawar: ยีนเสียในวัยแก่หลุดการคัดเลือก</td></tr>
+  <tr><td><b>Natural Selection</b></td><td>การคัดเลือกโดยธรรมชาติ</td><td>กลไกวิวัฒนาการของ Darwin</td></tr>
+  <tr><td><b>Nucleus</b></td><td>นิวเคลียส</td><td>"ศูนย์บัญชาการ" ของเซลล์ — เก็บ DNA</td></tr>
+  <tr><td><b>Pleiotropy</b></td><td>พลิโอโทรพี</td><td>ยีนตัวเดียวส่งผลหลายลักษณะ</td></tr>
+  <tr><td><b>Primitive Streak</b></td><td>พริมิทีฟ สตรีค</td><td>โครงสร้างวันที่ 14 — เริ่มระบบประสาท</td></tr>
+  <tr><td><b>Ribosome</b></td><td>ไรโบโซม</td><td>"โรงงาน" ผลิตโปรตีน</td></tr>
+  <tr><td><b>Soma / Somatic Cells</b></td><td>เซลล์ร่างกาย</td><td>เซลล์ทั้งหมดยกเว้นเซลล์สืบพันธุ์</td></tr>
+  <tr><td><b>Weismann Barrier</b></td><td>กำแพงไวส์มันน์</td><td>เส้นแบ่งระหว่างเซลล์สืบพันธุ์ (อมตะ) กับเซลล์ร่างกาย (ใช้แล้วทิ้ง)</td></tr>
+  <tr><td><b>Zygote</b></td><td>ไซโกต</td><td>เซลล์แรกหลังไข่+อสุจิรวมกัน</td></tr>
+</table>
+
+<!-- QUIZ -->
+<h2 id="quiz">🧠 คำถามทบทวน</h2>
+
+<details class="quiz">
+  <summary>1. ทำไม Ramakrishnan เปรียบร่างกายกับเมืองลอนดอน?</summary>
+  <p>เพราะทั้งสองมี<b>โครงสร้างพื้นฐานที่ซับซ้อน</b>และประสานกัน — เมืองมีระบบรถไฟ ไฟฟ้า ไปรษณีย์
+  ส่วนร่างกายมีเซลล์ 37 ล้านล้านหลังทำงานร่วมกัน ทั้งสองเสื่อมสภาพตามกาลเวลา</p>
+</details>
+
+<details class="quiz">
+  <summary>2. Weismann Barrier คืออะไร? ทำไมจึงสำคัญ?</summary>
+  <p>คือ "กำแพง" ที่แยกเซลล์สืบพันธุ์ (germ cells — ไข่/อสุจิ) ออกจากเซลล์ร่างกาย (somatic cells)
+  สำคัญเพราะมันชี้ให้เห็นว่า <b>ยีนเป็น "อมตะ" ส่งต่อผ่านเซลล์สืบพันธุ์</b>
+  แต่ร่างกายเป็นเพียง "เปลือก" ที่ใช้แล้วทิ้ง</p>
+</details>
+
+<details class="quiz">
+  <summary>3. Antagonistic Pleiotropy ต่างจาก Mutation Accumulation อย่างไร?</summary>
+  <p><b>Mutation Accumulation:</b> ยีนร้ายในวัยแก่ "หลุดรอด" การคัดเลือกเพราะไม่ส่งผลในวัยหนุ่ม<br>
+  <b>Antagonistic Pleiotropy:</b> ยีนเดียวกัน "ดีตอนหนุ่ม แต่ร้ายตอนแก่"
+  — วิวัฒนาการเลือกเพราะผลดีตอนหนุ่มมีค่ากว่า</p>
+</details>
+
+<details class="quiz">
+  <summary>4. ทำไมเต่ายักษ์จึงอายุยืนกว่าหนู?</summary>
+  <p>เต่ายักษ์มี <b>กระดองป้องกันศัตรู</b> → โอกาสรอดในธรรมชาติสูง →
+  วิวัฒนาการ "คุ้มค่า" ที่จะลงทุนในระบบซ่อมแซมร่างกาย (Disposable Soma Theory)
+  ส่วนหนูมีศัตรูมาก ตายเร็ว จึงไม่คุ้มที่จะสร้างร่างกายที่อายุยืน</p>
+</details>
+
+<details class="quiz">
+  <summary>5. Grandmother Hypothesis อธิบายอะไร?</summary>
+  <p>อธิบายว่าทำไมผู้หญิงมี <b>วัยหมดประจำเดือน</b> — คุณยายที่เลิกสืบพันธุ์แล้วยังช่วยเลี้ยงหลาน
+  ทำให้ลูกสาวมีลูกได้บ่อยขึ้น ยีนของคุณยายจึงแพร่กระจายผ่านหลาน (ไม่ต้องมีลูกของตัวเองอีก)</p>
+</details>
+
+<details class="quiz">
+  <summary>6. ข้อสรุปหลักของบทที่ 1 คืออะไร?</summary>
+  <p>ความแก่<b>ไม่ได้ถูกโปรแกรมไว้</b> แต่เป็น <b>ผลพลอยได้</b> จากการที่วิวัฒนาการ
+  ให้ความสำคัญกับการสืบพันธุ์มากกว่าการมีอายุยืน — ร่างกายเป็น "ยานพาหนะชั่วคราว" ของยีน
+  ข้อสรุปนี้เปิดประตูให้กับการวิจัยเพื่อ "ชะลอ" หรือ "ย้อน" ความแก่ในอนาคต</p>
+</details>
+
+<div class="hero" style="margin-top: 50px;">
+  <div class="big">📌 Takeaway 3 ข้อหลักของบทนี้</div>
+  <ol>
+    <li><b>ร่างกาย = ยานพาหนะของยีน:</b> Weismann Barrier แยกเซลล์สืบพันธุ์ (อมตะ) ออกจากเซลล์ร่างกาย (ใช้แล้วทิ้ง)</li>
+    <li><b>ความแก่เกิดจากวิวัฒนาการ "ไม่ใส่ใจ":</b> สามทฤษฎี MAD อธิบายว่าทำไม (Mutation Accumulation, Antagonistic Pleiotropy, Disposable Soma)</li>
+    <li><b>ยิ่งปลอดภัย ยิ่งอายุยืน:</b> สัตว์ที่มีเกราะป้องกันตัว (ค้างคาว เต่า มนุษย์) อายุยืนกว่าสัตว์ที่ตกเป็นเหยื่อง่าย</li>
+  </ol>
+</div>
+
+<p style="text-align:center; margin-top:40px; color:#888; font-size:0.9em;">
+Why We Die — Chapter 1: ยีนอมตะ และร่างกายที่ใช้แล้วทิ้ง<br>
+สรุปจากหนังสือของ Venki Ramakrishnan | Visual Study Guide
+</p>
+
+</body>
+</html>

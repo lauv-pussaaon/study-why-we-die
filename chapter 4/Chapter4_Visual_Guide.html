@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>บทที่ 4 — ปัญหากับส่วนปลาย | Visual Study Guide</title>
+<style>
+  :root {
+    --bg: #fdfcf7;
+    --ink: #1f2933;
+    --accent: #c0392b;
+    --accent2: #2c5f8d;
+    --accent3: #27ae60;
+    --soft: #f4e9d8;
+    --box: #ffffff;
+    --shadow: 0 4px 16px rgba(0,0,0,0.08);
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, "Segoe UI", "Sarabun", "Noto Sans Thai", sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+    line-height: 1.75;
+    font-size: 17px;
+  }
+  h1 {
+    font-size: 2.4em;
+    border-bottom: 4px double var(--accent);
+    padding-bottom: 12px;
+    margin-bottom: 8px;
+    color: var(--accent);
+  }
+  h1 .sub { display: block; font-size: 0.5em; color: #666; font-weight: normal; margin-top: 6px; }
+  h2 {
+    font-size: 1.6em;
+    color: var(--accent2);
+    border-left: 6px solid var(--accent2);
+    padding-left: 14px;
+    margin-top: 60px;
+  }
+  h3 {
+    color: var(--accent);
+    margin-top: 32px;
+    font-size: 1.25em;
+  }
+  .hero {
+    background: linear-gradient(135deg, #fff8e7 0%, #ffe4cc 100%);
+    padding: 24px 28px;
+    border-radius: 14px;
+    margin: 28px 0;
+    border-left: 6px solid var(--accent);
+    box-shadow: var(--shadow);
+  }
+  .hero .big {
+    font-size: 1.3em;
+    font-weight: 600;
+    color: var(--accent);
+  }
+  .analogy {
+    background: #eef6fb;
+    border: 2px dashed var(--accent2);
+    padding: 16px 20px;
+    border-radius: 10px;
+    margin: 18px 0;
+  }
+  .analogy::before {
+    content: "💡 ลองคิดแบบนี้ ";
+    font-weight: 700;
+    color: var(--accent2);
+  }
+  .warning {
+    background: #fff3e6;
+    border-left: 5px solid #e67e22;
+    padding: 14px 18px;
+    border-radius: 6px;
+    margin: 18px 0;
+  }
+  .tip {
+    background: #eaf7ea;
+    border-left: 5px solid var(--accent3);
+    padding: 14px 18px;
+    border-radius: 6px;
+    margin: 18px 0;
+  }
+  .fact {
+    background: #fdecec;
+    border-left: 5px solid var(--accent);
+    padding: 14px 18px;
+    border-radius: 6px;
+    margin: 18px 0;
+  }
+  .diagram {
+    background: var(--box);
+    border: 1px solid #e0d8c5;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 24px 0;
+    box-shadow: var(--shadow);
+    text-align: center;
+  }
+  .diagram .caption {
+    font-size: 0.92em;
+    color: #555;
+    margin-top: 10px;
+    font-style: italic;
+  }
+  svg { max-width: 100%; height: auto; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: var(--box);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  th, td {
+    padding: 12px 14px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+  }
+  th { background: var(--accent2); color: white; }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) { background: #faf7ef; }
+  .quiz {
+    background: #fdf7e4;
+    padding: 20px 26px;
+    border-radius: 10px;
+    margin: 16px 0;
+    border: 2px solid #e8d084;
+  }
+  .quiz summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--accent);
+    padding: 8px 0;
+  }
+  .quiz p { margin: 10px 0 0; padding: 10px; background: white; border-radius: 6px; }
+  .term {
+    display: inline-block;
+    background: #fff3d6;
+    padding: 1px 8px;
+    border-radius: 4px;
+    font-weight: 600;
+    color: #8a5a00;
+  }
+  .flow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 20px 0;
+  }
+  .flow .node {
+    background: var(--accent2);
+    color: white;
+    padding: 12px 18px;
+    border-radius: 8px;
+    font-weight: 600;
+    min-width: 120px;
+    text-align: center;
+  }
+  .flow .arrow { font-size: 1.6em; color: var(--accent); }
+  .card {
+    background: var(--box);
+    padding: 18px 22px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    margin: 14px 0;
+    border-top: 4px solid var(--accent2);
+  }
+  .mnemonic {
+    background: #f0e7ff;
+    border-left: 5px solid #6c3bd9;
+    padding: 12px 18px;
+    border-radius: 6px;
+    margin: 12px 0;
+    font-size: 0.98em;
+  }
+  .mnemonic::before { content: "🧠 วิธีจำ: "; font-weight: 700; color: #6c3bd9; }
+  blockquote {
+    border-left: 4px solid #888;
+    padding-left: 16px;
+    margin: 20px 0;
+    color: #555;
+    font-style: italic;
+  }
+  .toc {
+    background: var(--soft);
+    padding: 18px 28px;
+    border-radius: 10px;
+    margin-bottom: 40px;
+  }
+  .toc h3 { margin-top: 0; color: var(--accent); }
+  .toc ol { padding-left: 22px; }
+  .toc a { color: var(--accent2); text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+  .big-number {
+    font-size: 3em;
+    font-weight: 700;
+    color: var(--accent);
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 12px;
+  }
+  .stat-box {
+    display: inline-block;
+    background: white;
+    padding: 16px 22px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    margin: 8px;
+    text-align: center;
+    min-width: 180px;
+  }
+  .stat-box .num { font-size: 2em; font-weight: 700; color: var(--accent); display: block; }
+  .stat-box .lbl { font-size: 0.88em; color: #666; }
+  .timeline {
+    position: relative;
+    padding: 20px 0 20px 40px;
+    margin: 20px 0;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 18px;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--accent2);
+    border-radius: 2px;
+  }
+  .timeline-item {
+    position: relative;
+    margin-bottom: 28px;
+    padding: 14px 18px;
+    background: var(--box);
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -30px;
+    top: 18px;
+    width: 14px;
+    height: 14px;
+    background: var(--accent);
+    border-radius: 50%;
+    border: 3px solid var(--bg);
+  }
+  .timeline-item .year {
+    font-weight: 700;
+    color: var(--accent);
+    font-size: 1.1em;
+  }
+  .versus {
+    display: flex;
+    gap: 20px;
+    margin: 24px 0;
+    flex-wrap: wrap;
+  }
+  .versus .side {
+    flex: 1;
+    min-width: 280px;
+    padding: 18px 22px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+  }
+  .versus .good { background: #eaf7ea; border-top: 4px solid var(--accent3); }
+  .versus .bad { background: #fdecec; border-top: 4px solid var(--accent); }
+  .versus h4 { margin-top: 0; }
+</style>
+</head>
+<body>
+
+<h1>บทที่ 4 — ปัญหากับส่วนปลาย
+  <span class="sub">The Problem with the Ends · Why We Die by Venki Ramakrishnan</span>
+</h1>
+
+<div class="hero">
+  <div class="big">ภาพรวม 1 ประโยค:</div>
+  โครโมโซมของเรามี "ฝาครอบ" ที่เรียกว่า <span class="term">Telomere</span> ซึ่งสั้นลงทุกครั้งที่เซลล์แบ่งตัว — เหมือน <b>นาฬิกานับถอยหลังของเซลล์</b> ที่กำหนดว่าเซลล์จะแก่และหยุดทำงานเมื่อไหร่
+</div>
+
+<div class="toc">
+  <h3>📚 สารบัญ</h3>
+  <ol>
+    <li><a href="#carrel">Alexis Carrel — ตำนานเซลล์อมตะที่พิสูจน์แล้วว่าผิด</a></li>
+    <li><a href="#hayflick">Hayflick Limit — เซลล์มี "วันหมดอายุ"</a></li>
+    <li><a href="#telomere">Telomere — ฝาครอบปลายโครโมโซม</a></li>
+    <li><a href="#end-problem">End-Replication Problem — ทำไมปลายถึงสั้นลง?</a></li>
+    <li><a href="#discovery">ไทม์ไลน์การค้นพบ Telomere</a></li>
+    <li><a href="#telomerase">Telomerase — เอนไซม์แห่งความหวังและอันตราย</a></li>
+    <li><a href="#senescence">Senescence — เซลล์ผีดิบและความชรา</a></li>
+    <li><a href="#big-picture">ภาพรวม: Telomere → Aging → Death</a></li>
+    <li><a href="#quiz">คำถามทบทวน</a></li>
+    <li><a href="#vocab">คำศัพท์สำคัญ</a></li>
+  </ol>
+</div>
+
+<!-- =========================================== -->
+<!-- SECTION 1: CARREL -->
+<!-- =========================================== -->
+<h2 id="carrel">1. Alexis Carrel — ตำนานเซลล์อมตะที่พิสูจน์แล้วว่าผิด</h2>
+
+<p>
+กว่าร้อยปีก่อน <span class="term">Alexis Carrel</span> ศัลยแพทย์ชาวฝรั่งเศสผู้มีชื่อเสียงที่สถาบันร็อกเกอเฟลเลอร์ในนิวยอร์ก อ้างว่าเขาเลี้ยงเซลล์หัวใจไก่ในขวดทดลองได้นานกว่า <b>33 ปี</b> โดยเซลล์ยังคงแบ่งตัวไม่หยุด เขาเชื่อว่า <b>"เซลล์เป็นอมตะ — ความตายไม่ได้ถูกโปรแกรมไว้"</b>
+</p>
+
+<div class="diagram">
+<svg viewBox="0 0 620 240" xmlns="http://www.w3.org/2000/svg">
+  <!-- Flask -->
+  <rect x="240" y="80" width="140" height="120" rx="10" fill="#e8f4f8" stroke="#2c5f8d" stroke-width="3"/>
+  <rect x="270" y="50" width="80" height="35" rx="5" fill="#dce8f0" stroke="#2c5f8d" stroke-width="2"/>
+  <rect x="285" y="35" width="50" height="20" rx="3" fill="#bbb"/>
+  <!-- Cells inside flask -->
+  <circle cx="280" cy="130" r="8" fill="#e74c3c" opacity="0.7"/>
+  <circle cx="310" cy="110" r="8" fill="#e74c3c" opacity="0.7"/>
+  <circle cx="340" cy="140" r="8" fill="#e74c3c" opacity="0.7"/>
+  <circle cx="300" cy="155" r="8" fill="#e74c3c" opacity="0.7"/>
+  <circle cx="330" cy="170" r="8" fill="#e74c3c" opacity="0.7"/>
+  <circle cx="360" cy="120" r="8" fill="#e74c3c" opacity="0.7"/>
+  <circle cx="270" cy="170" r="8" fill="#e74c3c" opacity="0.7"/>
+  <!-- Arrow showing "fresh cells added?" -->
+  <path d="M 160 130 L 230 130" stroke="#e67e22" stroke-width="3" fill="none" marker-end="url(#arrowO)"/>
+  <defs><marker id="arrowO" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8" fill="#e67e22"/></marker></defs>
+  <circle cx="130" cy="130" r="12" fill="#f39c12" opacity="0.6"/>
+  <circle cx="145" cy="115" r="8" fill="#f39c12" opacity="0.5"/>
+  <circle cx="115" cy="140" r="9" fill="#f39c12" opacity="0.5"/>
+  <text x="130" y="175" text-anchor="middle" font-size="11" fill="#e67e22" font-weight="600">เซลล์ใหม่แอบเข้ามา?</text>
+  <!-- Labels -->
+  <text x="310" y="215" text-anchor="middle" font-size="13" fill="#2c5f8d" font-weight="700">ขวดเซลล์หัวใจไก่ของ Carrel</text>
+  <!-- X mark -->
+  <text x="470" y="100" font-size="60" fill="#c0392b" font-weight="700">✗</text>
+  <text x="440" y="145" font-size="13" fill="#c0392b" font-weight="600">"เซลล์อมตะ"</text>
+  <text x="440" y="165" font-size="13" fill="#c0392b">= ไม่จริง!</text>
+  <!-- Nobel -->
+  <text x="310" y="25" text-anchor="middle" font-size="12" fill="#b9770e" font-weight="600">🏆 Nobel 1912 (เทคนิคเย็บหลอดเลือด)</text>
+</svg>
+<div class="caption">Carrel อ้างว่าเซลล์อมตะ — แต่อาจเป็นเพราะเซลล์ใหม่ปนเข้ามาทุกครั้งที่เปลี่ยนอาหารเลี้ยง</div>
+</div>
+
+<div class="warning">
+  <b>⚠️ ข้อสงสัย:</b> ห้องทดลองอื่นไม่สามารถทำซ้ำการทดลองนี้ได้ นักวิทยาศาสตร์สงสัยว่าทุกครั้งที่เปลี่ยนอาหารเลี้ยงเซลล์ (nutrient media) มีเซลล์ใหม่จากเลือดไก่ปนเข้าไปด้วย ทำให้ดูเหมือนว่าเซลล์เดิมยังมีชีวิตอยู่
+</div>
+
+<div class="mnemonic">Carrel = คนที่บอกว่าเซลล์เป็นอมตะ → ทำให้วงการเชื่อผิดๆ นานหลายสิบปี → โดน Hayflick หักล้าง</div>
+
+<!-- =========================================== -->
+<!-- SECTION 2: HAYFLICK -->
+<!-- =========================================== -->
+<h2 id="hayflick">2. Hayflick Limit — เซลล์มี "วันหมดอายุ"</h2>
+
+<p>
+<span class="term">Leonard Hayflick</span> นักชีววิทยาชาวอเมริกัน ร่วมกับ <span class="term">Paul Moorhead</span> ท้าทายตำนานของ Carrel ในช่วงทศวรรษ 1960 โดยค้นพบว่าเซลล์มนุษย์ปกติ <b>แบ่งตัวได้ประมาณ 40–60 ครั้งเท่านั้น</b> แล้วก็หยุดตลอดกาล
+</p>
+
+<div class="diagram">
+<svg viewBox="0 0 640 280" xmlns="http://www.w3.org/2000/svg">
+  <!-- Cell division counter -->
+  <text x="320" y="30" text-anchor="middle" font-size="18" font-weight="700" fill="#2c5f8d">Hayflick Limit: นาฬิกานับถอยหลังของเซลล์</text>
+
+  <!-- Young cell -->
+  <circle cx="80" cy="120" r="35" fill="#27ae60" opacity="0.8"/>
+  <text x="80" y="115" text-anchor="middle" font-size="11" fill="white" font-weight="700">เซลล์</text>
+  <text x="80" y="132" text-anchor="middle" font-size="11" fill="white" font-weight="700">อายุน้อย</text>
+  <text x="80" y="170" text-anchor="middle" font-size="10" fill="#27ae60">แบ่งตัวครั้งที่ 1</text>
+
+  <!-- Arrow -->
+  <path d="M 125 120 L 175 120" stroke="#888" stroke-width="2" fill="none" marker-end="url(#arrowG)"/>
+  <defs><marker id="arrowG" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="#888"/></marker></defs>
+
+  <!-- Middle cell -->
+  <circle cx="220" cy="120" r="35" fill="#f39c12" opacity="0.8"/>
+  <text x="220" y="115" text-anchor="middle" font-size="11" fill="white" font-weight="700">เซลล์</text>
+  <text x="220" y="132" text-anchor="middle" font-size="11" fill="white" font-weight="700">วัยกลาง</text>
+  <text x="220" y="170" text-anchor="middle" font-size="10" fill="#f39c12">แบ่งตัวครั้งที่ ~30</text>
+
+  <!-- Arrow -->
+  <path d="M 265 120 L 315 120" stroke="#888" stroke-width="2" fill="none" marker-end="url(#arrowG)"/>
+
+  <!-- Old cell -->
+  <circle cx="360" cy="120" r="35" fill="#e67e22" opacity="0.8"/>
+  <text x="360" y="115" text-anchor="middle" font-size="11" fill="white" font-weight="700">เซลล์</text>
+  <text x="360" y="132" text-anchor="middle" font-size="11" fill="white" font-weight="700">แก่</text>
+  <text x="360" y="170" text-anchor="middle" font-size="10" fill="#e67e22">แบ่งตัวครั้งที่ ~50</text>
+
+  <!-- Arrow -->
+  <path d="M 405 120 L 455 120" stroke="#888" stroke-width="2" fill="none" marker-end="url(#arrowG)"/>
+
+  <!-- Senescent cell -->
+  <circle cx="510" cy="120" r="40" fill="#c0392b" opacity="0.7"/>
+  <text x="510" y="110" text-anchor="middle" font-size="11" fill="white" font-weight="700">STOP!</text>
+  <text x="510" y="128" text-anchor="middle" font-size="10" fill="white">Senescence</text>
+  <text x="510" y="143" text-anchor="middle" font-size="9" fill="white">หยุดแบ่งตัว</text>
+  <text x="510" y="175" text-anchor="middle" font-size="10" fill="#c0392b">ครั้งที่ 40–60 = จบ</text>
+
+  <!-- Hayflick Limit bar -->
+  <rect x="60" y="210" width="500" height="24" rx="12" fill="#eee"/>
+  <rect x="60" y="210" width="420" height="24" rx="12" fill="url(#barGrad)"/>
+  <defs>
+    <linearGradient id="barGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#27ae60"/>
+      <stop offset="50%" stop-color="#f39c12"/>
+      <stop offset="100%" stop-color="#c0392b"/>
+    </linearGradient>
+  </defs>
+  <text x="310" y="228" text-anchor="middle" font-size="11" fill="white" font-weight="700">~40–60 ครั้ง = Hayflick Limit</text>
+  <text x="310" y="265" text-anchor="middle" font-size="13" fill="#666">เซลล์ทุกตัวมีจำนวนครั้งจำกัดในการแบ่งตัว</text>
+</svg>
+<div class="caption">เซลล์ปกติแบ่งตัวได้ ~40–60 ครั้ง แล้วเข้าสู่ senescence — นี่คือ Hayflick Limit</div>
+</div>
+
+<h3>การทดลองสุดฉลาดของ Hayflick</h3>
+<p>
+Hayflick ผสมเซลล์ <b>เพศหญิง (อายุน้อย)</b> กับเซลล์ <b>เพศชาย (อายุมาก)</b> ไว้ในขวดเดียวกัน:
+</p>
+
+<div class="diagram">
+<svg viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Flask -->
+  <rect x="200" y="20" width="200" height="130" rx="12" fill="#fce8dc" stroke="#c98566" stroke-width="2"/>
+  <!-- Female cells (young) -->
+  <circle cx="250" cy="60" r="12" fill="#e91e8e" opacity="0.7"/>
+  <circle cx="280" cy="80" r="12" fill="#e91e8e" opacity="0.7"/>
+  <circle cx="250" cy="100" r="12" fill="#e91e8e" opacity="0.7"/>
+  <circle cx="275" cy="120" r="12" fill="#e91e8e" opacity="0.7"/>
+  <!-- Male cells (old) -->
+  <circle cx="340" cy="55" r="12" fill="#2980b9" opacity="0.7"/>
+  <circle cx="360" cy="80" r="12" fill="#2980b9" opacity="0.7"/>
+  <circle cx="335" cy="105" r="12" fill="#2980b9" opacity="0.7"/>
+  <circle cx="355" cy="125" r="12" fill="#2980b9" opacity="0.5"/>
+  <!-- Labels -->
+  <text x="250" y="165" text-anchor="middle" font-size="11" fill="#e91e8e" font-weight="600">♀ อายุน้อย (ยังแบ่งต่อ)</text>
+  <text x="350" y="165" text-anchor="middle" font-size="11" fill="#2980b9" font-weight="600">♂ อายุมาก (หยุดแบ่ง)</text>
+  <!-- Result arrows -->
+  <text x="95" y="85" text-anchor="middle" font-size="28" fill="#e91e8e">✓</text>
+  <text x="95" y="110" text-anchor="middle" font-size="11" fill="#e91e8e" font-weight="600">ยังแบ่งตัวต่อ</text>
+  <path d="M 130 90 L 195 80" stroke="#e91e8e" stroke-width="2" fill="none" marker-end="url(#arrowP)"/>
+  <defs><marker id="arrowP" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="#e91e8e"/></marker></defs>
+
+  <text x="505" y="85" text-anchor="middle" font-size="28" fill="#2980b9">✗</text>
+  <text x="505" y="110" text-anchor="middle" font-size="11" fill="#2980b9" font-weight="600">หยุดแบ่งตัว</text>
+  <path d="M 470 90 L 405 80" stroke="#2980b9" stroke-width="2" fill="none" marker-end="url(#arrowB)"/>
+  <defs><marker id="arrowB" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="#2980b9"/></marker></defs>
+
+  <text x="300" y="195" text-anchor="middle" font-size="12" fill="#333" font-weight="600">→ พิสูจน์ว่า "นาฬิกา" อยู่ภายในเซลล์เอง ไม่ใช่สภาพแวดล้อม</text>
+</svg>
+<div class="caption">เซลล์ชายที่แก่กว่าหยุดก่อน เซลล์หญิงที่อายุน้อยยังแบ่งต่อ — อายุอยู่ "ในตัวเซลล์"</div>
+</div>
+
+<div class="analogy">
+Hayflick Limit เหมือน <b>เครื่องถ่ายเอกสาร</b> ที่ถ่ายซ้ำจากสำเนาไปเรื่อยๆ — ทุกรอบภาพเลือนลงเล็กน้อย จนสุดท้ายเครื่องปฏิเสธไม่ยอมถ่าย เพราะ "ต้นฉบับ" เลือนจนอ่านไม่ออก
+</div>
+
+<!-- =========================================== -->
+<!-- SECTION 3: TELOMERE -->
+<!-- =========================================== -->
+<h2 id="telomere">3. Telomere — ฝาครอบปลายโครโมโซม</h2>
+
+<p>
+คำถามที่ Hayflick ตอบไม่ได้คือ: <b>"อะไร" ในเซลล์ที่ทำหน้าที่เป็นนาฬิกานับถอยหลัง?</b> คำตอบคือ <span class="term">Telomere</span> — ลำดับ DNA ซ้ำๆ ที่ปลายโครโมโซม
+</p>
+
+<div class="diagram">
+<svg viewBox="0 0 640 260" xmlns="http://www.w3.org/2000/svg">
+  <text x="320" y="25" text-anchor="middle" font-size="16" font-weight="700" fill="#2c5f8d">โครงสร้างโครโมโซมกับ Telomere</text>
+
+  <!-- Chromosome body -->
+  <rect x="120" y="80" width="400" height="50" rx="25" fill="#2c5f8d" opacity="0.8"/>
+  <text x="320" y="112" text-anchor="middle" font-size="14" fill="white" font-weight="600">DNA (ข้อมูลพันธุกรรมสำคัญ)</text>
+
+  <!-- Left telomere -->
+  <rect x="40" y="80" width="85" height="50" rx="25" fill="#c0392b" opacity="0.8"/>
+  <text x="82" y="108" text-anchor="middle" font-size="10" fill="white" font-weight="700">TTAGGG</text>
+  <text x="82" y="120" text-anchor="middle" font-size="9" fill="white">×1000+</text>
+
+  <!-- Right telomere -->
+  <rect x="515" y="80" width="85" height="50" rx="25" fill="#c0392b" opacity="0.8"/>
+  <text x="557" y="108" text-anchor="middle" font-size="10" fill="white" font-weight="700">TTAGGG</text>
+  <text x="557" y="120" text-anchor="middle" font-size="9" fill="white">×1000+</text>
+
+  <!-- Labels -->
+  <text x="82" y="60" text-anchor="middle" font-size="12" fill="#c0392b" font-weight="700">Telomere</text>
+  <path d="M 82 64 L 82 76" stroke="#c0392b" stroke-width="2" marker-end="url(#arrowR)"/>
+  <defs><marker id="arrowR" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="#c0392b"/></marker></defs>
+
+  <text x="557" y="60" text-anchor="middle" font-size="12" fill="#c0392b" font-weight="700">Telomere</text>
+  <path d="M 557 64 L 557 76" stroke="#c0392b" stroke-width="2" marker-end="url(#arrowR)"/>
+
+  <!-- Shoelace analogy -->
+  <text x="320" y="170" text-anchor="middle" font-size="14" font-weight="700" fill="#333">เปรียบเทียบ: เชือกผูกรองเท้า</text>
+
+  <!-- Shoelace -->
+  <line x1="120" y1="210" x2="520" y2="210" stroke="#8e44ad" stroke-width="6"/>
+  <!-- Aglets -->
+  <rect x="85" y="200" width="40" height="20" rx="6" fill="#f39c12"/>
+  <text x="105" y="215" text-anchor="middle" font-size="9" fill="white" font-weight="700">aglet</text>
+  <rect x="515" y="200" width="40" height="20" rx="6" fill="#f39c12"/>
+  <text x="535" y="215" text-anchor="middle" font-size="9" fill="white" font-weight="700">aglet</text>
+
+  <text x="320" y="248" text-anchor="middle" font-size="12" fill="#666">Telomere = aglet (ปลอกพลาสติก) ที่ปลายเชือก → ถ้าหลุด เชือกก็หลุดลุ่ย</text>
+</svg>
+<div class="caption">Telomere (สีแดง) อยู่ที่ปลายทั้งสองข้างของโครโมโซม — เหมือน aglet ที่หุ้มปลายเชือกผูกรองเท้า</div>
+</div>
+
+<div class="fact">
+  <b>🔢 ตัวเลขสำคัญ:</b> ในมนุษย์ telomere ประกอบด้วยลำดับ <b>TTAGGG</b> ซ้ำกันยาวราว <b>10,000 เบส</b> ที่ปลายโครโมโซมแต่ละข้าง Telomere ไม่ได้เข้ารหัสโปรตีนใดๆ — หน้าที่เดียวคือ <b>"ปกป้อง"</b>
+</div>
+
+<div class="mnemonic">Telomere = "ฝาครอบ" หรือ "aglet" ของโครโมโซม → สั้นลงทุกรอบ = เชือกเริ่มพัง</div>
+
+<!-- =========================================== -->
+<!-- SECTION 4: END-REPLICATION PROBLEM -->
+<!-- =========================================== -->
+<h2 id="end-problem">4. End-Replication Problem — ทำไมปลายถึงสั้นลง?</h2>
+
+<p>
+ทุกครั้งที่เซลล์แบ่งตัว เอนไซม์ <span class="term">DNA polymerase</span> จะคัดลอก DNA ทั้งสาย แต่มีปัญหาที่แก้ไม่ได้: <b>มันคัดลอกปลายสุดไม่ได้สมบูรณ์</b> เพราะต้องมี "จุดเริ่มต้น" (RNA primer) ในการทำงาน — และจุดเริ่มต้นที่ปลายสุดจะหายไปหลังคัดลอก ทำให้ปลายสั้นลงเล็กน้อยทุกรอบ
+</p>
+
+<div class="diagram">
+<svg viewBox="0 0 640 300" xmlns="http://www.w3.org/2000/svg">
+  <text x="320" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="#2c5f8d">End-Replication Problem: ปลายหายไปทีละนิด</text>
+
+  <!-- Generation 1 -->
+  <text x="30" y="70" font-size="12" fill="#333" font-weight="600">รุ่นที่ 1:</text>
+  <rect x="100" y="55" width="60" height="20" rx="5" fill="#c0392b"/>
+  <rect x="160" y="55" width="340" height="20" rx="0" fill="#2c5f8d"/>
+  <rect x="500" y="55" width="60" height="20" rx="5" fill="#c0392b"/>
+
+  <!-- Generation 2 -->
+  <text x="30" y="120" font-size="12" fill="#333" font-weight="600">รุ่นที่ 2:</text>
+  <rect x="115" y="105" width="45" height="20" rx="5" fill="#c0392b" opacity="0.85"/>
+  <rect x="160" y="105" width="340" height="20" rx="0" fill="#2c5f8d"/>
+  <rect x="500" y="105" width="45" height="20" rx="5" fill="#c0392b" opacity="0.85"/>
+
+  <!-- Generation 3 -->
+  <text x="30" y="170" font-size="12" fill="#333" font-weight="600">รุ่นที่ 3:</text>
+  <rect x="130" y="155" width="30" height="20" rx="5" fill="#c0392b" opacity="0.7"/>
+  <rect x="160" y="155" width="340" height="20" rx="0" fill="#2c5f8d"/>
+  <rect x="500" y="155" width="30" height="20" rx="5" fill="#c0392b" opacity="0.7"/>
+
+  <!-- Generation N -->
+  <text x="30" y="220" font-size="12" fill="#333" font-weight="600">รุ่นที่ N:</text>
+  <rect x="150" y="205" width="10" height="20" rx="3" fill="#c0392b" opacity="0.4"/>
+  <rect x="160" y="205" width="340" height="20" rx="0" fill="#2c5f8d"/>
+  <rect x="500" y="205" width="10" height="20" rx="3" fill="#c0392b" opacity="0.4"/>
+
+  <!-- Danger zone -->
+  <rect x="160" y="250" width="340" height="25" rx="5" fill="#ffebee" stroke="#c0392b" stroke-width="2" stroke-dasharray="5,3"/>
+  <text x="330" y="268" text-anchor="middle" font-size="12" fill="#c0392b" font-weight="700">⚠️ Telomere หมด → DNA สำคัญเริ่มถูกกัดกิน → STOP!</text>
+
+  <!-- Legend -->
+  <rect x="100" y="290" width="20" height="10" fill="#c0392b" rx="2"/>
+  <text x="128" y="299" font-size="11" fill="#333">= Telomere (สั้นลงทุกรอบ)</text>
+  <rect x="300" y="290" width="20" height="10" fill="#2c5f8d" rx="2"/>
+  <text x="328" y="299" font-size="11" fill="#333">= DNA สำคัญ (ยีน)</text>
+</svg>
+<div class="caption">ทุกครั้งที่เซลล์แบ่งตัว telomere สั้นลง — จนถึงจุดที่ไม่เหลือ "ฝาครอบ" เซลล์จึงหยุดแบ่ง</div>
+</div>
+
+<div class="analogy">
+ลองนึกภาพ <b>ไส้ดินสอ</b> — ทุกครั้งที่ใช้เขียน ไส้ดินสอจะสั้นลง ถ้าดินสอมีส่วน "กันกระแทก" ที่ปลาย (telomere) เมื่อส่วนนี้หมด ไม้จริง (DNA สำคัญ) ก็จะเริ่มโดนกินต่อ → เซลล์ต้องหยุดเพื่อป้องกันความเสียหาย
+</div>
+
+<!-- =========================================== -->
+<!-- SECTION 5: DISCOVERY TIMELINE -->
+<!-- =========================================== -->
+<h2 id="discovery">5. ไทม์ไลน์การค้นพบ Telomere</h2>
+
+<div class="timeline">
+  <div class="timeline-item">
+    <span class="year">1930s — Hermann Muller</span><br>
+    ตั้งชื่อส่วนปลายโครโมโซมว่า <b>"telomere"</b> (จากภาษากรีก: <i>telos</i> = ปลาย, <i>meros</i> = ส่วน)
+  </div>
+  <div class="timeline-item">
+    <span class="year">1940s — Barbara McClintock</span><br>
+    สังเกตว่าปลายโครโมโซมมีส่วนพิเศษที่ป้องกัน <b>การหลอมรวม</b>กับโครโมโซมอื่น ถ้าปลายหายไป โครโมโซมจะ "ติดกัน" เป็นวงจรความเสียหาย
+  </div>
+  <div class="timeline-item">
+    <span class="year">1960s — Leonard Hayflick</span><br>
+    ค้นพบ <b>Hayflick Limit</b> — เซลล์ปกติแบ่งตัวได้จำกัด (แต่ยังไม่รู้ว่า telomere เป็นสาเหตุ)
+  </div>
+  <div class="timeline-item">
+    <span class="year">1978 — Elizabeth Blackburn</span><br>
+    ถอดรหัสลำดับ DNA ของ telomere ใน <i>Tetrahymena</i> (สิ่งมีชีวิตเซลล์เดียว) → พบลำดับ <b>TTAGGG</b> ซ้ำกันเป็นพันๆ ครั้ง
+  </div>
+  <div class="timeline-item">
+    <span class="year">1980s — Jack Szostak + Blackburn</span><br>
+    ร่วมมือกันพิสูจน์ว่า telomere <b>ป้องกันโครโมโซมจากการย่อยสลาย</b> — เป็นส่วนจำเป็นสำหรับเสถียรภาพของโครโมโซม
+  </div>
+  <div class="timeline-item">
+    <span class="year">1984 — Carol Greider</span><br>
+    ขณะเป็นนักศึกษาปริญญาเอกของ Blackburn ค้นพบ <b>telomerase</b> — เอนไซม์ที่สามารถต่อ telomere ให้ยาวขึ้นได้!
+  </div>
+  <div class="timeline-item">
+    <span class="year">🏆 2009 — รางวัลโนเบลสาขาสรีรวิทยาหรือการแพทย์</span><br>
+    <b>Blackburn, Greider, Szostak</b> ได้รับโนเบลร่วมกันจากผลงานเรื่อง "telomere และ telomerase ปกป้องโครโมโซมอย่างไร"
+  </div>
+</div>
+
+<!-- =========================================== -->
+<!-- SECTION 6: TELOMERASE -->
+<!-- =========================================== -->
+<h2 id="telomerase">6. Telomerase — เอนไซม์แห่งความหวังและอันตราย</h2>
+
+<p>
+<span class="term">Telomerase</span> เป็นเอนไซม์พิเศษที่สามารถ <b>ต่อลำดับ TTAGGG</b> เข้าไปที่ปลาย telomere ทำให้มัน <b>ยาวขึ้นได้</b> — เหมือนเติมปลอก aglet กลับเข้าไปที่ปลายเชือก
+</p>
+
+<div class="versus">
+  <div class="side good">
+    <h4 style="color: var(--accent3);">✅ เซลล์ที่ telomerase ทำงาน</h4>
+    <ul>
+      <li><b>เซลล์ต้นกำเนิด (Stem Cells)</b> — ต้องแบ่งตัวไปเรื่อยๆ เพื่อทดแทนเซลล์เก่า</li>
+      <li><b>เซลล์สืบพันธุ์</b> — ต้อง "รีเซ็ต" นาฬิกาเพื่อให้ลูกหลานเริ่มต้นนาฬิกาใหม่</li>
+    </ul>
+  </div>
+  <div class="side bad">
+    <h4 style="color: var(--accent);">❌ เซลล์ปกติ — telomerase ถูกปิด</h4>
+    <ul>
+      <li>Telomere สั้นลงทุกรอบ → <b>นาฬิกาเดินต่อไม่มีหยุด</b></li>
+      <li>ถึง Hayflick Limit → เข้าสู่ senescence หรือ apoptosis</li>
+    </ul>
+  </div>
+</div>
+
+<div class="warning">
+  <b>⚠️ ดาบสองคม:</b> <span class="term">เซลล์มะเร็ง</span> เปิดใช้ telomerase อีกครั้ง → แบ่งตัวไม่รู้จบ → นี่คือเหตุผลที่มะเร็ง "เป็นอมตะ"
+  <br><br>
+  ถ้าเราเปิด telomerase ในทุกเซลล์เพื่อชะลอความแก่ → <b>เสี่ยงมะเร็งมหาศาล</b><br>
+  ถ้าปิดมันเพื่อป้องกันมะเร็ง → <b>แก่เร็วขึ้น</b>
+</div>
+
+<div class="diagram">
+<svg viewBox="0 0 640 220" xmlns="http://www.w3.org/2000/svg">
+  <text x="320" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="#333">Telomerase: ได้อย่างเสียอย่าง</text>
+
+  <!-- Center: Telomerase -->
+  <circle cx="320" cy="110" r="50" fill="#8e44ad" opacity="0.85"/>
+  <text x="320" y="105" text-anchor="middle" font-size="13" fill="white" font-weight="700">Telomerase</text>
+  <text x="320" y="122" text-anchor="middle" font-size="10" fill="white">เอนไซม์ต่อ telomere</text>
+
+  <!-- Left: anti-aging -->
+  <path d="M 265 100 L 140 70" stroke="#27ae60" stroke-width="3" fill="none" marker-end="url(#arrowGr)"/>
+  <defs><marker id="arrowGr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="#27ae60"/></marker></defs>
+  <rect x="30" y="45" width="130" height="50" rx="10" fill="#eaf7ea" stroke="#27ae60" stroke-width="2"/>
+  <text x="95" y="67" text-anchor="middle" font-size="11" fill="#27ae60" font-weight="700">เปิด Telomerase</text>
+  <text x="95" y="83" text-anchor="middle" font-size="10" fill="#27ae60">= ชะลอความแก่</text>
+
+  <!-- Right: cancer -->
+  <path d="M 375 100 L 500 70" stroke="#c0392b" stroke-width="3" fill="none" marker-end="url(#arrowRd)"/>
+  <defs><marker id="arrowRd" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="#c0392b"/></marker></defs>
+  <rect x="480" y="45" width="130" height="50" rx="10" fill="#fdecec" stroke="#c0392b" stroke-width="2"/>
+  <text x="545" y="67" text-anchor="middle" font-size="11" fill="#c0392b" font-weight="700">แต่ก็เสี่ยง...</text>
+  <text x="545" y="83" text-anchor="middle" font-size="10" fill="#c0392b">= มะเร็ง!</text>
+
+  <!-- Bottom -->
+  <path d="M 320 165 L 320 195" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrowBk)"/>
+  <defs><marker id="arrowBk" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="#333"/></marker></defs>
+  <text x="320" y="215" text-anchor="middle" font-size="12" fill="#333" font-weight="600">ธรรมชาติเลือก: "ยอมแก่ ดีกว่าเสี่ยงมะเร็ง"</text>
+</svg>
+<div class="caption">Telomerase เป็นได้ทั้ง "ยาชะลอความแก่" และ "เชื้อเพลิงของมะเร็ง"</div>
+</div>
+
+<div class="mnemonic">Telomerase ON = เซลล์อมตะ (ดีถ้าเป็น stem cell, ร้ายถ้าเป็นมะเร็ง) · Telomerase OFF = เซลล์มีวันหมดอายุ (ดีเพราะกัน cancer, ร้ายเพราะทำให้แก่)</div>
+
+<!-- =========================================== -->
+<!-- SECTION 7: SENESCENCE -->
+<!-- =========================================== -->
+<h2 id="senescence">7. Senescence — เซลล์ผีดิบ (Zombie Cells)</h2>
+
+<p>
+เมื่อ telomere สั้นจนถึงจุดวิกฤต เซลล์จะเข้าสู่สภาวะ <span class="term">senescence</span> ซึ่ง Hayflick เป็นคนตั้งชื่อ — เซลล์ไม่ตาย แต่ก็ไม่แบ่งตัว เปรียบเหมือน <b>"ผีดิบ"</b> ที่ยังเดินเพ่นพ่านแต่ทำงานผิดปกติ
+</p>
+
+<div class="diagram">
+<svg viewBox="0 0 640 250" xmlns="http://www.w3.org/2000/svg">
+  <text x="320" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="#2c5f8d">เซลล์ Senescent ปล่อยสารพิษ (SASP)</text>
+
+  <!-- Senescent cell (big, ugly) -->
+  <circle cx="320" cy="120" r="55" fill="#95a5a6" opacity="0.7" stroke="#7f8c8d" stroke-width="3"/>
+  <text x="320" y="108" text-anchor="middle" font-size="12" fill="#2c3e50" font-weight="700">เซลล์ผีดิบ</text>
+  <text x="320" y="125" text-anchor="middle" font-size="10" fill="#2c3e50">(senescent)</text>
+  <text x="320" y="142" text-anchor="middle" font-size="9" fill="#7f8c8d">ไม่ตาย ไม่แบ่ง</text>
+
+  <!-- SASP arrows radiating out -->
+  <line x1="280" y1="75" x2="230" y2="40" stroke="#e74c3c" stroke-width="2" stroke-dasharray="4,3"/>
+  <circle cx="220" cy="35" r="5" fill="#e74c3c"/>
+
+  <line x1="360" y1="75" x2="410" y2="40" stroke="#e74c3c" stroke-width="2" stroke-dasharray="4,3"/>
+  <circle cx="415" cy="35" r="5" fill="#e74c3c"/>
+
+  <line x1="265" y1="120" x2="200" y2="120" stroke="#e74c3c" stroke-width="2" stroke-dasharray="4,3"/>
+  <circle cx="193" cy="120" r="5" fill="#e74c3c"/>
+
+  <line x1="375" y1="120" x2="440" y2="120" stroke="#e74c3c" stroke-width="2" stroke-dasharray="4,3"/>
+  <circle cx="447" cy="120" r="5" fill="#e74c3c"/>
+
+  <line x1="280" y1="165" x2="230" y2="200" stroke="#e74c3c" stroke-width="2" stroke-dasharray="4,3"/>
+  <circle cx="225" cy="205" r="5" fill="#e74c3c"/>
+
+  <line x1="360" y1="165" x2="410" y2="200" stroke="#e74c3c" stroke-width="2" stroke-dasharray="4,3"/>
+  <circle cx="415" cy="205" r="5" fill="#e74c3c"/>
+
+  <!-- Healthy cells being damaged -->
+  <circle cx="160" cy="45" r="18" fill="#27ae60" opacity="0.6"/>
+  <text x="160" y="49" text-anchor="middle" font-size="8" fill="white">เซลล์ดี</text>
+
+  <circle cx="480" cy="45" r="18" fill="#27ae60" opacity="0.6"/>
+  <text x="480" y="49" text-anchor="middle" font-size="8" fill="white">เซลล์ดี</text>
+
+  <circle cx="145" cy="140" r="18" fill="#27ae60" opacity="0.6"/>
+  <text x="145" y="144" text-anchor="middle" font-size="8" fill="white">เซลล์ดี</text>
+
+  <circle cx="495" cy="140" r="18" fill="#27ae60" opacity="0.6"/>
+  <text x="495" y="144" text-anchor="middle" font-size="8" fill="white">เซลล์ดี</text>
+
+  <!-- Label -->
+  <text x="320" y="240" text-anchor="middle" font-size="12" fill="#c0392b" font-weight="600">🔴 = สารเคมีอักเสบ (SASP) ที่ทำร้ายเซลล์ข้างเคียง</text>
+</svg>
+<div class="caption">เซลล์ senescent ไม่ตาย แต่ปล่อย SASP (สารอักเสบ) ไปทำร้ายเซลล์ปกติรอบข้าง</div>
+</div>
+
+<div class="fact">
+  <b>🧟 SASP (Senescence-Associated Secretory Phenotype):</b> เซลล์ผีดิบไม่ได้แค่ "นอนเฉย" — มันปล่อยสารเคมีอักเสบออกมาอย่างต่อเนื่อง ทำให้เซลล์ข้างเคียงเสียหาย กระตุ้นการอักเสบเรื้อรัง และเร่งโรคที่เกี่ยวข้องกับวัย เช่น โรคหัวใจ เบาหวาน และอัลไซเมอร์
+</div>
+
+<div class="tip">
+  <b>💡 ยิ่งอายุมาก → เซลล์ผีดิบสะสมมาก</b> → อวัยวะเสื่อมเร็วขึ้น → นี่คือกลไกหนึ่งที่เชื่อมระหว่าง "เซลล์แก่" กับ "ร่างกายแก่"
+</div>
+
+<!-- =========================================== -->
+<!-- SECTION 8: BIG PICTURE -->
+<!-- =========================================== -->
+<h2 id="big-picture">8. ภาพรวม: Telomere → Aging → Death</h2>
+
+<div class="flow">
+  <div class="node" style="background: #27ae60;">เซลล์แบ่งตัว</div>
+  <div class="arrow">→</div>
+  <div class="node" style="background: #f39c12;">Telomere สั้นลง</div>
+  <div class="arrow">→</div>
+  <div class="node" style="background: #e67e22;">ถึง Hayflick Limit</div>
+  <div class="arrow">→</div>
+  <div class="node" style="background: #c0392b;">Senescence / Apoptosis</div>
+</div>
+
+<div class="flow">
+  <div class="node" style="background: #c0392b;">เซลล์ผีดิบสะสม</div>
+  <div class="arrow">→</div>
+  <div class="node" style="background: #8e44ad;">SASP + การอักเสบเรื้อรัง</div>
+  <div class="arrow">→</div>
+  <div class="node" style="background: #2c3e50;">อวัยวะเสื่อม → ความชรา → ความตาย</div>
+</div>
+
+<div class="card">
+  <h3 style="margin-top: 0;">🔗 เชื่อมกับบทอื่น</h3>
+  <p>
+    <b>บทที่ 2 (Disposable Soma):</b> ธรรมชาติลงทุนกับการสืบพันธุ์มากกว่าการซ่อมร่างกาย → telomere ที่สั้นลงคือ "ราคา" ที่เราจ่าย
+  </p>
+  <p>
+    <b>บทที่ 3 (DNA Repair):</b> การซ่อม DNA ที่ไม่สมบูรณ์ + telomere สั้นลง = <b>สองกลไกที่ช่วยกันผลักเซลล์เข้าสู่ senescence</b>
+  </p>
+  <p>
+    <b>มะเร็ง vs ความชรา:</b> เหรียญเดียวกันเสมอ — ถ้าเซลล์หลบ senescence ได้ = เสี่ยงมะเร็ง; ถ้าเข้า senescence ตามปกติ = แก่
+  </p>
+</div>
+
+<!-- =========================================== -->
+<!-- SECTION 9: QUIZ -->
+<!-- =========================================== -->
+<h2 id="quiz">9. คำถามทบทวน</h2>
+
+<div class="quiz">
+  <details><summary>1. Alexis Carrel อ้างอะไร? และทำไมจึงไม่ถูกต้อง?</summary>
+  <p>Carrel อ้างว่าเซลล์หัวใจไก่เป็นอมตะ เลี้ยงได้นานกว่า 33 ปี ไม่จริงเพราะมีข้อสงสัยว่าเซลล์ใหม่จากเลือดไก่ปนเข้าไปทุกครั้งที่เปลี่ยนอาหารเลี้ยง และห้องทดลองอื่นทำซ้ำไม่ได้</p>
+  </details>
+</div>
+
+<div class="quiz">
+  <details><summary>2. Hayflick Limit คืออะไร? ตัวเลขเท่าไหร่?</summary>
+  <p>จำนวนครั้งสูงสุดที่เซลล์ปกติสามารถแบ่งตัวได้ ประมาณ 40–60 ครั้ง หลังจากนั้นเซลล์เข้าสู่ senescence (หยุดแบ่งตัวตลอดกาล)</p>
+  </details>
+</div>
+
+<div class="quiz">
+  <details><summary>3. Telomere คืออะไร? ลำดับ DNA อะไร?</summary>
+  <p>ลำดับ DNA ซ้ำๆ (TTAGGG) ที่ปลายโครโมโซม ยาวราว 10,000 เบสในมนุษย์ ทำหน้าที่ปกป้องข้อมูลพันธุกรรม เหมือน aglet (ปลอกพลาสติก) ที่ปลายเชือกรองเท้า</p>
+  </details>
+</div>
+
+<div class="quiz">
+  <details><summary>4. End-Replication Problem คืออะไร?</summary>
+  <p>ปัญหาที่ DNA polymerase ไม่สามารถคัดลอกปลายสุดของ DNA ได้สมบูรณ์ เพราะต้องมี RNA primer เป็นจุดเริ่มต้น ทำให้ telomere สั้นลงทีละนิดในทุกรอบของการแบ่งเซลล์</p>
+  </details>
+</div>
+
+<div class="quiz">
+  <details><summary>5. Telomerase ทำหน้าที่อะไร? ทำไมเป็น "ดาบสองคม"?</summary>
+  <p>Telomerase ต่อ telomere ให้ยาวขึ้น ดาบสองคมเพราะ: เปิดมัน = ชะลอความแก่แต่เสี่ยงมะเร็ง; ปิดมัน = ป้องกันมะเร็งแต่แก่เร็ว ธรรมชาติเลือกปิดมันในเซลล์ปกติ</p>
+  </details>
+</div>
+
+<div class="quiz">
+  <details><summary>6. SASP คืออะไร? เชื่อมกับความชรายังไง?</summary>
+  <p>Senescence-Associated Secretory Phenotype — สารเคมีอักเสบที่เซลล์ senescent ปล่อยออกมา ทำร้ายเซลล์ข้างเคียง กระตุ้นการอักเสบเรื้อรัง และเร่งโรคที่เกี่ยวข้องกับวัย ยิ่งอายุมาก ยิ่งมีเซลล์ผีดิบสะสมมาก ยิ่งมี SASP มาก ยิ่งแก่เร็ว</p>
+  </details>
+</div>
+
+<div class="quiz">
+  <details><summary>7. ใครได้โนเบลจากงานวิจัย telomere? ผลงานแต่ละคน?</summary>
+  <p><b>2009 Nobel Prize in Physiology or Medicine:</b> Elizabeth Blackburn (ถอดรหัสลำดับ telomere), Carol Greider (ค้นพบ telomerase), Jack Szostak (พิสูจน์บทบาทของ telomere ในการปกป้องโครโมโซม)</p>
+  </details>
+</div>
+
+<div class="quiz">
+  <details><summary>8. ทำไมเซลล์มะเร็งจึง "เป็นอมตะ"?</summary>
+  <p>เพราะเซลล์มะเร็งเปิดใช้ telomerase อีกครั้ง ทำให้ telomere ไม่สั้นลง → เซลล์ไม่เข้า senescence → แบ่งตัวไม่มีวันหยุด</p>
+  </details>
+</div>
+
+<div class="quiz">
+  <details><summary>9. การทดลองผสมเซลล์หญิง-ชายของ Hayflick พิสูจน์อะไร?</summary>
+  <p>พิสูจน์ว่า "นาฬิกาความแก่" อยู่ภายในเซลล์เอง ไม่ใช่จากสภาพแวดล้อม เพราะเซลล์ชายที่แก่กว่าหยุดแบ่งตัวก่อน ทั้งๆ ที่อยู่ในสภาพแวดล้อมเดียวกับเซลล์หญิงที่ยังแบ่งต่อได้</p>
+  </details>
+</div>
+
+<div class="quiz">
+  <details><summary>10. ห่วงโซ่ความเชื่อมโยง: Telomere → Hayflick Limit → Senescence → Aging?</summary>
+  <p>Telomere สั้นลงทุกรอบ → เมื่อสั้นถึงจุดวิกฤตเซลล์หยุดแบ่ง (Hayflick Limit) → เข้าสู่ senescence (เซลล์ผีดิบ) → เซลล์ผีดิบปล่อย SASP ทำร้ายเนื้อเยื่อ → อวัยวะเสื่อม → ร่างกายแก่ → ความตาย</p>
+  </details>
+</div>
+
+<!-- =========================================== -->
+<!-- SECTION 10: VOCABULARY -->
+<!-- =========================================== -->
+<h2 id="vocab">10. คำศัพท์สำคัญ</h2>
+
+<table>
+  <tr><th>คำศัพท์</th><th>ความหมาย</th></tr>
+  <tr><td><span class="term">Telomere</span></td><td>ลำดับ DNA ซ้ำๆ (TTAGGG) ที่ปลายโครโมโซม ทำหน้าที่ปกป้องข้อมูลพันธุกรรม</td></tr>
+  <tr><td><span class="term">Telomerase</span></td><td>เอนไซม์ที่ต่อ telomere ให้ยาวขึ้นได้ พบในเซลล์ต้นกำเนิดและเซลล์มะเร็ง</td></tr>
+  <tr><td><span class="term">Hayflick Limit</span></td><td>จำนวนครั้งสูงสุดที่เซลล์ปกติแบ่งตัวได้ (~40–60 ครั้ง)</td></tr>
+  <tr><td><span class="term">Senescence</span></td><td>สภาวะที่เซลล์หยุดแบ่งตัวแต่ไม่ตาย ปล่อยสารอักเสบ</td></tr>
+  <tr><td><span class="term">SASP</span></td><td>Senescence-Associated Secretory Phenotype — สารเคมีอักเสบจากเซลล์ senescent</td></tr>
+  <tr><td><span class="term">End-Replication Problem</span></td><td>ปัญหาที่ DNA polymerase คัดลอกปลายสุดของโครโมโซมไม่ได้สมบูรณ์</td></tr>
+  <tr><td><span class="term">Apoptosis</span></td><td>การตายของเซลล์แบบมีโปรแกรม</td></tr>
+  <tr><td><span class="term">DNA Polymerase</span></td><td>เอนไซม์ที่ทำหน้าที่คัดลอก DNA</td></tr>
+  <tr><td><span class="term">Stem Cells</span></td><td>เซลล์ต้นกำเนิดที่สามารถแบ่งตัวและเปลี่ยนเป็นเซลล์ชนิดต่างๆ ได้</td></tr>
+  <tr><td><span class="term">Tetrahymena</span></td><td>สิ่งมีชีวิตเซลล์เดียวที่ Blackburn ใช้ศึกษา telomere เป็นครั้งแรก</td></tr>
+  <tr><td><span class="term">TTAGGG</span></td><td>ลำดับเบส 6 ตัวที่ซ้ำกันเป็นพันๆ ครั้งบน telomere ของมนุษย์</td></tr>
+  <tr><td><span class="term">Aglet</span></td><td>ปลอกพลาสติกที่ปลายเชือกรองเท้า — อุปมาของ telomere</td></tr>
+</table>
+
+<!-- =========================================== -->
+<!-- FOOTER -->
+<!-- =========================================== -->
+<div style="margin-top: 60px; padding-top: 20px; border-top: 2px solid #ddd; color: #888; font-size: 0.9em;">
+  <p><b>สรุปบทที่ 4:</b> เซลล์ของเราไม่ได้ถูกออกแบบมาให้เป็นอมตะ Telomere คือนาฬิกานับถอยหลัง ทุกครั้งที่เซลล์แบ่งตัว ปลายจะสั้นลง จนถึงจุดที่เซลล์ต้องหยุด กลายเป็น "ผีดิบ" ที่ทำร้ายร่างกาย — นี่คืออีกเหตุผลหนึ่งที่เราแก่และตาย</p>
+  <p><i>อ่านต่อบทที่ 5 เพื่อดูกลไกถัดไปของความชรา...</i></p>
+</div>
+
+</body>
+</html>

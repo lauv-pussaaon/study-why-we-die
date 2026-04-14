@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>บทที่ 2 — โตไว และตายเร็ว | Visual Study Guide</title>
+<style>
+  :root {
+    --bg: #fdfcf7;
+    --ink: #1f2933;
+    --accent: #c0392b;
+    --accent2: #2c5f8d;
+    --accent3: #27ae60;
+    --soft: #f4e9d8;
+    --box: #ffffff;
+    --shadow: 0 4px 16px rgba(0,0,0,0.08);
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, "Segoe UI", "Sarabun", "Noto Sans Thai", sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+    line-height: 1.75;
+    font-size: 17px;
+  }
+  h1 {
+    font-size: 2.4em;
+    border-bottom: 4px double var(--accent);
+    padding-bottom: 12px;
+    margin-bottom: 8px;
+    color: var(--accent);
+  }
+  h1 .sub { display: block; font-size: 0.5em; color: #666; font-weight: normal; margin-top: 6px; }
+  h2 {
+    font-size: 1.6em;
+    color: var(--accent2);
+    border-left: 6px solid var(--accent2);
+    padding-left: 14px;
+    margin-top: 60px;
+  }
+  h3 {
+    color: var(--accent);
+    margin-top: 32px;
+    font-size: 1.25em;
+  }
+  .hero {
+    background: linear-gradient(135deg, #fff8e7 0%, #ffe4cc 100%);
+    padding: 24px 28px;
+    border-radius: 14px;
+    margin: 28px 0;
+    border-left: 6px solid var(--accent);
+    box-shadow: var(--shadow);
+  }
+  .hero .big {
+    font-size: 1.3em;
+    font-weight: 600;
+    color: var(--accent);
+  }
+  .analogy {
+    background: #eef6fb;
+    border: 2px dashed var(--accent2);
+    padding: 16px 20px;
+    border-radius: 10px;
+    margin: 18px 0;
+  }
+  .analogy::before {
+    content: "💡 ลองคิดแบบนี้ ";
+    font-weight: 700;
+    color: var(--accent2);
+  }
+  .warning {
+    background: #fff3e6;
+    border-left: 5px solid #e67e22;
+    padding: 14px 18px;
+    border-radius: 6px;
+    margin: 18px 0;
+  }
+  .tip {
+    background: #eaf7ea;
+    border-left: 5px solid var(--accent3);
+    padding: 14px 18px;
+    border-radius: 6px;
+    margin: 18px 0;
+  }
+  .fact {
+    background: #fdecec;
+    border-left: 5px solid var(--accent);
+    padding: 14px 18px;
+    border-radius: 6px;
+    margin: 18px 0;
+  }
+  .diagram {
+    background: var(--box);
+    border: 1px solid #e0d8c5;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 24px 0;
+    box-shadow: var(--shadow);
+    text-align: center;
+  }
+  .diagram .caption {
+    font-size: 0.92em;
+    color: #555;
+    margin-top: 10px;
+    font-style: italic;
+  }
+  svg { max-width: 100%; height: auto; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: var(--box);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  th, td {
+    padding: 12px 14px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+  }
+  th { background: var(--accent2); color: white; }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) { background: #faf7ef; }
+  .quiz {
+    background: #fdf7e4;
+    padding: 20px 26px;
+    border-radius: 10px;
+    margin: 16px 0;
+    border: 2px solid #e8d084;
+  }
+  .quiz summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--accent);
+    padding: 8px 0;
+  }
+  .quiz p { margin: 10px 0 0; padding: 10px; background: white; border-radius: 6px; }
+  .term {
+    display: inline-block;
+    background: #fff3d6;
+    padding: 1px 8px;
+    border-radius: 4px;
+    font-weight: 600;
+    color: #8a5a00;
+  }
+  .flow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 20px 0;
+  }
+  .flow .node {
+    background: var(--accent2);
+    color: white;
+    padding: 12px 18px;
+    border-radius: 8px;
+    font-weight: 600;
+    min-width: 120px;
+    text-align: center;
+  }
+  .flow .arrow { font-size: 1.6em; color: var(--accent); }
+  .card {
+    background: var(--box);
+    padding: 18px 22px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    margin: 14px 0;
+    border-top: 4px solid var(--accent2);
+  }
+  .mnemonic {
+    background: #f0e7ff;
+    border-left: 5px solid #6c3bd9;
+    padding: 12px 18px;
+    border-radius: 6px;
+    margin: 12px 0;
+    font-size: 0.98em;
+  }
+  .mnemonic::before { content: "🧠 วิธีจำ: "; font-weight: 700; color: #6c3bd9; }
+  blockquote {
+    border-left: 4px solid #888;
+    padding-left: 16px;
+    margin: 20px 0;
+    color: #555;
+    font-style: italic;
+  }
+  .toc {
+    background: var(--soft);
+    padding: 18px 28px;
+    border-radius: 10px;
+    margin-bottom: 40px;
+  }
+  .toc h3 { margin-top: 0; color: var(--accent); }
+  .toc ol { padding-left: 22px; }
+  .toc a { color: var(--accent2); text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+  .big-number {
+    font-size: 3em;
+    font-weight: 700;
+    color: var(--accent);
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 12px;
+  }
+  .stat-box {
+    display: inline-block;
+    background: white;
+    padding: 16px 22px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    margin: 8px;
+    text-align: center;
+    min-width: 180px;
+  }
+  .stat-box .num { font-size: 2em; font-weight: 700; color: var(--accent); display: block; }
+  .stat-box .lbl { font-size: 0.88em; color: #666; }
+</style>
+</head>
+<body>
+
+<h1>บทที่ 2 — โตไว และตายเร็ว
+  <span class="sub">Grow Fast, Die Young · Why We Die by Venki Ramakrishnan</span>
+</h1>
+
+<div class="hero">
+  <div class="big">ภาพรวม 1 ประโยค:</div>
+  สิ่งมีชีวิตบนโลกมีอายุขัยตั้งแต่ <b>ไม่กี่ชั่วโมงถึงหลายพันปี</b> — ความแตกต่างนี้เกี่ยวพันกับ
+  <span class="term">ขนาดร่างกาย</span>, <span class="term">อัตราการเผาผลาญ</span>, และ <span class="term">กลยุทธ์ทางวิวัฒนาการ</span>
+  แต่ไม่มีสูตรสำเร็จง่ายๆ — ธรรมชาติเต็มไปด้วย "ข้อยกเว้น" ที่ท้าทายทุกทฤษฎี
+</div>
+
+<div class="toc">
+  <h3>📚 สารบัญ</h3>
+  <ol>
+    <li><a href="#arboretum">เปิดเรื่อง — เดินป่าที่อาร์โบเรตัม</a></li>
+    <li><a href="#lifespan">ความหลากหลายของอายุขัยในธรรมชาติ</a></li>
+    <li><a href="#jellyfish">แมงกะพรุนอมตะ — Turritopsis dohrnii</a></li>
+    <li><a href="#kleiber">กฎของ Kleiber — ขนาดกาย กับ อัตราเผาผลาญ</a></li>
+    <li><a href="#heartbeat">สมมติฐานหัวใจเต้น 1,500 ล้านครั้ง</a></li>
+    <li><a href="#exceptions">ข้อยกเว้น — นก ค้างคาว และหนูตุ่นเปลือย</a></li>
+    <li><a href="#gompertz">กฎของ Gompertz — คณิตศาสตร์แห่งความตาย</a></li>
+    <li><a href="#negligible">Negligible Senescence — สิ่งมีชีวิตที่ "ไม่แก่"</a></li>
+    <li><a href="#human">อายุขัยของมนุษย์ — จาก 30 ปีถึง 80 ปี</a></li>
+    <li><a href="#limit">ขีดจำกัดอายุมนุษย์ — มีเพดานหรือไม่?</a></li>
+    <li><a href="#dictionary">พจนานุกรมศัพท์สำคัญ</a></li>
+    <li><a href="#quiz">คำถามทบทวน</a></li>
+  </ol>
+</div>
+
+<!-- SECTION 1: ARBORETUM -->
+<h2 id="arboretum">1. เปิดเรื่อง — เดินป่าที่อาร์โบเรตัม</h2>
+
+<div class="diagram">
+<svg viewBox="0 0 700 280" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#c8e6ff"/>
+      <stop offset="100%" stop-color="#e8f4e8"/>
+    </linearGradient>
+  </defs>
+  <rect width="700" height="280" fill="url(#sky)"/>
+  <!-- Ground -->
+  <rect x="0" y="220" width="700" height="60" fill="#5d7b3a"/>
+  <!-- Big old tree -->
+  <rect x="140" y="100" width="30" height="120" fill="#6d4c2a"/>
+  <circle cx="155" cy="70" r="60" fill="#2e7d32"/>
+  <circle cx="120" cy="90" r="40" fill="#388e3c"/>
+  <circle cx="190" cy="85" r="45" fill="#388e3c"/>
+  <!-- Small young tree -->
+  <rect x="380" y="165" width="14" height="55" fill="#8d6e4a"/>
+  <circle cx="387" cy="145" r="30" fill="#66bb6a"/>
+  <!-- Bluebells -->
+  <circle cx="50" cy="230" r="4" fill="#5c6bc0"/>
+  <circle cx="65" cy="235" r="3" fill="#7986cb"/>
+  <circle cx="280" cy="228" r="4" fill="#5c6bc0"/>
+  <circle cx="295" cy="233" r="3" fill="#7986cb"/>
+  <circle cx="500" cy="230" r="4" fill="#5c6bc0"/>
+  <circle cx="520" cy="234" r="3" fill="#7986cb"/>
+  <circle cx="600" cy="228" r="4" fill="#5c6bc0"/>
+  <!-- Walking figure -->
+  <circle cx="460" cy="185" r="8" fill="#f4c2a1"/>
+  <rect x="455" y="193" width="10" height="18" rx="3" fill="#3498db"/>
+  <line x1="458" y1="211" x2="454" y2="228" stroke="#333" stroke-width="2"/>
+  <line x1="462" y1="211" x2="468" y2="228" stroke="#333" stroke-width="2"/>
+  <!-- Labels -->
+  <text x="155" y="260" text-anchor="middle" font-size="12" fill="white" font-weight="600">ต้นไม้อายุหลายร้อยปี</text>
+  <text x="387" y="260" text-anchor="middle" font-size="12" fill="white" font-weight="600">ต้นอ่อน</text>
+  <text x="350" y="30" text-anchor="middle" font-size="15" font-weight="700" fill="#333">Harvard Arnold Arboretum & Bluebell Woods, Cambridge</text>
+</svg>
+<div class="caption">Ramakrishnan เดินป่าดอกบลูเบลล์ใกล้เคมบริดจ์ สังเกตต้นไม้ที่มีอายุต่างกันหลายร้อยปี</div>
+</div>
+
+<p>
+Ramakrishnan เปิดบทด้วยเรื่องเล่าส่วนตัว — เขามักไปเดินเล่นกับภรรยาในป่า Harvard Arnold Arboretum ใกล้เคมบริดจ์ และดอกบลูเบลล์ที่บานปกคลุมพื้นป่า เพื่อนของเขา <b>จอห์น ฮาร์ดแมนด์</b> นักเขียนชาวเมียน เสียชีวิตตอนอายุเพียง 25 ปี ทำให้เขาตั้งคำถามว่า — <b>ทำไมสิ่งมีชีวิตบางอย่างจึงอายุสั้น ในขณะที่บางอย่างอายุยาวนาน?</b>
+</p>
+
+<div class="analogy">
+ต้นไม้บางต้นยืนต้นมาหลายร้อยปี ในขณะที่ดอกบลูเบลล์บานแล้วก็โรยภายในไม่กี่สัปดาห์ — ป่าเดียวกันแต่ "นาฬิกาชีวิต" ต่างกันสุดขั้ว เหมือนกับคนที่ตายตอนอายุ 25 กับคนที่มีชีวิตถึง 100 ปี
+</div>
+
+<!-- SECTION 2: LIFESPAN DIVERSITY -->
+<h2 id="lifespan">2. ความหลากหลายของอายุขัยในธรรมชาติ</h2>
+
+<p>
+สิ่งมีชีวิตบนโลกมีอายุขัยแตกต่างกันอย่างมหาศาล — ตั้งแต่ไม่กี่ชั่วโมง (แมลงชีปะขาว) ไปจนถึงหลายพันปี (ต้นสนบริสเทิลโคน) ความหลากหลายนี้เป็นหนึ่งในปริศนาที่ยิ่งใหญ่ที่สุดของชีววิทยา
+</p>
+
+<div class="diagram">
+<svg viewBox="0 0 750 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Title -->
+  <text x="375" y="30" text-anchor="middle" font-size="16" font-weight="700" fill="#333">แผนภูมิอายุขัยของสิ่งมีชีวิต</text>
+  <!-- Axis -->
+  <line x1="80" y1="50" x2="80" y2="360" stroke="#999" stroke-width="2"/>
+  <line x1="80" y1="360" x2="720" y2="360" stroke="#999" stroke-width="2"/>
+  <text x="40" y="210" text-anchor="middle" font-size="12" fill="#666" transform="rotate(-90,40,210)">อายุขัย (ปี)</text>
+
+  <!-- Bars -->
+  <!-- Mayfly -->
+  <rect x="100" y="358" width="50" height="2" fill="#e74c3c"/>
+  <text x="125" y="378" text-anchor="middle" font-size="10" fill="#666">แมลงชีปะขาว</text>
+  <text x="125" y="392" text-anchor="middle" font-size="9" fill="#e74c3c">1 วัน</text>
+
+  <!-- Mouse -->
+  <rect x="170" y="352" width="50" height="8" fill="#e67e22"/>
+  <text x="195" y="378" text-anchor="middle" font-size="10" fill="#666">หนู</text>
+  <text x="195" y="392" text-anchor="middle" font-size="9" fill="#e67e22">2-3 ปี</text>
+
+  <!-- Dog -->
+  <rect x="240" y="340" width="50" height="20" fill="#f39c12"/>
+  <text x="265" y="378" text-anchor="middle" font-size="10" fill="#666">สุนัข</text>
+  <text x="265" y="392" text-anchor="middle" font-size="9" fill="#f39c12">10-13 ปี</text>
+
+  <!-- Human -->
+  <rect x="310" y="250" width="50" height="110" fill="#3498db"/>
+  <text x="335" y="378" text-anchor="middle" font-size="10" fill="#666">มนุษย์</text>
+  <text x="335" y="392" text-anchor="middle" font-size="9" fill="#3498db">~80 ปี</text>
+
+  <!-- Elephant -->
+  <rect x="380" y="270" width="50" height="90" fill="#2ecc71"/>
+  <text x="405" y="378" text-anchor="middle" font-size="10" fill="#666">ช้าง</text>
+  <text x="405" y="392" text-anchor="middle" font-size="9" fill="#2ecc71">~70 ปี</text>
+
+  <!-- Galapagos Tortoise -->
+  <rect x="450" y="180" width="50" height="180" fill="#1abc9c"/>
+  <text x="475" y="378" text-anchor="middle" font-size="10" fill="#666">เต่ากาลาปากอส</text>
+  <text x="475" y="392" text-anchor="middle" font-size="9" fill="#1abc9c">~175 ปี</text>
+
+  <!-- Greenland Shark -->
+  <rect x="520" y="120" width="50" height="240" fill="#9b59b6"/>
+  <text x="545" y="378" text-anchor="middle" font-size="10" fill="#666">ฉลามกรีนแลนด์</text>
+  <text x="545" y="392" text-anchor="middle" font-size="9" fill="#9b59b6">~400 ปี</text>
+
+  <!-- Bowhead Whale -->
+  <rect x="590" y="150" width="50" height="210" fill="#2c5f8d"/>
+  <text x="615" y="378" text-anchor="middle" font-size="10" fill="#666">วาฬหัวคันศร</text>
+  <text x="615" y="392" text-anchor="middle" font-size="9" fill="#2c5f8d">~200 ปี</text>
+
+  <!-- Bristlecone Pine -->
+  <rect x="660" y="60" width="50" height="300" fill="#27ae60"/>
+  <text x="685" y="378" text-anchor="middle" font-size="10" fill="#666">สนบริสเทิลโคน</text>
+  <text x="685" y="392" text-anchor="middle" font-size="9" fill="#27ae60">~5,000 ปี</text>
+</svg>
+<div class="caption">อายุขัยของสิ่งมีชีวิต — ตั้งแต่แมลงชีปะขาว (1 วัน) จนถึงต้นสนบริสเทิลโคน (5,000 ปี)</div>
+</div>
+
+<div class="fact">
+<b>ตัวเลขที่น่าทึ่ง:</b> ต้นสนบริสเทิลโคนในแคลิฟอร์เนีย มีอายุมากกว่า <b>5,000 ปี</b> — แปลว่ามันมีชีวิตอยู่มาตั้งแต่ก่อนมนุษย์จะสร้างพีระมิด! ในขณะที่แมลงชีปะขาวตัวเต็มวัยมีชีวิตอยู่เพียง <b>ไม่กี่ชั่วโมง</b> พอผสมพันธุ์เสร็จก็ตาย
+</div>
+
+<h3>สัตว์ที่มีอายุยืนน่าทึ่ง</h3>
+
+<table>
+  <tr><th>สิ่งมีชีวิต</th><th>อายุสูงสุดโดยประมาณ</th><th>ข้อสังเกต</th></tr>
+  <tr><td><b>ต้นสนบริสเทิลโคน</b></td><td>~5,000 ปี</td><td>ต้นไม้ที่อายุมากที่สุดในโลก</td></tr>
+  <tr><td><b>ฉลามกรีนแลนด์</b></td><td>~400 ปี</td><td>สัตว์มีกระดูกสันหลังที่อายุยืนที่สุด</td></tr>
+  <tr><td><b>วาฬหัวคันศร</b></td><td>~200 ปี</td><td>พบหัวฉมวกจากศตวรรษที่ 19 ฝังอยู่</td></tr>
+  <tr><td><b>เต่ากาลาปากอส</b></td><td>~175 ปี</td><td>เต่าบน HMS Beagle ของดาร์วินอาจมีชีวิตถึง 1831-1836</td></tr>
+  <tr><td><b>สามเหลี่ยมปลิงทะเล</b> (Rougheye Rockfish)</td><td>~200 ปี</td><td>ปลาน้ำลึกที่แทบไม่แก่</td></tr>
+  <tr><td><b>แมงกะพรุนอมตะ</b></td><td>ไม่จำกัด (?)</td><td>ย้อนกลับเป็นตัวอ่อนได้!</td></tr>
+</table>
+
+<!-- SECTION 3: JELLYFISH -->
+<h2 id="jellyfish">3. แมงกะพรุนอมตะ — Turritopsis dohrnii</h2>
+
+<div class="diagram">
+<svg viewBox="0 0 700 320" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="water" cx="50%" cy="50%">
+      <stop offset="0%" stop-color="#d4eaf7"/>
+      <stop offset="100%" stop-color="#a3c9e2"/>
+    </radialGradient>
+  </defs>
+  <rect width="700" height="320" fill="url(#water)" rx="12"/>
+
+  <!-- Adult jellyfish -->
+  <ellipse cx="150" cy="100" rx="55" ry="35" fill="rgba(200,150,220,0.6)" stroke="#8e44ad" stroke-width="2"/>
+  <path d="M 100 115 Q 105 160 95 190" stroke="#8e44ad" stroke-width="2" fill="none"/>
+  <path d="M 120 120 Q 125 170 115 200" stroke="#8e44ad" stroke-width="2" fill="none"/>
+  <path d="M 140 125 Q 145 175 135 205" stroke="#8e44ad" stroke-width="2" fill="none"/>
+  <path d="M 160 125 Q 165 175 155 205" stroke="#8e44ad" stroke-width="2" fill="none"/>
+  <path d="M 180 120 Q 185 170 175 200" stroke="#8e44ad" stroke-width="2" fill="none"/>
+  <path d="M 200 115 Q 205 160 195 190" stroke="#8e44ad" stroke-width="2" fill="none"/>
+  <text x="150" y="250" text-anchor="middle" font-size="13" font-weight="700" fill="#8e44ad">Medusa (ตัวเต็มวัย)</text>
+
+  <!-- Arrow: stressed -->
+  <text x="310" y="80" text-anchor="middle" font-size="12" fill="#c0392b" font-weight="600">เครียด / แก่ / บาดเจ็บ</text>
+  <line x1="230" y1="100" x2="380" y2="100" stroke="#c0392b" stroke-width="3"/>
+  <polygon points="380,94 395,100 380,106" fill="#c0392b"/>
+
+  <!-- Polyp -->
+  <rect x="420" y="170" width="8" height="50" fill="#27ae60"/>
+  <circle cx="424" cy="160" r="12" fill="rgba(100,200,120,0.6)" stroke="#27ae60" stroke-width="2"/>
+  <line x1="418" y1="155" x2="405" y2="140" stroke="#27ae60" stroke-width="2"/>
+  <line x1="430" y1="155" x2="443" y2="140" stroke="#27ae60" stroke-width="2"/>
+  <text x="424" y="240" text-anchor="middle" font-size="13" font-weight="700" fill="#27ae60">Polyp (ตัวอ่อน)</text>
+
+  <!-- Arrow: grow again -->
+  <path d="M 460 160 Q 550 60 550 100" stroke="#2c5f8d" stroke-width="3" fill="none" stroke-dasharray="6"/>
+  <polygon points="546,100 550,115 554,100" fill="#2c5f8d"/>
+  <text x="560" y="80" font-size="12" fill="#2c5f8d" font-weight="600">โตใหม่!</text>
+
+  <!-- New jellyfish -->
+  <ellipse cx="570" cy="150" rx="40" ry="25" fill="rgba(200,150,220,0.4)" stroke="#8e44ad" stroke-width="1.5"/>
+  <path d="M 535 165 Q 538 190 530 205" stroke="#8e44ad" stroke-width="1.5" fill="none"/>
+  <path d="M 555 170 Q 558 195 550 210" stroke="#8e44ad" stroke-width="1.5" fill="none"/>
+  <path d="M 575 170 Q 578 195 570 210" stroke="#8e44ad" stroke-width="1.5" fill="none"/>
+  <path d="M 595 170 Q 598 195 590 210" stroke="#8e44ad" stroke-width="1.5" fill="none"/>
+  <text x="570" y="240" text-anchor="middle" font-size="13" font-weight="700" fill="#8e44ad">Medusa ใหม่!</text>
+
+  <!-- Cycle label -->
+  <text x="350" y="300" text-anchor="middle" font-size="14" font-weight="700" fill="#333">🔄 วงจรนี้เกิดซ้ำได้เรื่อยๆ — จึงเรียกว่า "แมงกะพรุนอมตะ"</text>
+</svg>
+<div class="caption">Turritopsis dohrnii สามารถย้อนกลับจากตัวเต็มวัย (Medusa) เป็น Polyp แล้วเติบโตใหม่ได้</div>
+</div>
+
+<p>
+<span class="term">Turritopsis dohrnii</span> หรือที่รู้จักในชื่อ "แมงกะพรุนอมตะ" มีความพิเศษตรงที่เมื่อเผชิญกับความเครียด การบาดเจ็บ หรือความแก่ มันสามารถ <b>เปลี่ยนเซลล์ที่โตเต็มวัยกลับไปเป็นเซลล์ต้นกำเนิด</b> (transdifferentiation) แล้วย้อนกลับเป็นตัวอ่อน (polyp) เพื่อเริ่มต้นวงจรชีวิตใหม่ได้
+</p>
+
+<div class="warning">
+<b>แต่อย่าเข้าใจผิด!</b> แมงกะพรุนอมตะ <b>ไม่ได้เป็นอมตะจริงๆ</b> — มันยังถูกกินโดยนักล่า เป็นโรค และตายจากสิ่งแวดล้อมได้ สิ่งที่มัน "หนี" ได้คือ <b>ความแก่</b> (senescence) เท่านั้น ไม่ใช่ความตายทุกรูปแบบ
+</div>
+
+<div class="mnemonic">แมงกะพรุนอมตะ = "Benjamin Button ของทะเล" — แทนที่จะแก่แล้วตาย มันเลือก "รีเซ็ต" ร่างกายเป็นเด็กใหม่</div>
+
+<!-- SECTION 4: KLEIBER'S LAW -->
+<h2 id="kleiber">4. กฎของ Kleiber — ขนาดกาย กับ อัตราเผาผลาญ</h2>
+
+<p>
+ในปี <b>1930</b> <span class="term">แม็กซ์ ไคลเบอร์ (Max Kleiber)</span> ค้นพบว่า <b>อัตราการเผาผลาญพลังงาน (metabolic rate) ของสัตว์จะเพิ่มขึ้นตามขนาดร่างกาย</b> แต่ไม่ได้เพิ่มแบบเป็นสัดส่วนตรงๆ — มันเพิ่มในอัตราส่วน <b>ยกกำลัง 3/4</b>
+</p>
+
+<div class="diagram">
+<svg viewBox="0 0 700 350" xmlns="http://www.w3.org/2000/svg">
+  <text x="350" y="30" text-anchor="middle" font-size="15" font-weight="700" fill="#333">กฎของ Kleiber: Metabolic Rate ∝ Body Mass^(3/4)</text>
+
+  <!-- Axes -->
+  <line x1="100" y1="50" x2="100" y2="300" stroke="#999" stroke-width="2"/>
+  <line x1="100" y1="300" x2="670" y2="300" stroke="#999" stroke-width="2"/>
+  <text x="50" y="180" text-anchor="middle" font-size="12" fill="#666" transform="rotate(-90,50,180)">อัตราเผาผลาญ (log)</text>
+  <text x="385" y="335" text-anchor="middle" font-size="12" fill="#666">มวลร่างกาย (log scale)</text>
+
+  <!-- Trend line -->
+  <line x1="120" y1="280" x2="650" y2="70" stroke="#c0392b" stroke-width="3" stroke-dasharray="8"/>
+  <text x="620" y="60" font-size="11" fill="#c0392b" font-weight="700">slope ≈ 3/4</text>
+
+  <!-- Data points as animals -->
+  <!-- Mouse -->
+  <circle cx="150" cy="265" r="8" fill="#e67e22"/>
+  <text x="150" y="255" text-anchor="middle" font-size="10" fill="#666">หนู 🐭</text>
+
+  <!-- Rabbit -->
+  <circle cx="230" cy="235" r="8" fill="#f39c12"/>
+  <text x="230" y="225" text-anchor="middle" font-size="10" fill="#666">กระต่าย 🐰</text>
+
+  <!-- Cat -->
+  <circle cx="280" cy="218" r="8" fill="#e74c3c"/>
+  <text x="280" y="208" text-anchor="middle" font-size="10" fill="#666">แมว 🐱</text>
+
+  <!-- Dog -->
+  <circle cx="340" cy="195" r="8" fill="#3498db"/>
+  <text x="340" y="185" text-anchor="middle" font-size="10" fill="#666">สุนัข 🐕</text>
+
+  <!-- Human -->
+  <circle cx="430" cy="160" r="10" fill="#2c5f8d"/>
+  <text x="430" y="148" text-anchor="middle" font-size="11" fill="#2c5f8d" font-weight="700">มนุษย์</text>
+
+  <!-- Horse -->
+  <circle cx="510" cy="125" r="8" fill="#27ae60"/>
+  <text x="510" y="115" text-anchor="middle" font-size="10" fill="#666">ม้า 🐴</text>
+
+  <!-- Elephant -->
+  <circle cx="600" cy="90" r="10" fill="#8e44ad"/>
+  <text x="600" y="78" text-anchor="middle" font-size="11" fill="#8e44ad" font-weight="700">ช้าง 🐘</text>
+</svg>
+<div class="caption">เมื่อพล็อตกราฟ log-log ระหว่างมวลร่างกายกับอัตราเผาผลาญ จะได้เส้นตรงที่ความชัน ≈ 3/4</div>
+</div>
+
+<div class="analogy">
+ลองนึกภาพ <b>เครื่องยนต์รถ</b>: รถคันใหญ่ (ช้าง) ใช้น้ำมันมากกว่ารถคันเล็ก (หนู) แต่ <b>ไม่ได้มากเป็นสัดส่วนตรงกับน้ำหนัก</b> — เครื่องยนต์ใหญ่ "คุ้มกว่า" ต่อหน่วยน้ำหนัก เช่นเดียวกับเซลล์ของสัตว์ใหญ่ที่เผาผลาญช้ากว่าต่อเซลล์
+</div>
+
+<h3>ผลที่ตามมา: สัตว์ใหญ่มักอายุยืนกว่า</h3>
+
+<p>
+เนื่องจากสัตว์ใหญ่มีอัตราเผาผลาญ <b>ต่อหน่วยน้ำหนัก</b> ที่ต่ำกว่า เซลล์ของพวกมันจึงทำงาน "ช้ากว่า" และสึกหรอช้ากว่า ทำให้โดยทั่วไป <b>สัตว์ที่ตัวใหญ่มักมีอายุยืนกว่าสัตว์ที่ตัวเล็ก</b> — แต่นี่เป็นแค่แนวโน้มทั่วไป ไม่ใช่กฎเหล็ก!
+</p>
+
+<!-- SECTION 5: HEARTBEAT HYPOTHESIS -->
+<h2 id="heartbeat">5. สมมติฐานหัวใจเต้น 1,500 ล้านครั้ง</h2>
+
+<div style="text-align:center; margin: 24px 0;">
+  <div class="stat-box">
+    <span class="num">~1,500 ล้าน</span>
+    <span class="lbl">จำนวนครั้งที่หัวใจเต้น<br>ตลอดชีวิต (โดยประมาณ)</span>
+  </div>
+  <div class="stat-box">
+    <span class="num">600 bpm</span>
+    <span class="lbl">อัตราหัวใจหนู<br>(อายุ ~2-3 ปี)</span>
+  </div>
+  <div class="stat-box">
+    <span class="num">30 bpm</span>
+    <span class="lbl">อัตราหัวใจช้าง<br>(อายุ ~70 ปี)</span>
+  </div>
+</div>
+
+<div class="diagram">
+<svg viewBox="0 0 700 220" xmlns="http://www.w3.org/2000/svg">
+  <text x="350" y="25" text-anchor="middle" font-size="14" font-weight="700" fill="#333">หัวใจเต้นเร็ว → อายุสั้น | หัวใจเต้นช้า → อายุยาว</text>
+
+  <!-- Mouse -->
+  <g>
+    <circle cx="120" cy="100" r="30" fill="#fde8e8" stroke="#e74c3c" stroke-width="2"/>
+    <text x="120" y="95" text-anchor="middle" font-size="20">🐭</text>
+    <text x="120" y="115" text-anchor="middle" font-size="9" fill="#e74c3c" font-weight="700">600 bpm</text>
+    <!-- Fast heartbeat line -->
+    <path d="M 60 160 L 70 160 L 75 140 L 80 175 L 85 160 L 88 160 L 93 140 L 98 175 L 103 160 L 106 160 L 111 140 L 116 175 L 121 160 L 124 160 L 129 140 L 134 175 L 139 160 L 144 160 L 149 140 L 154 175 L 159 160 L 164 160 L 169 140 L 174 175 L 179 160" stroke="#e74c3c" stroke-width="2" fill="none"/>
+    <text x="120" y="200" text-anchor="middle" font-size="11" fill="#e74c3c">อายุ ~2-3 ปี</text>
+  </g>
+
+  <!-- Human -->
+  <g>
+    <circle cx="350" cy="100" r="30" fill="#e8f0fd" stroke="#3498db" stroke-width="2"/>
+    <text x="350" y="105" text-anchor="middle" font-size="20">🧑</text>
+    <text x="350" y="115" text-anchor="middle" font-size="9" fill="#3498db" font-weight="700">72 bpm</text>
+    <!-- Normal heartbeat -->
+    <path d="M 270 160 L 295 160 L 303 140 L 311 175 L 319 160 L 345 160 L 353 140 L 361 175 L 369 160 L 395 160 L 403 140 L 411 175 L 419 160" stroke="#3498db" stroke-width="2" fill="none"/>
+    <text x="350" y="200" text-anchor="middle" font-size="11" fill="#3498db">อายุ ~80 ปี</text>
+  </g>
+
+  <!-- Elephant -->
+  <g>
+    <circle cx="580" cy="100" r="30" fill="#e8fae8" stroke="#27ae60" stroke-width="2"/>
+    <text x="580" y="105" text-anchor="middle" font-size="20">🐘</text>
+    <text x="580" y="115" text-anchor="middle" font-size="9" fill="#27ae60" font-weight="700">30 bpm</text>
+    <!-- Slow heartbeat -->
+    <path d="M 500 160 L 540 160 L 550 140 L 560 175 L 570 160 L 615 160 L 625 140 L 635 175 L 645 160 L 665 160" stroke="#27ae60" stroke-width="2" fill="none"/>
+    <text x="580" y="200" text-anchor="middle" font-size="11" fill="#27ae60">อายุ ~70 ปี</text>
+  </g>
+</svg>
+<div class="caption">สัตว์เลี้ยงลูกด้วยนมส่วนใหญ่มีหัวใจเต้นรวมตลอดชีวิต ~1,500 ล้านครั้ง ไม่ว่าจะตัวเล็กหรือใหญ่</div>
+</div>
+
+<p>
+ข้อสังเกตที่น่าทึ่งคือ ไม่ว่าจะเป็นหนูหรือช้าง <b>จำนวนครั้งที่หัวใจเต้นตลอดชีวิตกลับใกล้เคียงกัน</b> ราว 1,500 ล้านครั้ง สัตว์ตัวเล็กหัวใจเต้นเร็วแต่อายุสั้น สัตว์ตัวใหญ่หัวใจเต้นช้าแต่อายุยาว เสมือนว่า "งบประมาณการเต้นของหัวใจ" ถูกจำกัดไว้คงที่
+</p>
+
+<div class="mnemonic">1,500 ล้านครั้ง = "งบหัวใจ" — หนูใช้หมดใน 2 ปี ช้างค่อยๆ ใช้นาน 70 ปี</div>
+
+<!-- SECTION 6: EXCEPTIONS -->
+<h2 id="exceptions">6. ข้อยกเว้นที่สำคัญ — นก, ค้างคาว, และหนูตุ่นเปลือย</h2>
+
+<p>
+ถ้า "สัตว์เล็ก = ตายเร็ว" เป็นกฎเหล็กจริง นก ค้างคาว และหนูตุ่นเปลือยก็ควรตายเร็ว แต่ความจริง <b>พวกมันอายุยืนกว่าที่ควรจะเป็นมาก!</b>
+</p>
+
+<div class="diagram">
+<svg viewBox="0 0 700 280" xmlns="http://www.w3.org/2000/svg">
+  <text x="350" y="25" text-anchor="middle" font-size="14" font-weight="700" fill="#333">ข้อยกเว้นของ "กฎขนาดกาย-อายุขัย"</text>
+
+  <!-- Expected line -->
+  <line x1="60" y1="240" x2="650" y2="80" stroke="#ddd" stroke-width="3" stroke-dasharray="8"/>
+  <text x="660" y="75" font-size="10" fill="#ccc">ค่าที่คาดไว้</text>
+
+  <!-- Normal mouse -->
+  <circle cx="130" cy="230" r="20" fill="#fde8e8" stroke="#e74c3c" stroke-width="2"/>
+  <text x="130" y="225" text-anchor="middle" font-size="14">🐭</text>
+  <text x="130" y="240" text-anchor="middle" font-size="8" fill="#e74c3c">2-3 ปี</text>
+  <text x="130" y="260" text-anchor="middle" font-size="9" fill="#666">หนูปกติ ✓</text>
+
+  <!-- Naked mole rat - above line -->
+  <circle cx="200" cy="140" r="22" fill="#fff3e6" stroke="#e67e22" stroke-width="3"/>
+  <text x="200" y="136" text-anchor="middle" font-size="14">🐀</text>
+  <text x="200" y="152" text-anchor="middle" font-size="8" fill="#e67e22">30+ ปี</text>
+  <text x="200" y="120" text-anchor="middle" font-size="10" fill="#e67e22" font-weight="700">หนูตุ่นเปลือย!</text>
+  <!-- Arrow showing deviation -->
+  <line x1="200" y1="160" x2="200" y2="218" stroke="#e67e22" stroke-width="2" stroke-dasharray="4"/>
+  <text x="218" y="195" font-size="9" fill="#e67e22">10 เท่า!</text>
+
+  <!-- Parrot - above line -->
+  <circle cx="350" cy="100" r="22" fill="#e8fae8" stroke="#27ae60" stroke-width="3"/>
+  <text x="350" y="96" text-anchor="middle" font-size="14">🦜</text>
+  <text x="350" y="112" text-anchor="middle" font-size="8" fill="#27ae60">80+ ปี</text>
+  <text x="350" y="80" text-anchor="middle" font-size="10" fill="#27ae60" font-weight="700">นกแก้ว!</text>
+  <line x1="350" y1="120" x2="350" y2="175" stroke="#27ae60" stroke-width="2" stroke-dasharray="4"/>
+
+  <!-- Bat - above line -->
+  <circle cx="280" cy="125" r="22" fill="#f0e7ff" stroke="#8e44ad" stroke-width="3"/>
+  <text x="280" y="121" text-anchor="middle" font-size="14">🦇</text>
+  <text x="280" y="137" text-anchor="middle" font-size="8" fill="#8e44ad">40+ ปี</text>
+  <text x="280" y="105" text-anchor="middle" font-size="10" fill="#8e44ad" font-weight="700">ค้างคาว!</text>
+  <line x1="280" y1="145" x2="280" y2="200" stroke="#8e44ad" stroke-width="2" stroke-dasharray="4"/>
+</svg>
+<div class="caption">นก ค้างคาว และหนูตุ่นเปลือย มีอายุยืนกว่าที่ขนาดร่างกายทำนาย "กฎ" ไว้อย่างมาก</div>
+</div>
+
+<div class="card">
+<b>🐀 หนูตุ่นเปลือย (Naked Mole Rat) — ดาวเด่นของบท</b><br><br>
+หนูตุ่นเปลือยมีขนาดพอๆ กับหนูปกติ แต่อายุยืนได้ถึง <b>30 ปีขึ้นไป</b> (หนูปกติอยู่ได้ 2-3 ปี) นอกจากนี้ยัง:
+<ul>
+  <li>แทบ <b>ไม่เป็นมะเร็ง</b> เลย</li>
+  <li>มีลักษณะเป็นสัตว์สังคม (<span class="term">eusocial</span>) คล้ายมดหรือผึ้ง — มีราชินีตัวเดียวที่ผสมพันธุ์</li>
+  <li><b>ไม่แสดงอาการแก่</b> ตามอายุ — อัตราการตายไม่เพิ่มตามอายุ</li>
+  <li>มีกลไกปกป้องตัวเองจากความเสียหายของ DNA ที่พิเศษ</li>
+</ul>
+</div>
+
+<div class="tip">
+<b>ทำไมนกและค้างคาวอายุยืน?</b> แม้จะมีอัตราเผาผลาญสูง (บินใช้พลังงานมาก) แต่พวกมันมีกลไกป้องกันความเสียหายจากอนุมูลอิสระ (free radicals) ที่ดีกว่าสัตว์เลี้ยงลูกด้วยนมที่มีขนาดใกล้เคียง สิ่งนี้ท้าทาย <span class="term">Rate of Living Theory</span> ที่บอกว่า "ยิ่งเผาผลาญเร็ว ยิ่งตายเร็ว"
+</div>
+
+<!-- SECTION 7: GOMPERTZ -->
+<h2 id="gompertz">7. กฎของ Gompertz — คณิตศาสตร์แห่งความตาย</h2>
+
+<p>
+ในปี <b>1825</b> <span class="term">เบนจามิน กอมเพิร์ตซ์ (Benjamin Gompertz)</span> นักคณิตศาสตร์ชาวอังกฤษ ค้นพบรูปแบบทางคณิตศาสตร์ของการตาย: <b>อัตราการตายจะเพิ่มขึ้นแบบเอ็กซ์โพเนนเชียลตามอายุ</b> — เพิ่มประมาณสองเท่าทุกๆ 8 ปี หลังวัยผู้ใหญ่
+</p>
+
+<div class="diagram">
+<svg viewBox="0 0 700 320" xmlns="http://www.w3.org/2000/svg">
+  <text x="350" y="25" text-anchor="middle" font-size="14" font-weight="700" fill="#333">กฎของ Gompertz: อัตราตาย เพิ่ม 2 เท่าทุก ~8 ปี</text>
+
+  <!-- Axes -->
+  <line x1="80" y1="40" x2="80" y2="280" stroke="#999" stroke-width="2"/>
+  <line x1="80" y1="280" x2="660" y2="280" stroke="#999" stroke-width="2"/>
+  <text x="35" y="165" text-anchor="middle" font-size="11" fill="#666" transform="rotate(-90,35,165)">โอกาสเสียชีวิต (%)</text>
+  <text x="370" y="310" text-anchor="middle" font-size="11" fill="#666">อายุ (ปี)</text>
+
+  <!-- Age labels -->
+  <text x="120" y="298" text-anchor="middle" font-size="10" fill="#666">25</text>
+  <text x="200" y="298" text-anchor="middle" font-size="10" fill="#666">40</text>
+  <text x="300" y="298" text-anchor="middle" font-size="10" fill="#666">55</text>
+  <text x="400" y="298" text-anchor="middle" font-size="10" fill="#666">70</text>
+  <text x="500" y="298" text-anchor="middle" font-size="10" fill="#666">85</text>
+  <text x="600" y="298" text-anchor="middle" font-size="10" fill="#666">100</text>
+
+  <!-- Percentage labels -->
+  <text x="70" y="274" text-anchor="end" font-size="9" fill="#666">0.1%</text>
+  <text x="70" y="235" text-anchor="end" font-size="9" fill="#666">1%</text>
+  <text x="70" y="180" text-anchor="end" font-size="9" fill="#666">6%</text>
+  <text x="70" y="120" text-anchor="end" font-size="9" fill="#666">16%</text>
+  <text x="70" y="60" text-anchor="end" font-size="9" fill="#666">50%</text>
+
+  <!-- Gompertz curve -->
+  <path d="M 120 270 Q 200 265 300 250 Q 380 230 430 190 Q 480 140 530 80 Q 560 55 600 48" stroke="#c0392b" stroke-width="3" fill="none"/>
+
+  <!-- Key data points -->
+  <circle cx="300" cy="250" r="5" fill="#c0392b"/>
+  <text x="310" y="248" font-size="10" fill="#c0392b">~1%</text>
+
+  <circle cx="400" cy="230" r="5" fill="#c0392b"/>
+
+  <circle cx="500" cy="120" r="5" fill="#c0392b"/>
+  <text x="510" y="115" font-size="10" fill="#c0392b">~16%</text>
+
+  <circle cx="600" cy="48" r="5" fill="#c0392b"/>
+  <text x="610" y="45" font-size="10" fill="#c0392b">~50%</text>
+
+  <!-- Annotation -->
+  <rect x="420" y="240" width="220" height="35" rx="6" fill="#fdf7e4" stroke="#e8d084" stroke-width="1"/>
+  <text x="530" y="255" text-anchor="middle" font-size="11" fill="#8a5a00">เลยอายุ 25 → ทุกๆ 8 ปี</text>
+  <text x="530" y="270" text-anchor="middle" font-size="11" fill="#8a5a00">โอกาสตาย ×2</text>
+</svg>
+<div class="caption">Gompertz Law: หลังอายุ 25 ปี โอกาสเสียชีวิตจะเพิ่มเป็นสองเท่าทุก ~8 ปี</div>
+</div>
+
+<div class="fact">
+<b>ตัวเลขจริง:</b> โอกาสเสียชีวิตของคนที่อายุ 25 ปี แทบไม่มี — เพียงราว <b>0.1%</b> ต่อปี แต่เมื่ออายุ 60 ปี เพิ่มเป็น <b>1%</b> เมื่ออายุ 80 ปี เพิ่มเป็น <b>6%</b> และเมื่ออายุ 100 ปี สูงถึงราว <b>50%</b> ต่อปี
+</div>
+
+<div class="mnemonic">Gompertz = "ดอกเบี้ยทบต้นของความตาย" — ยิ่งแก่ ยิ่งสะสมเร็ว</div>
+
+<!-- SECTION 8: NEGLIGIBLE SENESCENCE -->
+<h2 id="negligible">8. Negligible Senescence — สิ่งมีชีวิตที่ "ไม่แก่"</h2>
+
+<p>
+สัตว์บางชนิดดูเหมือนจะไม่เข้ากฎของ Gompertz เลย — อัตราการตายของพวกมัน <b>ไม่เพิ่มขึ้นตามอายุ</b> นักชีววิทยาเรียกปรากฏการณ์นี้ว่า <span class="term">negligible senescence</span> (ภาวะแก่เล็กน้อย)
+</p>
+
+<div class="diagram">
+<svg viewBox="0 0 700 250" xmlns="http://www.w3.org/2000/svg">
+  <text x="350" y="25" text-anchor="middle" font-size="14" font-weight="700" fill="#333">Gompertz vs. Negligible Senescence</text>
+
+  <!-- Axes -->
+  <line x1="80" y1="40" x2="80" y2="220" stroke="#999" stroke-width="1.5"/>
+  <line x1="80" y1="220" x2="620" y2="220" stroke="#999" stroke-width="1.5"/>
+  <text x="50" y="130" text-anchor="middle" font-size="10" fill="#666" transform="rotate(-90,50,130)">อัตราตาย</text>
+  <text x="350" y="245" text-anchor="middle" font-size="10" fill="#666">อายุ</text>
+
+  <!-- Normal aging curve -->
+  <path d="M 100 210 Q 250 200 400 150 Q 500 90 580 50" stroke="#c0392b" stroke-width="3" fill="none"/>
+  <text x="590" y="50" font-size="11" fill="#c0392b" font-weight="700">มนุษย์</text>
+
+  <!-- Flat line - negligible senescence -->
+  <line x1="100" y1="190" x2="580" y2="185" stroke="#27ae60" stroke-width="3"/>
+  <text x="590" y="190" font-size="11" fill="#27ae60" font-weight="700">เต่า/ปลาร็อกฟิช</text>
+
+  <!-- Naked mole rat - nearly flat -->
+  <path d="M 100 195 Q 350 193 580 190" stroke="#e67e22" stroke-width="3" stroke-dasharray="6"/>
+  <text x="590" y="210" font-size="11" fill="#e67e22" font-weight="700">หนูตุ่นเปลือย</text>
+</svg>
+<div class="caption">มนุษย์มีอัตราตายที่พุ่งสูงตามอายุ แต่สัตว์บางชนิดมีอัตราตายคงที่ตลอดชีวิต</div>
+</div>
+
+<div class="card">
+<b>ตัวอย่างสิ่งมีชีวิตที่แสดง Negligible Senescence:</b>
+<ul>
+  <li><b>เต่ายักษ์</b> — อายุยืนและไม่แสดงอาการแก่ชัดเจน มีการดูแลสุขภาพที่ดี</li>
+  <li><b>ปลาร็อกฟิช (Rougheye Rockfish)</b> — มีชีวิตอยู่ได้ 200+ ปี อัตราตายไม่เพิ่ม</li>
+  <li><b>วาฬไฟน์</b> (Baleen Whale) — สัตว์ขนาดใหญ่ที่อยู่ในน้ำ ความตายคงที่</li>
+  <li><b>หนูตุ่นเปลือย</b> — ท้าทายกฎ Gompertz อย่างสิ้นเชิง</li>
+</ul>
+</div>
+
+<div class="warning">
+<b>ทำไมสิ่งมีชีวิตเหล่านี้ "เลือก" ไม่แก่?</b> พวกมันมักอาศัยในสภาพแวดล้อมที่ปลอดภัย เช่น ใต้ทะเลลึก ใต้ดิน หรือมีเกราะป้องกัน ทำให้วิวัฒนาการ "ลงทุน" กับการบำรุงรักษาร่างกายมากกว่าการสืบพันธุ์เร็ว — เพราะถ้าตายจากนักล่าน้อย ก็คุ้มค่าที่จะมีชีวิตยาวและสืบพันธุ์หลายครั้ง
+</div>
+
+<!-- SECTION 9: HUMAN LIFESPAN -->
+<h2 id="human">9. อายุขัยของมนุษย์ — จาก 30 ปีถึง 80 ปี</h2>
+
+<div class="diagram">
+<svg viewBox="0 0 700 320" xmlns="http://www.w3.org/2000/svg">
+  <text x="350" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="#333">อายุคาดเฉลี่ยของมนุษย์ตลอดประวัติศาสตร์</text>
+
+  <!-- Axes -->
+  <line x1="80" y1="40" x2="80" y2="280" stroke="#999" stroke-width="2"/>
+  <line x1="80" y1="280" x2="660" y2="280" stroke="#999" stroke-width="2"/>
+  <text x="35" y="165" text-anchor="middle" font-size="11" fill="#666" transform="rotate(-90,35,165)">อายุคาดเฉลี่ย (ปี)</text>
+  <text x="370" y="310" text-anchor="middle" font-size="11" fill="#666">ช่วงเวลา</text>
+
+  <!-- Horizontal guides -->
+  <line x1="80" y1="260" x2="660" y2="260" stroke="#eee" stroke-width="1"/>
+  <text x="72" y="264" text-anchor="end" font-size="9" fill="#999">20</text>
+  <line x1="80" y1="220" x2="660" y2="220" stroke="#eee" stroke-width="1"/>
+  <text x="72" y="224" text-anchor="end" font-size="9" fill="#999">30</text>
+  <line x1="80" y1="160" x2="660" y2="160" stroke="#eee" stroke-width="1"/>
+  <text x="72" y="164" text-anchor="end" font-size="9" fill="#999">45</text>
+  <line x1="80" y1="100" x2="660" y2="100" stroke="#eee" stroke-width="1"/>
+  <text x="72" y="104" text-anchor="end" font-size="9" fill="#999">60</text>
+  <line x1="80" y1="60" x2="660" y2="60" stroke="#eee" stroke-width="1"/>
+  <text x="72" y="64" text-anchor="end" font-size="9" fill="#999">80</text>
+
+  <!-- Data bars -->
+  <rect x="120" y="230" width="60" height="50" fill="#95a5a6" rx="4"/>
+  <text x="150" y="295" text-anchor="middle" font-size="9" fill="#666">ยุคก่อน</text>
+  <text x="150" y="305" text-anchor="middle" font-size="9" fill="#666">ประวัติศาสตร์</text>
+  <text x="150" y="225" text-anchor="middle" font-size="10" fill="white" font-weight="700">~25</text>
+
+  <rect x="220" y="210" width="60" height="70" fill="#7f8c8d" rx="4"/>
+  <text x="250" y="295" text-anchor="middle" font-size="9" fill="#666">ค.ศ. 1800</text>
+  <text x="250" y="205" text-anchor="middle" font-size="10" fill="white" font-weight="700">~30</text>
+
+  <rect x="320" y="150" width="60" height="130" fill="#e67e22" rx="4"/>
+  <text x="350" y="295" text-anchor="middle" font-size="9" fill="#666">ค.ศ. 1900</text>
+  <text x="350" y="145" text-anchor="middle" font-size="10" fill="white" font-weight="700">~47</text>
+
+  <rect x="420" y="90" width="60" height="190" fill="#3498db" rx="4"/>
+  <text x="450" y="295" text-anchor="middle" font-size="9" fill="#666">ค.ศ. 1950</text>
+  <text x="450" y="85" text-anchor="middle" font-size="10" fill="white" font-weight="700">~60</text>
+
+  <rect x="520" y="55" width="60" height="225" fill="#2c5f8d" rx="4"/>
+  <text x="550" y="295" text-anchor="middle" font-size="9" fill="#666">ค.ศ. 2020</text>
+  <text x="550" y="50" text-anchor="middle" font-size="10" fill="white" font-weight="700">~80</text>
+
+  <rect x="620" y="48" width="30" height="232" fill="#27ae60" rx="4" stroke-dasharray="4" stroke="#27ae60" fill-opacity="0.3"/>
+  <text x="635" y="295" text-anchor="middle" font-size="9" fill="#27ae60">ญี่ปุ่น</text>
+  <text x="635" y="43" text-anchor="middle" font-size="9" fill="#27ae60" font-weight="700">~84</text>
+</svg>
+<div class="caption">อายุคาดเฉลี่ยของมนุษย์เพิ่มจาก ~25 ปี เป็น ~80 ปี ภายใน 200 ปีที่ผ่านมา</div>
+</div>
+
+<p>
+การเพิ่มขึ้นอย่างมหาศาลของอายุคาดเฉลี่ย <b>ไม่ได้เกิดจากคนแก่อายุยืนขึ้น</b> แต่เกิดจากการลด <b>อัตราการตายในวัยเด็ก</b> เป็นหลัก สิ่งที่เปลี่ยนเกมคือ:
+</p>
+
+<div class="flow">
+  <div class="node">สุขอนามัย<br>+ น้ำสะอาด</div>
+  <div class="arrow">+</div>
+  <div class="node">วัคซีน<br>+ ยาปฏิชีวนะ</div>
+  <div class="arrow">+</div>
+  <div class="node">โภชนาการ<br>ที่ดีขึ้น</div>
+  <div class="arrow">=</div>
+  <div class="node" style="background:var(--accent3);">อายุเฉลี่ย<br>พุ่งขึ้น 2 เท่า</div>
+</div>
+
+<div class="card">
+<b>ฟริตซ์ ฮาเบอร์ (Fritz Haber) กับการปฏิวัติอาหาร</b><br><br>
+Ramakrishnan เล่าถึง <span class="term">Fritz Haber</span> ผู้คิดค้นกระบวนการสังเคราะห์แอมโมเนียจากอากาศ (Haber Process, 1918) ซึ่งทำให้สามารถผลิตปุ๋ยเคมีได้ปริมาณมหาศาล สิ่งนี้เป็นตัวเปลี่ยนโลก — ช่วยเพิ่มจำนวนประชากรโลกเป็นสองเท่า แต่ Haber เองก็เป็นคนที่พัฒนาอาวุธเคมี (แก๊สคลอรีน) ในสงครามโลกครั้งที่ 1 — เป็นบุคคลที่ทั้งช่วยชีวิตและทำลายชีวิตพร้อมกัน
+</div>
+
+<div class="tip">
+<b>Steven Johnson</b> นักเขียนแนว Extra Life ชี้ว่า อายุคาดเฉลี่ยของมนุษย์เพิ่มขึ้นราวๆ <b>30 ปีในช่วง 25 ปีที่ผ่านมา</b> — ในประเทศพัฒนาแล้ว เราเคยตั้งอายุเฉลี่ย 80 ปีเป็นเป้าหมาย ตอนนี้ ประเทศที่ก้าวหน้าอย่างญี่ปุ่นมีอายุเฉลี่ยเกิน 84 ปีแล้ว
+</div>
+
+<!-- SECTION 10: LIMITS -->
+<h2 id="limit">10. ขีดจำกัดอายุมนุษย์ — มีเพดานหรือไม่?</h2>
+
+<p>
+นี่คือการถกเถียงที่ยิ่งใหญ่ที่สุดในวงการผู้สูงอายุวิทยา (gerontology): <b>มนุษย์มีอายุขัยสูงสุดที่เป็นไปได้ หรือเราสามารถมีชีวิตได้ยาวนานขึ้นเรื่อยๆ?</b>
+</p>
+
+<div class="diagram">
+<svg viewBox="0 0 700 280" xmlns="http://www.w3.org/2000/svg">
+  <text x="350" y="25" text-anchor="middle" font-size="14" font-weight="700" fill="#333">การถกเถียง: มีเพดานอายุมนุษย์หรือไม่?</text>
+
+  <!-- VS divider -->
+  <line x1="350" y1="50" x2="350" y2="260" stroke="#ddd" stroke-width="2" stroke-dasharray="6"/>
+  <circle cx="350" cy="155" r="20" fill="#c0392b"/>
+  <text x="350" y="160" text-anchor="middle" font-size="14" font-weight="700" fill="white">VS</text>
+
+  <!-- Team 1: Olshansky -->
+  <rect x="40" y="60" width="270" height="190" rx="12" fill="#fde8e8" stroke="#c0392b" stroke-width="2"/>
+  <text x="175" y="90" text-anchor="middle" font-size="15" font-weight="700" fill="#c0392b">เจย์ โอลแชนสกี</text>
+  <text x="175" y="108" text-anchor="middle" font-size="11" fill="#666">(Jay Olshansky)</text>
+  <text x="175" y="135" text-anchor="middle" font-size="13" font-weight="700" fill="#333">"มีเพดาน!"</text>
+  <text x="60" y="160" font-size="11" fill="#555">• อายุสูงสุด ~115-120 ปี</text>
+  <text x="60" y="180" font-size="11" fill="#555">• การเพิ่มอายุเริ่มชะลอลงแล้ว</text>
+  <text x="60" y="200" font-size="11" fill="#555">• โรคชราสะสมเร็วเกินจะแก้</text>
+  <text x="60" y="220" font-size="11" fill="#555">• หลัง 105 อัตราตาย ~50%/ปี</text>
+  <text x="60" y="240" font-size="11" fill="#555">• ทุกอวัยวะเสื่อมพร้อมกัน</text>
+
+  <!-- Team 2: Vaupel -->
+  <rect x="390" y="60" width="270" height="190" rx="12" fill="#e8fae8" stroke="#27ae60" stroke-width="2"/>
+  <text x="525" y="90" text-anchor="middle" font-size="15" font-weight="700" fill="#27ae60">เจมส์ ไวเพิล</text>
+  <text x="525" y="108" text-anchor="middle" font-size="11" fill="#666">(James Vaupel)</text>
+  <text x="525" y="135" text-anchor="middle" font-size="13" font-weight="700" fill="#333">"ไม่มีเพดาน!"</text>
+  <text x="410" y="160" font-size="11" fill="#555">• อายุเฉลี่ยเพิ่มขึ้นต่อเนื่อง</text>
+  <text x="410" y="180" font-size="11" fill="#555">• คนที่มีอายุ 100+ เพิ่มขึ้นเรื่อยๆ</text>
+  <text x="410" y="200" font-size="11" fill="#555">• เทคโนโลยีการแพทย์ใหม่ๆ</text>
+  <text x="410" y="220" font-size="11" fill="#555">• ไม่เจอ "กำแพง" ทางชีววิทยา</text>
+  <text x="410" y="240" font-size="11" fill="#555">• คนรุ่นใหม่อาจถึง 150 ปี</text>
+</svg>
+</div>
+
+<h3>สถิติอายุยืนที่สุดของมนุษย์</h3>
+
+<table>
+  <tr><th>บุคคล</th><th>อายุ</th><th>หมายเหตุ</th></tr>
+  <tr><td><b>ฌานน์ กาลม็อง (Jeanne Calment)</b></td><td>122 ปี</td><td>สถิติโลก เสียชีวิตปี 1997 ที่ฝรั่งเศส</td></tr>
+  <tr><td><b>คาเนะ ทานากะ (Kane Tanaka)</b></td><td>119 ปี</td><td>เสียชีวิตปี 2022 ชาวญี่ปุ่น</td></tr>
+  <tr><td><b>มาเรีย บรานยาส โมเรรา</b></td><td>117 ปี</td><td>ชาวสเปน</td></tr>
+  <tr><td><b>โทมัส พาร์ (Thomas Parr)</b></td><td>152 ปี (?)</td><td>อ้างในศตวรรษที่ 17 — ไม่น่าเชื่อถือ</td></tr>
+</table>
+
+<div class="fact">
+<b>ข้อเท็จจริง:</b> อายุสูงสุดที่ยืนยันได้ของมนุษย์คือ <b>122 ปี</b> (Jeanne Calment) สถิตินี้ตั้งมาตั้งแต่ปี 1997 และยังไม่มีใครทำลายได้ <span class="term">Thomas Perls</span> นักวิจัยซูเปอร์เซ็นทีแนเรียน เชื่อว่าช่วงอายุสูงสุดจริงน่าจะอยู่ราว <b>100-103 ปี</b> สำหรับคนทั่วไป
+</div>
+
+<div class="card">
+<b>ซูเปอร์เซ็นทีแนเรียน (Supercentenarian) คือใคร?</b><br><br>
+คือคนที่มีอายุ <b>110 ปีขึ้นไป</b> จำนวนน้อยมากในโลก <span class="term">Thomas Perls</span> ศึกษาคนเหล่านี้และพบว่า:
+<ul>
+  <li>ราว <b>38%</b> เป็นคนที่ยังไม่ค่อยมีความบกพร่อง แม้อายุเกิน 100</li>
+  <li>โอกาสที่คนจะมีชีวิตถึง 100 ปีในปัจจุบัน ประมาณ <b>1 ใน 5,000-10,000</b></li>
+  <li>ถึงอายุ 122 ปีแบบ Calment? ประมาณ <b>1 ใน 130,000</b></li>
+  <li>พันธุกรรม สิ่งแวดล้อม โชค — ทุกอย่างมีบทบาท</li>
+</ul>
+</div>
+
+<blockquote>
+"ผมมองว่าวิทยาศาสตร์เรื่องอายุยืนยังเป็นเรื่องจริงอีกเพียงเรื่องเดียว — แต่เรายังไม่รู้ว่าจะอยู่ถึง 150 ปีได้หรือไม่ สิ่งที่เรารู้คือ เรามีชีวิตยาวกว่าบรรพบุรุษมากขึ้นทุกรุ่น"<br>
+— สรุปจากแนวคิดใน Why We Die, Ch.2
+</blockquote>
+
+<!-- SECTION 11: DICTIONARY -->
+<h2 id="dictionary">📖 พจนานุกรมศัพท์สำคัญ — บทที่ 2</h2>
+
+<table>
+  <tr><th>คำศัพท์</th><th>ความหมาย</th></tr>
+  <tr><td><span class="term">Metabolic Rate</span></td><td>อัตราการเผาผลาญพลังงานของสิ่งมีชีวิต ยิ่งสูง = ใช้พลังงานเร็ว</td></tr>
+  <tr><td><span class="term">Kleiber's Law</span></td><td>กฎที่ว่า อัตราเผาผลาญ ∝ มวลร่างกาย^(3/4) — สัตว์ใหญ่เผาผลาญช้ากว่าต่อหน่วยน้ำหนัก</td></tr>
+  <tr><td><span class="term">Rate of Living Theory</span></td><td>ทฤษฎีที่ว่า "ยิ่งเผาผลาญเร็ว ยิ่งตายเร็ว" — มีข้อยกเว้นมาก</td></tr>
+  <tr><td><span class="term">Gompertz Law</span></td><td>กฎคณิตศาสตร์: อัตราตายเพิ่มเป็น 2 เท่าทุก ~8 ปี หลังวัยผู้ใหญ่</td></tr>
+  <tr><td><span class="term">Negligible Senescence</span></td><td>ภาวะที่สิ่งมีชีวิตแทบไม่แสดงอาการแก่ — อัตราตายไม่เพิ่มตามอายุ</td></tr>
+  <tr><td><span class="term">Senescence</span></td><td>กระบวนการแก่ชราทางชีววิทยา ที่ทำให้การทำงานของร่างกายเสื่อมลง</td></tr>
+  <tr><td><span class="term">Eusocial</span></td><td>สังคมสิ่งมีชีวิตที่มีการแบ่งหน้าที่ชัดเจน (ราชินี, คนงาน) เช่น มด ผึ้ง หนูตุ่นเปลือย</td></tr>
+  <tr><td><span class="term">Transdifferentiation</span></td><td>การที่เซลล์ที่โตเต็มวัยเปลี่ยนกลับเป็นเซลล์ต้นกำเนิด (เกิดในแมงกะพรุนอมตะ)</td></tr>
+  <tr><td><span class="term">Turritopsis dohrnii</span></td><td>"แมงกะพรุนอมตะ" — สามารถย้อนวงจรชีวิตได้</td></tr>
+  <tr><td><span class="term">Supercentenarian</span></td><td>บุคคลที่มีอายุ 110 ปีขึ้นไป</td></tr>
+  <tr><td><span class="term">Longevity Quotient (LQ)</span></td><td>อัตราส่วนอายุจริง เทียบกับอายุที่คาดจากขนาดร่างกาย — ค่าสูง = อายุยืนกว่าคาด</td></tr>
+  <tr><td><span class="term">Haber Process</span></td><td>กระบวนการสังเคราะห์แอมโมเนียจากไนโตรเจนในอากาศ (Fritz Haber, 1918) — ปฏิวัติการผลิตอาหาร</td></tr>
+  <tr><td><span class="term">Entropy</span></td><td>ค่าวัดความไร้ระเบียบ — สิ่งมีชีวิตต่อสู้กับเอนโทรปีตลอดเวลา พอแพ้ = ตาย</td></tr>
+  <tr><td><span class="term">Free Radicals</span></td><td>อนุมูลอิสระ — โมเลกุลไม่เสถียรที่ทำลายเซลล์ เกิดจากกระบวนการเผาผลาญ</td></tr>
+  <tr><td><span class="term">Geoffrey West</span></td><td>นักฟิสิกส์ที่ศึกษาความสัมพันธ์ระหว่างขนาด อายุขัย และเมืองแบบภาพกว้าง (scaling laws)</td></tr>
+</table>
+
+<!-- QUIZ -->
+<h2 id="quiz">13. คำถามทบทวน (Self-Quiz)</h2>
+
+<p><i>คลิกที่คำถามเพื่อดูคำตอบ</i></p>
+
+<details class="quiz">
+  <summary>1. กฎของ Kleiber กล่าวว่าอะไร?</summary>
+  <p>อัตราการเผาผลาญพลังงาน (metabolic rate) ของสัตว์เพิ่มตามมวลร่างกาย ในอัตราส่วน <b>ยกกำลัง 3/4</b> ไม่ใช่แบบเป็นสัดส่วนตรง ซึ่งหมายความว่าสัตว์ที่ใหญ่กว่าจะเผาผลาญ <b>ช้ากว่าต่อหน่วยน้ำหนัก</b> และมักอายุยืนกว่า</p>
+</details>
+
+<details class="quiz">
+  <summary>2. ทำไมหนูตุ่นเปลือยถึงเป็น "ดาวเด่น" ของการวิจัยอายุยืน?</summary>
+  <p>เพราะมันมีขนาดเท่าหนูปกติ (ควรอายุ 2-3 ปี) แต่กลับมีอายุถึง <b>30+ ปี</b> แทบไม่เป็นมะเร็ง ไม่แสดงอาการแก่ตาม Gompertz Law และเป็นสัตว์ <b>eusocial</b> — ท้าทายทุกทฤษฎีอายุขัยที่มีอยู่</p>
+</details>
+
+<details class="quiz">
+  <summary>3. Gompertz Law คืออะไร?</summary>
+  <p>กฎคณิตศาสตร์ที่ว่า <b>อัตราการเสียชีวิตจะเพิ่มขึ้นเป็นสองเท่าทุกๆ ~8 ปี</b> หลังวัย 25 ปี เป็นการเพิ่มแบบ exponential ทำให้ยิ่งอายุมาก โอกาสตายยิ่งสูงขึ้นอย่างรวดเร็ว</p>
+</details>
+
+<details class="quiz">
+  <summary>4. Negligible senescence ต่างจากการแก่ปกติอย่างไร?</summary>
+  <p>การแก่ปกติ: อัตราตายเพิ่มขึ้นตามอายุ (ตาม Gompertz) แต่ negligible senescence: อัตราตาย <b>ไม่เพิ่มตามอายุ</b> — สัตว์เหล่านี้ไม่ได้แก่ในความหมายปกติ เช่น เต่ายักษ์ ปลาร็อกฟิช และหนูตุ่นเปลือย</p>
+</details>
+
+<details class="quiz">
+  <summary>5. แมงกะพรุนอมตะ "อมตะ" จริงหรือ?</summary>
+  <p><b>ไม่จริงทั้งหมด</b> — มันสามารถย้อนวงจรชีวิตจากตัวเต็มวัย (medusa) กลับเป็น polyp ผ่านกระบวนการ <b>transdifferentiation</b> ทำให้ "หนี" ความแก่ได้ แต่มันยังตายจากนักล่า โรค และสิ่งแวดล้อมได้ตามปกติ</p>
+</details>
+
+<details class="quiz">
+  <summary>6. อะไรทำให้อายุเฉลี่ยของมนุษย์เพิ่มจาก ~30 เป็น ~80 ปี?</summary>
+  <p>ไม่ใช่เพราะคนแก่อายุยืนขึ้น แต่เพราะ <b>อัตราการตายในวัยเด็กลดลงมาก</b> จากสุขอนามัย น้ำสะอาด วัคซีน ยาปฏิชีวนะ การดูแลมารดาและทารก และโภชนาการที่ดีขึ้น (รวมถึง Haber Process ที่ช่วยผลิตอาหารได้มากขึ้น)</p>
+</details>
+
+<details class="quiz">
+  <summary>7. Olshansky กับ Vaupel เห็นต่างกันเรื่องอะไร?</summary>
+  <p><b>Olshansky</b> เชื่อว่ามีเพดานอายุมนุษย์ (~115-120 ปี) เพราะโรคชราสะสมและการเพิ่มอายุเริ่มชะลอ <b>Vaupel</b> เชื่อว่าไม่มีเพดาน — อายุเฉลี่ยเพิ่มขึ้นต่อเนื่องและเทคโนโลยีใหม่อาจทำลายขีดจำกัดได้</p>
+</details>
+
+<details class="quiz">
+  <summary>8. Longevity Quotient (LQ) คืออะไร?</summary>
+  <p>LQ คืออัตราส่วนระหว่าง <b>อายุจริงของสปีชีส์</b> กับ <b>อายุที่คาดจากขนาดร่างกาย</b> ค่า LQ สูง = อายุยืนกว่าที่ขนาดร่างกายทำนาย เช่น หนูตุ่นเปลือยมี LQ สูงมากเพราะอายุยืนกว่าหนูปกติ 10+ เท่า ในขณะที่หนูปกติมี LQ เพียง 0.7</p>
+</details>
+
+</body>
+</html>

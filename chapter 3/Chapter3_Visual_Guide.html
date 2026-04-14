@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>บทที่ 3 — เมื่อตัวควบคุมหลักถูกทำลาย | Visual Study Guide</title>
+<style>
+  :root {
+    --bg: #fdfcf7;
+    --ink: #1f2933;
+    --accent: #c0392b;
+    --accent2: #2c5f8d;
+    --accent3: #27ae60;
+    --soft: #f4e9d8;
+    --box: #ffffff;
+    --shadow: 0 4px 16px rgba(0,0,0,0.08);
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, "Segoe UI", "Sarabun", "Noto Sans Thai", sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+    line-height: 1.75;
+    font-size: 17px;
+  }
+  h1 {
+    font-size: 2.4em;
+    border-bottom: 4px double var(--accent);
+    padding-bottom: 12px;
+    margin-bottom: 8px;
+    color: var(--accent);
+  }
+  h1 .sub { display: block; font-size: 0.5em; color: #666; font-weight: normal; margin-top: 6px; }
+  h2 {
+    font-size: 1.6em;
+    color: var(--accent2);
+    border-left: 6px solid var(--accent2);
+    padding-left: 14px;
+    margin-top: 60px;
+  }
+  h3 {
+    color: var(--accent);
+    margin-top: 32px;
+    font-size: 1.25em;
+  }
+  .hero {
+    background: linear-gradient(135deg, #fff8e7 0%, #ffe4cc 100%);
+    padding: 24px 28px;
+    border-radius: 14px;
+    margin: 28px 0;
+    border-left: 6px solid var(--accent);
+    box-shadow: var(--shadow);
+  }
+  .hero .big {
+    font-size: 1.3em;
+    font-weight: 600;
+    color: var(--accent);
+  }
+  .analogy {
+    background: #eef6fb;
+    border: 2px dashed var(--accent2);
+    padding: 16px 20px;
+    border-radius: 10px;
+    margin: 18px 0;
+  }
+  .analogy::before {
+    content: "💡 ลองคิดแบบนี้ ";
+    font-weight: 700;
+    color: var(--accent2);
+  }
+  .warning {
+    background: #fff3e6;
+    border-left: 5px solid #e67e22;
+    padding: 14px 18px;
+    border-radius: 6px;
+    margin: 18px 0;
+  }
+  .tip {
+    background: #eaf7ea;
+    border-left: 5px solid var(--accent3);
+    padding: 14px 18px;
+    border-radius: 6px;
+    margin: 18px 0;
+  }
+  .fact {
+    background: #fdecec;
+    border-left: 5px solid var(--accent);
+    padding: 14px 18px;
+    border-radius: 6px;
+    margin: 18px 0;
+  }
+  .diagram {
+    background: var(--box);
+    border: 1px solid #e0d8c5;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 24px 0;
+    box-shadow: var(--shadow);
+    text-align: center;
+  }
+  .diagram .caption {
+    font-size: 0.92em;
+    color: #555;
+    margin-top: 10px;
+    font-style: italic;
+  }
+  svg { max-width: 100%; height: auto; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: var(--box);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  th, td {
+    padding: 12px 14px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+  }
+  th { background: var(--accent2); color: white; }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) { background: #faf7ef; }
+  .quiz {
+    background: #fdf7e4;
+    padding: 20px 26px;
+    border-radius: 10px;
+    margin: 16px 0;
+    border: 2px solid #e8d084;
+  }
+  .quiz summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--accent);
+    padding: 8px 0;
+  }
+  .quiz p { margin: 10px 0 0; padding: 10px; background: white; border-radius: 6px; }
+  .term {
+    display: inline-block;
+    background: #fff3d6;
+    padding: 1px 8px;
+    border-radius: 4px;
+    font-weight: 600;
+    color: #8a5a00;
+  }
+  .flow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 20px 0;
+  }
+  .flow .node {
+    background: var(--accent2);
+    color: white;
+    padding: 12px 18px;
+    border-radius: 8px;
+    font-weight: 600;
+    min-width: 120px;
+    text-align: center;
+  }
+  .flow .arrow { font-size: 1.6em; color: var(--accent); }
+  .card {
+    background: var(--box);
+    padding: 18px 22px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    margin: 14px 0;
+    border-top: 4px solid var(--accent2);
+  }
+  .mnemonic {
+    background: #f0e7ff;
+    border-left: 5px solid #6c3bd9;
+    padding: 12px 18px;
+    border-radius: 6px;
+    margin: 12px 0;
+    font-size: 0.98em;
+  }
+  .mnemonic::before { content: "🧠 วิธีจำ: "; font-weight: 700; color: #6c3bd9; }
+  blockquote {
+    border-left: 4px solid #888;
+    padding-left: 16px;
+    margin: 20px 0;
+    color: #555;
+    font-style: italic;
+  }
+  .toc {
+    background: var(--soft);
+    padding: 18px 28px;
+    border-radius: 10px;
+    margin-bottom: 40px;
+  }
+  .toc h3 { margin-top: 0; color: var(--accent); }
+  .toc ol { padding-left: 22px; }
+  .toc a { color: var(--accent2); text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+  .big-number {
+    font-size: 3em;
+    font-weight: 700;
+    color: var(--accent);
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 12px;
+  }
+  .stat-box {
+    display: inline-block;
+    background: white;
+    padding: 16px 22px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    margin: 8px;
+    text-align: center;
+    min-width: 180px;
+  }
+  .stat-box .num { font-size: 2em; font-weight: 700; color: var(--accent); display: block; }
+  .stat-box .lbl { font-size: 0.88em; color: #666; }
+</style>
+</head>
+<body>
+
+<h1>บทที่ 3 — เมื่อตัวควบคุมหลักถูกทำลาย
+  <span class="sub">When the Master Controller Breaks Down · Why We Die by Venki Ramakrishnan</span>
+</h1>
+
+<div class="hero">
+  <div class="big">ภาพรวม 1 ประโยค:</div>
+  ชีวิตของเราเขียนอยู่บน "คู่มือ" ที่ชื่อ <span class="term">DNA</span> — แต่คู่มือนี้ถูกฉีกและเปื้อนตลอดเวลา
+  <b>ความสามารถในการ "ซ่อม" DNA</b> คือสิ่งที่กำหนดว่าเราจะแก่เร็วแค่ไหน เป็นมะเร็งหรือไม่ และตายเมื่อไหร่
+</div>
+
+<div class="toc">
+  <h3>📚 สารบัญ</h3>
+  <ol>
+    <li><a href="#pompeii">ปอมเปอี — ภาพเปิดเรื่องของความตายที่ถูกหยุดเวลา</a></li>
+    <li><a href="#cell">เซลล์ = โรงงาน, DNA = คู่มือ</a></li>
+    <li><a href="#dna">DNA คืออะไร? โครงสร้างแบบเข้าใจง่าย</a></li>
+    <li><a href="#protein">จาก DNA → RNA → โปรตีน (Central Dogma)</a></li>
+    <li><a href="#damage">ภัยที่ทำร้าย DNA ทุกวัน</a></li>
+    <li><a href="#repair">ระบบซ่อม DNA — ฮีโร่ที่มองไม่เห็น</a></li>
+    <li><a href="#p53">p53 — ผู้พิทักษ์จีโนม</a></li>
+    <li><a href="#peto">Peto's Paradox — ทำไมช้างไม่ค่อยเป็นมะเร็ง?</a></li>
+    <li><a href="#aging">ความเชื่อมโยงกับความแก่และความตาย</a></li>
+    <li><a href="#quiz">คำถามทบทวน</a></li>
+  </ol>
+</div>
+
+<!-- SECTION 1: POMPEII -->
+<h2 id="pompeii">1. ปอมเปอี — ภาพเปิดเรื่อง</h2>
+
+<div class="diagram">
+<svg viewBox="0 0 600 260" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffd4a8"/>
+      <stop offset="100%" stop-color="#f5a060"/>
+    </linearGradient>
+    <radialGradient id="smoke" cx="50%" cy="30%">
+      <stop offset="0%" stop-color="#4a3838"/>
+      <stop offset="100%" stop-color="#8b6f6f" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="600" height="260" fill="url(#sky)"/>
+  <!-- volcano -->
+  <polygon points="380,220 470,90 560,220" fill="#5a4a3a"/>
+  <polygon points="440,140 470,90 500,140 490,145 470,110 450,145" fill="#8b3a1f"/>
+  <circle cx="470" cy="70" r="40" fill="url(#smoke)"/>
+  <circle cx="490" cy="50" r="30" fill="url(#smoke)"/>
+  <!-- city -->
+  <rect x="40" y="170" width="50" height="50" fill="#d9b382"/>
+  <polygon points="40,170 65,150 90,170" fill="#a8794a"/>
+  <rect x="110" y="160" width="60" height="60" fill="#d9b382"/>
+  <polygon points="110,160 140,135 170,160" fill="#a8794a"/>
+  <rect x="190" y="175" width="50" height="45" fill="#d9b382"/>
+  <polygon points="190,175 215,155 240,175" fill="#a8794a"/>
+  <!-- ash falling -->
+  <circle cx="100" cy="60" r="3" fill="#666"/>
+  <circle cx="180" cy="40" r="2" fill="#666"/>
+  <circle cx="250" cy="80" r="3" fill="#666"/>
+  <circle cx="300" cy="30" r="2" fill="#666"/>
+  <circle cx="350" cy="70" r="3" fill="#666"/>
+  <!-- ground -->
+  <rect x="0" y="220" width="600" height="40" fill="#6a5944"/>
+  <!-- labels -->
+  <text x="460" y="250" font-size="14" fill="white" font-weight="700">Mt. Vesuvius</text>
+  <text x="100" y="250" font-size="14" fill="white" font-weight="700">Pompeii</text>
+  <text x="300" y="30" font-size="13" fill="#333" font-weight="600">79 AD — ชีวิตที่ถูกหยุดเวลา</text>
+</svg>
+<div class="caption">ค.ศ. 79 — ภูเขาไฟ Vesuvius ระเบิด ฝังเมือง Pompeii ในเถ้าถ่านอย่างรวดเร็ว</div>
+</div>
+
+<p>
+Ramakrishnan เปิดบทด้วยภาพอันทรงพลัง: <b>เมืองปอมเปอี</b> ของอิตาลี ที่ถูกฝังในพริบตาเมื่อภูเขาไฟวิสุเวียสระเบิดในปี ค.ศ. 79 ชีวิตผู้คนถูก "หยุด" กลางอากาศ — กำลังกินข้าว กำลังวิ่ง กำลังกอดลูก
+</p>
+
+<div class="analogy">
+ร่างกายของเราก็เหมือนเมืองปอมเปอี ที่มี "ตัวควบคุมหลัก" คอยจัดระเบียบทุกอย่าง ถ้าตัวควบคุมนั้นถูกทำลายอย่างฉับพลัน ทุกกิจกรรมก็หยุดนิ่งเหมือนร่างคนในเถ้าถ่าน — นี่คือความหมายของ "ความตาย" ในระดับเซลล์
+</div>
+
+<div class="mnemonic">Pompeii = snapshot ของความตาย → ถ้า DNA เสียหนัก เซลล์ก็กลายเป็น "Pompeii จิ๋ว"</div>
+
+<!-- SECTION 2: CELL -->
+<h2 id="cell">2. เซลล์ = โรงงาน, DNA = คู่มือ</h2>
+
+<p>
+ก่อนจะเข้าใจว่าทำไม DNA สำคัญ ต้องเข้าใจก่อนว่า <b>เซลล์</b> คือหน่วยเล็กที่สุดของชีวิต ร่างกายคุณมีเซลล์ประมาณ <b>37 ล้านล้านเซลล์</b> แต่ละเซลล์เป็น "โรงงานขนาดจิ๋ว" ที่ทำงานประสานกัน
+</p>
+
+<div class="diagram">
+<svg viewBox="0 0 600 320" xmlns="http://www.w3.org/2000/svg">
+  <!-- Cell membrane -->
+  <ellipse cx="300" cy="160" rx="260" ry="140" fill="#fce8dc" stroke="#c98566" stroke-width="3"/>
+  <!-- Nucleus -->
+  <circle cx="300" cy="160" r="70" fill="#c7d9ee" stroke="#2c5f8d" stroke-width="3"/>
+  <text x="300" y="140" text-anchor="middle" font-size="13" font-weight="700" fill="#2c5f8d">นิวเคลียส</text>
+  <text x="300" y="158" text-anchor="middle" font-size="11" fill="#2c5f8d">(ห้องสมุด)</text>
+  <!-- DNA inside -->
+  <path d="M 275 170 Q 285 180 295 170 T 315 170" stroke="#c0392b" stroke-width="2.5" fill="none"/>
+  <path d="M 275 180 Q 285 190 295 180 T 315 180" stroke="#c0392b" stroke-width="2.5" fill="none"/>
+  <text x="300" y="200" text-anchor="middle" font-size="11" fill="#c0392b" font-weight="600">DNA</text>
+  <!-- Ribosomes -->
+  <circle cx="140" cy="100" r="14" fill="#e67e22"/>
+  <circle cx="140" cy="100" r="8" fill="#d35400"/>
+  <text x="140" y="130" text-anchor="middle" font-size="11" fill="#a14000" font-weight="600">ไรโบโซม</text>
+  <circle cx="470" cy="80" r="14" fill="#e67e22"/>
+  <circle cx="470" cy="80" r="8" fill="#d35400"/>
+  <text x="470" y="110" text-anchor="middle" font-size="11" fill="#a14000" font-weight="600">ไรโบโซม</text>
+  <circle cx="130" cy="230" r="14" fill="#e67e22"/>
+  <circle cx="130" cy="230" r="8" fill="#d35400"/>
+  <!-- Mitochondria -->
+  <ellipse cx="460" cy="240" rx="40" ry="18" fill="#9b59b6"/>
+  <path d="M 430 240 Q 445 230 460 240 Q 475 250 490 240" stroke="#6c3483" stroke-width="2" fill="none"/>
+  <text x="460" y="275" text-anchor="middle" font-size="11" fill="#6c3483" font-weight="600">ไมโทคอนเดรีย</text>
+  <!-- ER -->
+  <path d="M 180 60 Q 220 50 250 70 Q 260 90 230 100 Q 190 110 180 90 Z" fill="#f7dc6f" stroke="#b9770e" stroke-width="2"/>
+  <text x="210" y="45" text-anchor="middle" font-size="11" fill="#b9770e" font-weight="600">เอ็นโดพลาซึม</text>
+  <!-- Golgi -->
+  <path d="M 400 230 Q 430 225 450 235" stroke="#16a085" stroke-width="3" fill="none"/>
+  <path d="M 395 240 Q 430 235 455 245" stroke="#16a085" stroke-width="3" fill="none"/>
+  <path d="M 390 250 Q 430 245 460 255" stroke="#16a085" stroke-width="3" fill="none"/>
+  <text x="420" y="215" text-anchor="middle" font-size="11" fill="#16a085" font-weight="600">โกลจิ</text>
+</svg>
+<div class="caption">เซลล์ = โรงงาน &nbsp;·&nbsp; นิวเคลียส = ห้องสมุดเก็บ DNA &nbsp;·&nbsp; ไรโบโซม = เครื่องพิมพ์โปรตีน</div>
+</div>
+
+<div class="analogy">
+ถ้าเปรียบเซลล์เป็น <b>โรงงานทำขนม</b>:
+<ul>
+  <li><b>นิวเคลียส</b> = ห้องสมุดสูตรลับ (ที่เก็บ DNA)</li>
+  <li><b>DNA</b> = หนังสือสูตรขนมทั้งหมด</li>
+  <li><b>RNA</b> = กระดาษคัดลอกสูตร ที่พ่อครัวเอาไปใช้</li>
+  <li><b>ไรโบโซม</b> = พ่อครัวที่อ่านสูตรแล้วทำขนม (โปรตีน)</li>
+  <li><b>โปรตีน</b> = ผลิตภัณฑ์ที่ทำให้เซลล์ทำงานได้</li>
+</ul>
+</div>
+
+<!-- SECTION 3: DNA STRUCTURE -->
+<h2 id="dna">3. DNA คืออะไร? โครงสร้างแบบเข้าใจง่าย</h2>
+
+<p>
+ในปี <b>1953</b> <span class="term">James Watson</span> และ <span class="term">Francis Crick</span> ค้นพบว่า DNA มีลักษณะเป็น "บันไดเวียน" สองสายบิดเกลียวเข้าหากัน เรียกว่า <b>double helix</b>
+</p>
+
+<div class="diagram">
+<svg viewBox="0 0 640 300" xmlns="http://www.w3.org/2000/svg">
+  <!-- Two strands -->
+  <path d="M 80 50 Q 180 100 80 150 T 80 250" stroke="#2c5f8d" stroke-width="5" fill="none"/>
+  <path d="M 220 50 Q 120 100 220 150 T 220 250" stroke="#c0392b" stroke-width="5" fill="none"/>
+  <!-- base pairs -->
+  <line x1="80" y1="70" x2="220" y2="70" stroke="#27ae60" stroke-width="4"/>
+  <text x="90" y="65" font-size="14" font-weight="700" fill="#2c5f8d">A</text>
+  <text x="205" y="65" font-size="14" font-weight="700" fill="#c0392b">T</text>
+
+  <line x1="130" y1="100" x2="170" y2="100" stroke="#8e44ad" stroke-width="4"/>
+  <text x="120" y="95" font-size="14" font-weight="700" fill="#2c5f8d">G</text>
+  <text x="175" y="95" font-size="14" font-weight="700" fill="#c0392b">C</text>
+
+  <line x1="90" y1="135" x2="215" y2="135" stroke="#27ae60" stroke-width="4"/>
+  <text x="95" y="130" font-size="14" font-weight="700" fill="#2c5f8d">T</text>
+  <text x="200" y="130" font-size="14" font-weight="700" fill="#c0392b">A</text>
+
+  <line x1="80" y1="170" x2="220" y2="170" stroke="#8e44ad" stroke-width="4"/>
+  <text x="85" y="165" font-size="14" font-weight="700" fill="#2c5f8d">C</text>
+  <text x="210" y="165" font-size="14" font-weight="700" fill="#c0392b">G</text>
+
+  <line x1="130" y1="200" x2="170" y2="200" stroke="#27ae60" stroke-width="4"/>
+  <text x="120" y="195" font-size="14" font-weight="700" fill="#2c5f8d">A</text>
+  <text x="175" y="195" font-size="14" font-weight="700" fill="#c0392b">T</text>
+
+  <line x1="90" y1="235" x2="215" y2="235" stroke="#8e44ad" stroke-width="4"/>
+  <text x="95" y="230" font-size="14" font-weight="700" fill="#2c5f8d">G</text>
+  <text x="200" y="230" font-size="14" font-weight="700" fill="#c0392b">C</text>
+
+  <!-- Legend -->
+  <text x="330" y="60" font-size="15" font-weight="700" fill="#333">กฎการจับคู่เบส (Base Pairing):</text>
+  <circle cx="345" cy="95" r="12" fill="#27ae60"/>
+  <text x="340" y="100" font-size="13" font-weight="700" fill="white">A</text>
+  <text x="365" y="100" font-size="14">─</text>
+  <circle cx="400" cy="95" r="12" fill="#27ae60"/>
+  <text x="395" y="100" font-size="13" font-weight="700" fill="white">T</text>
+  <text x="420" y="100" font-size="13">Adenine จับกับ Thymine</text>
+
+  <circle cx="345" cy="135" r="12" fill="#8e44ad"/>
+  <text x="340" y="140" font-size="13" font-weight="700" fill="white">G</text>
+  <text x="365" y="140" font-size="14">─</text>
+  <circle cx="400" cy="135" r="12" fill="#8e44ad"/>
+  <text x="395" y="140" font-size="13" font-weight="700" fill="white">C</text>
+  <text x="420" y="140" font-size="13">Guanine จับกับ Cytosine</text>
+
+  <text x="330" y="185" font-size="13" fill="#666">ตัวอักษรเพียง 4 ตัว (A·T·G·C)</text>
+  <text x="330" y="205" font-size="13" fill="#666">แต่ในร่างกายคุณเรียงกันยาวถึง</text>
+  <text x="330" y="225" font-size="20" fill="#c0392b" font-weight="700">3,000,000,000 ตัว</text>
+  <text x="330" y="245" font-size="12" fill="#666">(3 พันล้านคู่เบสต่อเซลล์)</text>
+</svg>
+<div class="caption">DNA double helix — บันไดเวียนที่ขั้นบันไดคือคู่เบส A-T และ G-C</div>
+</div>
+
+<div class="analogy">
+ลองนึกภาพ <b>บันไดเวียน</b> ที่ขั้นบันไดแต่ละขั้นมีแค่ 2 แบบ:
+<ul>
+  <li>ขั้นสีเขียว = A จับกับ T</li>
+  <li>ขั้นสีม่วง = G จับกับ C</li>
+</ul>
+ที่สำคัญคือ "A ต้องจับกับ T เสมอ" และ "G ต้องจับกับ C เสมอ" — เป็นกฎเหล็ก เรียกว่า <b>complementary base pairing</b>
+</div>
+
+<div class="fact">
+<b>ทำไมกฎนี้ถึงวิเศษ?</b> เพราะถ้าคุณรู้ลำดับเบสในสายหนึ่ง คุณก็ทำนายอีกสายหนึ่งได้อัตโนมัติ — นี่คือเหตุผลที่ DNA <b>คัดลอกตัวเองได้</b> (ถ้าสายนึงขาด ก็ใช้อีกสายเป็นต้นแบบสร้างใหม่!)
+</div>
+
+<!-- SECTION 4: CENTRAL DOGMA -->
+<h2 id="protein">4. จาก DNA → RNA → โปรตีน (Central Dogma)</h2>
+
+<p>DNA เองไม่ได้ทำงานโดยตรง — มันเป็นแค่ "ต้นแบบ" เซลล์ต้องแปลงมันเป็น <b>RNA</b> และแปล RNA เป็น <b>โปรตีน</b> อีกที โปรตีนคือสิ่งที่ทำงานจริงในร่างกาย (เป็นเอนไซม์, สร้างกล้ามเนื้อ, ส่งสัญญาณ ฯลฯ)</p>
+
+<div class="diagram">
+<svg viewBox="0 0 720 220" xmlns="http://www.w3.org/2000/svg">
+  <!-- DNA -->
+  <g>
+    <rect x="20" y="80" width="130" height="60" rx="8" fill="#2c5f8d"/>
+    <text x="85" y="105" text-anchor="middle" font-size="18" font-weight="700" fill="white">DNA</text>
+    <text x="85" y="128" text-anchor="middle" font-size="11" fill="white">คู่มือ (ห้องสมุด)</text>
+    <text x="85" y="165" text-anchor="middle" font-size="11" fill="#666">อยู่ในนิวเคลียส</text>
+  </g>
+  <!-- Arrow 1 -->
+  <line x1="155" y1="110" x2="210" y2="110" stroke="#c0392b" stroke-width="3"/>
+  <polygon points="210,104 222,110 210,116" fill="#c0392b"/>
+  <text x="183" y="95" text-anchor="middle" font-size="12" font-weight="700" fill="#c0392b">Transcription</text>
+  <text x="183" y="135" text-anchor="middle" font-size="10" fill="#666">(ถอดรหัส)</text>
+  <!-- RNA -->
+  <g>
+    <rect x="230" y="80" width="130" height="60" rx="8" fill="#e67e22"/>
+    <text x="295" y="105" text-anchor="middle" font-size="18" font-weight="700" fill="white">mRNA</text>
+    <text x="295" y="128" text-anchor="middle" font-size="11" fill="white">สำเนาคำสั่ง</text>
+    <text x="295" y="165" text-anchor="middle" font-size="11" fill="#666">ส่งออกจากนิวเคลียส</text>
+  </g>
+  <!-- Arrow 2 -->
+  <line x1="365" y1="110" x2="420" y2="110" stroke="#c0392b" stroke-width="3"/>
+  <polygon points="420,104 432,110 420,116" fill="#c0392b"/>
+  <text x="395" y="95" text-anchor="middle" font-size="12" font-weight="700" fill="#c0392b">Translation</text>
+  <text x="395" y="135" text-anchor="middle" font-size="10" fill="#666">(แปลรหัส)</text>
+  <!-- Ribosome -->
+  <g>
+    <rect x="440" y="80" width="130" height="60" rx="8" fill="#27ae60"/>
+    <text x="505" y="105" text-anchor="middle" font-size="15" font-weight="700" fill="white">Ribosome</text>
+    <text x="505" y="128" text-anchor="middle" font-size="11" fill="white">อ่าน mRNA ทีละ 3 ตัว</text>
+  </g>
+  <line x1="575" y1="110" x2="615" y2="110" stroke="#c0392b" stroke-width="3"/>
+  <polygon points="615,104 627,110 615,116" fill="#c0392b"/>
+  <!-- Protein -->
+  <g>
+    <circle cx="670" cy="90" r="10" fill="#8e44ad"/>
+    <circle cx="690" cy="100" r="10" fill="#8e44ad"/>
+    <circle cx="675" cy="115" r="10" fill="#8e44ad"/>
+    <circle cx="695" cy="130" r="10" fill="#8e44ad"/>
+    <text x="680" y="170" text-anchor="middle" font-size="13" font-weight="700" fill="#8e44ad">Protein</text>
+  </g>
+</svg>
+<div class="caption">Central Dogma: DNA → RNA → Protein &nbsp;·&nbsp; ข้อมูลไหลไปข้างเดียว</div>
+</div>
+
+<h3>Codon — รหัส 3 ตัวอักษร</h3>
+
+<p>ไรโบโซมอ่าน mRNA ทีละ <b>3 ตัวอักษร</b> แต่ละชุดเรียกว่า <span class="term">codon</span> แต่ละ codon แปลเป็น <b>กรดอะมิโน 1 ชนิด</b> (มีทั้งหมด 20 ชนิดในธรรมชาติ)</p>
+
+<div class="diagram">
+<svg viewBox="0 0 700 180" xmlns="http://www.w3.org/2000/svg">
+  <!-- mRNA strip -->
+  <rect x="20" y="50" width="660" height="40" fill="#fff3d6" stroke="#b9770e" stroke-width="2"/>
+  <!-- Codons -->
+  <g font-size="18" font-weight="700" text-anchor="middle">
+    <rect x="30" y="55" width="80" height="30" fill="#ffd4a8"/>
+    <text x="70" y="77">AUG</text>
+    <rect x="120" y="55" width="80" height="30" fill="#ffc085"/>
+    <text x="160" y="77">GCA</text>
+    <rect x="210" y="55" width="80" height="30" fill="#ffd4a8"/>
+    <text x="250" y="77">UUU</text>
+    <rect x="300" y="55" width="80" height="30" fill="#ffc085"/>
+    <text x="340" y="77">GGC</text>
+    <rect x="390" y="55" width="80" height="30" fill="#ffd4a8"/>
+    <text x="430" y="77">CAU</text>
+    <rect x="480" y="55" width="80" height="30" fill="#ffc085"/>
+    <text x="520" y="77">AAA</text>
+    <rect x="570" y="55" width="80" height="30" fill="#ffd4a8"/>
+    <text x="610" y="77">UAA</text>
+  </g>
+  <!-- amino labels -->
+  <g font-size="11" fill="#6c3483" text-anchor="middle">
+    <text x="70" y="115">Met</text>
+    <text x="160" y="115">Ala</text>
+    <text x="250" y="115">Phe</text>
+    <text x="340" y="115">Gly</text>
+    <text x="430" y="115">His</text>
+    <text x="520" y="115">Lys</text>
+    <text x="610" y="115" fill="#c0392b" font-weight="700">STOP</text>
+  </g>
+  <text x="350" y="30" text-anchor="middle" font-size="14" font-weight="700" fill="#333">mRNA อ่านทีละ 3 ตัว = 1 codon = 1 กรดอะมิโน</text>
+  <text x="350" y="155" text-anchor="middle" font-size="12" fill="#666">โปรตีน = สายยาวของกรดอะมิโนหลายตัวต่อกัน</text>
+</svg>
+</div>
+
+<div class="mnemonic">
+A, U, G, C มีแค่ 4 ตัว — แต่จับกลุ่มละ 3 ตัว = 4³ = <b>64 ชุด</b> เกินพอสำหรับกรดอะมิโน 20 ชนิด (บาง codon ซ้ำซ้อนกัน และมี STOP codon สำหรับจบประโยค)
+</div>
+
+<!-- SECTION 5: DNA DAMAGE -->
+<h2 id="damage">5. ภัยที่ทำร้าย DNA ทุกวัน</h2>
+
+<p>ตอนนี้มาถึงจุดสำคัญของบท: <b>DNA เปราะบางมาก</b> และถูกทำลายได้หลายทาง ทุกวัน ทุกวินาที</p>
+
+<div style="text-align:center; margin: 24px 0;">
+  <div class="stat-box">
+    <span class="num">100,000+</span>
+    <span class="lbl">ความเสียหายต่อ DNA<br>/เซลล์/วัน (โดยประมาณ)</span>
+  </div>
+  <div class="stat-box">
+    <span class="num">10,000</span>
+    <span class="lbl">ข้อผิดพลาดจากการ<br>คัดลอก DNA</span>
+  </div>
+  <div class="stat-box">
+    <span class="num">37 ล้านล้าน</span>
+    <span class="lbl">เซลล์ในร่างกายคุณ</span>
+  </div>
+</div>
+
+<h3>แหล่งความเสียหายหลัก</h3>
+
+<div class="card">
+<b>① รังสี UV จากดวงอาทิตย์</b><br>
+UV ทำให้ <span class="term">Thymine (T)</span> สองตัวที่อยู่ติดกันในสาย DNA เกาะติดกันกลายเป็น <b>thymine dimer</b> → สาย DNA บิดเบี้ยว → อ่านไม่ได้
+</div>
+
+<div class="diagram">
+<svg viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Before -->
+  <text x="120" y="25" text-anchor="middle" font-size="13" font-weight="700" fill="#333">ปกติ</text>
+  <rect x="30" y="40" width="180" height="40" fill="#e8f4f8" stroke="#2c5f8d"/>
+  <text x="60" y="65" font-size="15" font-weight="700" fill="#2c5f8d">A</text>
+  <text x="85" y="65" font-size="15" font-weight="700" fill="#27ae60">T</text>
+  <text x="110" y="65" font-size="15" font-weight="700" fill="#27ae60">T</text>
+  <text x="135" y="65" font-size="15" font-weight="700" fill="#2c5f8d">G</text>
+  <text x="160" y="65" font-size="15" font-weight="700" fill="#2c5f8d">C</text>
+  <text x="185" y="65" font-size="15" font-weight="700" fill="#2c5f8d">A</text>
+  <!-- sun -->
+  <circle cx="300" cy="60" r="22" fill="#f1c40f"/>
+  <line x1="280" y1="60" x2="260" y2="60" stroke="#f1c40f" stroke-width="3"/>
+  <line x1="320" y1="60" x2="340" y2="60" stroke="#f1c40f" stroke-width="3"/>
+  <line x1="300" y1="40" x2="300" y2="30" stroke="#f1c40f" stroke-width="3"/>
+  <line x1="300" y1="80" x2="300" y2="100" stroke="#f1c40f" stroke-width="3"/>
+  <text x="300" y="65" text-anchor="middle" font-size="12" font-weight="700" fill="#b9770e">UV</text>
+  <line x1="330" y1="60" x2="370" y2="60" stroke="#c0392b" stroke-width="2"/>
+  <polygon points="370,54 382,60 370,66" fill="#c0392b"/>
+  <!-- After -->
+  <text x="480" y="25" text-anchor="middle" font-size="13" font-weight="700" fill="#c0392b">หลังโดน UV</text>
+  <rect x="390" y="40" width="180" height="40" fill="#fdecec" stroke="#c0392b"/>
+  <text x="420" y="65" font-size="15" font-weight="700" fill="#2c5f8d">A</text>
+  <!-- dimer: two T's stuck together -->
+  <rect x="440" y="45" width="45" height="30" rx="4" fill="#f5b7b1" stroke="#c0392b" stroke-width="2"/>
+  <text x="448" y="65" font-size="15" font-weight="700" fill="#c0392b">T</text>
+  <text x="468" y="65" font-size="15" font-weight="700" fill="#c0392b">T</text>
+  <text x="500" y="65" font-size="15" font-weight="700" fill="#2c5f8d">G</text>
+  <text x="525" y="65" font-size="15" font-weight="700" fill="#2c5f8d">C</text>
+  <text x="550" y="65" font-size="15" font-weight="700" fill="#2c5f8d">A</text>
+  <text x="462" y="105" text-anchor="middle" font-size="11" fill="#c0392b" font-weight="700">thymine dimer</text>
+  <text x="300" y="160" text-anchor="middle" font-size="13" fill="#555">→ สาย DNA บิดเบี้ยว ไรโบโซมอ่านไม่ได้ ถ้าไม่ซ่อมจะเกิดการกลายพันธุ์</text>
+</svg>
+</div>
+
+<div class="card">
+<b>② รังสีไอออน (เอ็กซ์เรย์, รังสีคอสมิก)</b><br>
+พลังงานสูง ทำให้สาย DNA <b>ขาดทั้งสองสาย (double-strand break)</b> — เป็นความเสียหายที่อันตรายที่สุด ซ่อมยากที่สุด
+</div>
+
+<div class="card">
+<b>③ สารเคมี</b><br>
+สารเคมีในควันบุหรี่ อาหารปิ้งย่าง มลพิษ — ทำให้เบสเปลี่ยนรูปหรือ DNA ขาด
+<br><small>(Charlotte Auerbach ค้นพบข้อเท็จจริงนี้ช่วงสงครามโลกครั้งที่ 2)</small>
+</div>
+
+<div class="card">
+<b>④ "DNA พังเอง" — ข่าวช็อกจาก Tomas Lindahl</b><br>
+Lindahl พิสูจน์ในทศวรรษ 1970 ว่า <b>DNA ไม่ได้เสถียร</b> — มันสลายตัวเองจากอุณหภูมิร่างกายและน้ำรอบๆ เช่น:
+<ul>
+  <li>เบส <b>C (cytosine)</b> เปลี่ยนเป็น <b>U (uracil)</b> เอง ~100 ครั้ง/เซลล์/วัน</li>
+  <li>เบสหลุดออกจากสาย DNA ~10,000 ครั้ง/เซลล์/วัน</li>
+</ul>
+</div>
+
+<div class="warning">
+<b>ข้อค้นพบที่เปลี่ยนทุกอย่าง:</b> ก่อน Lindahl นักวิทยาศาสตร์คิดว่า DNA เสถียรจึงเก็บข้อมูลได้ดี แต่เขาแสดงว่า — มันไม่เสถียรเลย! เราอยู่ได้เพราะเซลล์ <b>ซ่อมมันเร็วกว่าที่มันพัง</b>
+</div>
+
+<!-- SECTION 6: REPAIR -->
+<h2 id="repair">6. ระบบซ่อม DNA — ฮีโร่ที่มองไม่เห็น</h2>
+
+<p>เซลล์มีทีม "ช่างซ่อม" หลายแบบ แต่ละแบบจัดการความเสียหายต่างชนิดกัน</p>
+
+<h3>6.1 Base Excision Repair (BER) — "ตัดเบสที่เสียออก"</h3>
+
+<div class="diagram">
+<svg viewBox="0 0 700 260" xmlns="http://www.w3.org/2000/svg">
+  <!-- Step 1 -->
+  <text x="80" y="25" text-anchor="middle" font-size="12" font-weight="700" fill="#333">1. ตรวจเจอ</text>
+  <rect x="20" y="40" width="120" height="35" fill="#fdecec" stroke="#c0392b" stroke-width="2"/>
+  <text x="40" y="63" font-size="14" font-weight="700">A</text>
+  <text x="60" y="63" font-size="14" font-weight="700" fill="#c0392b">U</text>
+  <text x="80" y="63" font-size="14" font-weight="700">G</text>
+  <text x="100" y="63" font-size="14" font-weight="700">C</text>
+  <text x="120" y="63" font-size="14" font-weight="700">A</text>
+  <text x="80" y="95" text-anchor="middle" font-size="10" fill="#c0392b">C กลายเป็น U</text>
+
+  <!-- arrow -->
+  <line x1="150" y1="60" x2="180" y2="60" stroke="#333" stroke-width="2"/>
+  <polygon points="180,54 192,60 180,66"/>
+
+  <!-- Step 2 -->
+  <text x="250" y="25" text-anchor="middle" font-size="12" font-weight="700" fill="#333">2. ตัดเบสออก</text>
+  <rect x="190" y="40" width="120" height="35" fill="#fdecec" stroke="#c0392b" stroke-width="2"/>
+  <text x="210" y="63" font-size="14" font-weight="700">A</text>
+  <text x="230" y="63" font-size="14" font-weight="700" fill="#c0392b">×</text>
+  <text x="250" y="63" font-size="14" font-weight="700">G</text>
+  <text x="270" y="63" font-size="14" font-weight="700">C</text>
+  <text x="290" y="63" font-size="14" font-weight="700">A</text>
+  <text x="250" y="95" text-anchor="middle" font-size="10" fill="#666">เหลือช่องว่าง</text>
+
+  <!-- arrow -->
+  <line x1="320" y1="60" x2="350" y2="60" stroke="#333" stroke-width="2"/>
+  <polygon points="350,54 362,60 350,66"/>
+
+  <!-- Step 3 -->
+  <text x="420" y="25" text-anchor="middle" font-size="12" font-weight="700" fill="#333">3. ใส่เบสใหม่</text>
+  <rect x="360" y="40" width="120" height="35" fill="#fdf7e4" stroke="#b9770e" stroke-width="2"/>
+  <text x="380" y="63" font-size="14" font-weight="700">A</text>
+  <text x="400" y="63" font-size="14" font-weight="700" fill="#27ae60">C</text>
+  <text x="420" y="63" font-size="14" font-weight="700">G</text>
+  <text x="440" y="63" font-size="14" font-weight="700">C</text>
+  <text x="460" y="63" font-size="14" font-weight="700">A</text>
+  <text x="420" y="95" text-anchor="middle" font-size="10" fill="#27ae60">ใส่ C กลับ</text>
+
+  <!-- arrow -->
+  <line x1="490" y1="60" x2="520" y2="60" stroke="#333" stroke-width="2"/>
+  <polygon points="520,54 532,60 520,66"/>
+
+  <!-- Step 4 -->
+  <text x="590" y="25" text-anchor="middle" font-size="12" font-weight="700" fill="#333">4. เชื่อมสาย</text>
+  <rect x="530" y="40" width="120" height="35" fill="#eaf7ea" stroke="#27ae60" stroke-width="2"/>
+  <text x="550" y="63" font-size="14" font-weight="700">A</text>
+  <text x="570" y="63" font-size="14" font-weight="700">C</text>
+  <text x="590" y="63" font-size="14" font-weight="700">G</text>
+  <text x="610" y="63" font-size="14" font-weight="700">C</text>
+  <text x="630" y="63" font-size="14" font-weight="700">A</text>
+  <text x="590" y="95" text-anchor="middle" font-size="10" fill="#27ae60">ซ่อมสำเร็จ ✓</text>
+
+  <!-- Bottom note -->
+  <rect x="20" y="140" width="660" height="100" rx="8" fill="#f4e9d8" stroke="#b9770e"/>
+  <text x="40" y="165" font-size="13" font-weight="700" fill="#8a5a00">ทำไมต้องมี 2 สาย?</text>
+  <text x="40" y="185" font-size="12" fill="#333">เพราะเวลาสายหนึ่งพัง เซลล์ใช้สายคู่ตรงข้ามเป็น "ต้นแบบ" (template)</text>
+  <text x="40" y="205" font-size="12" fill="#333">เห็น G ที่สายตรงข้าม → รู้ทันทีว่าต้องใส่ C ลงไป (เพราะกฎ G-C)</text>
+  <text x="40" y="225" font-size="12" fill="#555" font-style="italic">นี่คือเหตุผลที่เซลล์เรามี DNA 2 สายคู่กัน — เพื่อเป็น backup ซึ่งกันและกัน!</text>
+</svg>
+</div>
+
+<h3>6.2 Nucleotide Excision Repair (NER) — สำหรับ UV damage</h3>
+
+<p>ใช้ตัดส่วนที่บิดเบี้ยวออกทั้งก้อน (ประมาณ 20-30 เบส) แล้วสร้างใหม่ <span class="term">Aziz Sancar</span> ค้นพบกลไกนี้</p>
+
+<h3>6.3 Mismatch Repair (MMR) — "ตรวจการบ้าน"</h3>
+
+<p>เวลาเซลล์คัดลอก DNA บางครั้งก็ใส่เบสผิด (เช่น ควรเป็น G แต่ใส่ T) <span class="term">Paul Modrich</span> พบว่ามีระบบที่ตรวจความผิดพลาดหลังการคัดลอก แล้วแก้ไขทันที</p>
+
+<h3>6.4 Double-Strand Break Repair — สำหรับสายขาดทั้งคู่</h3>
+
+<p>นี่คือความเสียหายที่ร้ายแรงที่สุด เพราะไม่มีสาย template ให้ยึด เซลล์ต้องใช้ <b>โครโมโซมอีกชุด</b> (เราเป็น diploid มี 2 ชุด!) มาช่วย</p>
+
+<div class="diagram">
+<svg viewBox="0 0 640 180" xmlns="http://www.w3.org/2000/svg">
+  <!-- Chromosome 1 broken -->
+  <rect x="30" y="40" width="200" height="25" fill="#c0392b" stroke="#6b1e10" stroke-width="2"/>
+  <rect x="250" y="40" width="100" height="25" fill="#c0392b" stroke="#6b1e10" stroke-width="2"/>
+  <polygon points="230,40 250,40 240,65" fill="#fdecec" stroke="#6b1e10"/>
+  <text x="190" y="90" text-anchor="middle" font-size="12" font-weight="700" fill="#c0392b">โครโมโซมชุดที่ 1 (ขาด!)</text>
+
+  <!-- Chromosome 2 intact -->
+  <rect x="30" y="110" width="320" height="25" fill="#27ae60" stroke="#0b5d2c" stroke-width="2"/>
+  <text x="190" y="160" text-anchor="middle" font-size="12" font-weight="700" fill="#0b5d2c">โครโมโซมชุดที่ 2 (สมบูรณ์ — ใช้เป็น template)</text>
+
+  <!-- Arrow to fixed -->
+  <line x1="370" y1="90" x2="420" y2="90" stroke="#333" stroke-width="3"/>
+  <polygon points="420,82 434,90 420,98"/>
+  <text x="395" y="75" text-anchor="middle" font-size="11" font-weight="700" fill="#27ae60">copy ✓</text>
+
+  <!-- Fixed -->
+  <rect x="450" y="40" width="170" height="25" fill="#27ae60" stroke="#0b5d2c" stroke-width="2"/>
+  <text x="535" y="90" text-anchor="middle" font-size="12" font-weight="700" fill="#0b5d2c">ซ่อมแล้ว</text>
+</svg>
+</div>
+
+<div class="tip">
+<b>เชื่อมกลับกับความเสี่ยงมะเร็ง:</b> <span class="term">BRCA1</span> เป็นยีนที่สำคัญในการซ่อม double-strand break — ถ้ายีนนี้กลายพันธุ์ → ซ่อมไม่ได้ → เซลล์สะสมความเสียหาย → เสี่ยงมะเร็งเต้านม/รังไข่สูงมาก
+</div>
+
+<h3>รางวัลโนเบลสาขาเคมี 2015 🏆</h3>
+
+<table>
+  <tr><th>นักวิทย์</th><th>ค้นพบอะไร</th><th>จำง่ายๆ</th></tr>
+  <tr><td><b>Tomas Lindahl</b></td><td>DNA ไม่เสถียร พังเอง + กลไก Base Excision Repair</td><td>"ผู้เปิดโปง DNA"</td></tr>
+  <tr><td><b>Aziz Sancar</b></td><td>กลไก Nucleotide Excision Repair (ซ่อมความเสียหายจาก UV)</td><td>"ช่างซ่อม UV"</td></tr>
+  <tr><td><b>Paul Modrich</b></td><td>กลไก Mismatch Repair (ตรวจการบ้านหลังคัดลอก)</td><td>"ครูตรวจการบ้าน"</td></tr>
+</table>
+
+<!-- SECTION 7: P53 -->
+<h2 id="p53">7. p53 — ผู้พิทักษ์จีโนม (Guardian of the Genome)</h2>
+
+<p>
+<span class="term">p53</span> คือโปรตีนซุปเปอร์ฮีโร่ของเซลล์ ทำงานเป็น "ยาม" คอยเฝ้าดู DNA เมื่อมีความเสียหายเกิดขึ้น มันจะตัดสินใจทันทีว่าต้องทำอะไรต่อ
+</p>
+
+<div class="diagram">
+<svg viewBox="0 0 700 380" xmlns="http://www.w3.org/2000/svg">
+  <!-- Center node -->
+  <circle cx="350" cy="80" r="50" fill="#c0392b" stroke="#6b1e10" stroke-width="3"/>
+  <text x="350" y="75" text-anchor="middle" font-size="20" font-weight="700" fill="white">p53</text>
+  <text x="350" y="95" text-anchor="middle" font-size="10" fill="white">ตรวจเจอ DNA เสียหาย</text>
+
+  <!-- Branch 1 -->
+  <line x1="310" y1="120" x2="130" y2="180" stroke="#27ae60" stroke-width="3"/>
+  <rect x="30" y="180" width="200" height="70" rx="10" fill="#eaf7ea" stroke="#27ae60" stroke-width="2"/>
+  <text x="130" y="205" text-anchor="middle" font-size="14" font-weight="700" fill="#0b5d2c">① หยุดแบ่งเซลล์</text>
+  <text x="130" y="225" text-anchor="middle" font-size="11" fill="#0b5d2c">(cell cycle arrest)</text>
+  <text x="130" y="245" text-anchor="middle" font-size="11" fill="#666">→ ให้เวลาซ่อม DNA</text>
+
+  <!-- Branch 2 -->
+  <line x1="350" y1="130" x2="350" y2="180" stroke="#e67e22" stroke-width="3"/>
+  <rect x="250" y="180" width="200" height="70" rx="10" fill="#fff3e6" stroke="#e67e22" stroke-width="2"/>
+  <text x="350" y="205" text-anchor="middle" font-size="14" font-weight="700" fill="#a04000">② ฆ่าเซลล์ทิ้ง</text>
+  <text x="350" y="225" text-anchor="middle" font-size="11" fill="#a04000">(apoptosis)</text>
+  <text x="350" y="245" text-anchor="middle" font-size="11" fill="#666">→ เสียหายหนักเกินซ่อม</text>
+
+  <!-- Branch 3 -->
+  <line x1="390" y1="120" x2="570" y2="180" stroke="#8e44ad" stroke-width="3"/>
+  <rect x="470" y="180" width="200" height="70" rx="10" fill="#f0e7ff" stroke="#8e44ad" stroke-width="2"/>
+  <text x="570" y="205" text-anchor="middle" font-size="14" font-weight="700" fill="#5a2a9a">③ สภาพเสื่อม</text>
+  <text x="570" y="225" text-anchor="middle" font-size="11" fill="#5a2a9a">(senescence)</text>
+  <text x="570" y="245" text-anchor="middle" font-size="11" fill="#666">→ ยังไม่ตาย แต่หยุดแบ่ง</text>
+
+  <!-- Bottom explanation -->
+  <rect x="30" y="280" width="640" height="80" rx="8" fill="#fdf7e4" stroke="#e8d084" stroke-width="2"/>
+  <text x="350" y="305" text-anchor="middle" font-size="13" font-weight="700" fill="#8a5a00">ทำไม p53 สำคัญมาก?</text>
+  <text x="350" y="325" text-anchor="middle" font-size="12" fill="#333">กว่า 50% ของมะเร็งทุกชนิดในมนุษย์มีความผิดปกติที่ยีน p53</text>
+  <text x="350" y="345" text-anchor="middle" font-size="12" fill="#333">ถ้า p53 เสีย → เซลล์ที่ DNA พังก็แบ่งตัวต่อได้เรื่อยๆ → สะสมมิวเทชัน → มะเร็ง</text>
+</svg>
+</div>
+
+<div class="mnemonic">p53 เหมือน <b>ยามหน้าประตู</b> ที่มี 3 ปุ่ม: 🟢 หยุดรอซ่อม 🔴 ฆ่าทิ้ง 🟣 ขังไว้</div>
+
+<!-- SECTION 8: PETO PARADOX -->
+<h2 id="peto">8. Peto's Paradox — ทำไมช้างไม่ค่อยเป็นมะเร็ง?</h2>
+
+<p>
+<b>Richard Peto</b> นักระบาดวิทยาชาวอังกฤษ ตั้งคำถามในปี 1970: "ถ้าเซลล์จำนวนมาก + อายุยืน = โอกาสเป็นมะเร็งสูง งั้นช้างก็ควรเป็นมะเร็งมากกว่าคน สิบเท่า ร้อยเท่า!" <br><br>
+แต่ในความเป็นจริง... <b>ช้างเป็นมะเร็งน้อยกว่าคนมาก</b>
+</p>
+
+<div class="diagram">
+<svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg">
+  <!-- Human -->
+  <g>
+    <circle cx="120" cy="90" r="25" fill="#f4c2a1"/>
+    <rect x="95" y="115" width="50" height="70" rx="5" fill="#3498db"/>
+    <text x="120" y="210" text-anchor="middle" font-size="14" font-weight="700">คน</text>
+    <text x="120" y="230" text-anchor="middle" font-size="11" fill="#666">เซลล์ ~37 ล้านล้าน</text>
+    <text x="120" y="248" text-anchor="middle" font-size="11" fill="#666">อายุ ~80 ปี</text>
+    <rect x="60" y="260" width="120" height="30" rx="5" fill="#c0392b"/>
+    <text x="120" y="280" text-anchor="middle" font-size="14" font-weight="700" fill="white">p53 × 1</text>
+  </g>
+
+  <!-- Question mark -->
+  <text x="320" y="130" font-size="60" font-weight="700" fill="#c0392b">?</text>
+  <text x="350" y="160" text-anchor="middle" font-size="12" fill="#666">Peto's</text>
+  <text x="350" y="178" text-anchor="middle" font-size="12" fill="#666">Paradox</text>
+
+  <!-- Elephant -->
+  <g>
+    <!-- body -->
+    <ellipse cx="560" cy="140" rx="80" ry="45" fill="#95a5a6"/>
+    <!-- head -->
+    <circle cx="490" cy="130" r="35" fill="#95a5a6"/>
+    <!-- trunk -->
+    <path d="M 465 140 Q 450 170 460 195" stroke="#95a5a6" stroke-width="15" fill="none" stroke-linecap="round"/>
+    <!-- eyes -->
+    <circle cx="480" cy="120" r="3" fill="black"/>
+    <!-- ear -->
+    <ellipse cx="500" cy="105" rx="15" ry="20" fill="#7f8c8d"/>
+    <!-- legs -->
+    <rect x="510" y="180" width="15" height="25" fill="#7f8c8d"/>
+    <rect x="545" y="180" width="15" height="25" fill="#7f8c8d"/>
+    <rect x="580" y="180" width="15" height="25" fill="#7f8c8d"/>
+    <rect x="615" y="180" width="15" height="25" fill="#7f8c8d"/>
+    <text x="560" y="225" text-anchor="middle" font-size="14" font-weight="700">ช้าง</text>
+    <text x="560" y="243" text-anchor="middle" font-size="11" fill="#666">เซลล์ ~100 เท่าของคน</text>
+    <text x="560" y="260" text-anchor="middle" font-size="11" fill="#666">อายุ ~70 ปี</text>
+    <rect x="490" y="270" width="140" height="30" rx="5" fill="#27ae60"/>
+    <text x="560" y="290" text-anchor="middle" font-size="14" font-weight="700" fill="white">p53 × 20</text>
+  </g>
+
+  <!-- Expected vs actual -->
+  <text x="350" y="40" text-anchor="middle" font-size="13" font-style="italic" fill="#666">คาดการณ์: ช้าง &gt; คน (เสี่ยงมากกว่า)</text>
+  <text x="350" y="60" text-anchor="middle" font-size="13" font-weight="700" fill="#27ae60">ความจริง: ช้าง &lt; คน (เป็นน้อยกว่า!)</text>
+</svg>
+</div>
+
+<div class="tip">
+<b>เฉลยของ Peto's Paradox:</b> ช้างมียีน <b>p53 ถึง 20 ชุด</b> ในขณะที่คนมีแค่ <b>1 ชุด</b> — ทำให้ช้างตรวจจับและฆ่าเซลล์ที่ DNA เสียหายได้มีประสิทธิภาพสูงกว่ามาก นี่คือ "วิวัฒนาการของการป้องกันมะเร็ง" ที่ธรรมชาติหามาเพื่อให้สัตว์ขนาดใหญ่อยู่รอดได้
+</div>
+
+<div class="fact">
+<b>นัยสำคัญ:</b> งานวิจัยปัจจุบันกำลังศึกษาว่าถ้าเราเพิ่ม p53 ในคนได้ อาจช่วยป้องกันมะเร็งและยืดอายุได้ — แต่ต้องระวังเพราะ p53 มากเกินไปอาจเร่งความแก่ (ผ่านการฆ่าเซลล์มากเกิน!)
+</div>
+
+<!-- SECTION 9: AGING -->
+<h2 id="aging">9. ความเชื่อมโยงกับความแก่และความตาย</h2>
+
+<p>ตอนนี้เรามาเชื่อมทุกอย่างเข้าด้วยกัน: ถ้าการซ่อม DNA เก่ง → เรามีชีวิตยาว ถ้ามันอ่อนแอ → เราแก่เร็วและตายเร็ว</p>
+
+<h3>หลักฐานที่เด็ดที่สุด: Cockayne Syndrome</h3>
+
+<div class="card">
+<b>โรค Cockayne Syndrome</b> คือโรคทางพันธุกรรมหายากที่เด็กมีข้อบกพร่องในยีนซ่อม DNA (โดยเฉพาะ NER)
+<br><br>
+อาการของเด็กเหล่านี้:
+<ul>
+  <li>แก่เร็วผิดปกติ (ตัวเล็ก ผิวย่น ผมหงอก)</li>
+  <li>สูญเสียการได้ยิน สายตา</li>
+  <li>ระบบประสาทเสื่อม</li>
+  <li>อายุเฉลี่ย: 10-20 ปี</li>
+</ul>
+<b>บทเรียน:</b> ถ้าระบบซ่อม DNA พัง → ร่างกายแก่เร็วในทุกระบบ → <b>ซ่อม DNA = กุญแจของอายุขัย</b>
+</div>
+
+<p>นักวิจัย <span class="term">Jan Hoeijmakers</span> ศึกษา Cockayne syndrome และชี้ว่าคนปกติก็แก่ด้วยกลไกเดียวกัน แค่ช้ากว่า — นี่คือหลักฐานว่า <b>ความแก่ตามธรรมชาติ = การสะสมของความเสียหาย DNA ที่ซ่อมไม่ทัน</b></p>
+
+<h3>สรุปความเชื่อมโยง</h3>
+
+<div class="flow">
+  <div class="node">DNA เสียหาย</div>
+  <div class="arrow">→</div>
+  <div class="node">ระบบซ่อมทำงาน</div>
+  <div class="arrow">→</div>
+  <div class="node">ซ่อมไม่ทัน/ไม่ไหว</div>
+  <div class="arrow">→</div>
+  <div class="node" style="background:#c0392b;">เซลล์ตาย / มะเร็ง / แก่</div>
+</div>
+
+<!-- QUIZ -->
+<h2 id="quiz">10. คำถามทบทวน (Self-Quiz)</h2>
+
+<p><i>คลิกที่คำถามเพื่อดูคำตอบ</i></p>
+
+<details class="quiz">
+  <summary>1. DNA ใช้ตัวอักษรอะไรบ้าง และจับคู่กันอย่างไร?</summary>
+  <p>ใช้ 4 ตัวอักษร: <b>A, T, G, C</b> กฎการจับคู่คือ <b>A จับกับ T</b> เสมอ และ <b>G จับกับ C</b> เสมอ เรียกว่า complementary base pairing</p>
+</details>
+
+<details class="quiz">
+  <summary>2. Codon คืออะไร?</summary>
+  <p>Codon = รหัส 3 ตัวอักษรบน mRNA ที่ไรโบโซมอ่านเพื่อแปลเป็น <b>1 กรดอะมิโน</b> มีกรดอะมิโนในธรรมชาติ 20 ชนิด แต่มี codon ได้ 64 ชุด (4³) — จึงมี codon ที่ให้กรดอะมิโนซ้ำกัน + STOP codon</p>
+</details>
+
+<details class="quiz">
+  <summary>3. ทำไมปอมเปอีถึงเป็นอุปมาของความตาย?</summary>
+  <p>เพราะปอมเปอีแสดงภาพ "ชีวิตที่ถูกหยุดเวลา" — เมื่อตัวควบคุมหลัก (DNA) ถูกทำลาย ทุกอย่างในเซลล์ก็หยุดเหมือนร่างคนในเถ้าถ่าน</p>
+</details>
+
+<details class="quiz">
+  <summary>4. ทำไมเซลล์เราต้อง diploid (มี 2 ชุด)?</summary>
+  <p>เพราะเมื่อสายหนึ่งเสียหายหรือขาด อีกสายหนึ่ง/อีกชุดหนึ่งเป็น "ต้นแบบ" (template) ให้ใช้ซ่อม โดยเฉพาะกรณี double-strand break ที่ต้องมี template สำรองเท่านั้นจึงซ่อมได้</p>
+</details>
+
+<details class="quiz">
+  <summary>5. Thymine dimer คืออะไร เกิดจากอะไร?</summary>
+  <p>เกิดจาก <b>UV</b> ทำให้ Thymine 2 ตัวที่อยู่ติดกันเกาะกัน ทำให้ DNA บิดเบี้ยว ซ่อมด้วยระบบ <b>Nucleotide Excision Repair (NER)</b> — Aziz Sancar ค้นพบกลไกนี้และได้โนเบลปี 2015</p>
+</details>
+
+<details class="quiz">
+  <summary>6. DNA "พังเอง" กี่ครั้งต่อวันต่อเซลล์?</summary>
+  <p>ประมาณ <b>100,000+ ครั้งต่อวันต่อเซลล์</b> ทั้งจากความร้อน น้ำ และการคัดลอกผิดพลาด — เราอยู่ได้เพราะเซลล์ซ่อมไวกว่าที่มันพัง (Tomas Lindahl ค้นพบ)</p>
+</details>
+
+<details class="quiz">
+  <summary>7. p53 ทำหน้าที่อะไร?</summary>
+  <p>p53 คือ "ยาม" ที่ตรวจสอบความเสียหายของ DNA ถ้าเจอ มันเลือกได้ 3 ทาง: ① หยุดแบ่งเซลล์เพื่อรอซ่อม ② ส่งเซลล์ไปตายแบบ apoptosis ③ ส่งเซลล์เข้าสู่สภาพเสื่อม senescence — กว่า 50% ของมะเร็งมีปัญหาที่ p53</p>
+</details>
+
+<details class="quiz">
+  <summary>8. Peto's Paradox และการแก้?</summary>
+  <p>ปริศนา: ช้างควรเป็นมะเร็งมากกว่าคนเพราะมีเซลล์มากกว่า แต่จริงๆ เป็นน้อยกว่า — <b>เฉลย:</b> ช้างมียีน p53 ถึง 20 ชุด ขณะที่คนมีแค่ 1 ชุด ทำให้ช้างป้องกันมะเร็งได้ดีกว่ามาก</p>
+</details>
+
+<details class="quiz">
+  <summary>9. Cockayne Syndrome บอกอะไรเรา?</summary>
+  <p>เป็นโรคที่เด็กมีระบบซ่อม DNA พัง → แก่เร็วผิดปกติตั้งแต่เด็ก → เป็นหลักฐานว่า "<b>ซ่อม DNA ไม่ได้ = แก่</b>" — Jan Hoeijmakers ชี้ว่ากลไกเดียวกันทำให้คนปกติแก่ แค่ช้ากว่า</p>
+</details>
+
+<details class="quiz">
+  <summary>10. ทำไม Tomas Lindahl บอกว่า DNA ไม่เสถียร?</summary>
+  <p>เพราะเขาพิสูจน์ว่า DNA ถูกทำลายเองจากอุณหภูมิและน้ำในเซลล์ เช่น C→U เองโดยอัตโนมัติ เบสหลุดเอง — ก่อนหน้าเขา ทุกคนคิดว่า DNA เสถียรพอจะเป็น "ห้องสมุดถาวร" ของชีวิต</p>
+</details>
+
+<!-- Key takeaways -->
+<h2>🎯 สามข้อคิดส่งท้าย</h2>
+
+<div class="card" style="border-top-color:#c0392b;">
+<b>① เราไม่ได้ตายเพราะ DNA ถูกทำลาย เราตายเพราะ "ซ่อมไม่ทัน"</b><br>
+ความแก่ = การแพ้ในการแข่งขันระหว่าง "ความเสียหาย" กับ "การซ่อม" เมื่อเวลาผ่านไป ระบบซ่อมอ่อนลง และความเสียหายสะสมมากขึ้น
+</div>
+
+<div class="card" style="border-top-color:#e67e22;">
+<b>② มะเร็งกับความแก่เป็นเหรียญสองด้านของปัญหาเดียวกัน</b><br>
+ถ้าซ่อมเก่งเกินไป / ฆ่าเซลล์ไม่หมด → เสี่ยงมะเร็ง<br>
+ถ้าซ่อมไม่เก่ง / ฆ่าเซลล์มากเกิน → เสื่อม/แก่เร็ว<br>
+ธรรมชาติต้องหา "จุดสมดุล" เสมอ
+</div>
+
+<div class="card" style="border-top-color:#27ae60;">
+<b>③ ช้างเป็นครู</b><br>
+การที่ช้างมี p53 มากกว่าคน 20 เท่า แสดงว่าธรรมชาติ<b>หาวิธี</b>ยืดอายุขัยโดยไม่เพิ่มมะเร็งได้จริง — เป็นความหวังสำหรับเทคโนโลยีต้านวัยในอนาคต
+</div>
+
+<hr style="margin-top:60px;">
+<p style="text-align:center; color:#888; font-size:0.9em;">
+สรุปจาก <i>Why We Die: The New Science of Aging and the Quest for Immortality</i> โดย Venki Ramakrishnan — บทที่ 3<br>
+จัดทำเป็น visual study guide สำหรับผู้เริ่มต้นในสาขาชีววิทยาระดับเซลล์
+</p>
+
+</body>
+</html>

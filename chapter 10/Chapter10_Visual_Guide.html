@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>บทที่ 10 — ความเจ็บปวดและเลือดแวมไพร์ | Visual Study Guide</title>
+<style>
+  :root {
+    --bg: #fdfcf7;
+    --ink: #1f2933;
+    --accent: #8b1a1a;
+    --accent2: #2c5f8d;
+    --accent3: #27ae60;
+    --accent4: #e67e22;
+    --soft: #f4e9d8;
+    --box: #ffffff;
+    --shadow: 0 4px 16px rgba(0,0,0,0.08);
+    --vampire: #5c0a0a;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, "Segoe UI", "Sarabun", "Noto Sans Thai", sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+    line-height: 1.75;
+    font-size: 17px;
+  }
+  h1 { font-size: 2.4em; border-bottom: 4px double var(--accent); padding-bottom: 12px; margin-bottom: 8px; color: var(--accent); }
+  h1 .sub { display: block; font-size: 0.5em; color: #666; font-weight: normal; margin-top: 6px; }
+  h2 { font-size: 1.6em; color: var(--accent2); border-left: 6px solid var(--accent2); padding-left: 14px; margin-top: 60px; }
+  h3 { color: var(--accent); margin-top: 32px; font-size: 1.25em; }
+  .hero { background: linear-gradient(135deg, #fff0f0 0%, #ffe4cc 100%); padding: 24px 28px; border-radius: 14px; margin: 28px 0; border-left: 6px solid var(--accent); box-shadow: var(--shadow); }
+  .hero .big { font-size: 1.3em; font-weight: 600; color: var(--accent); }
+  .analogy { background: #eef6fb; border: 2px dashed var(--accent2); padding: 16px 20px; border-radius: 10px; margin: 18px 0; }
+  .analogy::before { content: "💡 ลองคิดแบบนี้ "; font-weight: 700; color: var(--accent2); }
+  .warning { background: #fff3e6; border-left: 5px solid #e67e22; padding: 14px 18px; border-radius: 6px; margin: 18px 0; }
+  .warning::before { content: "⚠️ ข้อควรระวัง: "; font-weight: 700; color: #e67e22; }
+  .tip { background: #eaf7ea; border-left: 5px solid var(--accent3); padding: 14px 18px; border-radius: 6px; margin: 18px 0; }
+  .fact { background: #fdecec; border-left: 5px solid var(--accent); padding: 14px 18px; border-radius: 6px; margin: 18px 0; }
+  .diagram { background: var(--box); border: 1px solid #e0d8c5; border-radius: 12px; padding: 20px; margin: 24px 0; box-shadow: var(--shadow); text-align: center; }
+  .diagram .caption { font-size: 0.92em; color: #555; margin-top: 10px; font-style: italic; }
+  table { width: 100%; border-collapse: collapse; margin: 20px 0; background: var(--box); border-radius: 10px; overflow: hidden; box-shadow: var(--shadow); }
+  th, td { padding: 12px 14px; text-align: left; border-bottom: 1px solid #eee; }
+  th { background: var(--accent2); color: white; }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) { background: #faf7ef; }
+  .quiz { background: #fdf7e4; padding: 20px 26px; border-radius: 10px; margin: 16px 0; border: 2px solid #e8d084; }
+  .quiz summary { cursor: pointer; font-weight: 600; color: var(--accent); padding: 8px 0; }
+  .quiz p { margin: 10px 0 0; padding: 10px; background: white; border-radius: 6px; }
+  .term { display: inline-block; background: #fff3d6; padding: 1px 8px; border-radius: 4px; font-weight: 600; color: #8a5a00; }
+  .flow { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 12px; margin: 20px 0; }
+  .flow .node { background: var(--accent2); color: white; padding: 12px 18px; border-radius: 8px; font-weight: 600; min-width: 120px; text-align: center; }
+  .flow .arrow { font-size: 1.6em; color: var(--accent); }
+  .flow .node.red { background: var(--accent); }
+  .flow .node.green { background: var(--accent3); }
+  .flow .node.orange { background: var(--accent4); }
+  .card { background: var(--box); padding: 18px 22px; border-radius: 10px; box-shadow: var(--shadow); margin: 14px 0; border-top: 4px solid var(--accent2); }
+  .card.vampire { border-top: 4px solid var(--vampire); background: linear-gradient(to bottom, #fff5f5, #ffffff); }
+  .mnemonic { background: #f0e7ff; border-left: 5px solid #6c3bd9; padding: 12px 18px; border-radius: 6px; margin: 12px 0; font-size: 0.98em; }
+  .mnemonic::before { content: "🧠 วิธีจำ: "; font-weight: 700; color: #6c3bd9; }
+  .toc { background: var(--soft); padding: 18px 28px; border-radius: 10px; margin-bottom: 40px; }
+  .toc h3 { margin-top: 0; color: var(--accent); }
+  .toc ol { padding-left: 22px; }
+  .toc a { color: var(--accent2); text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+  .stat-box { display: inline-block; background: white; padding: 16px 22px; border-radius: 10px; box-shadow: var(--shadow); margin: 8px; text-align: center; min-width: 180px; }
+  .stat-box .num { font-size: 2em; font-weight: 700; color: var(--accent); display: block; }
+  .stat-box .lbl { font-size: 0.88em; color: #666; }
+  .timeline { position: relative; padding: 20px 0 20px 40px; margin: 20px 0; }
+  .timeline::before { content: ''; position: absolute; left: 18px; top: 0; bottom: 0; width: 4px; background: var(--accent); border-radius: 2px; }
+  .timeline-item { position: relative; margin-bottom: 28px; padding: 14px 18px; background: var(--box); border-radius: 10px; box-shadow: var(--shadow); }
+  .timeline-item::before { content: ''; position: absolute; left: -30px; top: 18px; width: 14px; height: 14px; background: var(--accent); border-radius: 50%; border: 3px solid var(--bg); }
+  .timeline-item .year { font-weight: 700; color: var(--accent); font-size: 1.1em; }
+  .versus { display: flex; gap: 20px; margin: 24px 0; flex-wrap: wrap; }
+  .versus .side { flex: 1; min-width: 280px; padding: 18px 22px; border-radius: 10px; box-shadow: var(--shadow); }
+  .versus .good { background: #eaf7ea; border-top: 4px solid var(--accent3); }
+  .versus .bad { background: #fdecec; border-top: 4px solid var(--accent); }
+  .versus h4 { margin-top: 0; }
+  .three-col { display: flex; gap: 16px; margin: 24px 0; flex-wrap: wrap; }
+  .three-col .col { flex: 1; min-width: 240px; padding: 16px 18px; border-radius: 10px; box-shadow: var(--shadow); background: var(--box); }
+  .three-col .col h4 { margin-top: 0; color: var(--accent2); }
+  .four-col { display: flex; gap: 14px; margin: 24px 0; flex-wrap: wrap; }
+  .four-col .col { flex: 1; min-width: 190px; padding: 14px 16px; border-radius: 10px; box-shadow: var(--shadow); background: var(--box); text-align: center; }
+  .four-col .col h4 { margin-top: 0; color: var(--accent2); font-size: 1em; }
+  .badge { display: inline-block; background: var(--accent); color: white; padding: 3px 10px; border-radius: 20px; font-size: 0.82em; font-weight: 600; margin: 2px 4px; }
+  .badge.green { background: var(--accent3); }
+  .badge.blue { background: var(--accent2); }
+  .badge.orange { background: var(--accent4); }
+  .process-box { background: linear-gradient(to right, #eef6fb, #f0f9f0); border: 2px solid var(--accent2); border-radius: 12px; padding: 20px; margin: 20px 0; }
+  .process-step { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 14px; }
+  .process-step .step-num { background: var(--accent2); color: white; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0; }
+  .process-step .step-text { flex: 1; }
+  .person-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; margin: 20px 0; }
+  .person-card { padding: 16px; border-radius: 10px; box-shadow: var(--shadow); background: var(--box); border-left: 5px solid var(--accent2); }
+  .person-card .name { font-weight: 700; color: var(--accent2); font-size: 1.1em; }
+  .person-card .role { font-size: 0.88em; color: #666; margin-bottom: 6px; }
+  .blood-compare { display: flex; gap: 0; margin: 24px 0; border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); }
+  .blood-compare .young { flex: 1; background: linear-gradient(135deg, #e8f5e9, #c8e6c9); padding: 20px; }
+  .blood-compare .old { flex: 1; background: linear-gradient(135deg, #ffebee, #ffcdd2); padding: 20px; }
+  .blood-compare h4 { margin-top: 0; }
+  .age-change { display: flex; gap: 16px; margin: 20px 0; flex-wrap: wrap; }
+  .age-change .item { flex: 1; min-width: 160px; padding: 14px; border-radius: 10px; background: var(--box); box-shadow: var(--shadow); text-align: center; border-left: 4px solid var(--accent); }
+  .age-change .item .emoji { font-size: 1.8em; }
+</style>
+</head>
+<body>
+
+<h1>บทที่ 10 — ความเจ็บปวดและเลือดแวมไพร์
+  <span class="sub">Hurts and Vampire Blood · Why We Die by Venki Ramakrishnan</span>
+</h1>
+
+<div class="hero">
+  <div class="big">ภาพรวม 1 ประโยค:</div>
+  <span class="term">เซลล์ต้นกำเนิด</span> คือกองกำลังซ่อมบำรุงของร่างกาย แต่เมื่ออายุมากขึ้นก็เสื่อมลงทั้งจำนวนและคุณภาพ — การทดลอง <span class="term">Parabiosis</span> เผยว่าเลือดอายุน้อยมี "ปัจจัยฟื้นฟู" ที่ช่วยชะลอความชรา แต่การนำไปใช้จริงยังเต็มไปด้วย <b>ข้อจำกัดและความเสี่ยง</b>
+</div>
+
+<div class="toc">
+  <h3>📚 สารบัญ</h3>
+  <ol>
+    <li><a href="#opening">ภาพเปิดเรื่อง — เดินข้ามอังกฤษ</a></li>
+    <li><a href="#stemcells">เซลล์ต้นกำเนิด — กองกำลังซ่อมบำรุง</a></li>
+    <li><a href="#tissue">เนื้อเยื่อที่เสื่อมตามอายุ</a></li>
+    <li><a href="#clonal">Clonal Hematopoiesis — เมื่อเซลล์กลายพันธุ์ยึดครอง</a></li>
+    <li><a href="#ips">IPS Cells & ปัจจัยยามานากะ — ย้อนเวลาเซลล์</a></li>
+    <li><a href="#parabiosis">Parabiosis — เลือดแวมไพร์</a></li>
+    <li><a href="#business">ธุรกิจเลือดอายุน้อย — ความหวังหรือหลอกลวง?</a></li>
+    <li><a href="#vocab">คำศัพท์สำคัญ & Quiz</a></li>
+  </ol>
+</div>
+
+<!-- ===== SECTION 1: OPENING ===== -->
+<h2 id="opening">🚶 1. ภาพเปิดเรื่อง — เดินข้ามประเทศอังกฤษ</h2>
+
+<p>Ramakrishnan เล่าถึงการเดินทางไกลข้ามอังกฤษ เส้นทาง <b>Coast to Coast</b> ระยะทางราว <b>200 ไมล์</b> ร่วมกับเพื่อนๆ ในฤดูร้อนปี 2013 เขาพบว่าตัวเองเดินช้ากว่าคนอื่น ข้อเข่าเจ็บ ร่างกายฟื้นตัวช้า — สัญญาณชัดเจนของ <b>ความเสื่อมตามอายุ</b></p>
+
+<div class="stat-box">
+  <span class="num">200</span>
+  <span class="lbl">ไมล์ — ระยะทาง Coast to Coast</span>
+</div>
+<div class="stat-box">
+  <span class="num">2013</span>
+  <span class="lbl">ปีที่เดินทาง</span>
+</div>
+
+<div class="analogy">ร่างกายเหมือนเส้นทางเดินป่า — เมื่อใช้มานานโดยไม่มีทีมซ่อมบำรุง (เซลล์ต้นกำเนิด) ที่แข็งแรง ทางก็ชำรุดทรุดโทรมลง</div>
+
+<!-- ===== SECTION 2: STEM CELLS ===== -->
+<h2 id="stemcells">🧫 2. เซลล์ต้นกำเนิด — กองกำลังซ่อมบำรุง</h2>
+
+<p><span class="term">Stem Cells</span> (เซลล์ต้นกำเนิด) คือเซลล์พิเศษที่มี <b>2 ความสามารถหลัก</b> ที่เซลล์ปกติไม่มี:</p>
+
+<div class="versus">
+  <div class="side good">
+    <h4>🔄 Self-Renewal</h4>
+    <p><b>แบ่งตัวเองได้</b> — สร้างสำเนาของตัวเองได้ไม่จำกัด ทำให้มีกองกำลังสำรองเสมอ</p>
+  </div>
+  <div class="side good" style="border-top-color: var(--accent2);">
+    <h4>🔀 Differentiation</h4>
+    <p><b>เปลี่ยนเป็นเซลล์ชนิดต่างๆ ได้</b> — กลายเป็นเซลล์ผิวหนัง เซลล์เลือด กล้ามเนื้อ ประสาท ฯลฯ</p>
+  </div>
+</div>
+
+<h3>ประเภทเซลล์ต้นกำเนิด:</h3>
+<div class="three-col">
+  <div class="col">
+    <h4>🥚 Embryonic Stem Cells</h4>
+    <p>เซลล์ต้นกำเนิดตัวอ่อน — มี <span class="term">Pluripotent</span> ศักยภาพรอบด้าน เปลี่ยนเป็นเซลล์ชนิดใดก็ได้</p>
+  </div>
+  <div class="col">
+    <h4>🩸 Adult Stem Cells</h4>
+    <p>เซลล์ต้นกำเนิดในผู้ใหญ่ — เฉพาะทางมากขึ้น เช่น <span class="term">Hematopoietic Stem Cells</span> ในไขกระดูกสร้างเซลล์เลือด</p>
+  </div>
+  <div class="col">
+    <h4>🧬 iPS Cells</h4>
+    <p>เซลล์ต้นกำเนิดเหนี่ยวนำ — สร้างจากเซลล์โตเต็มวัยโดยการ "รีโปรแกรม" (ดูหัวข้อ 5)</p>
+  </div>
+</div>
+
+<div class="card">
+  <h3 style="margin-top:0">👨‍🔬 การค้นพบสำคัญ — McCulloch & Till (1960s)</h3>
+  <p><b>เออร์เนสต์ แมคคัลลอช</b> และ <b>เจมส์ ทิลล์</b> ค้นพบว่า <b>ไขกระดูก</b> มีเซลล์ต้นกำเนิดที่สร้างเซลล์เลือดทุกชนิดได้ — เป็นรากฐานของ <b>การปลูกถ่ายไขกระดูก</b> ในการรักษามะเร็งเลือด</p>
+</div>
+
+<h3>เซลล์ต้นกำเนิดเสื่อมอย่างไรเมื่อแก่ตัว?</h3>
+
+<div class="four-col">
+  <div class="col">
+    <h4>📉 จำนวนลดลง</h4>
+    <p>มีเซลล์ต้นกำเนิดน้อยลงเรื่อยๆ</p>
+  </div>
+  <div class="col">
+    <h4>🐌 ทำงานช้าลง</h4>
+    <p>แบ่งตัวช้า เปลี่ยนเป็นเซลล์เฉพาะทางได้แย่ลง</p>
+  </div>
+  <div class="col">
+    <h4>💥 DNA เสียหาย</h4>
+    <p>การกลายพันธุ์สะสมทุกครั้งที่แบ่งตัว</p>
+  </div>
+  <div class="col">
+    <h4>🏚️ Niche เสื่อม</h4>
+    <p>"บ้าน" ของเซลล์ต้นกำเนิดก็เสื่อมตามไปด้วย</p>
+  </div>
+</div>
+
+<div class="mnemonic">เซลล์ต้นกำเนิด = ทีมช่างซ่อมอาคาร เมื่อทีมลดคน แก่ตัว อุปกรณ์พัง → อาคาร (ร่างกาย) ก็ทรุดโทรมเร็วขึ้น</div>
+
+<!-- ===== SECTION 3: TISSUE DECLINE ===== -->
+<h2 id="tissue">🏥 3. เนื้อเยื่อที่เสื่อมตามอายุ</h2>
+
+<h3>สัตว์ที่ฟื้นฟูร่างกายได้อย่างน่าทึ่ง:</h3>
+<div class="three-col">
+  <div class="col" style="border-top: 4px solid var(--accent3);">
+    <h4>🦎 ซาลาแมนเดอร์</h4>
+    <p>งอกขา หาง หัวใจ ดวงตาใหม่ได้</p>
+  </div>
+  <div class="col" style="border-top: 4px solid var(--accent3);">
+    <h4>🐟 ปลาซีบราฟิช</h4>
+    <p>ฟื้นฟูหัวใจที่เสียหายได้</p>
+  </div>
+  <div class="col" style="border-top: 4px solid var(--accent3);">
+    <h4>🪱 หนอนแพลนาเรีย</h4>
+    <p>ตัดเป็นชิ้นๆ แต่ละชิ้นงอกเป็นตัวใหม่</p>
+  </div>
+</div>
+
+<p>แต่ <b>มนุษย์</b> มีความสามารถในการฟื้นฟูจำกัดมาก — ตับงอกบางส่วนได้ ผิวหนังซ่อมแผลได้ แต่ <b>หัวใจ สมอง เส้นประสาท</b> แทบฟื้นฟูไม่ได้เลย</p>
+
+<h3>อวัยวะและเนื้อเยื่อที่เสื่อม:</h3>
+
+<div class="age-change">
+  <div class="item">
+    <div class="emoji">🧴</div>
+    <b>ผิวหนัง</b><br>บางลง เสียความยืดหยุ่น
+  </div>
+  <div class="item">
+    <div class="emoji">💪</div>
+    <b>กล้ามเนื้อ</b><br>หดตัว อ่อนแรง
+  </div>
+  <div class="item">
+    <div class="emoji">🦴</div>
+    <b>กระดูก-ข้อ</b><br>เปราะ ข้อเสื่อม
+  </div>
+  <div class="item">
+    <div class="emoji">❤️</div>
+    <b>หัวใจ-หลอดเลือด</b><br>แข็งตัว รั่วซึม
+  </div>
+  <div class="item">
+    <div class="emoji">🛡️</div>
+    <b>ภูมิคุ้มกัน</b><br>เสื่อม ติดเชื้อง่าย
+  </div>
+</div>
+
+<div class="fact">
+  <b>ตัวเลขสำคัญ:</b> ระบบหัวใจ-หลอดเลือดเสื่อม หายรั่วมีอายุขึ้นถึง <b>30%</b> — นี่คือสาเหตุหลักที่ผู้สูงอายุมีความเสี่ยงโรคหัวใจสูง
+</div>
+
+<div class="card">
+  <h3 style="margin-top:0">🛡️ Immunosenescence — ภูมิคุ้มกันเสื่อมตามวัย</h3>
+  <p>เมื่ออายุมากขึ้น เซลล์ต้นกำเนิดเลือดสร้างเซลล์ภูมิคุ้มกันได้น้อยลงและหลากหลายน้อยลง → ติดเชื้อง่ายขึ้น ฉีดวัคซีนได้ผลน้อยลง เสี่ยงต่อการอักเสบเรื้อรัง</p>
+</div>
+
+<div class="mnemonic">Immunosenescence = กองทัพที่ทหารเกษียณไปเรื่อยๆ แต่ทหารใหม่รับมาไม่พอทดแทน</div>
+
+<!-- ===== SECTION 4: CLONAL HEMATOPOIESIS ===== -->
+<h2 id="clonal">🧬 4. Clonal Hematopoiesis — เมื่อเซลล์กลายพันธุ์ยึดครอง</h2>
+
+<p>เมื่อเซลล์ต้นกำเนิดเลือดแก่ตัว ไม่ได้แค่ลดจำนวน แต่ยังเกิด <b>การกลายพันธุ์สะสม</b> — เซลล์บางตัวที่กลายพันธุ์กลับ <b>ได้เปรียบในการแบ่งตัว</b></p>
+
+<div class="diagram">
+  <svg width="600" height="200" viewBox="0 0 600 200">
+    <!-- Normal cells -->
+    <circle cx="80" cy="60" r="25" fill="#4CAF50" opacity="0.8"/>
+    <circle cx="140" cy="60" r="25" fill="#4CAF50" opacity="0.8"/>
+    <circle cx="200" cy="60" r="25" fill="#4CAF50" opacity="0.8"/>
+    <circle cx="260" cy="60" r="25" fill="#4CAF50" opacity="0.8"/>
+    <circle cx="320" cy="60" r="25" fill="#4CAF50" opacity="0.8"/>
+    <text x="200" y="15" text-anchor="middle" fill="#333" font-weight="bold" font-size="14">อายุน้อย: เซลล์ปกติหลากหลาย</text>
+
+    <!-- Mutant taking over -->
+    <circle cx="80" cy="155" r="25" fill="#e74c3c" opacity="0.9"/>
+    <circle cx="140" cy="155" r="25" fill="#e74c3c" opacity="0.9"/>
+    <circle cx="200" cy="155" r="25" fill="#e74c3c" opacity="0.9"/>
+    <circle cx="260" cy="155" r="25" fill="#4CAF50" opacity="0.4"/>
+    <circle cx="320" cy="155" r="25" fill="#4CAF50" opacity="0.4"/>
+    <text x="200" y="115" text-anchor="middle" fill="#333" font-weight="bold" font-size="14">อายุมาก: โคลนกลายพันธุ์ (แดง) ครอบงำ</text>
+
+    <!-- Arrow -->
+    <path d="M 400 60 L 400 140" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <text x="440" y="105" fill="#666" font-size="12">เวลา</text>
+    <defs><marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#666"/></marker></defs>
+  </svg>
+  <div class="caption">Clonal Hematopoiesis: เซลล์กลายพันธุ์ (แดง) ค่อยๆ แย่งที่เซลล์ปกติ (เขียว)</div>
+</div>
+
+<div class="stat-box">
+  <span class="num">20-30%</span>
+  <span class="lbl">ของคนอายุ 70+ มีภาวะนี้</span>
+</div>
+
+<div class="fact">
+  <b>ความเสี่ยง:</b> Clonal Hematopoiesis เพิ่มโอกาสเกิด <b>มะเร็งเลือด</b> และ <b>โรคหัวใจ-หลอดเลือด</b> อย่างมีนัยสำคัญ
+</div>
+
+<div class="analogy">เหมือนวัชพืชในสวน — ต้นไม้ดี (เซลล์ปกติ) โตช้าลง แต่วัชพืช (เซลล์กลายพันธุ์) โตเร็วแย่งพื้นที่</div>
+
+<!-- ===== SECTION 5: IPS CELLS ===== -->
+<h2 id="ips">🧪 5. iPS Cells & ปัจจัยยามานากะ — ย้อนเวลาเซลล์</h2>
+
+<div class="card">
+  <h3 style="margin-top:0">👨‍🔬 ชินยะ ยามานากะ (Shinya Yamanaka)</h3>
+  <p>ค้นพบวิธี <b>"รีโปรแกรม"</b> เซลล์ที่โตเต็มที่แล้วให้กลับเป็นเซลล์ต้นกำเนิด โดยใช้ยีนควบคุม 4 ตัว — ได้รับ <b>รางวัลโนเบล</b> จากการค้นพบนี้</p>
+</div>
+
+<h3>ปัจจัยยามานากะ 4 ตัว (OSKM):</h3>
+<div class="four-col">
+  <div class="col" style="border-top: 4px solid var(--accent);">
+    <h4>Oct4</h4>
+    <p>ยีนควบคุมหลักของสถานะ pluripotent</p>
+  </div>
+  <div class="col" style="border-top: 4px solid var(--accent4);">
+    <h4>Sox2</h4>
+    <p>ร่วมกับ Oct4 ควบคุมยีนต้นกำเนิด</p>
+  </div>
+  <div class="col" style="border-top: 4px solid var(--accent2);">
+    <h4>Klf4</h4>
+    <p>ยับยั้งการตายของเซลล์</p>
+  </div>
+  <div class="col" style="border-top: 4px solid #e74c3c;">
+    <h4>c-Myc ⚠️</h4>
+    <p><b>ยีนก่อมะเร็ง!</b> เร่งการแบ่งตัว แต่อาจทำให้เซลล์หลุดควบคุม</p>
+  </div>
+</div>
+
+<div class="flow">
+  <div class="node">เซลล์ผิวหนังปกติ</div>
+  <div class="arrow">→</div>
+  <div class="node orange">+ OSKM</div>
+  <div class="arrow">→</div>
+  <div class="node green">iPS Cell (Pluripotent)</div>
+  <div class="arrow">→</div>
+  <div class="node">เซลล์ชนิดใดก็ได้</div>
+</div>
+
+<h3>ปัญหาและข้อจำกัด:</h3>
+<div class="versus">
+  <div class="side good">
+    <h4>✅ ศักยภาพ</h4>
+    <p>สร้างเซลล์ต้นกำเนิดจากเซลล์ผู้ป่วยเอง ไม่ต้องใช้ตัวอ่อน ลดปัญหาจริยธรรม</p>
+    <p>อาจใช้ฟื้นฟูอวัยวะที่เสื่อม</p>
+  </div>
+  <div class="side bad">
+    <h4>❌ ความเสี่ยง</h4>
+    <p><span class="term">Teratoma</span> — เนื้องอกที่มีผม ฟัน กระดูกปะปน</p>
+    <p><b>c-Myc</b> เป็นยีนก่อมะเร็ง</p>
+    <p>ควบคุมระดับ "พอดี" ยังยาก</p>
+  </div>
+</div>
+
+<h3>นักวิจัยสำคัญ:</h3>
+<div class="person-grid">
+  <div class="person-card">
+    <div class="name">เดวิด ซินแคลร์ (David Sinclair)</div>
+    <div class="role">Harvard — ผู้บุกเบิกการ "ย้อนวัย" เซลล์</div>
+    <p>ใช้ปัจจัยยามานากะ (ไม่รวม c-Myc) ฟื้นฟูเส้นประสาทตาหนูที่ตาบอดจากต้อหิน — <b>หนูกลับมามองเห็นได้</b> แต่งานบางชิ้นถูกตั้งคำถามเรื่องความน่าเชื่อถือ</p>
+  </div>
+  <div class="person-card">
+    <div class="name">ฮวน การ์โลส อิซปิซัว เบลมอนเต</div>
+    <div class="role">Salk Institute — ปัจจัยยามานากะแบบ "พัลส์"</div>
+    <p>ให้ปัจจัยยามานากะแก่หนูเป็นระยะสั้นๆ → ผิวหนัง เนื้อเยื่อดีขึ้น หัวใจแข็งแรง <b>อายุเพิ่มถึง 30%</b></p>
+  </div>
+</div>
+
+<div class="mnemonic">ปัจจัยยามานากะ = ปุ่ม "Factory Reset" ของเซลล์ — กดนิดเดียวก็ฟื้นฟูได้ แต่ถ้ากดแรงเกินเซลล์อาจหลุดควบคุมกลายเป็นมะเร็ง</div>
+
+<!-- ===== SECTION 6: PARABIOSIS ===== -->
+<h2 id="parabiosis">🧛 6. Parabiosis — เลือดแวมไพร์</h2>
+
+<div class="card vampire">
+  <h3 style="margin-top:0; color: var(--vampire);">🩸 Parabiosis คืออะไร?</h3>
+  <p>การผ่าตัด <b>เชื่อมระบบไหลเวียนเลือด</b> ของสัตว์สองตัวเข้าด้วยกัน — ทำให้เลือดไหลเวียนร่วมกัน ริเริ่มในศตวรรษที่ 19 โดย <b>Paul Bert</b></p>
+</div>
+
+<div class="timeline">
+  <div class="timeline-item">
+    <div class="year">ศตวรรษที่ 19</div>
+    <b>Paul Bert</b> ริเริ่มเทคนิค Parabiosis ในสัตว์ทดลอง
+  </div>
+  <div class="timeline-item">
+    <div class="year">ทศวรรษ 1950</div>
+    นักวิจัยพบว่าหนูแก่ที่เชื่อมเลือดกับหนูอายุน้อย <b>มีสุขภาพดีขึ้น ดูอายุน้อยลง</b> มีอายุยืนขึ้น
+  </div>
+  <div class="timeline-item">
+    <div class="year">ทศวรรษ 1970</div>
+    งานวิจัยหยุดชะงักไปเป็นเวลานาน
+  </div>
+  <div class="timeline-item">
+    <div class="year">ทศวรรษ 2000s</div>
+    <b>Irina & Michael Conboy</b> (Stanford) กลับมาศึกษาอีกครั้ง ภายใต้ <b>Thomas Rando</b> — พบว่าเซลล์ต้นกำเนิดหนูแก่ <b>ฟื้นฟูการทำงาน</b> เมื่อได้รับเลือดอายุน้อย
+  </div>
+  <div class="timeline-item">
+    <div class="year">2013-2017</div>
+    <b>Tony Wyss-Coray</b> พบว่า <b>พลาสมา</b> จากเลือดอายุน้อยก็เพียงพอ — ช่วยฟื้นฟูความจำ (episodic & spatial memory) ในหนูแก่ ตีพิมพ์ใน <i>Nature</i> 2017
+  </div>
+</div>
+
+<h3>เลือดอายุน้อย vs เลือดอายุมาก:</h3>
+<div class="blood-compare">
+  <div class="young">
+    <h4>🟢 เลือดอายุน้อย</h4>
+    <p>✅ มีปัจจัยฟื้นฟู (เช่น GDF11)</p>
+    <p>✅ กระตุ้นเซลล์ต้นกำเนิด</p>
+    <p>✅ ลดการอักเสบ</p>
+    <p>✅ ฟื้นฟูสมอง กล้ามเนื้อ ตับ</p>
+  </div>
+  <div class="old">
+    <h4>🔴 เลือดอายุมาก</h4>
+    <p>❌ มีปัจจัยที่เร่งความชรา</p>
+    <p>❌ สัญญาณการอักเสบเรื้อรัง</p>
+    <p>❌ ยับยั้งเซลล์ต้นกำเนิด</p>
+    <p>❌ ทำให้เนื้อเยื่ออายุน้อยแก่เร็วขึ้น</p>
+  </div>
+</div>
+
+<h3>นักวิจัยสำคัญด้าน Parabiosis:</h3>
+<div class="person-grid">
+  <div class="person-card">
+    <div class="name">Amy Wagers</div>
+    <div class="role">Harvard — ค้นพบ GDF11</div>
+    <p>พบโปรตีน <span class="term">GDF11</span> ในเลือดอายุน้อยที่กระตุ้นหลอดเลือดและเซลล์สมอง แต่ยังมีข้อถกเถียง</p>
+  </div>
+  <div class="person-card">
+    <div class="name">Lee Rubin</div>
+    <div class="role">Harvard — ยืนยันผล GDF11</div>
+    <p>ร่วมงานกับ Wagers ยืนยันว่า GDF11 กระตุ้นการสร้างหลอดเลือดและเซลล์สมอง</p>
+  </div>
+  <div class="person-card">
+    <div class="name">Judith Campisi</div>
+    <div class="role">นักวิจัยด้านความชราระดับแนวหน้า</div>
+    <p>พบว่าปัจจัยในเลือดชราทำให้เซลล์อื่นเสื่อมเร็วขึ้น — เลือดอายุน้อยช่วยลดสัญญาณเหล่านี้</p>
+  </div>
+</div>
+
+<div class="mnemonic">Parabiosis = เปลี่ยนน้ำมันเครื่องใหม่ให้รถเก่า — น้ำมันดีช่วยเครื่องยนต์ทำงานดีขึ้น แต่ไม่ได้ซ่อมชิ้นส่วนที่สึกหรอ</div>
+
+<!-- ===== SECTION 7: BUSINESS ===== -->
+<h2 id="business">💰 7. ธุรกิจเลือดอายุน้อย — ความหวังหรือหลอกลวง?</h2>
+
+<div class="person-grid">
+  <div class="person-card" style="border-left-color: #e74c3c;">
+    <div class="name">Jesse Karmazin — Ambrosia</div>
+    <div class="role">บริษัทถ่ายพลาสมาอายุน้อย</div>
+    <p>เสนอบริการถ่ายพลาสมาจากคนอายุน้อยในราคา <b>$8,000/ครั้ง</b></p>
+    <p><b>FDA ออกคำเตือน</b> — ไม่มีหลักฐานเพียงพอว่าปลอดภัยหรือได้ผล</p>
+  </div>
+  <div class="person-card" style="border-left-color: var(--accent4);">
+    <div class="name">Bryan Johnson — Blueprint</div>
+    <div class="role">มหาเศรษฐีเทคโนโลยี ชะลอวัยสุดขั้ว</div>
+    <p>ใช้เงินหลายล้าน$/ปี ในโปรแกรมชะลอวัย วัดร่างกายกว่า <b>33,000 จุด</b> อาหารแม่นยำ อาหารเสริม เทคโนโลยีทุกชนิด</p>
+  </div>
+</div>
+
+<div class="stat-box">
+  <span class="num">$8,000</span>
+  <span class="lbl">ราคาต่อครั้ง — Ambrosia</span>
+</div>
+<div class="stat-box">
+  <span class="num">33,000+</span>
+  <span class="lbl">จุดวัดร่างกาย — Blueprint</span>
+</div>
+
+<div class="warning">วิทยาศาสตร์ยังไม่ยืนยันว่าการถ่ายเลือดอายุน้อยปลอดภัยหรือมีผลในมนุษย์ — สิ่งที่ได้ผลในหนูอาจไม่ได้ผลในคน และอาจมีผลข้างเคียงร้ายแรง</div>
+
+<!-- ===== SECTION 8: VOCAB & QUIZ ===== -->
+<h2 id="vocab">📖 8. คำศัพท์สำคัญ & Quiz</h2>
+
+<table>
+  <tr><th>ศัพท์</th><th>ภาษาอังกฤษ</th><th>ความหมาย</th></tr>
+  <tr><td>เซลล์ต้นกำเนิด</td><td>Stem Cells</td><td>เซลล์ที่แบ่งตัวเองและเปลี่ยนเป็นเซลล์ชนิดต่างๆ ได้</td></tr>
+  <tr><td>พลูริโพเทนต์</td><td>Pluripotent</td><td>เปลี่ยนเป็นเซลล์ได้ทุกชนิดในร่างกาย</td></tr>
+  <tr><td>เซลล์ต้นกำเนิดเหนี่ยวนำ</td><td>iPS Cells</td><td>เซลล์ต้นกำเนิดที่สร้างจากการรีโปรแกรมเซลล์โตเต็มวัย</td></tr>
+  <tr><td>ปัจจัยยามานากะ</td><td>OSKM (Oct4, Sox2, Klf4, c-Myc)</td><td>ยีน 4 ตัวที่ใช้รีเซ็ตเซลล์กลับเป็น pluripotent</td></tr>
+  <tr><td>พาราไบโอซิส</td><td>Parabiosis</td><td>การเชื่อมระบบไหลเวียนเลือดของสัตว์สองตัว</td></tr>
+  <tr><td>โคลนอล ฮีมาโทพอยอีซิส</td><td>Clonal Hematopoiesis</td><td>เซลล์ต้นกำเนิดเลือดกลายพันธุ์ขยายตัวครอบงำ</td></tr>
+  <tr><td>อิมมูโนเซเนสเซนส์</td><td>Immunosenescence</td><td>ภูมิคุ้มกันเสื่อมถอยตามอายุ</td></tr>
+  <tr><td>เทอราโทมา</td><td>Teratoma</td><td>เนื้องอกที่มีเนื้อเยื่อหลายชนิดปะปน (ผม ฟัน กระดูก)</td></tr>
+  <tr><td>GDF11</td><td>Growth Differentiation Factor 11</td><td>โปรตีนในเลือดอายุน้อยที่อาจช่วยฟื้นฟูเนื้อเยื่อ</td></tr>
+  <tr><td>แซทเทิลไลท์เซลล์</td><td>Satellite Cells</td><td>เซลล์ต้นกำเนิดกล้ามเนื้อ</td></tr>
+  <tr><td>พลาสมา</td><td>Plasma</td><td>ส่วนของเลือดที่เป็นของเหลว (ไม่รวมเซลล์เลือด)</td></tr>
+  <tr><td>นิช</td><td>Niche</td><td>สิ่งแวดล้อมจุลภาคที่เซลล์ต้นกำเนิดอาศัยอยู่</td></tr>
+  <tr><td>ความจำเชิงตอน</td><td>Episodic Memory</td><td>ความจำเกี่ยวกับเหตุการณ์เฉพาะ</td></tr>
+  <tr><td>ความจำเชิงพื้นที่</td><td>Spatial Memory</td><td>ความจำเกี่ยวกับตำแหน่งและทิศทาง</td></tr>
+</table>
+
+<h3>คำถามทบทวน:</h3>
+
+<div class="quiz">
+  <details><summary>1. เซลล์ต้นกำเนิดมีคุณสมบัติพิเศษอะไรที่เซลล์ปกติไม่มี?</summary>
+  <p>✅ <b>Self-renewal</b> (แบ่งตัวสร้างสำเนาตัวเอง) + <b>Differentiation</b> (เปลี่ยนเป็นเซลล์เฉพาะทางได้)</p></details>
+</div>
+
+<div class="quiz">
+  <details><summary>2. ปัจจัยยามานากะ 4 ตัวคืออะไร? ทำไม c-Myc จึงเป็นปัญหา?</summary>
+  <p>✅ <b>Oct4, Sox2, Klf4, c-Myc</b> — c-Myc เป็น <b>ยีนก่อมะเร็ง (oncogene)</b> ทำให้เซลล์อาจหลุดจากการควบคุมกลายเป็นเซลล์มะเร็ง</p></details>
+</div>
+
+<div class="quiz">
+  <details><summary>3. Parabiosis คืออะไร? ผลลัพธ์หลักในสัตว์ทดลอง?</summary>
+  <p>✅ การเชื่อมระบบเลือดสัตว์สองตัว — หนูแก่ที่ได้รับเลือดอายุน้อยมี <b>สุขภาพดีขึ้น</b>: สมอง กล้ามเนื้อ ตับฟื้นฟู เซลล์ต้นกำเนิดกลับมาทำงาน</p></details>
+</div>
+
+<div class="quiz">
+  <details><summary>4. Clonal Hematopoiesis คืออะไร? ทำไมจึงอันตราย?</summary>
+  <p>✅ เซลล์ต้นกำเนิดเลือดกลายพันธุ์ขยายตัวครอบงำ พบใน <b>20-30% ของคนอายุ 70+</b> — เพิ่มความเสี่ยง <b>มะเร็งเลือด</b> และ <b>โรคหัวใจ</b></p></details>
+</div>
+
+<div class="quiz">
+  <details><summary>5. ทำไม Ramakrishnan จึงเตือนเรื่องธุรกิจชะลอวัย?</summary>
+  <p>✅ ธุรกิจเติบโตเร็วกว่าหลักฐานวิทยาศาสตร์ — สิ่งที่ได้ผลในหนู <b>อาจไม่ได้ผลในคน</b> และอาจมีผลข้างเคียงร้ายแรง เช่น Ambrosia ถูก FDA เตือน</p></details>
+</div>
+
+<div class="quiz">
+  <details><summary>6. GDF11 คืออะไร? ทำไมจึงยังเป็นข้อถกเถียง?</summary>
+  <p>✅ โปรตีนในเลือดอายุน้อยที่ <b>Amy Wagers</b> ค้นพบ — อาจกระตุ้นหลอดเลือดและเซลล์สมอง แต่งานวิจัยบางชิ้น <b>ยืนยัน</b> และบางชิ้น <b>โต้แย้ง</b> ผลดังกล่าว</p></details>
+</div>
+
+<div style="margin-top:60px; padding: 20px; background: linear-gradient(135deg, #f0e7ff, #e8f5e9); border-radius: 12px; text-align: center;">
+  <p style="font-size: 1.2em; font-weight: 600; color: var(--accent);">💉 สรุปบทเรียนหลักของบทที่ 10</p>
+  <p>เซลล์ต้นกำเนิดเสื่อมตามวัย → ร่างกายซ่อมตัวเองได้แย่ลง<br>
+  เลือดอายุน้อยมี "ปัจจัยมหัศจรรย์" ที่อาจช่วยชะลอวัย<br>
+  แต่ <b>วิทยาศาสตร์ยังต้องพิสูจน์อีกมาก</b> ก่อนนำไปใช้ในมนุษย์<br>
+  <span style="font-size: 0.9em; color: #666;">การภารกิจเอาชนะความชราเกี่ยวข้องกับกระบวนการหลายระดับ ตั้งแต่โมเลกุลจนถึงร่างกายทั้งหมด</span></p>
+</div>
+
+</body>
+</html>

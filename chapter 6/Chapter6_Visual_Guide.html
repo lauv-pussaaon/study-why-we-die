@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>บทที่ 6 — รีไซเคิลขยะ | Visual Study Guide</title>
+<style>
+  :root {
+    --bg: #fdfcf7;
+    --ink: #1f2933;
+    --accent: #c0392b;
+    --accent2: #2c5f8d;
+    --accent3: #27ae60;
+    --soft: #f4e9d8;
+    --box: #ffffff;
+    --shadow: 0 4px 16px rgba(0,0,0,0.08);
+    --purple: #6c3bd9;
+    --orange: #e67e22;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, "Segoe UI", "Sarabun", "Noto Sans Thai", sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+    line-height: 1.75;
+    font-size: 17px;
+  }
+  h1 { font-size: 2.4em; border-bottom: 4px double var(--accent); padding-bottom: 12px; margin-bottom: 8px; color: var(--accent); }
+  h1 .sub { display: block; font-size: 0.5em; color: #666; font-weight: normal; margin-top: 6px; }
+  h2 { font-size: 1.6em; color: var(--accent2); border-left: 6px solid var(--accent2); padding-left: 14px; margin-top: 60px; }
+  h3 { color: var(--accent); margin-top: 32px; font-size: 1.25em; }
+  .hero { background: linear-gradient(135deg, #fff8e7 0%, #ffe4cc 100%); padding: 24px 28px; border-radius: 14px; margin: 28px 0; border-left: 6px solid var(--accent); box-shadow: var(--shadow); }
+  .hero .big { font-size: 1.3em; font-weight: 600; color: var(--accent); }
+  .analogy { background: #eef6fb; border: 2px dashed var(--accent2); padding: 16px 20px; border-radius: 10px; margin: 18px 0; }
+  .analogy::before { content: "💡 ลองคิดแบบนี้ "; font-weight: 700; color: var(--accent2); }
+  .warning { background: #fff3e6; border-left: 5px solid var(--orange); padding: 14px 18px; border-radius: 6px; margin: 18px 0; }
+  .tip { background: #eaf7ea; border-left: 5px solid var(--accent3); padding: 14px 18px; border-radius: 6px; margin: 18px 0; }
+  .fact { background: #fdecec; border-left: 5px solid var(--accent); padding: 14px 18px; border-radius: 6px; margin: 18px 0; }
+  .diagram { background: var(--box); border: 1px solid #e0d8c5; border-radius: 12px; padding: 20px; margin: 24px 0; box-shadow: var(--shadow); text-align: center; }
+  .diagram .caption { font-size: 0.92em; color: #555; margin-top: 10px; font-style: italic; }
+  svg { max-width: 100%; height: auto; }
+  table { width: 100%; border-collapse: collapse; margin: 20px 0; background: var(--box); border-radius: 10px; overflow: hidden; box-shadow: var(--shadow); }
+  th, td { padding: 12px 14px; text-align: left; border-bottom: 1px solid #eee; }
+  th { background: var(--accent2); color: white; }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) { background: #faf7ef; }
+  .quiz { background: #fdf7e4; padding: 20px 26px; border-radius: 10px; margin: 16px 0; border: 2px solid #e8d084; }
+  .quiz summary { cursor: pointer; font-weight: 600; color: var(--accent); padding: 8px 0; }
+  .quiz p { margin: 10px 0 0; padding: 10px; background: white; border-radius: 6px; }
+  .term { display: inline-block; background: #fff3d6; padding: 1px 8px; border-radius: 4px; font-weight: 600; color: #8a5a00; }
+  .flow { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 12px; margin: 20px 0; }
+  .flow .node { background: var(--accent2); color: white; padding: 12px 18px; border-radius: 8px; font-weight: 600; min-width: 120px; text-align: center; }
+  .flow .arrow { font-size: 1.6em; color: var(--accent); }
+  .flow .node.red { background: var(--accent); }
+  .flow .node.green { background: var(--accent3); }
+  .flow .node.purple { background: var(--purple); }
+  .flow .node.orange { background: var(--orange); }
+  .card { background: var(--box); padding: 18px 22px; border-radius: 10px; box-shadow: var(--shadow); margin: 14px 0; border-top: 4px solid var(--accent2); }
+  .mnemonic { background: #f0e7ff; border-left: 5px solid var(--purple); padding: 12px 18px; border-radius: 6px; margin: 12px 0; font-size: 0.98em; }
+  .mnemonic::before { content: "🧠 วิธีจำ: "; font-weight: 700; color: var(--purple); }
+  .toc { background: var(--soft); padding: 18px 28px; border-radius: 10px; margin-bottom: 40px; }
+  .toc h3 { margin-top: 0; color: var(--accent); }
+  .toc ol { padding-left: 22px; }
+  .toc a { color: var(--accent2); text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+  .stat-box { display: inline-block; background: white; padding: 16px 22px; border-radius: 10px; box-shadow: var(--shadow); margin: 8px; text-align: center; min-width: 180px; }
+  .stat-box .num { font-size: 2em; font-weight: 700; color: var(--accent); display: block; }
+  .stat-box .lbl { font-size: 0.88em; color: #666; }
+  .timeline { position: relative; padding: 20px 0 20px 40px; margin: 20px 0; }
+  .timeline::before { content: ''; position: absolute; left: 18px; top: 0; bottom: 0; width: 4px; background: var(--accent2); border-radius: 2px; }
+  .timeline-item { position: relative; margin-bottom: 28px; padding: 14px 18px; background: var(--box); border-radius: 10px; box-shadow: var(--shadow); }
+  .timeline-item::before { content: ''; position: absolute; left: -30px; top: 18px; width: 14px; height: 14px; background: var(--accent); border-radius: 50%; border: 3px solid var(--bg); }
+  .timeline-item .year { font-weight: 700; color: var(--accent); font-size: 1.1em; }
+  .versus { display: flex; gap: 20px; margin: 24px 0; flex-wrap: wrap; }
+  .versus .side { flex: 1; min-width: 280px; padding: 18px 22px; border-radius: 10px; box-shadow: var(--shadow); }
+  .versus .good { background: #eaf7ea; border-top: 4px solid var(--accent3); }
+  .versus .bad { background: #fdecec; border-top: 4px solid var(--accent); }
+  .versus h4 { margin-top: 0; }
+  .three-col { display: flex; gap: 16px; margin: 24px 0; flex-wrap: wrap; }
+  .three-col .col { flex: 1; min-width: 240px; padding: 16px 18px; border-radius: 10px; box-shadow: var(--shadow); background: var(--box); }
+  .three-col .col h4 { margin-top: 0; color: var(--accent2); }
+  .person { background: #f8f4ff; border-left: 5px solid var(--purple); padding: 14px 18px; border-radius: 6px; margin: 18px 0; }
+  .person .name { font-weight: 700; color: var(--purple); font-size: 1.1em; }
+</style>
+</head>
+<body>
+
+<h1>บทที่ 6 — รีไซเคิลขยะ
+  <span class="sub">Recycling the Garbage · Why We Die by Venki Ramakrishnan</span>
+</h1>
+
+<div class="hero">
+  <div class="big">ภาพรวม 1 ประโยค:</div>
+  ร่างกายเราผลิตโปรตีนนับล้านๆ ตัวต่อวัน แต่ละตัวต้อง <span class="term">พับตัว</span> เป็นรูปร่าง 3 มิติที่ถูกต้อง — เมื่อพับผิด ร่างกายมีระบบ <span class="term">รีไซเคิล</span> (Proteasome, Lysosome, Autophagy) เพื่อกำจัด แต่ <b>เมื่ออายุมากขึ้น ระบบเหล่านี้เสื่อมลง</b> → ขยะโปรตีนสะสม → นำไปสู่โรคร้ายอย่าง <b>อัลไซเมอร์</b> และ <b>สมองเสื่อม</b>
+</div>
+
+<div class="toc">
+  <h3>📚 สารบัญ</h3>
+  <ol>
+    <li><a href="#protein">โปรตีนและการพับตัว — Origami แห่งชีวิต</a></li>
+    <li><a href="#proteasome">Ubiquitin & Proteasome — สติกเกอร์ขยะ & เครื่องบด</a></li>
+    <li><a href="#autophagy">Lysosome & Autophagy — เตาเผาขยะ & รถเก็บขยะ</a></li>
+    <li><a href="#glycation">Glycation — เมื่อน้ำตาลทำลายโปรตีน</a></li>
+    <li><a href="#isr">ISR & ISRIB — ระบบเตือนภัยและความหวังใหม่</a></li>
+    <li><a href="#prion">ไพรออน — โปรตีนนอกรีตที่ "ติดต่อ" ได้</a></li>
+    <li><a href="#alzheimer">อัลไซเมอร์ — โรคแห่งขยะสะสม</a></li>
+    <li><a href="#bigpicture">ภาพรวม: ระบบกำจัดขยะ → ความชรา → ความตาย</a></li>
+    <li><a href="#quiz">คำถามทบทวน</a></li>
+    <li><a href="#vocab">คำศัพท์สำคัญ</a></li>
+  </ol>
+</div>
+
+<!-- =========================================== -->
+<!-- SECTION 1: PROTEIN FOLDING -->
+<!-- =========================================== -->
+<h2 id="protein">1. โปรตีนและการพับตัว — Origami แห่งชีวิต</h2>
+
+<p>
+โปรตีนคือ <b>เครื่องจักรแห่งชีวิต</b> — ทำงานแทบทุกอย่างในเซลล์ ตั้งแต่เร่งปฏิกิริยาเคมี ส่งสัญญาณ สร้างโครงสร้าง ไปจนถึงป้องกันร่างกาย แต่โปรตีนจะทำงานได้ก็ต่อเมื่อมัน <b>"พับตัว"</b> เป็นรูปร่าง 3 มิติที่ถูกต้อง
+</p>
+
+<div class="diagram">
+<svg viewBox="0 0 700 220" xmlns="http://www.w3.org/2000/svg">
+  <!-- Unfolded chain -->
+  <text x="80" y="30" text-anchor="middle" font-size="13" fill="#2c5f8d" font-weight="700">สายกรดอะมิโน (Unfolded)</text>
+  <path d="M 20 70 Q 40 40, 60 70 Q 80 100, 100 70 Q 120 40, 140 70" stroke="#2c5f8d" stroke-width="4" fill="none"/>
+  <circle cx="20" cy="70" r="6" fill="#e74c3c"/>
+  <circle cx="60" cy="70" r="6" fill="#3498db"/>
+  <circle cx="100" cy="70" r="6" fill="#f39c12"/>
+  <circle cx="140" cy="70" r="6" fill="#27ae60"/>
+
+  <!-- Arrow 1: Chaperone -->
+  <path d="M 170 70 L 260 70" stroke="#27ae60" stroke-width="3" fill="none" marker-end="url(#arr1)"/>
+  <defs><marker id="arr1" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8" fill="#27ae60"/></marker></defs>
+  <text x="215" y="55" text-anchor="middle" font-size="11" fill="#27ae60" font-weight="600">Chaperone</text>
+  <text x="215" y="95" text-anchor="middle" font-size="10" fill="#666">ช่วยพับ</text>
+
+  <!-- Correctly folded -->
+  <rect x="280" y="35" width="110" height="75" rx="20" fill="#eaf7ea" stroke="#27ae60" stroke-width="2"/>
+  <text x="335" y="65" text-anchor="middle" font-size="24">✅</text>
+  <text x="335" y="95" text-anchor="middle" font-size="11" fill="#27ae60" font-weight="600">พับถูกต้อง</text>
+  <text x="335" y="130" text-anchor="middle" font-size="11" fill="#666">ทำงานได้ปกติ</text>
+
+  <!-- OR misfolded -->
+  <text x="215" y="150" text-anchor="middle" font-size="12" fill="#c0392b" font-weight="700">หรือ...</text>
+  <path d="M 170 150 Q 220 180, 280 150" stroke="#c0392b" stroke-width="2" stroke-dasharray="5,3" fill="none" marker-end="url(#arr2)"/>
+  <defs><marker id="arr2" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8" fill="#c0392b"/></marker></defs>
+
+  <!-- Misfolded -->
+  <rect x="280" y="135" width="110" height="75" rx="20" fill="#fdecec" stroke="#c0392b" stroke-width="2"/>
+  <text x="335" y="165" text-anchor="middle" font-size="24">❌</text>
+  <text x="335" y="195" text-anchor="middle" font-size="11" fill="#c0392b" font-weight="600">พับผิด!</text>
+
+  <!-- Arrow to garbage systems -->
+  <path d="M 400 170 L 480 170" stroke="#e67e22" stroke-width="3" fill="none" marker-end="url(#arr3)"/>
+  <defs><marker id="arr3" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8" fill="#e67e22"/></marker></defs>
+  <text x="440" y="160" text-anchor="middle" font-size="10" fill="#e67e22" font-weight="600">ส่งไปกำจัด</text>
+
+  <!-- Recycling systems -->
+  <rect x="490" y="30" width="190" height="180" rx="12" fill="#fff8e7" stroke="#e67e22" stroke-width="2"/>
+  <text x="585" y="55" text-anchor="middle" font-size="12" fill="#e67e22" font-weight="700">♻️ ระบบรีไซเคิล</text>
+  <text x="585" y="80" text-anchor="middle" font-size="11" fill="#2c5f8d">🏷️ Ubiquitin (ติดป้าย)</text>
+  <text x="585" y="105" text-anchor="middle" font-size="11" fill="#2c5f8d">🗑️ Proteasome (บด)</text>
+  <text x="585" y="130" text-anchor="middle" font-size="11" fill="#2c5f8d">🔥 Lysosome (เผา)</text>
+  <text x="585" y="155" text-anchor="middle" font-size="11" fill="#2c5f8d">🚛 Autophagy (เก็บ)</text>
+  <text x="585" y="190" text-anchor="middle" font-size="10" fill="#c0392b" font-weight="600">⚠️ เสื่อมลงตามอายุ!</text>
+</svg>
+<div class="caption">โปรตีนต้องพับตัวให้ถูกต้อง — เมื่อพับผิดจะถูกส่งเข้าระบบรีไซเคิล แต่ระบบนี้เสื่อมลงเมื่อเราแก่</div>
+</div>
+
+<div class="analogy">
+โปรตีนเหมือน <b>กระดาษ origami</b> — สายกรดอะมิโนเป็นกระดาษแผ่นยาว ต้องพับตามขั้นตอนที่ถูกต้องทุกจุดจึงจะได้รูปร่างสมบูรณ์ ถ้าพับผิดแม้จุดเดียว ผลลัพธ์จะผิดรูปทั้งหมด และ <b>Chaperone protein</b> เหมือนครูสอน origami ที่คอยช่วยพับให้ถูก
+</div>
+
+<div style="text-align:center; margin: 24px 0;">
+  <div class="stat-box">
+    <span class="num">50 ล้าน+</span>
+    <span class="lbl">ผู้ป่วยสมองเสื่อมทั่วโลก</span>
+  </div>
+  <div class="stat-box">
+    <span class="num">78 ล้าน</span>
+    <span class="lbl">คาดการณ์ปี 2030</span>
+  </div>
+  <div class="stat-box">
+    <span class="num">139 ล้าน</span>
+    <span class="lbl">คาดการณ์ปี 2050</span>
+  </div>
+</div>
+
+<!-- =========================================== -->
+<!-- SECTION 2: UBIQUITIN & PROTEASOME -->
+<!-- =========================================== -->
+<h2 id="proteasome">2. Ubiquitin & Proteasome — สติกเกอร์ขยะ & เครื่องบด</h2>
+
+<p>
+เมื่อโปรตีนในเซลล์เสียหายหรือพับผิด ร่างกายมีระบบกำจัดที่ชาญฉลาด — เริ่มจากการ <b>"ติดป้าย"</b> ด้วยโปรตีนขนาดเล็กชื่อ <span class="term">Ubiquitin</span> แล้วส่งเข้า <span class="term">Proteasome</span> เพื่อย่อยสลาย
+</p>
+
+<div class="three-col">
+  <div class="col" style="border-top: 4px solid #e67e22;">
+    <h4>🏷️ Ubiquitin</h4>
+    <p>โปรตีนขนาดเล็กที่ "มีอยู่ทุกที่" (ubiquitous) — ทำหน้าที่เป็น <b>สติกเกอร์</b> ติดบนโปรตีนที่เสียหาย เพื่อส่งสัญญาณว่า "ตัวนี้ต้องกำจัด" ค้นพบในทศวรรษ 1970 โดยนักวิทยาศาสตร์ชาวอิสราเอล</p>
+  </div>
+  <div class="col" style="border-top: 4px solid var(--accent2);">
+    <h4>🗑️ Proteasome</h4>
+    <p>เครื่องจักรโมเลกุลรูป <b>ทรงกระบอก</b> — เมื่อโปรตีนที่ติดป้ายยูบิควิตินถูกป้อนเข้าไป มันจะถูก <b>บดย่อยเป็นชิ้นเล็กๆ</b> เพื่อนำกลับมาใช้สร้างโปรตีนใหม่</p>
+  </div>
+  <div class="col" style="border-top: 4px solid var(--accent);">
+    <h4>⚠️ เมื่อแก่ตัวลง</h4>
+    <p>ระบบนี้ <b>ทำงานช้าลง</b> — โปรตีนเสียสะสมมากขึ้น ไม่ถูกกำจัดทันเวลา นำไปสู่ปัญหาในเซลล์ เชื่อมโยงกับโรคอัลไซเมอร์ พาร์กินสัน และมะเร็ง</p>
+  </div>
+</div>
+
+<div class="diagram">
+<svg viewBox="0 0 700 150" xmlns="http://www.w3.org/2000/svg">
+  <!-- Damaged protein -->
+  <rect x="20" y="40" width="100" height="70" rx="10" fill="#fdecec" stroke="#c0392b" stroke-width="2"/>
+  <text x="70" y="70" text-anchor="middle" font-size="11" fill="#c0392b" font-weight="600">โปรตีนเสีย</text>
+  <text x="70" y="90" text-anchor="middle" font-size="20">😵</text>
+
+  <!-- Arrow -->
+  <path d="M 130 75 L 180 75" stroke="#e67e22" stroke-width="3" fill="none" marker-end="url(#arr4)"/>
+  <defs><marker id="arr4" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8" fill="#e67e22"/></marker></defs>
+
+  <!-- Ubiquitin tagging -->
+  <rect x="190" y="30" width="120" height="90" rx="10" fill="#fff3d6" stroke="#e67e22" stroke-width="2"/>
+  <text x="250" y="55" text-anchor="middle" font-size="11" fill="#e67e22" font-weight="600">🏷️ ติดป้าย Ub</text>
+  <rect x="210" y="65" width="20" height="15" rx="3" fill="#e67e22"/>
+  <text x="220" y="76" text-anchor="middle" font-size="7" fill="white" font-weight="700">Ub</text>
+  <rect x="235" y="65" width="20" height="15" rx="3" fill="#e67e22"/>
+  <text x="245" y="76" text-anchor="middle" font-size="7" fill="white" font-weight="700">Ub</text>
+  <rect x="260" y="65" width="20" height="15" rx="3" fill="#e67e22"/>
+  <text x="270" y="76" text-anchor="middle" font-size="7" fill="white" font-weight="700">Ub</text>
+  <text x="250" y="105" text-anchor="middle" font-size="10" fill="#666">ติดหลายตัว = สัญญาณ "กำจัด!"</text>
+
+  <!-- Arrow -->
+  <path d="M 320 75 L 380 75" stroke="#2c5f8d" stroke-width="3" fill="none" marker-end="url(#arr5)"/>
+  <defs><marker id="arr5" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8" fill="#2c5f8d"/></marker></defs>
+
+  <!-- Proteasome -->
+  <rect x="390" y="20" width="130" height="110" rx="15" fill="#eef6fb" stroke="#2c5f8d" stroke-width="2"/>
+  <text x="455" y="48" text-anchor="middle" font-size="11" fill="#2c5f8d" font-weight="600">🗑️ Proteasome</text>
+  <rect x="420" y="55" width="70" height="40" rx="20" fill="#2c5f8d" opacity="0.2"/>
+  <text x="455" y="80" text-anchor="middle" font-size="10" fill="#2c5f8d">ทรงกระบอก</text>
+  <text x="455" y="115" text-anchor="middle" font-size="10" fill="#666">บดย่อยโปรตีน</text>
+
+  <!-- Arrow -->
+  <path d="M 530 75 L 580 75" stroke="#27ae60" stroke-width="3" fill="none" marker-end="url(#arr6)"/>
+  <defs><marker id="arr6" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8" fill="#27ae60"/></marker></defs>
+
+  <!-- Recycled -->
+  <rect x="590" y="35" width="100" height="80" rx="10" fill="#eaf7ea" stroke="#27ae60" stroke-width="2"/>
+  <text x="640" y="60" text-anchor="middle" font-size="20">♻️</text>
+  <text x="640" y="85" text-anchor="middle" font-size="11" fill="#27ae60" font-weight="600">ชิ้นส่วนรีไซเคิล</text>
+  <text x="640" y="100" text-anchor="middle" font-size="10" fill="#666">นำกลับมาใช้ใหม่</text>
+</svg>
+<div class="caption">ระบบ Ubiquitin-Proteasome: ติดป้าย → บดย่อย → รีไซเคิล</div>
+</div>
+
+<div class="mnemonic">
+Ubiquitin = <b>"สติกเกอร์ถังขยะ"</b> 🏷️ → ติดบนโปรตีนเสีย → Proteasome = <b>"เครื่องบดขยะ"</b> 🗑️ → บดแล้วแยกชิ้นส่วนกลับมารีไซเคิล ♻️
+</div>
+
+<!-- =========================================== -->
+<!-- SECTION 3: AUTOPHAGY -->
+<!-- =========================================== -->
+<h2 id="autophagy">3. Lysosome & Autophagy — เตาเผาขยะ & รถเก็บขยะ</h2>
+
+<p>
+นอกจาก Proteasome แล้ว เซลล์ยังมีระบบกำจัดขยะ "ชุดที่สอง" ที่จัดการกับขยะชิ้นใหญ่กว่า — รวมถึงออร์แกเนลล์ทั้งอันที่เสียหาย
+</p>
+
+<div class="timeline">
+  <div class="timeline-item">
+    <div class="year">1955 — Christian de Duve ค้นพบ Lysosome</div>
+    <p>ศาสตราจารย์ชาวเบลเยียมค้นพบ <b>"กระเพาะของเซลล์"</b> — ถุงที่บรรจุเอนไซม์ย่อยสลาย ทำหน้าที่กลืนและย่อยวัตถุขนาดใหญ่ รวมถึงออร์แกเนลล์ที่เสียหาย</p>
+  </div>
+  <div class="timeline-item">
+    <div class="year">ต่อมา — De Duve ค้นพบ Autophagy</div>
+    <p>กระบวนการที่เซลล์ <b>"กินตัวเอง"</b> (auto = ตัวเอง, phagy = กิน) — สร้าง <span class="term">Autophagosome</span> ห่อหุ้มชิ้นส่วนเสียหาย แล้วนำไปรวมกับ Lysosome เพื่อย่อยสลาย</p>
+  </div>
+  <div class="timeline-item">
+    <div class="year">1980s–1990s — Yoshinori Ohsumi ไขปริศนาออโทฟาจี</div>
+    <p>โอสุมิศึกษากระบวนการนี้ในยีสต์ ค้นพบยีนสำคัญที่ควบคุม autophagy — เปิดทางสู่ความเข้าใจว่าเซลล์ "ทำความสะอาดตัวเอง" อย่างไร</p>
+  </div>
+  <div class="timeline-item">
+    <div class="year">2016 — รางวัลโนเบล 🏆</div>
+    <p><b>Yoshinori Ohsumi</b> ได้รับรางวัลโนเบลสาขาสรีรวิทยาหรือการแพทย์ จากการค้นพบกลไกของ autophagy</p>
+  </div>
+</div>
+
+<div class="diagram">
+<svg viewBox="0 0 700 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Damaged organelle -->
+  <rect x="30" y="50" width="100" height="80" rx="10" fill="#fdecec" stroke="#c0392b" stroke-width="2"/>
+  <text x="80" y="80" text-anchor="middle" font-size="10" fill="#c0392b" font-weight="600">ออร์แกเนลล์เสีย</text>
+  <text x="80" y="110" text-anchor="middle" font-size="24">💀</text>
+
+  <!-- Autophagosome wrapping -->
+  <path d="M 150 90 L 210 90" stroke="#6c3bd9" stroke-width="3" fill="none" marker-end="url(#arr7)"/>
+  <defs><marker id="arr7" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8" fill="#6c3bd9"/></marker></defs>
+
+  <ellipse cx="290" cy="90" rx="65" ry="50" fill="none" stroke="#6c3bd9" stroke-width="3" stroke-dasharray="8,4"/>
+  <rect x="255" y="65" width="70" height="50" rx="8" fill="#f0e7ff" stroke="#6c3bd9" stroke-width="1"/>
+  <text x="290" y="85" text-anchor="middle" font-size="9" fill="#6c3bd9" font-weight="600">Autophagosome</text>
+  <text x="290" y="100" text-anchor="middle" font-size="14">🚛</text>
+  <text x="290" y="160" text-anchor="middle" font-size="10" fill="#666">"ห่อหุ้มขยะ"</text>
+
+  <!-- Merge arrow -->
+  <path d="M 370 90 L 430 90" stroke="#2c5f8d" stroke-width="3" fill="none" marker-end="url(#arr8)"/>
+  <defs><marker id="arr8" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8" fill="#2c5f8d"/></marker></defs>
+  <text x="400" y="80" text-anchor="middle" font-size="10" fill="#2c5f8d">รวมกัน</text>
+
+  <!-- Lysosome -->
+  <circle cx="500" cy="90" r="50" fill="#fff3e6" stroke="#e67e22" stroke-width="3"/>
+  <text x="500" y="75" text-anchor="middle" font-size="10" fill="#e67e22" font-weight="600">Lysosome</text>
+  <text x="500" y="100" text-anchor="middle" font-size="22">🔥</text>
+  <text x="500" y="160" text-anchor="middle" font-size="10" fill="#666">"เตาเผาขยะ"</text>
+
+  <!-- Result arrow -->
+  <path d="M 560 90 L 620 90" stroke="#27ae60" stroke-width="3" fill="none" marker-end="url(#arr9)"/>
+  <defs><marker id="arr9" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8" fill="#27ae60"/></marker></defs>
+
+  <!-- Recycled parts -->
+  <rect x="630" y="55" width="60" height="70" rx="8" fill="#eaf7ea" stroke="#27ae60" stroke-width="2"/>
+  <text x="660" y="85" text-anchor="middle" font-size="20">♻️</text>
+  <text x="660" y="105" text-anchor="middle" font-size="9" fill="#27ae60" font-weight="600">ใช้ใหม่</text>
+</svg>
+<div class="caption">กระบวนการ Autophagy: Autophagosome ห่อหุ้มขยะ → รวมกับ Lysosome → ย่อยสลาย → รีไซเคิล</div>
+</div>
+
+<div class="analogy">
+ถ้า <b>Proteasome</b> คือ "เครื่องบดขยะ" ที่จัดการขยะชิ้นเล็ก → <b>Lysosome</b> คือ "เตาเผาขยะ" ที่จัดการชิ้นใหญ่กว่า ส่วน <b>Autophagy</b> คือ "รถเก็บขยะ" ที่ออกเก็บชิ้นส่วนเสียหายทั่วเซลล์แล้วนำมาส่งที่เตาเผา
+</div>
+
+<div class="warning">
+<b>⚠️ เมื่ออายุมากขึ้น:</b> กระบวนการ autophagy ลดประสิทธิภาพ → "ขยะ" สะสมในเซลล์ → เซลล์ทำงานแย่ลง → นำไปสู่ความชรา เหมือน <b>เมืองที่ระบบเก็บขยะพัง</b> — ขยะกองเต็มถนนจนเมืองทำงานไม่ได้
+</div>
+
+<!-- =========================================== -->
+<!-- SECTION 4: GLYCATION -->
+<!-- =========================================== -->
+<h2 id="glycation">4. Glycation — เมื่อน้ำตาลทำลายโปรตีน</h2>
+
+<div class="versus">
+  <div class="side good">
+    <h4>✅ Glycosylation (ปกติ)</h4>
+    <p>กระบวนการ <b>ควบคุมได้</b> ที่เซลล์ติดน้ำตาลบนโปรตีนอย่างเป็นระบบ เพื่อช่วยการทำงานของโปรตีน — เหมือนการ "ตกแต่ง" ที่มีแบบแผน</p>
+  </div>
+  <div class="side bad">
+    <h4>❌ Glycation (ผิดปกติ)</h4>
+    <p>กระบวนการ <b>ควบคุมไม่ได้</b> ที่น้ำตาลจับกับโปรตีนโดยไม่มีการควบคุม → ทำให้โปรตีนเปลี่ยนรูปร่างและทำงานผิดปกติ — เพิ่มขึ้นตามอายุ เชื่อมโยงกับโรคเบาหวาน โรคหัวใจ สมองเสื่อม</p>
+  </div>
+</div>
+
+<div class="mnemonic">
+Glyco<b>syl</b>ation = <b>S</b>ystem (ระบบ ควบคุมได้ ดี) | Glyc<b>ation</b> = <b>A</b>ccident (อุบัติเหตุ ควบคุมไม่ได้ เสีย)
+</div>
+
+<!-- =========================================== -->
+<!-- SECTION 5: ISR & ISRIB -->
+<!-- =========================================== -->
+<h2 id="isr">5. ISR & ISRIB — ระบบเตือนภัยและความหวังใหม่</h2>
+
+<p>
+เมื่อเซลล์ตรวจพบว่ามีโปรตีนพับผิดมากเกินไป จะเปิดระบบเตือนภัยที่เรียกว่า <span class="term">Integrated Stress Response (ISR)</span> — ระบบนี้ลดการผลิตโปรตีนทั่วไป แต่เพิ่มโปรตีนเฉพาะที่ช่วยรับมือกับปัญหา
+</p>
+
+<div class="diagram">
+<svg viewBox="0 0 700 260" xmlns="http://www.w3.org/2000/svg">
+  <!-- Title -->
+  <text x="350" y="25" text-anchor="middle" font-size="14" fill="#2c5f8d" font-weight="700">ISR: Integrated Stress Response</text>
+
+  <!-- Stress signals -->
+  <rect x="20" y="50" width="140" height="120" rx="10" fill="#fdecec" stroke="#c0392b" stroke-width="2"/>
+  <text x="90" y="75" text-anchor="middle" font-size="11" fill="#c0392b" font-weight="600">สัญญาณเครียด:</text>
+  <text x="90" y="100" text-anchor="middle" font-size="10" fill="#333">😵 โปรตีนพับผิด</text>
+  <text x="90" y="120" text-anchor="middle" font-size="10" fill="#333">🦠 การติดเชื้อไวรัส</text>
+  <text x="90" y="140" text-anchor="middle" font-size="10" fill="#333">🍽️ ขาดสารอาหาร</text>
+  <text x="90" y="160" text-anchor="middle" font-size="10" fill="#333">⚡ ความเครียดออกซิเดชัน</text>
+
+  <!-- Arrow to ISR -->
+  <path d="M 170 110 L 230 110" stroke="#e67e22" stroke-width="3" fill="none" marker-end="url(#arr10)"/>
+  <defs><marker id="arr10" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8" fill="#e67e22"/></marker></defs>
+
+  <!-- ISR box -->
+  <rect x="240" y="65" width="140" height="90" rx="12" fill="#fff3e6" stroke="#e67e22" stroke-width="3"/>
+  <text x="310" y="95" text-anchor="middle" font-size="13" fill="#e67e22" font-weight="700">🚨 ISR</text>
+  <text x="310" y="115" text-anchor="middle" font-size="10" fill="#333">ระบบตอบสนอง</text>
+  <text x="310" y="132" text-anchor="middle" font-size="10" fill="#333">ความเครียดบูรณาการ</text>
+
+  <!-- Two outcomes -->
+  <!-- Good outcome -->
+  <path d="M 390 90 L 460 60" stroke="#27ae60" stroke-width="2" fill="none" marker-end="url(#arr11)"/>
+  <defs><marker id="arr11" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8" fill="#27ae60"/></marker></defs>
+  <rect x="470" y="30" width="210" height="70" rx="10" fill="#eaf7ea" stroke="#27ae60" stroke-width="2"/>
+  <text x="575" y="55" text-anchor="middle" font-size="11" fill="#27ae60" font-weight="600">✅ ISR พอดี = ปกป้องเซลล์</text>
+  <text x="575" y="75" text-anchor="middle" font-size="10" fill="#333">ลดการผลิตโปรตีน + เพิ่ม chaperone</text>
+  <text x="575" y="90" text-anchor="middle" font-size="10" fill="#333">→ แก้ปัญหาได้ → เซลล์รอด</text>
+
+  <!-- Bad outcome -->
+  <path d="M 390 130 L 460 160" stroke="#c0392b" stroke-width="2" fill="none" marker-end="url(#arr12)"/>
+  <defs><marker id="arr12" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8" fill="#c0392b"/></marker></defs>
+  <rect x="470" y="130" width="210" height="70" rx="10" fill="#fdecec" stroke="#c0392b" stroke-width="2"/>
+  <text x="575" y="155" text-anchor="middle" font-size="11" fill="#c0392b" font-weight="600">❌ ISR มากเกิน = ทำลายเซลล์</text>
+  <text x="575" y="175" text-anchor="middle" font-size="10" fill="#333">ลดการผลิตโปรตีนมากจนเซลล์ขาด</text>
+  <text x="575" y="190" text-anchor="middle" font-size="10" fill="#333">→ สมองเสื่อม → โรคชรา</text>
+
+  <!-- ISRIB -->
+  <rect x="240" y="195" width="440" height="55" rx="10" fill="#f0e7ff" stroke="#6c3bd9" stroke-width="2"/>
+  <text x="460" y="218" text-anchor="middle" font-size="12" fill="#6c3bd9" font-weight="700">💊 ISRIB — สารยับยั้ง ISR</text>
+  <text x="460" y="238" text-anchor="middle" font-size="10" fill="#333">ช่วย "ลด" ISR ที่มากเกินไปในสมองแก่ → ฟื้นฟูความจำในหนูทดลอง → กำลังพัฒนาเป็นยา</text>
+</svg>
+<div class="caption">ISR ต้อง "พอดี" — มากเกินไปก็ทำลายเซลล์ น้อยเกินไปก็ขยะสะสม → ISRIB ช่วยปรับสมดุล</div>
+</div>
+
+<div class="person">
+  <div class="name">Nahum Sonenberg & Peter Walter</div>
+  <p>ทีมวิจัยจากมหาวิทยาลัยแมกกิลล์ (แคนาดา) และ UCSF (สหรัฐฯ) ที่ค้นพบ ISRIB — "โมเลกุลมหัศจรรย์" ที่สามารถฟื้นฟูความจำในหนูแก่ได้ ปัจจุบันบริษัทเทคชีวภาพหลายแห่งกำลังพัฒนาสารนี้เพื่อใช้รักษาโรคสมองเสื่อม</p>
+</div>
+
+<div class="fact">
+<b>🤯 ข้อเท็จจริงน่าทึ่ง:</b> ISR เปรียบเหมือน <b>"สัญญาณเตือนไฟไหม้"</b> ในอาคาร — ถ้าดังพอดีจะช่วยรักษาชีวิต แต่ถ้าดังตลอดเวลาโดยไม่จำเป็น ผู้คนก็จะเมินจนเมื่อไฟไหม้จริงก็ไม่หนี → ISRIB ช่วย "ปรับความดัง" ให้เหมาะสม
+</div>
+
+<!-- =========================================== -->
+<!-- SECTION 6: PRIONS -->
+<!-- =========================================== -->
+<h2 id="prion">6. ไพรออน — โปรตีนนอกรีตที่ "ติดต่อ" ได้</h2>
+
+<p>
+สิ่งที่น่าตกใจที่สุดเกี่ยวกับโปรตีนที่พับผิดคือ — บางตัวไม่ใช่แค่เสีย แต่สามารถ <b>"ชักชวน"</b> โปรตีนปกติให้พับผิดตาม เหมือนโดมิโนล้ม โปรตีนเหล่านี้เรียกว่า <span class="term">Prion</span>
+</p>
+
+<div class="timeline">
+  <div class="timeline-item">
+    <div class="year">Carleton Gajdusek — นักล่าโรคปริศนา</div>
+    <p>นักวิจัยจาก NIH สหรัฐฯ ที่เดินทางไปศึกษาโรค <b>คูรู (Kuru)</b> ในชนเผ่าฟอร์ (Fore) ปาปัวนิวกินี — โรคสมองเสื่อมร้ายแรงที่แพร่ผ่านพิธีกรรมกินเนื้อคน กายดูเชกพบว่าโรคนี้ <b>ติดต่อได้</b> → 🏆 รางวัลโนเบล</p>
+  </div>
+  <div class="timeline-item">
+    <div class="year">1980s — Stanley Prusiner ค้นพบ Prion</div>
+    <p>ศึกษาโรค <b>Scrapie</b> ในแกะ ค้นพบว่าสาเหตุไม่ใช่ไวรัสหรือแบคทีเรีย แต่เป็น <b>โปรตีนที่พับผิด</b> ที่สามารถ "ชักชวน" โปรตีนอื่นให้พับผิดตาม → ตั้งชื่อว่า <span class="term">Prion</span> → 🏆 รางวัลโนเบล 1997</p>
+  </div>
+</div>
+
+<div class="diagram">
+<svg viewBox="0 0 700 160" xmlns="http://www.w3.org/2000/svg">
+  <!-- Normal protein -->
+  <rect x="30" y="40" width="80" height="80" rx="10" fill="#eaf7ea" stroke="#27ae60" stroke-width="2"/>
+  <text x="70" y="70" text-anchor="middle" font-size="20">🟢</text>
+  <text x="70" y="100" text-anchor="middle" font-size="10" fill="#27ae60" font-weight="600">ปกติ</text>
+
+  <!-- Prion arrives -->
+  <path d="M 120 80 L 160 80" stroke="#c0392b" stroke-width="2" fill="none" marker-end="url(#arr13)"/>
+  <defs><marker id="arr13" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8" fill="#c0392b"/></marker></defs>
+
+  <rect x="170" y="40" width="80" height="80" rx="10" fill="#fdecec" stroke="#c0392b" stroke-width="2"/>
+  <text x="210" y="65" text-anchor="middle" font-size="10" fill="#c0392b" font-weight="600">Prion มาถึง!</text>
+  <text x="210" y="90" text-anchor="middle" font-size="18">🔴🟢</text>
+  <text x="210" y="110" text-anchor="middle" font-size="9" fill="#c0392b">"ชักชวน"</text>
+
+  <!-- Conversion -->
+  <path d="M 260 80 L 300 80" stroke="#c0392b" stroke-width="2" fill="none" marker-end="url(#arr14)"/>
+  <defs><marker id="arr14" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8" fill="#c0392b"/></marker></defs>
+
+  <rect x="310" y="40" width="80" height="80" rx="10" fill="#fdecec" stroke="#c0392b" stroke-width="2"/>
+  <text x="350" y="70" text-anchor="middle" font-size="20">🔴🔴</text>
+  <text x="350" y="100" text-anchor="middle" font-size="10" fill="#c0392b" font-weight="600">ทั้งคู่ผิด!</text>
+
+  <!-- Domino effect -->
+  <path d="M 400 80 L 440 80" stroke="#c0392b" stroke-width="2" fill="none" marker-end="url(#arr15)"/>
+  <defs><marker id="arr15" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8" fill="#c0392b"/></marker></defs>
+
+  <rect x="450" y="30" width="230" height="100" rx="10" fill="#fdecec" stroke="#c0392b" stroke-width="2"/>
+  <text x="565" y="55" text-anchor="middle" font-size="11" fill="#c0392b" font-weight="700">🔴🔴🔴🔴🔴 โดมิโนล้ม!</text>
+  <text x="565" y="80" text-anchor="middle" font-size="10" fill="#333">โปรตีนปกติถูกเปลี่ยนเป็น prion</text>
+  <text x="565" y="100" text-anchor="middle" font-size="10" fill="#333">ทีละตัว → สะสมจนเป็นโรค</text>
+  <text x="565" y="120" text-anchor="middle" font-size="9" fill="#666">สมองเป็นรูพรุนเหมือนฟองน้ำ</text>
+</svg>
+<div class="caption">Prion: โปรตีนพับผิดที่ "ชักชวน" ตัวอื่นให้พับผิดตาม — แพร่กระจายเหมือนโดมิโนล้ม</div>
+</div>
+
+<div class="fact">
+<b>🤯 น่าตกใจ:</b> ไพรออน <b>ไม่มี DNA หรือ RNA</b> — มันเป็นแค่โปรตีนที่พับผิด แต่สามารถ "ติดต่อ" และ "แพร่พันธุ์" ได้! นี่เป็นการพลิกความเข้าใจทางชีววิทยาอย่างสิ้นเชิง — เพราะเคยเชื่อว่าเฉพาะสิ่งที่มีสารพันธุกรรมเท่านั้นที่ติดต่อได้
+</div>
+
+<h3>โรคที่เกี่ยวข้องกับไพรออน</h3>
+<table>
+  <tr><th>โรค</th><th>พบใน</th><th>หมายเหตุ</th></tr>
+  <tr><td><b>Kuru</b></td><td>มนุษย์ (ชนเผ่าฟอร์)</td><td>แพร่ผ่านพิธีกรรมกินเนื้อคน</td></tr>
+  <tr><td><b>CJD</b> (Creutzfeldt-Jakob)</td><td>มนุษย์</td><td>สมองฟองน้ำ พบได้ 10% จากกรรมพันธุ์</td></tr>
+  <tr><td><b>Scrapie</b></td><td>แกะ</td><td>โรคสมองเสื่อมในสัตว์ที่รู้จักมานานที่สุด</td></tr>
+  <tr><td><b>BSE</b> (โรควัวบ้า)</td><td>วัว</td><td>ระบาดในอังกฤษช่วงทศวรรษ 1980</td></tr>
+</table>
+
+<!-- =========================================== -->
+<!-- SECTION 7: ALZHEIMER'S -->
+<!-- =========================================== -->
+<h2 id="alzheimer">7. อัลไซเมอร์ — โรคแห่งขยะสะสม</h2>
+
+<div class="person">
+  <div class="name">Alois Alzheimer (1906)</div>
+  <p>แพทย์ชาวเยอรมันที่รายงานกรณีแรกของโรคสมองเสื่อมชนิดนี้ในผู้ป่วยชื่อ Auguste Deter — พบ <b>คราบ (plaques)</b> และ <b>ปม (tangles)</b> ในสมองหลังเสียชีวิต</p>
+</div>
+
+<div class="diagram">
+<svg viewBox="0 0 700 280" xmlns="http://www.w3.org/2000/svg">
+  <text x="350" y="25" text-anchor="middle" font-size="14" fill="#2c5f8d" font-weight="700">กลไกของโรคอัลไซเมอร์</text>
+
+  <!-- APP -->
+  <rect x="240" y="45" width="220" height="50" rx="8" fill="#eef6fb" stroke="#2c5f8d" stroke-width="2"/>
+  <text x="350" y="75" text-anchor="middle" font-size="12" fill="#2c5f8d" font-weight="600">APP (Amyloid Precursor Protein)</text>
+
+  <!-- Cut by presenilin -->
+  <path d="M 300 100 L 300 130" stroke="#e67e22" stroke-width="2" fill="none" marker-end="url(#arr16)"/>
+  <defs><marker id="arr16" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8" fill="#e67e22"/></marker></defs>
+  <text x="355" y="120" font-size="10" fill="#e67e22" font-weight="600">✂️ ตัดโดย Presenilin</text>
+
+  <!-- Two paths -->
+  <!-- Amyloid beta -->
+  <rect x="50" y="140" width="250" height="120" rx="10" fill="#fdecec" stroke="#c0392b" stroke-width="2"/>
+  <text x="175" y="165" text-anchor="middle" font-size="12" fill="#c0392b" font-weight="700">Amyloid-beta (Aβ) — นอกเซลล์</text>
+  <text x="175" y="188" text-anchor="middle" font-size="10" fill="#333">ชิ้นเล็กของ APP ที่จับกลุ่มกัน</text>
+  <text x="175" y="206" text-anchor="middle" font-size="10" fill="#333">→ เป็น <tspan font-weight="700" fill="#c0392b">คราบแอมีลอยด์ (Plaques)</tspan></text>
+  <text x="175" y="224" text-anchor="middle" font-size="10" fill="#333">สะสมระหว่างเซลล์ประสาท</text>
+  <text x="175" y="248" text-anchor="middle" font-size="24">🟤🟤🟤</text>
+
+  <!-- Tau tangles -->
+  <rect x="400" y="140" width="250" height="120" rx="10" fill="#fff3e6" stroke="#e67e22" stroke-width="2"/>
+  <text x="525" y="165" text-anchor="middle" font-size="12" fill="#e67e22" font-weight="700">Tau Tangles — ในเซลล์</text>
+  <text x="525" y="188" text-anchor="middle" font-size="10" fill="#333">โปรตีน Tau ปกติรักษาโครงสร้าง axon</text>
+  <text x="525" y="206" text-anchor="middle" font-size="10" fill="#333">→ เมื่อผิดปกติจับกลุ่มเป็น <tspan font-weight="700" fill="#e67e22">ปม (Tangles)</tspan></text>
+  <text x="525" y="224" text-anchor="middle" font-size="10" fill="#333">ภายในเซลล์ประสาท</text>
+  <text x="525" y="248" text-anchor="middle" font-size="24">🧶🧶🧶</text>
+</svg>
+<div class="caption">อัลไซเมอร์: APP ถูกตัดเป็น Aβ สะสมเป็นคราบนอกเซลล์ + Tau จับกลุ่มเป็นปมในเซลล์ → สมองเสื่อม</div>
+</div>
+
+<div class="warning">
+<b>⚠️ ข้อถกเถียงสำคัญ: Amyloid Hypothesis</b><br>
+สมมติฐานแอมีลอยด์เชื่อว่าการสะสมของ Aβ เป็นสาเหตุหลัก แต่ยาที่กำจัด Aβ (เช่น <b>Lecanemab</b>) ลดการเสื่อมของสมองได้เพียง <b>~25%</b> ในช่วง 18 เดือน พร้อมผลข้างเคียงรุนแรง (บวมและเลือดออกในสมอง) → นักวิทยาศาสตร์จำนวนมากเชื่อว่า Aβ อาจเป็นแค่ <b>"อาการ" ไม่ใช่ "สาเหตุ"</b> ที่แท้จริง
+</div>
+
+<div style="text-align:center; margin: 24px 0;">
+  <div class="stat-box">
+    <span class="num">~25%</span>
+    <span class="lbl">การชะลอที่ Lecanemab ทำได้</span>
+  </div>
+  <div class="stat-box">
+    <span class="num">18 เดือน</span>
+    <span class="lbl">ระยะเวลาการทดลอง</span>
+  </div>
+  <div class="stat-box">
+    <span class="num">อันดับ 1</span>
+    <span class="lbl">สาเหตุการตายในอังกฤษ</span>
+  </div>
+</div>
+
+<!-- =========================================== -->
+<!-- SECTION 8: BIG PICTURE -->
+<!-- =========================================== -->
+<h2 id="bigpicture">8. ภาพรวม: ระบบกำจัดขยะ → ความชรา → ความตาย</h2>
+
+<div class="diagram">
+<svg viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg">
+  <text x="350" y="25" text-anchor="middle" font-size="14" fill="#c0392b" font-weight="700">วงจรแห่งความเสื่อม: เมื่อระบบรีไซเคิลพัง</text>
+
+  <!-- Step 1 -->
+  <rect x="250" y="45" width="200" height="40" rx="8" fill="#2c5f8d" opacity="0.9"/>
+  <text x="350" y="70" text-anchor="middle" font-size="12" fill="white" font-weight="600">1. อายุมากขึ้น</text>
+
+  <path d="M 350 85 L 350 105" stroke="#666" stroke-width="2" fill="none" marker-end="url(#arrD)"/>
+  <defs><marker id="arrD" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8" fill="#666"/></marker></defs>
+
+  <!-- Step 2 -->
+  <rect x="200" y="110" width="300" height="40" rx="8" fill="#e67e22"/>
+  <text x="350" y="135" text-anchor="middle" font-size="12" fill="white" font-weight="600">2. Proteasome + Autophagy เสื่อมลง</text>
+
+  <path d="M 350 150 L 350 170" stroke="#666" stroke-width="2" fill="none" marker-end="url(#arrD)"/>
+
+  <!-- Step 3 -->
+  <rect x="200" y="175" width="300" height="40" rx="8" fill="#c0392b"/>
+  <text x="350" y="200" text-anchor="middle" font-size="12" fill="white" font-weight="600">3. โปรตีนเสีย + ขยะสะสมในเซลล์</text>
+
+  <path d="M 350 215 L 350 235" stroke="#666" stroke-width="2" fill="none" marker-end="url(#arrD)"/>
+
+  <!-- Step 4 -->
+  <rect x="150" y="240" width="400" height="45" rx="8" fill="#1a1a2e"/>
+  <text x="350" y="258" text-anchor="middle" font-size="11" fill="white" font-weight="600">4. Aβ plaques + Tau tangles + ISR ผิดปกติ</text>
+  <text x="350" y="275" text-anchor="middle" font-size="11" fill="#ff6b6b" font-weight="600">→ สมองเสื่อม → เซลล์ตาย → ความชรา</text>
+</svg>
+<div class="caption">วงจรที่ขับเคลื่อนความชราจากมุมของ "ขยะโปรตีน"</div>
+</div>
+
+<div class="tip">
+<b>✨ ความหวัง:</b> นักวิทยาศาสตร์กำลังพัฒนาวิธีการหลายแนวทาง:
+<b>ISRIB</b> ปรับจูนระบบ ISR, <b>กระตุ้น autophagy</b> ให้ทำความสะอาดขยะ, <b>ยาต้าน amyloid</b> ใหม่ๆ ที่แม่นยำขึ้น — เป้าหมายสูงสุดคือทำให้เซลล์แก่กลับมา <b>จัดการขยะได้ดีเหมือนเซลล์หนุ่มสาว</b>
+</div>
+
+<div class="card">
+<h3 style="margin-top:0;">🔗 เชื่อมโยงกับบทก่อนหน้า</h3>
+<p>บทนี้เป็นอีกชิ้นส่วนของปริศนา "ทำไมเราถึงตาย":</p>
+
+<div class="flow">
+  <div class="node">บท 3: DNA เสียหาย</div>
+  <div class="arrow">+</div>
+  <div class="node orange">บท 4: Telomere สั้นลง</div>
+  <div class="arrow">+</div>
+  <div class="node purple">บท 5: Epigenetics เปลี่ยน</div>
+  <div class="arrow">+</div>
+  <div class="node red">บท 6: ขยะโปรตีนสะสม</div>
+</div>
+
+<p style="text-align:center; font-size: 0.95em; color: #666;">ทุกกลไกทำงานร่วมกัน → ผลักดันเซลล์เข้าสู่ <b>senescence</b> → ความชราและความตาย</p>
+</div>
+
+<!-- =========================================== -->
+<!-- QUIZ -->
+<!-- =========================================== -->
+<h2 id="quiz">9. คำถามทบทวน</h2>
+
+<details class="quiz">
+  <summary>1. โปรตีนต้อง "พับตัว" อย่างไรจึงจะทำงานได้?</summary>
+  <p>โปรตีนที่ถูกสร้างมาเป็นสายกรดอะมิโนยาวต้องพับตัวเป็นรูปร่าง 3 มิติที่ถูกต้อง โดยมี Chaperone protein ช่วย — ถ้าพับผิดจะไม่ทำงานหรือเป็นพิษต่อเซลล์</p>
+</details>
+
+<details class="quiz">
+  <summary>2. Ubiquitin คืออะไร? ทำหน้าที่อะไร?</summary>
+  <p>Ubiquitin เป็นโปรตีนขนาดเล็กที่ทำหน้าที่เป็น "สติกเกอร์" ติดบนโปรตีนที่เสียหาย เพื่อส่งสัญญาณว่าต้องถูกกำจัด — ส่งไปที่ Proteasome เพื่อย่อยสลาย</p>
+</details>
+
+<details class="quiz">
+  <summary>3. Autophagy ต่างจากระบบ Proteasome อย่างไร?</summary>
+  <p>Proteasome จัดการกับโปรตีนเดี่ยวๆ ที่เสียหาย ส่วน Autophagy จัดการกับ "ขยะชิ้นใหญ่" — รวมถึงออร์แกเนลล์ทั้งอันที่เสียหาย โดย Autophagosome ห่อหุ้มขยะแล้วนำไปรวมกับ Lysosome เพื่อย่อยสลาย</p>
+</details>
+
+<details class="quiz">
+  <summary>4. Prion อันตรายอย่างไร?</summary>
+  <p>Prion เป็นโปรตีนที่พับผิดซึ่งสามารถ "ชักชวน" โปรตีนปกติให้พับผิดตามได้ — แพร่กระจายเหมือนโดมิโนล้ม น่าตกใจที่ Prion ไม่มี DNA หรือ RNA แต่ยังติดต่อได้ ทำให้สมองเป็นรูพรุนเหมือนฟองน้ำ</p>
+</details>
+
+<details class="quiz">
+  <summary>5. ISR คืออะไร? ทำไมถึงเป็นทั้ง "ดี" และ "ร้าย"?</summary>
+  <p>ISR (Integrated Stress Response) คือระบบตอบสนองความเครียดของเซลล์ ดีตรงที่ช่วยปกป้องเซลล์จากโปรตีนพับผิด แต่ร้ายเมื่อทำงานมากเกินไป — ลดการผลิตโปรตีนจนเซลล์ขาดสิ่งจำเป็น โดยเฉพาะในสมอง</p>
+</details>
+
+<details class="quiz">
+  <summary>6. ทำไม Amyloid Hypothesis จึงยังเป็นที่ถกเถียง?</summary>
+  <p>แม้ Aβ จะสะสมในสมองผู้ป่วยอัลไซเมอร์ แต่ยาที่กำจัด Aβ (เช่น Lecanemab) ลดอาการได้เพียง ~25% และมีผลข้างเคียงรุนแรง → นักวิทยาศาสตร์จึงสงสัยว่า Aβ อาจเป็นแค่อาการ ไม่ใช่สาเหตุที่แท้จริง</p>
+</details>
+
+<details class="quiz">
+  <summary>7. ISRIB ทำงานอย่างไร? มีข้อจำกัดอะไร?</summary>
+  <p>ISRIB ยับยั้ง ISR ที่ทำงานมากเกินไป ช่วยฟื้นฟูการผลิตโปรตีนปกติในเซลล์แก่ — ในหนูทดลองช่วยฟื้นฟูความจำได้ แต่ข้อจำกัดคือ ISR ที่น้อยเกินไปก็อันตราย เพราะเซลล์จะขาดการป้องกันโปรตีนเสีย ต้องหาสมดุลที่เหมาะสม</p>
+</details>
+
+<details class="quiz">
+  <summary>8. อธิบายวงจรที่ทำให้ระบบกำจัดขยะโปรตีนนำไปสู่ความตาย</summary>
+  <p>อายุมากขึ้น → Proteasome + Autophagy เสื่อม → โปรตีนเสียสะสม → Aβ plaques + Tau tangles + ISR ผิดปกติ → เซลล์สมองตาย → สมองเสื่อม ทั้งนี้ทำงานร่วมกับ DNA damage, telomere shortening และ epigenetic changes จากบทก่อนหน้า</p>
+</details>
+
+<!-- =========================================== -->
+<!-- VOCAB -->
+<!-- =========================================== -->
+<h2 id="vocab">10. คำศัพท์สำคัญ</h2>
+
+<table>
+  <tr><th>คำศัพท์</th><th>ความหมาย</th></tr>
+  <tr><td><span class="term">Protein Folding</span></td><td>กระบวนการพับตัวของโปรตีนเป็นรูปร่าง 3 มิติที่ถูกต้อง</td></tr>
+  <tr><td><span class="term">Chaperone Protein</span></td><td>โปรตีนพี่เลี้ยงที่ช่วยให้โปรตีนอื่นพับตัวถูกต้อง</td></tr>
+  <tr><td><span class="term">Ubiquitin</span></td><td>โปรตีนขนาดเล็กที่ "ติดป้าย" โปรตีนเสียหายเพื่อส่งไปกำจัด</td></tr>
+  <tr><td><span class="term">Proteasome</span></td><td>เครื่องจักรโมเลกุลทรงกระบอกที่ย่อยสลายโปรตีนเสีย</td></tr>
+  <tr><td><span class="term">Lysosome</span></td><td>"กระเพาะ" ของเซลล์ — ถุงบรรจุเอนไซม์ย่อยสลาย</td></tr>
+  <tr><td><span class="term">Autophagy</span></td><td>กระบวนการ "เซลล์กินตัวเอง" — กำจัดชิ้นส่วนเสียหาย</td></tr>
+  <tr><td><span class="term">Autophagosome</span></td><td>ถุงที่ห่อหุ้มขยะก่อนนำไปย่อยในไลโซโซม</td></tr>
+  <tr><td><span class="term">Glycosylation</span></td><td>กระบวนการปกติที่เซลล์ติดน้ำตาลบนโปรตีน</td></tr>
+  <tr><td><span class="term">Glycation</span></td><td>กระบวนการผิดปกติที่น้ำตาลจับโปรตีนโดยไม่มีการควบคุม</td></tr>
+  <tr><td><span class="term">ISR</span></td><td>Integrated Stress Response — ระบบตอบสนองความเครียดบูรณาการ</td></tr>
+  <tr><td><span class="term">UPR</span></td><td>Unfolded Protein Response — ระบบเตือนภัยเมื่อโปรตีนพับผิดมาก</td></tr>
+  <tr><td><span class="term">ISRIB</span></td><td>สารยับยั้ง ISR ที่อาจช่วยฟื้นฟูสมองแก่</td></tr>
+  <tr><td><span class="term">Prion</span></td><td>โปรตีนพับผิดที่ "ชักชวน" ตัวอื่นให้พับผิดตาม</td></tr>
+  <tr><td><span class="term">Kuru</span></td><td>โรคสมองเสื่อมจากไพรออน พบในปาปัวนิวกินี</td></tr>
+  <tr><td><span class="term">Scrapie</span></td><td>โรคสมองเสื่อมจากไพรออนในแกะ</td></tr>
+  <tr><td><span class="term">CJD</span></td><td>Creutzfeldt-Jakob Disease — โรคสมองฟองน้ำในมนุษย์</td></tr>
+  <tr><td><span class="term">BSE</span></td><td>Bovine Spongiform Encephalopathy — โรควัวบ้า</td></tr>
+  <tr><td><span class="term">Amyloid-beta (Aβ)</span></td><td>โปรตีนที่สะสมเป็นคราบในสมองผู้ป่วยอัลไซเมอร์</td></tr>
+  <tr><td><span class="term">APP</span></td><td>Amyloid Precursor Protein — โปรตีนต้นกำเนิดของ Aβ</td></tr>
+  <tr><td><span class="term">Tau</span></td><td>โปรตีนที่พับผิดแล้วจับกลุ่มเป็นปมในเซลล์ประสาท</td></tr>
+  <tr><td><span class="term">Presenilin</span></td><td>เอนไซม์ที่ตัด APP — กลายพันธุ์ทำให้ผลิต Aβ มากขึ้น</td></tr>
+</table>
+
+<div class="card" style="margin-top: 40px; border-top-color: var(--accent);">
+<h3 style="margin-top:0; color: var(--accent);">💡 3 ข้อคิดสำคัญจากบทนี้</h3>
+<p><b>1. ร่างกายเหมือนเมืองที่ต้องมีระบบจัดการขยะ</b> — Proteasome, Lysosome และ Autophagy เป็น "เทศบาล" ที่คอยเก็บขยะ เมื่อระบบเหล่านี้เสื่อมลงตามอายุ ขยะก็สะสมจนเมืองพัง</p>
+<p><b>2. อัลไซเมอร์เป็นตัวอย่างชัดเจนที่สุดของ "ขยะสะสม"</b> — แต่การแค่ "เก็บขยะ" ออกอาจไม่พอ ปัญหาอาจอยู่ที่ระบบทั้งหมดที่ต้องซ่อม</p>
+<p><b>3. ISRIB เปิดแนวทางใหม่</b> — แทนที่จะแค่กำจัดโปรตีนเสีย อาจ "ปรับจูน" ระบบตอบสนองความเครียดให้สมดุล เหมือนปรับเครื่องยนต์ไม่ใช่แค่เปลี่ยนน้ำมัน</p>
+</div>
+
+<p style="text-align:center; color:#999; margin-top:60px; font-size:0.9em;">
+  <em>บทนี้เชื่อมกับบทที่ 3 (DNA damage), บทที่ 4 (telomere), บทที่ 5 (epigenetics) — ความเสียหายสะสมทุกระดับร่วมกันผลักดันให้เซลล์เข้าสู่ความชราและตายในที่สุด</em>
+</p>
+
+</body>
+</html>
