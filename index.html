@@ -27,8 +27,8 @@
     border:1px solid var(--line);
     box-shadow:0 30px 80px rgba(0,0,0,.35);
   }
-  .hero h1{font-size:44px; margin:0 0 10px; line-height:1.15; letter-spacing:-.5px}
-  .hero h1 span{background:linear-gradient(90deg,#9ab8ff,#ff8bd1,#ffcf6b);-webkit-background-clip:text; background-clip:text; color:transparent}
+  .hero .hero-title{font-size:44px; margin:0 0 10px; line-height:1.15; letter-spacing:-.5px; font-weight:700}
+  .hero .hero-title span{background:linear-gradient(90deg,#9ab8ff,#ff8bd1,#ffcf6b);-webkit-background-clip:text; background-clip:text; color:transparent}
   .hero p{color:var(--muted); font-size:17px; max-width:820px}
   .hero .meta{display:flex; gap:10px; flex-wrap:wrap; margin-top:18px}
   .chip{background:var(--chip); color:var(--ink); padding:6px 12px; border-radius:999px; font-size:13px; border:1px solid var(--line)}
@@ -42,6 +42,7 @@
   .toc .n{font-size:12px; color:var(--muted); letter-spacing:1.2px}
   .toc .t{font-size:16px; font-weight:600; margin-top:4px}
   .toc .s{font-size:12.5px; color:var(--muted); margin-top:4px}
+  .overall-summary-title{font-size:clamp(22px,3vw,30px); letter-spacing:.5px; color:#cfd8ff; margin:8px 0 28px; font-weight:700; line-height:1.2}
   /* Chapter blocks */
   .ch{background:linear-gradient(180deg,#171c3d 0%, #141938 100%); border:1px solid var(--line); border-radius:20px; padding:32px; margin:28px 0;
     box-shadow:0 20px 50px rgba(0,0,0,.35)}
@@ -101,7 +102,7 @@
 <!-- ============= HERO ============= -->
 <section class="hero">
   <div class="chip">📚 Book Summary — Visual Edition</div>
-  <h1 style="margin-top:12px">WHY WE DIE<br><span>— ทำไมเราตาย ·  ทำไมเราแก่ · และเราจะอยู่ได้นานแค่ไหน</span></h1>
+  <div class="hero-title" style="margin-top:12px">WHY WE DIE<br><span>— ทำไมเราตาย ·  ทำไมเราแก่ · และเราจะอยู่ได้นานแค่ไหน</span></div>
   <p>โดย <strong>Venki Ramakrishnan</strong> (โนเบลสาขาเคมี 2009) — สรุป 12 บทเต็มแบบภาพประกอบ ครอบคลุมทุกกลไกของความชราในระดับโมเลกุล เซลล์ และร่างกาย พร้อม <strong>1,000-Year Protocol</strong> คำแนะนำเชิงปฏิบัติเพื่อใช้วิทยาศาสตร์ชะลอวัยในชีวิตประจำวัน</p>
   <div class="meta">
     <span class="chip">⏱️ อ่าน ~60 นาที</span>
@@ -115,21 +116,23 @@
 <!-- ============= TOC ============= -->
 <h2 style="font-size:22px; letter-spacing:1px; color:#cfd8ff; margin-bottom:10px">สารบัญ (Contents)</h2>
 <nav class="toc">
-  <a href="#ch1"><div class="n">CHAPTER 01</div><div class="t">ยีนอมตะ & ร่างกายใช้แล้วทิ้ง</div><div class="s">ทำไมเราถึงแก่ & ดาร์วินบอกอะไร</div></a>
-  <a href="#ch2"><div class="n">CHAPTER 02</div><div class="t">โตไว ตายเร็ว</div><div class="s">ขนาดตัว, หัวใจเต้น 1,500 ล้านครั้ง</div></a>
-  <a href="#ch3"><div class="n">CHAPTER 03</div><div class="t">ตัวควบคุมหลักถูกทำลาย</div><div class="s">DNA damage & ซ่อม, p53, ช้าง</div></a>
-  <a href="#ch4"><div class="n">CHAPTER 04</div><div class="t">ปัญหากับส่วนปลาย</div><div class="s">Telomere, Hayflick Limit, Telomerase</div></a>
-  <a href="#ch5"><div class="n">CHAPTER 05</div><div class="t">ตั้งนาฬิกาชีวภาพใหม่</div><div class="s">Epigenetics, Yamanaka, Horvath Clock</div></a>
-  <a href="#ch6"><div class="n">CHAPTER 06</div><div class="t">รีไซเคิลขยะ</div><div class="s">Proteasome, Autophagy, Alzheimer</div></a>
-  <a href="#ch7"><div class="n">CHAPTER 07</div><div class="t">ยิ่งน้อยยิ่งดี</div><div class="s">Caloric Restriction, TOR, Rapamycin</div></a>
-  <a href="#ch8"><div class="n">CHAPTER 08</div><div class="t">บทเรียนจากหนอนตัวน้อย</div><div class="s">C. elegans, IGF-1, Sirtuins, NAD</div></a>
-  <a href="#ch9"><div class="n">CHAPTER 09</div><div class="t">ผู้โดยสารลับในตัวเรา</div><div class="s">Mitochondria, ROS, Mitophagy</div></a>
-  <a href="#ch10"><div class="n">CHAPTER 10</div><div class="t">ความเจ็บปวด & เลือดแวมไพร์</div><div class="s">Stem cells, Parabiosis, iPS</div></a>
-  <a href="#ch11"><div class="n">CHAPTER 11</div><div class="t">คนเพี้ยนหรือผู้มาก่อนกาล</div><div class="s">Cryonics, SENS, Metformin, LEV</div></a>
-  <a href="#ch12"><div class="n">CHAPTER 12</div><div class="t">ควรอยู่ค้ำฟ้าหรือไม่</div><div class="s">จริยธรรม, ประชากร, healthspan</div></a>
+  <a href="chapter-1/"><div class="n">CHAPTER 01</div><div class="t">ยีนอมตะ & ร่างกายใช้แล้วทิ้ง</div><div class="s">ทำไมเราถึงแก่ & ดาร์วินบอกอะไร</div></a>
+  <a href="chapter-2/"><div class="n">CHAPTER 02</div><div class="t">โตไว ตายเร็ว</div><div class="s">ขนาดตัว, หัวใจเต้น 1,500 ล้านครั้ง</div></a>
+  <a href="chapter-3/"><div class="n">CHAPTER 03</div><div class="t">ตัวควบคุมหลักถูกทำลาย</div><div class="s">DNA damage & ซ่อม, p53, ช้าง</div></a>
+  <a href="chapter-4/"><div class="n">CHAPTER 04</div><div class="t">ปัญหากับส่วนปลาย</div><div class="s">Telomere, Hayflick Limit, Telomerase</div></a>
+  <a href="chapter-5/"><div class="n">CHAPTER 05</div><div class="t">ตั้งนาฬิกาชีวภาพใหม่</div><div class="s">Epigenetics, Yamanaka, Horvath Clock</div></a>
+  <a href="chapter-6/"><div class="n">CHAPTER 06</div><div class="t">รีไซเคิลขยะ</div><div class="s">Proteasome, Autophagy, Alzheimer</div></a>
+  <a href="chapter-7/"><div class="n">CHAPTER 07</div><div class="t">ยิ่งน้อยยิ่งดี</div><div class="s">Caloric Restriction, TOR, Rapamycin</div></a>
+  <a href="chapter-8/"><div class="n">CHAPTER 08</div><div class="t">บทเรียนจากหนอนตัวน้อย</div><div class="s">C. elegans, IGF-1, Sirtuins, NAD</div></a>
+  <a href="chapter-9/"><div class="n">CHAPTER 09</div><div class="t">ผู้โดยสารลับในตัวเรา</div><div class="s">Mitochondria, ROS, Mitophagy</div></a>
+  <a href="chapter-10/"><div class="n">CHAPTER 10</div><div class="t">ความเจ็บปวด & เลือดแวมไพร์</div><div class="s">Stem cells, Parabiosis, iPS</div></a>
+  <a href="chapter-11/"><div class="n">CHAPTER 11</div><div class="t">คนเพี้ยนหรือผู้มาก่อนกาล</div><div class="s">Cryonics, SENS, Metformin, LEV</div></a>
+  <a href="chapter-12/"><div class="n">CHAPTER 12</div><div class="t">ควรอยู่ค้ำฟ้าหรือไม่</div><div class="s">จริยธรรม, ประชากร, healthspan</div></a>
   <a href="#protocol"><div class="n">INTEGRATION</div><div class="t">⚡ 1,000-Year Protocol</div><div class="s">นำทั้ง 12 บทมาใช้ในชีวิตจริง</div></a>
   <a href="#glossary"><div class="n">APPENDIX</div><div class="t">📖 Glossary รวม</div><div class="s">คำศัพท์สำคัญจากทั้งเล่ม</div></a>
 </nav>
+
+<h1 class="overall-summary-title" id="overall-book-summary">Overall Book Summary</h1>
 
 <!-- ============= CHAPTER 1 ============= -->
 <section class="ch" id="ch1">
